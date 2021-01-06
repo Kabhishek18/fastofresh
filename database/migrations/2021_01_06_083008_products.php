@@ -17,7 +17,9 @@ class Products extends Migration
             $table->id();
             $table->string('name');
             $table->bigInteger('parent_id');
+            $table->text('short_descrip');
             $table->text('description');
+            $table->text('image');
             $table->text('information');
             $table->enum('status', ['active', 'inactive']);
             $table->text('meta');

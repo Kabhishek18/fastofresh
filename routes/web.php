@@ -13,5 +13,7 @@ use App\Http\Controllers\front_control;
 |        |  _|| | | (_) | | | | |_ 
 |        |_|  |_|  \___/|_| |_|\__|
 */
-Route::get('/', 'front_control@index' );
+Route::get('', 'front_control@index' );
+Route::get('category', 'front_control@categories' );
+Route::get('category/{name}', 'front_control@products');
 

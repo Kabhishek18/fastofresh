@@ -1,127 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="" />
-    <meta name="keywords" content="" />
-    <title>Order Meat Online - Buy Fresh & High Quality Meat at Best Price on Fast O Fresh</title>
-    
 
-    <link rel="stylesheet" href="{{ url('assets/css/icons.min.css') }}">
-    <link rel="stylesheet" href="{{ url('assets/css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ url('assets/css/main.css') }}">
-    <link rel="stylesheet" href="{{ url('assets/css/red-color.css') }}">
-    <link rel="stylesheet" href="{{ url('assets/css/yellow-color.css') }}">
-    <link rel="stylesheet" href="{{ url('assets/css/responsive.css') }}">
-</head>
-<body itemscope>
-    <main>
-       
         
-        <header class="stick">
-            <div class="topbar">
-                <div class="container">
-                    <div class="select-wrp">
-                        <select data-placeholder="Feel Like Eating">
-                            <option>TODAY's ORDER</option>
-                            <option>Caption - 1</option>
-                            <option>Caption - 2</option>
-                            <option>Caption - 3</option>
-                            <option>Caption - 4</option>
-                        </select>
-                    </div>
-                    <div class="select-wrp">
-                        <select data-placeholder="Choose Location">
-                            <option>CHOOSE LOCATION</option>
-                            <option>Gurgaon</option>
-                            <option>Noida</option>
-                            <option>Delhi</option>
-                        </select>
-                    </div>
-                    <div class="topbar-register">
-                        <a class="log-popup-btn" href="#" title="Login" itemprop="url">LOGIN</a> / <a class="sign-popup-btn" href="#" title="Register" itemprop="url">REGISTER</a>
-                    </div>
-                    <div class="social1">
-                        <a href="#" title="Facebook" itemprop="url" target="_blank"><i class="fa fa-facebook-square"></i></a>
-                        <a href="#" title="Twitter" itemprop="url" target="_blank"><i class="fa fa-twitter"></i></a>
-                        <a href="#" title="Google Plus" itemprop="url" target="_blank"><i class="fa fa-google-plus"></i></a>
-                    </div>
-                </div>                
-            </div><!-- Topbar -->
-            <div class="logo-menu-sec">
-                <div class="container">
-                    <div class="logo"><h1 itemprop="headline"><a href="index.html" title="Home" itemprop="url"><img src="{{ url('assets/images/logo2.png') }}" alt="logo.png" itemprop="image"></a></h1></div>
-                    <nav>
-                        <div class="menu-sec">
-                            <ul>
-                                <li class="menu-item-has-children"><a href="#" title="HOMEPAGES" itemprop="url">TODAY'S DEALS</a></li>
-                                <li class="menu-item-has-children"><a href="#" title="HOMEPAGES" itemprop="url">FESTIVAL SPECIAL</a></li>
-                                <li class="menu-item-has-children"><a href="#" title="HOMEPAGES" itemprop="url">PRE ORDER</a></li>
-
-                                <li class="menu-item-has-children"><a href="#" title="HOMEPAGES" itemprop="url">ABOUT US</a></li>
-								<li class="menu-item-has-children"><a href="#" title="HOMEPAGES" itemprop="url">WHY FAST 'O' FRESH</a></li>
-
-                            </ul>
-							                            <a class="red-bg brd-rd4" href="#" title="Register" itemprop="url" style="margin-left:40px;">TOLLFREE: 1800 123 456</a>
-
-                        </div>
-                    </nav><!-- Navigation -->
-                </div>
-            </div><!-- Logo Menu Section -->
-        </header><!-- Header -->
-
-        <div class="responsive-header">
-            <div class="responsive-topbar">
-                 <div class="select-wrp">
-                        <select data-placeholder="Feel Like Eating">
-                            <option>TODAY's ORDER</option>
-                            <option>Caption - 1</option>
-                            <option>Caption - 2</option>
-                            <option>Caption - 3</option>
-                            <option>Caption - 4</option>
-                        </select>
-                    </div>
-                <div class="select-wrp">
-                        <select data-placeholder="Choose Location">
-                            <option>CHOOSE LOCATION</option>
-                            <option>Gurgaon</option>
-                            <option>Noida</option>
-                            <option>Delhi</option>
-                        </select>
-                    </div>
-            </div>
-            <div class="responsive-logomenu">
-			                    <div class="logo"><h1 itemprop="headline"><a href="index.html" title="Home" itemprop="url"><img src="{{ url('assets/images/logo-white.png') }}" alt="logo.png" itemprop="image"></a></h1></div>
-
-                <span class="menu-btn yellow-bg brd-rd4"><i class="fa fa-align-justify"></i></span>
-            </div>
-            <div class="responsive-menu">
-                <span class="menu-close red-bg brd-rd3"><i class="fa fa-close"></i></span>
-                <div class="menu-lst">
-                    <ul>
-                        <li class="menu-item-has-children"><a href="#" title="HOMEPAGES" itemprop="url">TODAY'S DEALS</a></li>
-                                <li class="menu-item-has-children"><a href="#" title="HOMEPAGES" itemprop="url">FESTIVAL SPECIAL</a></li>
-                                <li class="menu-item-has-children"><a href="#" title="HOMEPAGES" itemprop="url">PRE ORDER</a></li>
-
-                                <li class="menu-item-has-children"><a href="#" title="HOMEPAGES" itemprop="url">ABOUT US</a></li>
-								<li class="menu-item-has-children"><a href="#" title="HOMEPAGES" itemprop="url">WHY FAST 'O' FRESH</a></li>
-
-                            </ul>
-							                            
-                </div>
-                <div class="topbar-register">
-                    <a class="log-popup-btn" href="#" title="Login" itemprop="url">LOGIN</a> / <a class="sign-popup-btn" href="#" title="Register" itemprop="url">REGISTER</a>
-                </div>
-                <div class="social1">
-                    <a href="#" title="Facebook" itemprop="url" target="_blank"><i class="fa fa-facebook-square"></i></a>
-                    <a href="#" title="Twitter" itemprop="url" target="_blank"><i class="fa fa-twitter"></i></a>
-                    <a href="#" title="Google Plus" itemprop="url" target="_blank"><i class="fa fa-google-plus"></i></a>
-                </div>
-               
-            </div><!-- Responsive Menu -->
-        </div><!-- Responsive Header -->
-
+   
         <section>
             <div class="block blackish low-opacity">
                 <div class="fixed-bg" style="background-image: url({{ url('assets/images/parallax2.jpg') }});"></div>
@@ -169,7 +48,7 @@
 									<h2>Welcome To Fast 'O' Fresh </h2>
 									<span>We Create Delicious Memories</span>
 									<p>Proin luctus, justo sit amet laoreet venenatis, libero velit tincidunt mi, nec 
-	fermentum ante massa id quam. In gravida erat vel diam blandit consequat morbi. Ut interdum nuceu egestas arcu uspend isse sodales. Eiusmod tempor incidiunt labore velit dolore magna aliqu sed enimi nim.</p>
+            	fermentum ante massa id quam. In gravida erat vel diam blandit consequat morbi. Ut interdum nuceu egestas arcu uspend isse sodales. Eiusmod tempor incidiunt labore velit dolore magna aliqu sed enimi nim.</p>
 									<div class="award">
 										<img src="{{ url('assets/images/award.png') }}" alt="">
 										<span><em>Delivered </em>Fresh <i>Everyday</i></span>
@@ -460,8 +339,7 @@
 						<div class="col-md-12 col-sm-12 col-lg-12">
 							<div class="title1-wrapper text-center">
 								<div class="title1-inner">
-									<h2 itemprop="headline">Explore by category
-</h2>
+									<h2 itemprop="headline">Explore by category</h2>
 								</div>
 							</div>
 						</div>	
@@ -586,7 +464,7 @@
 										</h3>
 										<p>
 											Pellentesque nibh felis, eleifend id, commodo in, interdum vitae, leo praese
-Ut eu ligula. Class aptent taciti sociosqu ad litora torquent conubia.
+                Ut eu ligula. Class aptent taciti sociosqu ad litora torquent conubia.
 										</p>
 										
 									</div>
@@ -714,146 +592,4 @@ Ut eu ligula. Class aptent taciti sociosqu ad litora torquent conubia.
             </div>
         </section><!-- red section -->
 
-        <footer>
-            <div class="block top-padd80 bottom-padd80 dark-bg">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12 col-sm-12 col-lg-12">
-                            <div class="footer-data">
-                                <div class="row">
-                                     <div class="col-md-3 col-sm-6 col-lg-3">
-                                        <div class="widget information_links wow fadeIn" data-wow-delay="0.2s">
-                                            <h4 class="widget-title" itemprop="headline">USEFUL LINKS</h4>
-                                            <ul>
-                                                <li><a href="#" title="" itemprop="url">Why Fast 'O' Fresh?</a></li>
-                                                <li><a href="#" title="" itemprop="url">Refer & Earn</a></li>
-                                                <li><a href="#" title="" itemprop="url">Campaign</a></li>
-                                                <li><a href="#" title="" itemprop="url">FSSC 22000 Certification</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3 col-sm-6 col-lg-3">
-                                        <div class="widget information_links wow fadeIn" data-wow-delay="0.2s">
-                                            <h4 class="widget-title" itemprop="headline">INFORMATION</h4>
-                                            <ul>
-                                                <li><a href="#" title="" itemprop="url">Careers</a></li>
-                                                <li><a href="#" title="" itemprop="url">Investor Relations</a></li>
-                                                <li><a href="#" title="" itemprop="url">Press Releases</a></li>
-                                                <li><a href="#" title="" itemprop="url">Shop with Points</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3 col-sm-6 col-lg-3">
-                                        <div class="widget customer_care wow fadeIn" data-wow-delay="0.3s">
-                                            <h4 class="widget-title" itemprop="headline">CUSTOMER CARE</h4>
-                                            <ul>
-                                                <li><a href="#" title="" itemprop="url">Returns</a></li>
-                                                <li><a href="#" title="" itemprop="url">Shipping Info</a></li>
-                                                <li><a href="#" title="" itemprop="url">Gift Cards</a></li>
-                                                <li><a href="#" title="" itemprop="url">Size Guide</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3 col-sm-6 col-lg-3">
-                                        <div class="widget get_in_touch wow fadeIn" data-wow-delay="0.4s">
-                                            <h4 class="widget-title" itemprop="headline">GET IN TOUCH</h4>
-                                            <ul>
-                                               <li><i class="fa fa-map-marker"></i> H-201, Level-1, Sector 63, Noida 201301.</li>
-                                               <li><i class="fa fa-phone"></i> 1800 123 456</li>
-                                               <li><i class="fa fa-envelope"></i> <a href="#" title="" itemprop="url">care@fastofresh.com</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div><!-- Footer Data -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </footer><!-- footer -->
-        <div class="bottom-bar dark-bg text-center">
-            <div class="container">
-                <p itemprop="description">&copy; 2020 <a class="red-clr" href="#" title="FAST O FRESH" itemprop="url" target="_blank">FAST 'O" FRESH</a>. All Rights Reserved</p> |   <p itemprop="description">Credit By: <a class="red-clr" href="https://www.techcentrica.com" title="TechCentrica" itemprop="url" target="_blank">TECHCENTRICA</a></p>
-            </div>
-        </div><!-- Bottom Bar -->
-
-        <div class="log-popup text-center">
-            <div class="sign-popup-wrapper brd-rd5">
-                <div class="sign-popup-inner brd-rd5">
-                    <a class="log-close-btn" href="#" title="" itemprop="url"><i class="fa fa-close"></i></a>
-                    <div class="sign-popup-title text-center">
-                        <h4 itemprop="headline">SIGN IN</h4>
-                        <span>with your social network</span>
-                    </div>
-                    <div class="popup-social text-center">
-                        <a class="facebook brd-rd3" href="#" title="Facebook" itemprop="url" target="_blank"><i class="fa fa-facebook"></i> Facebook</a>
-                        <a class="google brd-rd3" href="#" title="Google Plus" itemprop="url" target="_blank"><i class="fa fa-google-plus"></i> Google</a>
-                        <a class="twitter brd-rd3" href="#" title="Twitter" itemprop="url" target="_blank"><i class="fa fa-twitter"></i> Twitter</a>
-                    </div>
-                    <span class="popup-seprator text-center"><i class="brd-rd50">or</i></span>
-                    <form class="sign-form">
-                        <div class="row">
-                            <div class="col-md-12 col-sm-12 col-lg-12">
-                                <input class="brd-rd3" type="text" placeholder="Username or Email">
-                            </div>
-                            <div class="col-md-12 col-sm-12 col-lg-12">
-                                <input class="brd-rd3" type="password" placeholder="Password">
-                            </div>
-                            <div class="col-md-12 col-sm-12 col-lg-12">
-                                <button class="red-bg brd-rd3" type="submit">SIGN IN</button>
-                            </div>
-                            <div class="col-md-12 col-sm-12 col-lg-12">
-                                <a class="sign-btn" href="#" title="" itemprop="url">Not a member? Sign up</a>
-                                <a class="recover-btn" href="#" title="" itemprop="url">Recover my password</a>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-
-        <div class="sign-popup text-center">
-            <div class="sign-popup-wrapper brd-rd5">
-                <div class="sign-popup-inner brd-rd5">
-                    <a class="sign-close-btn" href="#" title="" itemprop="url"><i class="fa fa-close"></i></a>
-                    <div class="sign-popup-title text-center">
-                        <h4 itemprop="headline">SIGN UP</h4>
-                        <span>with your social network</span>
-                    </div>
-                    <div class="popup-social text-center">
-                        <a class="facebook brd-rd3" href="#" title="Facebook" itemprop="url" target="_blank"><i class="fa fa-facebook"></i> Facebook</a>
-                        <a class="google brd-rd3" href="#" title="Google Plus" itemprop="url" target="_blank"><i class="fa fa-google-plus"></i> Google</a>
-                        <a class="twitter brd-rd3" href="#" title="Twitter" itemprop="url" target="_blank"><i class="fa fa-twitter"></i> Twitter</a>
-                    </div>
-                    <span class="popup-seprator text-center"><i class="brd-rd50">or</i></span>
-                    <form class="sign-form">
-                        <div class="row">
-                            <div class="col-md-12 col-sm-12 col-lg-12">
-                                <input class="brd-rd3" type="text" placeholder="Username">
-                            </div>
-                            <div class="col-md-12 col-sm-12 col-lg-12">
-                                <input class="brd-rd3" type="email" placeholder="Email">
-                            </div>
-                            <div class="col-md-12 col-sm-12 col-lg-12">
-                                <input class="brd-rd3" type="password" placeholder="Password">
-                            </div>
-                            <div class="col-md-12 col-sm-12 col-lg-12">
-                                <button class="red-bg brd-rd3" type="submit">REGISTER NOW</button>
-                            </div>
-                            <div class="col-md-12 col-sm-12 col-lg-12">
-                                <a class="sign-btn" href="#" title="" itemprop="url">Already Registered? Sign in</a>
-                                <a class="recover-btn" href="#" title="" itemprop="url">Recover my password</a>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </main><!-- Main Wrapper -->
-
-    <script src="{{ url('assets/js/jquery.min.js') }}"></script>
-    <script src="{{ url('assets/js/bootstrap.min.js') }}"></script>
-    <script src="{{ url('assets/js/plugins.js') }}"></script>
-    <script src="{{ url('assets/js/main.js') }}"></script>
-</body>	
-</html>
+    
