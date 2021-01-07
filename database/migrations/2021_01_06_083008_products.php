@@ -22,7 +22,7 @@ class Products extends Migration
             $table->text('image');
             $table->text('information');
             $table->enum('status', ['active', 'inactive']);
-            $table->text('meta');
+            $table->text('meta')->nullable();
             $table->timestamps();
         });
     }

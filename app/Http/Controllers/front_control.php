@@ -24,15 +24,16 @@ class front_control extends Controller
       echo view('front/category',$var);
       echo view('front/inc/footer');
    }
-    //Categories Products
-    public function products($name ="")
-    {  
+
+   //Categories Products
+   public function products($name ="")
+   {  
       $var['category'] =front_model::getCategoryName($name);
       $var['products'] =front_model::GetCatPro($var['category']->id);
        echo view('front/inc/header');
        echo view('front/inc/nav');
        echo view('front/product',$var);
        echo view('front/inc/footer');
-    }
+   }
 
 }

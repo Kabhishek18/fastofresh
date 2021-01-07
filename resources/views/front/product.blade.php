@@ -45,6 +45,9 @@ input.qtyminus { width:25px; height:25px;}
         </div>
         <section>
             <div class="gray-bg bottom-padd210">
+            @if(Session::has('success'))
+            <div class="alert alert-info">{{ Session::get('success') }}</div>
+            @endif
                 <div class="sec-box bottom-padd140">
                     <div class="container">
                         <div class="row">
@@ -63,11 +66,12 @@ input.qtyminus { width:25px; height:25px;}
                                                  @foreach ($products as $product)
                                                 
                                                  <div class="col-md-4 col-sm-6 col-lg-4">
-                                                 {{ Form::open(array('url' => 'foo/bar')) }}
-                                                 <input type="hidden" name="pid" id="{{$product->id}}">
+                                                 {{ Form::open(array('url' => 'cart')) }}
+                                                 @csrf
+                                                 <input type="hidden" name="pid" value="{{$product->id}}">
                                                     <div class="popular-dish-box style2 wow fadeIn" data-wow-delay="0.2s">
                                                         <div class="popular-dish-thumb">
-                                                            <a href="food-detail.html" title="" itemprop="url"><img src="{{ url('assets/images/resource/Img1.webp') }}" alt="popular-dish-img1.jpg" itemprop="image"></a>
+                                                            <a href="food-detail.html" title="" itemprop="url"><img src="{{$product->image}}" alt="popular-dish-img1.jpg" itemprop="image"></a>
                                                             <span class="post-rate yellow-bg brd-rd2"><i class="fa fa-star yellow-clr"></i> 4.25</span>
                                                         </div>
                                                         <div class="popular-dish-info">
@@ -131,47 +135,4 @@ input.qtyminus { width:25px; height:25px;}
         </section><!-- red section -->
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script>
-$(document).ready(function(){
-    $('[id^="hide-"]').on('click', function(){
-        $(this).hide(); // this.value
-        var matchvalue = $(this).data('value');;
-        let html = "";
-        html += `
-            <div class='form-group'>
-                <input type='button' onclick="decrementValue(${matchvalue})" value='-' class='btn btn-default' field='quantity' />
-                <input type='text' name='qty' id="number${matchvalue}"  value='1' class='qty' />
-                <input type='button' onclick="incrementValue(${matchvalue})" value='+' class='btn btn-default' field='quantity' />
-            </div>    
-            <div class='form-group'>
-            <input type='submit' class="btn btn-danger  " style='background-color: #ea1b25;' value="Add to cart"/>
-            </div>
-          `;
-
-          $('#show-'+matchvalue).html(html);
-    });
-    
-});
-
-function incrementValue(pid)
-{	var id = 'number'+pid;
-    var value = parseInt(document.getElementById(id).value, 10);
-     value = isNaN(value) ? 0 : value;
-    value++;
-    document.getElementById(id).value = value;
-}
-function decrementValue(pid)
-{	var id = 'number'+pid;
-    var value = parseInt(document.getElementById(id).value, 10);
-     value = isNaN(value) ? 0 : value;
-    var data = value - 1;
-   	if(data >0){	
-    document.getElementById(id).value = data;}
-    else{
-    	data = '1';
-    document.getElementById(id).value = data;}
-   
-}
-
-
-</script>
+<script src="{{url('assets/js/custom.js')}}"></script>
