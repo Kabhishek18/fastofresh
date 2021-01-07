@@ -29,8 +29,6 @@ class front_control extends Controller
     {  
       $var['category'] =front_model::getCategoryName($name);
       $var['products'] =front_model::GetCatPro($var['category']->id);
-      var_dump($var['products'] );
-      exit();
        echo view('front/inc/header');
        echo view('front/inc/nav');
        echo view('front/product',$var);

@@ -64,7 +64,7 @@
                                                                 </span>
                                                                 
                                                                
-                                                                <a class="brd-rd30" href="<?=URL::to('/');?>/category/{{$category->name}}" title="Order Online"><i class="fa fa-angle-double-right"></i> Order Online</a>
+                                                                <a class="brd-rd30" href="<?=URL::to('/');?>/category/{{$category->name}}" title="Order Online"><i class="fa fa-angle-double-right"></i> Explore Now</a>
                                                             </div>
                                                         </div>
                                                     </div>

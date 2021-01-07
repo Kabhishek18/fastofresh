@@ -1,4 +1,14 @@
 
+<style>
+.qty {
+    width: 40px;
+    height: 25px;
+    text-align: center;
+}
+input.qtyplus { width:25px; height:25px;}
+input.qtyminus { width:25px; height:25px;}
+
+</style>
         <section>
             <div class="block">
 				<div class="fixed-bg" style="background-image: url({{ url('assets/images/topbg.jpg')}});"></div>
@@ -49,6 +59,31 @@
                                             <div class="remove-ext">
                                                 <div class="row">
                                                 
+                                                 <!-- Product Shuffling -->
+                                                 @foreach ($products as $product)
+                                                
+                                                 <div class="col-md-4 col-sm-6 col-lg-4">
+                                                 {{ Form::open(array('url' => 'foo/bar')) }}
+                                                 <input type="hidden" name="pid" id="{{$product->id}}">
+                                                    <div class="popular-dish-box style2 wow fadeIn" data-wow-delay="0.2s">
+                                                        <div class="popular-dish-thumb">
+                                                            <a href="food-detail.html" title="" itemprop="url"><img src="{{ url('assets/images/resource/Img1.webp') }}" alt="popular-dish-img1.jpg" itemprop="image"></a>
+                                                            <span class="post-rate yellow-bg brd-rd2"><i class="fa fa-star yellow-clr"></i> 4.25</span>
+                                                        </div>
+                                                        <div class="popular-dish-info">
+                                                            <h4 itemprop="headline"><a href="food-detail.html" title="" itemprop="url">{{$product->name}}</a></h4>
+                                                            <p itemprop="description">{{$product->short_descrip}}</p>
+                                                            <span class="price">MRP: ₹ 456 </span>
+                                                            <a class="brd-rd4 " id="hide-{{$product->id}}" data-value="{{$product->id}}" href="javascript:void(0)" title="Order Now" itemprop="url">ADD TO CART</a>
+                                                           
+                                                            <div id="show-{{$product->id}}"></div>
+                                                           
+                                                        </div>
+                                                    </div><!-- Product Box -->
+                                                    {{ Form::close() }}
+                                                </div>
+                                               
+                                                @endforeach    
                                               
 
 
@@ -95,4 +130,48 @@
             </div>
         </section><!-- red section -->
 
-     
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $('[id^="hide-"]').on('click', function(){
+        $(this).hide(); // this.value
+        var matchvalue = $(this).data('value');;
+        let html = "";
+        html += `
+            <div class='form-group'>
+                <input type='button' onclick="decrementValue(${matchvalue})" value='-' class='btn btn-default' field='quantity' />
+                <input type='text' name='qty' id="number${matchvalue}"  value='1' class='qty' />
+                <input type='button' onclick="incrementValue(${matchvalue})" value='+' class='btn btn-default' field='quantity' />
+            </div>    
+            <div class='form-group'>
+            <input type='submit' class="btn btn-danger  " style='background-color: #ea1b25;' value="Add to cart"/>
+            </div>
+          `;
+
+          $('#show-'+matchvalue).html(html);
+    });
+    
+});
+
+function incrementValue(pid)
+{	var id = 'number'+pid;
+    var value = parseInt(document.getElementById(id).value, 10);
+     value = isNaN(value) ? 0 : value;
+    value++;
+    document.getElementById(id).value = value;
+}
+function decrementValue(pid)
+{	var id = 'number'+pid;
+    var value = parseInt(document.getElementById(id).value, 10);
+     value = isNaN(value) ? 0 : value;
+    var data = value - 1;
+   	if(data >0){	
+    document.getElementById(id).value = data;}
+    else{
+    	data = '1';
+    document.getElementById(id).value = data;}
+   
+}
+
+
+</script>

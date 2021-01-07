@@ -46,12 +46,14 @@ class front_model extends Model
     
    public static function GetCatPro($id ='')
    {
-      $users = DB::table('categories')
+      $value = DB::table('categories')
           ->join('products', 'categories.id', '=', 'products.parent_id')
           ->select('products.*')
           ->where('categories.id', $id)
           ->get();
+      return $value;    
    }
 
+   //Product by cat id
 
 }
