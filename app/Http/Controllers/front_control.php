@@ -37,4 +37,29 @@ class front_control extends Controller
        echo view('front/inc/footer');
    }
 
+   //Product Detail
+   public function productDetail($name ="")
+   {
+      $var['product'] =front_model::getProductname($name);
+      echo view('front/inc/header');
+       echo view('front/inc/nav');
+       echo view('front/prodetail',$var);
+       echo view('front/inc/footer');
+   }
+   //checkout
+
+   public function checkout()
+   {
+      $cart['cart'] = session()->get('cart');
+      if($cart['cart']){
+          echo view('front/inc/header');
+          echo view('front/inc/nav');
+          echo view('front/checkout',$cart);
+          echo view('front/inc/footer');
+      }
+      else{
+          return redirect('')->with('success', 'Empty Cart');
+      }
+   }
+
 }

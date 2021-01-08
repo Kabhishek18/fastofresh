@@ -45,6 +45,17 @@ class front_model extends Model
         }
         return $value;
       }
+    //Produc by Name  
+    public static function getProductname($id= ''){
+      if($id){
+        $array =array('name' => $id,'status' => 'active');
+      $value=DB::table('products')->where($array)->orderBy('id', 'asc')->first();
+      }
+      else{
+      $value=DB::table('products')->orderBy('id', 'asc')->get();
+      }
+      return $value;
+    }  
     // Get product attribute  
       public static function getProductattr($id= ''){
         if($id){

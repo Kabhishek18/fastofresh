@@ -45,11 +45,11 @@ input.qtyminus { width:25px; height:25px;}
                                                  <input type="hidden" name="pid" value="{{$product->id}}">
                                                     <div class="popular-dish-box style2 wow fadeIn" data-wow-delay="0.2s">
                                                         <div class="popular-dish-thumb">
-                                                            <a href="food-detail.html" title="" itemprop="url"><img src="{{$product->image}}" alt="popular-dish-img1.jpg" itemprop="image"></a>
+                                                            <a href="{{url('product').'/'.$product->name}}" title="" itemprop="url"><img src="{{$product->image}}" alt="popular-dish-img1.jpg" itemprop="image"></a>
                                                             <span class="post-rate yellow-bg brd-rd2"><i class="fa fa-star yellow-clr"></i> 4.25</span>
                                                         </div>
                                                         <div class="popular-dish-info">
-                                                            <h4 itemprop="headline"><a href="food-detail.html" title="" itemprop="url">{{$product->name}}</a></h4>
+                                                            <h4 itemprop="headline"><a href="{{url('product').'/'.$product->name}}" title="" itemprop="url">{{$product->name}}</a></h4>
                                                             <p itemprop="description">{{$product->short_descrip}}</p>
                                                             <span class="price">MRP: ₹ 456 </span>
                                                             <a class="brd-rd4 " id="hide-{{$product->id}}" data-value="{{$product->id}}" href="javascript:void(0)" title="Order Now" itemprop="url">ADD TO CART</a>
