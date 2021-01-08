@@ -1,5 +1,5 @@
 
-        
+        @include('../status')
    
         <section>
             <div class="block blackish low-opacity">
@@ -16,7 +16,7 @@
                 </div><!-- Restaurant Searching -->
             </div>
         </section>
-
+		
         <section>
             <div class="block no-padding overlape-45">
                 <div class="container">
@@ -24,13 +24,11 @@
                         <div class="col-md-12 col-sm-12 col-lg-12">
                             <div class="top-restaurants-wrapper">
                                 <ul class="restaurants-wrapper style2">
-                                    <li class="wow bounceIn" data-wow-delay="0.2s"><div class="top-restaurant"><a class="brd-rd50" href="#" title="Restaurant 1" itemprop="url"><img src="{{ url('assets/images/resource/top-restaurant1.png') }}" alt="top-restaurant1.png" itemprop="image"></a></div></li>
-                                    <li class="wow bounceIn" data-wow-delay="0.4s"><div class="top-restaurant"><a class="brd-rd50" href="#" title="Restaurant 2" itemprop="url"><img src="{{ url('assets/images/resource/top-restaurant2.png') }}" alt="top-restaurant2.png" itemprop="image"></a></div></li>
-                                    <li class="wow bounceIn" data-wow-delay="0.6s"><div class="top-restaurant"><a class="brd-rd50" href="#" title="Restaurant 3" itemprop="url"><img src="{{ url('assets/images/resource/top-restaurant3.png') }}" alt="top-restaurant3.png" itemprop="image"></a></div></li>
-                                    <li class="wow bounceIn" data-wow-delay="0.8s"><div class="top-restaurant"><a class="brd-rd50" href="#" title="Restaurant 4" itemprop="url"><img src="{{ url('assets/images/resource/top-restaurant4.png') }}" alt="top-restaurant4.png" itemprop="image"></a></div></li>
-                                    <li class="wow bounceIn" data-wow-delay="1s"><div class="top-restaurant"><a class="brd-rd50" href="#" title="Restaurant 5" itemprop="url"><img src="{{ url('assets/images/resource/top-restaurant5.png') }}" alt="top-restaurant5.png" itemprop="image"></a></div></li>
-                                    <li class="wow bounceIn" data-wow-delay="1.2s"><div class="top-restaurant"><a class="brd-rd50" href="#" title="Restaurant 5" itemprop="url"><img src="{{ url('assets/images/resource/top-restaurant6.png') }}" alt="top-restaurant6.png" itemprop="image"></a></div></li>
-                                </ul>
+									<?php ?>
+                                    @foreach($categories as $category)
+									<li class="wow bounceIn" data-wow-delay="0.2s"><div class="top-restaurant"><a class="brd-rd50" href="category/{{$category->name}}" title="Restaurant 1" itemprop="url"><img src="{{$category->image}}" alt="top-restaurant1.png" itemprop="image"></a></div></li>
+									@endforeach
+							   </ul>
                             </div>
                         </div>
                     </div>

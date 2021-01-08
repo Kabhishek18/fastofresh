@@ -9,9 +9,10 @@ class front_control extends Controller
     //Home Page
    public function index()
    {
+      $categories['categories'] = front_model::getCategory();
       echo view('front/inc/header');
       echo view('front/inc/nav');
-      echo view('front/index');
+      echo view('front/index',$categories);
       echo view('front/inc/footer');
    }
 
