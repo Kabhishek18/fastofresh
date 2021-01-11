@@ -20,6 +20,8 @@ class Products extends Migration
             $table->text('short_descrip');
             $table->text('description');
             $table->text('image');
+            $table->bigInteger('s_price');
+            $table->bigInteger('b_price');
             $table->text('information');
             $table->enum('status', ['active', 'inactive']);
             $table->text('meta')->nullable();

@@ -12,13 +12,14 @@ class cart extends Controller
     $val['pid'] = Request::get('pid');
     $val['qty'] = Request::get('qty');
     $product = front_model::getProduct( $val['pid']);
-    $productattr = front_model::getProductattr($val['pid']);
+    //Use When Weight attribute enable
+    //$productattr = front_model::getProductattr($val['pid']);
        if(!$product) {
             return redirect()->back()->with('warning', 'Something Went Wrong With Cart!');
         }
-        if(!$productattr) {
-            return redirect()->back()->with('warning', 'Product Attribute Not Available!');
-        } 
+        // if(!$productattr) {
+        //     return redirect()->back()->with('warning', 'Product Attribute Not Available!');
+        // } 
         $cart = session()->get('cart');  
         // if cart is empty then this the first product  
         if(!$cart) {
@@ -26,8 +27,7 @@ class cart extends Controller
                      $val['pid'] => [
                         "name" => $product->name,
                         "quantity" => $val['qty'],
-                        "weight" => $productattr->weight,
-                        "price" => $productattr->s_price,
+                        "price" => $product->s_price,
                         "photo" => $product->image
                     ]
             ];   
@@ -45,8 +45,7 @@ class cart extends Controller
          $cart[$val['pid']] = [
             "name" => $product->name,
             "quantity" => $val['qty'],
-            "weight" => $productattr->weight,
-            "price" => $productattr->s_price,
+            "price" => $product->s_price,
             "photo" => $product->image
         ];
         session()->put('cart', $cart);

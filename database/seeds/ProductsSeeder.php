@@ -14,6 +14,8 @@ class ProductsSeeder extends Seeder
         DB::table('products')->insert([
             'name' => 'Chicken Curry Cut (Small Pcs)',
             'parent_id'=>'1',
+            's_price'=>'299',
+            'b_price'=>'399',
             'short_descrip'=>'Order farm fresh and hormone-free Chicken Curry Cut pieces online from Licious and get home delivery.',
             'description' => 'A combination of dark and white meat, the Chicken Curry Cut (small) includes one leg cut into two, one wing without tip and one breast quarter with backbone. With a fresh, natural flavour and plump texture, this package includes both bone-in and boneless pieces. These pieces turn juicy and tender when cooked, which makes them ideal for making chicken curries.',
             'information' => 'A combination of dark and white meat, the Chicken Curry Cut (small) includes one leg cut into two, one wing without tip and one breast quarter with backbone. With a fresh, natural flavour and plump texture, this package includes both bone-in and boneless pieces. These pieces turn juicy and tender when cooked, which makes them ideal for making chicken curries.',
@@ -24,6 +26,8 @@ class ProductsSeeder extends Seeder
         DB::table('products')->insert([
             'name' => 'Premium Chicken Curry Cut',
             'parent_id'=>'1',
+            's_price'=>'299',
+            'b_price'=>'399',
             'short_descrip'=>'Order farm fresh and hormone-free Chicken Curry Cut pieces online from Licious and get home delivery.',
             'description' => 'A combination of dark and white meat, the Chicken Curry Cut (small) includes one leg cut into two, one wing without tip and one breast quarter with backbone. With a fresh, natural flavour and plump texture, this package includes both bone-in and boneless pieces. These pieces turn juicy and tender when cooked, which makes them ideal for making chicken curries.',
             'information' => 'A combination of dark and white meat, the Chicken Curry Cut (small) includes one leg cut into two, one wing without tip and one breast quarter with backbone. With a fresh, natural flavour and plump texture, this package includes both bone-in and boneless pieces. These pieces turn juicy and tender when cooked, which makes them ideal for making chicken curries.',
@@ -34,6 +38,8 @@ class ProductsSeeder extends Seeder
         DB::table('products')->insert([
              'name' => 'Chicken Mini Bites - Breast Cut (Boneless)',
              'parent_id'=>'1',
+             's_price'=>'299',
+             'b_price'=>'399',
              'short_descrip'=>'Order farm fresh and hormone-free Chicken Curry Cut pieces online from Licious and get home delivery.',
              'description' => 'A combination of dark and white meat, the Chicken Curry Cut (small) includes one leg cut into two, one wing without tip and one breast quarter with backbone. With a fresh, natural flavour and plump texture, this package includes both bone-in and boneless pieces. These pieces turn juicy and tender when cooked, which makes them ideal for making chicken curries.',
              'information' => 'A combination of dark and white meat, the Chicken Curry Cut (small) includes one leg cut into two, one wing without tip and one breast quarter with backbone. With a fresh, natural flavour and plump texture, this package includes both bone-in and boneless pieces. These pieces turn juicy and tender when cooked, which makes them ideal for making chicken curries.',
@@ -45,6 +51,8 @@ class ProductsSeeder extends Seeder
           DB::table('products')->insert([
             'name' => 'Parshe - Whole & Cleaned, No Tail',
             'parent_id'=>'2',
+            's_price'=>'299',
+            'b_price'=>'399',
             'short_descrip'=>'Caught from the freshwaters, our thoroughly cleaned and gutted Parshe are offered whole without the tail. ',
             'description' => ' This tender fish is full in flavour with a slightly sweet taste while having a lean, delicate texture. Also known as Mullet or Boi, Parshe is also rich in proteins, vitamins, and minerals. A popular part of Bengali meals, it is suitable for both curries and fried dishes. Order Parshe online from Licious and get them delivered straight to your doorstep.',
             'information' => ' This tender fish is full in flavour with a slightly sweet taste while having a lean, delicate texture. Also known as Mullet or Boi, Parshe is also rich in proteins, vitamins, and minerals. A popular part of Bengali meals, it is suitable for both curries and fried dishes. Order Parshe online from Licious and get them delivered straight to your doorstep.',
@@ -56,6 +64,8 @@ class ProductsSeeder extends Seeder
          DB::table('products')->insert([
             'name' => 'Chinese Pomfret (Roopchand) - Bengali Cut, No Head',
             'parent_id'=>'2',
+            's_price'=>'299',
+            'b_price'=>'399',
             'short_descrip'=>'A must have for all with an affinity for Bengali cuisine.  ',
             'description' => ' These freshwater fish make the best comfort food. Distinguished by their pale white meat and delightfully sweet taste, relish this Bengali-style cut for a more authentic experience of this flavoursome fish. Go ahead and make a favourite of this fish.',
             'information' => ' These freshwater fish make the best comfort food. Distinguished by their pale white meat and delightfully sweet taste, relish this Bengali-style cut for a more authentic experience of this flavoursome fish. Go ahead and make a favourite of this fish.',
@@ -67,6 +77,8 @@ class ProductsSeeder extends Seeder
          DB::table('products')->insert([
             'name' => 'Freshwater Prawns 40Count/Kg (Jhinga)- Cleaned & Deveined, No Tail',
             'parent_id'=>'2',
+            's_price'=>'299',
+            'b_price'=>'399',
             'short_descrip'=>'Caught from the freshwaters, our thoroughly cleaned and gutted Parshe are offered whole without the tail. ',
             'description' => ' This tender fish is full in flavour with a slightly sweet taste while having a lean, delicate texture. Also known as Mullet or Boi, Parshe is also rich in proteins, vitamins, and minerals. A popular part of Bengali meals, it is suitable for both curries and fried dishes. Order Parshe online from Licious and get them delivered straight to your doorstep.',
             'information' => ' This tender fish is full in flavour with a slightly sweet taste while having a lean, delicate texture. Also known as Mullet or Boi, Parshe is also rich in proteins, vitamins, and minerals. A popular part of Bengali meals, it is suitable for both curries and fried dishes. Order Parshe online from Licious and get them delivered straight to your doorstep.',

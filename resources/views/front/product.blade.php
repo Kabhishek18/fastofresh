@@ -51,7 +51,14 @@ input.qtyminus { width:25px; height:25px;}
                                                         <div class="popular-dish-info">
                                                             <h4 itemprop="headline"><a href="{{url('product').'/'.$product->name}}" title="" itemprop="url">{{$product->name}}</a></h4>
                                                             <p itemprop="description">{{$product->short_descrip}}</p>
-                                                            <span class="price">MRP: ₹ 456 </span>
+                                                            <span class="price">MRP: ₹ 
+                                                            @if($product->b_price)
+                                                            <del>{{$product->b_price}}</del>
+                                                            {{$product->s_price}}
+                                                            @else
+                                                            {{$product->s_price}}
+                                                            @endif
+                                                             </span>
                                                             <a class="brd-rd4 " id="hide-{{$product->id}}" data-value="{{$product->id}}" href="javascript:void(0)" title="Order Now" itemprop="url">ADD TO CART</a>
                                                            
                                                             <div id="show-{{$product->id}}"></div>

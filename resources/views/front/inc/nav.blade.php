@@ -22,7 +22,16 @@
                         <a class="log-popup-btn" href="#" title="Login" itemprop="url">LOGIN</a> / <a class="sign-popup-btn" href="#" title="Register" itemprop="url">REGISTER</a>
                     </div>
                     <div class="social1">
-                        <a href="{{url('cart')}}" title="Facebook" itemprop="url" target="_blank"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i></a>
+                        <a href="{{url('cart')}}" title="Facebook" itemprop="url" ><i class="fa fa-cart-arrow-down" aria-hidden="true"></i>
+                        @if(session()->get('cart')) 
+                        <sup> (
+                           <span class="text-danger">
+                           <?php $cart = session()->get('cart')?>
+                            {{count($cart)}}
+                        </span>
+                        )</sup>
+                        @endif
+                        </a>
                         <a href="#" title="Twitter" itemprop="url" target="_blank"><i class="fa fa-twitter"></i></a>
                         <a href="#" title="Google Plus" itemprop="url" target="_blank"><i class="fa fa-google-plus"></i></a>
                     </div>
