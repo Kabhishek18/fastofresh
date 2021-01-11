@@ -27,3 +27,4 @@ Route::get('clearcart', 'cart@removeall');
 //Checkout
 Route::get('checkout', 'front_control@checkout');
 
+Route::get('login','front_control@login');

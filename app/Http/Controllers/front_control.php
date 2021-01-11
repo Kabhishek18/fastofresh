@@ -64,7 +64,14 @@ class front_control extends Controller
           return redirect('')->with('success', 'Empty Cart');
       }
    }
+  public function login()
+  {
+    $val['token'] = Request::get('_token');
+    $val['pid'] = Request::get('pid');
+    $val['qty'] = Request::get('qty');
 
+  } 
+   
   public function sendEmail (Request $request) {
     
     // is method a POST ?
