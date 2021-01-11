@@ -26,3 +26,6 @@ Route::delete('remove-from-cart', 'cart@remove');
 Route::get('clearcart', 'cart@removeall');
 //Checkout
 Route::get('checkout', 'front_control@checkout');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
