@@ -26,5 +26,8 @@ Route::delete('remove-from-cart', 'cart@remove');
 Route::get('clearcart', 'cart@removeall');
 //Checkout
 Route::get('checkout', 'front_control@checkout');
-
-Route::get('login','front_control@login');
+Route::post('payment', 'front_control@payment');
+//Dasboard
+Route::post('login','front_control@login');
+Route::get('dashboard', 'front_control@dashboard');
+Route::get('logout', 'front_control@Logout');

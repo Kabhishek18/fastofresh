@@ -16,6 +16,24 @@ $(document).ready(function(){
 
           $('#show-'+matchvalue).html(html);
     });
+
+    //Location Hide Detail on checkout page
+     $('#filllocation').hide();
+    $('#locationcheck').on('change', function(){
+        var chek = $(this).val();
+        if(chek ==0){
+            $('#hidelocation').hide(); // this.value
+            $('#filllocation').show(); // this.value
+            $('#locationcheck').val('1');
+        }
+        else{
+            $('#hidelocation').show(); // this.value
+            $('#filllocation').hide(); // this.value  
+             $('#locationcheck').val('0'); 
+        }
+
+    });
+
     
 });
 

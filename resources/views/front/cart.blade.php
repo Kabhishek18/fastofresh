@@ -35,7 +35,7 @@
                                                     </td>
                                                     <td data-th="Price">₹ {{ $details['price'] }}</td>
                                                     <td data-th="Quantity">
-                                                        <input type="number" id="qty" value="{{ $details['quantity'] }}" class="form-control quantity" />
+                                                        <input type="text" id="qty" value="{{ $details['quantity'] }}" class="form-control quantity" />
                                                     </td>
                                                     <td data-th="Subtotal" class="text-center">₹ {{ $details['price'] * $details['quantity'] }}</td>
                                                     <td class="actions" data-th="">
@@ -46,19 +46,36 @@
                                                 @endforeach
                                             </tbody>
                                             <tfoot>
+                                                @if($total<499)
+                                                <?php $ship =30; $total += $ship?>
+                                                <tr>
+                                                    <td colspan="3"></td>
+                                                    <td class="text-center" colspan=""><strong>Delivery Charge</strong></td>
+                                                    <td class="text-center" colspan=""><strong>₹ {{$ship}}</strong></td>
+                                                    <td colspan="1"></td>
+                                                </tr>
+                                                @endif
                                                 <tr class="visible-xs">
-                                                    <td class="text-center"><strong>Total {{ $total }}</strong></td>
+                                                    <td class="text-center"><strong>Total ₹  {{ $total }}</strong></td>
                                                 </tr>
                                                 <tr>
                                                     <td><a href="{{ url('/') }}" class="btn btn-warning"><i class="fa fa-angle-left"></i> Continue Shopping</a></td>
                                                     <td><a href="{{ url('/clearcart') }}" class="btn btn-danger" style="background-color: #ea1b25;"> Clear Cart <i class="fa fa-angle-right"></i></a></td>
-                                                    <td colspan="2" class="hidden-xs"></td>
+                                                    <td colspan="1" class="hidden-xs"></td>
                                                     <td class="hidden-xs text-center"><strong>Total</strong></td>
-                                                    <td class="hidden-xs text-center"><strong> ₹ {{ $total }}</strong></td>
+                                                    <td class="hidden-xs text-center"><strong> ₹ {{ $total }}</strong>
+                                                    <td colspan="1" class="hidden-xs"></td>
+
+                                                    </td>
                                                 </tr>
                                                 </tfoot>
 
                                             </table>
+                                            
+                                              <div class="content" align="right">
+                                                <a class="btn btn-danger" href="{{url('checkout')}}"> Checkout</a>
+                                                </div>
+
                                         </div>
                                         
                                     </div>

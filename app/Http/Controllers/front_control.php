@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use Request;
 use App\front_model;
 use PHPMailerPHPMailerPHPMailer;
 use PHPMailerPHPMailerException;
@@ -55,6 +55,10 @@ class front_control extends Controller
    {
       $cart['cart'] = session()->get('cart');
       if($cart['cart']){
+        $user['user'] = session()->get('user_session');
+        if($user['user']){
+          $cart['locations'] =front_model::getLocationUid($user['user']->id);
+        }
           echo view('front/inc/header');
           echo view('front/inc/nav');
           echo view('front/checkout',$cart);
@@ -64,14 +68,53 @@ class front_control extends Controller
           return redirect('')->with('success', 'Empty Cart');
       }
    }
-  public function login()
-  {
-    $val['token'] = Request::get('_token');
-    $val['pid'] = Request::get('pid');
-    $val['qty'] = Request::get('qty');
 
+  public function payment($value='')
+  {
+    dd(json_encode($_POST));
+  }
+
+  //Login  
+  public function login(Request $request)
+  {
+
+    $val['email'] = Request::post('email');
+    $val['password'] = sha1(Request::post('password'));
+
+    $auth =front_model::Authenticate($val);
+    if (!empty($auth)) {
+      session()->put('user_session',$auth);
+      return redirect('dashboard');
+    }
+    else{
+      session()->flash('warning', 'Wrong Credentials');
+      return redirect('');
+    }
   } 
    
+  //Dashboard
+  public function Dashboard($value='')
+  {
+    $user['user'] = session()->get('user_session');
+    if ($user['user']) {
+      echo view('front/inc/header');
+      echo view('front/inc/nav');
+      echo view('front/dashboard',$user);
+      echo view('front/inc/footer');
+    }
+    else{
+       session()->flash('warning', 'Access Denied');
+      return redirect('');
+    }
+  }
+
+  //Dashboard
+  public function Logout($value='')
+  {
+    session()->flush('user_session');
+    return redirect('');
+  }
+
   public function sendEmail (Request $request) {
     
     // is method a POST ?

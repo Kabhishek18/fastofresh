@@ -74,7 +74,8 @@
                         <a class="google brd-rd3" href="#" title="Google Plus" itemprop="url" target="_blank"><i class="fa fa-google-plus"></i> Google</a>
                     </div>
                     <span class="popup-seprator text-center"><i class="brd-rd50">or</i></span>
-                    <form class="sign-form">
+                    <form class="sign-form" method="post" action="{{url('login')}}">
+                          @csrf
                         <div class="row">
                             <div class="col-md-12 col-sm-12 col-lg-12">
                                 <input class="brd-rd3" type="text" name="email" placeholder="Email">
@@ -134,7 +135,13 @@
         </div>
     
 </main><!-- Main Wrapper -->
-
+<script type="text/javascript">
+    $.ajaxSetup({
+    headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+    });
+</script>
     <script src="{{ url('assets/js/jquery.min.js') }}"></script>
     <script src="{{ url('assets/js/bootstrap.min.js') }}"></script>
     <script src="{{ url('assets/js/plugins.js') }}"></script>

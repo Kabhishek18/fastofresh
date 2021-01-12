@@ -6,10 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class front_model extends Model
 {
-    public static function getuserData(){
-        $value=DB::table('users')->orderBy('id', 'asc')->get();
-        return $value;
-      }
+   
     
     //Category By Id  
     public static function getCategory($id= ''){
@@ -79,6 +76,19 @@ class front_model extends Model
       return $value;    
    }
 
-   //Product by cat id
+   //Product by Location user id
+    public static function getLocationUid($id= ''){
+        if($id){
+          $array =array('userid' => $id);
+        $value=DB::table('locations')->where($array)->orderBy('id', 'asc')->get();
+        }
+        return $value;
+      }
 
+  //Authenticate User
+  public static function Authenticate($array){
+
+        $value=DB::table('users')->where($array)->first();
+        return $value;
+  }   
 }

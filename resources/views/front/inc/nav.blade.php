@@ -19,7 +19,11 @@
                         </select>
                     </div>
                     <div class="topbar-register">
+                        @if(!empty(session()->get('user_session')))
+                            <a href="{{url('/dashboard')}}"  >Dashboard</a>
+                        @else
                         <a class="log-popup-btn" href="#" title="Login" itemprop="url">LOGIN</a> / <a class="sign-popup-btn" href="#" title="Register" itemprop="url">REGISTER</a>
+                        @endif
                     </div>
                     <div class="social1">
                         <a href="{{url('cart')}}" title="Facebook" itemprop="url" ><i class="fa fa-cart-arrow-down" aria-hidden="true"></i>

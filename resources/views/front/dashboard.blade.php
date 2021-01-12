@@ -1,16 +1,4 @@
- <section>
-            <div class="block">
-                <div class="fixed-bg" style="background-image: url(assets/images/topbg.jpg);"></div>
-                <div class="page-title-wrapper text-center">
-                    <div class="col-md-12 col-sm-12 col-lg-12">
-                        <div class="page-title-inner">
-                            <h1 itemprop="headline">Dashboard</h1>
-                                <span>A Greate Restaurant Website</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+
 
         <div class="bread-crumbs-wrapper">
             <div class="container">
@@ -22,7 +10,7 @@
         </div>
 
         <section>
-            <div class="block less-spacing gray-bg">
+            <div class=" gray-bg">
                 <div class="sec-box bottom-padd140">
                     <div class="container">
                         <div class="row">
@@ -35,9 +23,9 @@
                                                     <div class="user-info red-bg">
                                                         <img class="brd-rd50" src="assets/images/resource/user-avatar.jpg" alt="user-avatar.jpg" itemprop="image">
                                                         <div class="user-info-inner">
-                                                            <h5 itemprop="headline"><a href="#" title="" itemprop="url">BUYER DEMO</a></h5>
-                                                            <span><a href="#" title="" itemprop="url">dum3@chimpgroou.com</a></span>
-                                                            <a class="brd-rd3 sign-out-btn yellow-bg" href="#" title="" itemprop="url"><i class="fa fa-sign-out"></i> SIGN OUT</a>
+                                                            <h5 itemprop="headline"><a href="#" title="" itemprop="url">{{$user->name}}</a></h5>
+                                                            <span><a href="#" title="" itemprop="url">{{$user->email}}</a></span>
+                                                            <a class="brd-rd3 sign-out-btn yellow-bg" href="{{url('logout')}}" title="" itemprop="url"><i class="fa fa-sign-out"></i> SIGN OUT</a>
                                                         </div>
                                                     </div>
                                                     <ul class="nav nav-tabs">

@@ -1,4 +1,24 @@
-       
+<style type="text/css">
+    
+.card-input-element {
+    display: none;
+}
+
+.card-input {
+    margin: 10px;
+    padding: 00px;
+}
+
+.card-input:hover {
+    cursor: pointer;
+}
+
+.card-input-element:checked + .card-input {
+     box-shadow: 0 0 1px 1px #2ecc71;
+ }
+
+
+</style>       
         <section>
             <div class="gray-bg">
             @include('../status')
@@ -12,16 +32,91 @@
                             
                                 <div class="sec-wrapper">
                                     <div class="row">
+                                         <form class="form-group" method="post" action="{{url('payment')}}">
+                                            @csrf
                                         <div class="col-md-8 col-sm-12 col-lg-8">
                                             <div class="restaurant-detail-wrapper">
-                                              <div class="form-group">
-                                                <label for="">Full Name</label>
-                                                <input type="text" class="form-control" name="full name" placeholder="Full Name">
+                                
+                                                
+                                              <div id="hidelocation">
+                                                <?php $i=1;?>
+                                                   @foreach($locations as $location)
+                                                    <div class="col-md-4 col-lg-4 col-sm-4">
+                                                        
+                                                        <label>
+                                                            <?php $loc = json_decode($location->location,true)?>
+                                                          <input type="radio" name="loc{{$location->id}}" class="card-input-element" value="" />
+
+                                                            <div class="panel panel-default card-input">
+                                                              <div class="panel-heading">Location {{$i++}}</div>
+                                                              <div class="panel-body">
+                                                               <p>{{$loc['addressline1']}}</p> 
+                                                               <p>{{$loc['city']}},{{$loc['postalcode']}}</p>
+                                                               <p><strong>({{$loc['landmark']}})</strong></p>
+                                                              </div>
+                                                            </div>
+
+                                                        </label>
+                                                    </div>
+                                                    @endforeach
                                               </div>
-                                              <div class="form-group">
-                                                <label for="">Email</label>
-                                                <input type="email" class="form-control" name="email" placeholder="Full Name">
-                                              </div>    
+                                                   
+                                                  
+
+                                
+                                                <div class="col-md-12 col-sm-12 ">
+                                                    <div class="form-check" >
+                                                      <input class="form-check-input" type="checkbox" name="locationadd" id="locationcheck" value="0" style="display: contents;">
+                                                      <label class="form-check-label" for="locationcheck" style="font-size: x-large">
+                                                        <i class="fa fa-plus-circle" aria-hidden="true"></i>  <i class="fa fa-map-marker" aria-hidden="true"></i> Add New Location 
+                                                      </label>
+                                                    </div>
+                                                </div>
+                                                <div id="filllocation">
+                                                    <div class="col-md-6 col-sm-12">
+                                                        <div class="form-group">
+                                                            <label>Flat no / Building name / Street name <span class="text-danger">*</span></label>
+                                                            <textarea class="form-control" name="addressline1" placeholder="Address line 1"></textarea>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6 col-sm-12">
+                                                        <div class="form-group">
+                                                            <label>Landmark  (Optional)</label>
+                                                            <textarea class="form-control" name="landmark" placeholder="landmark"></textarea>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6 col-sm-12">
+                                                        <div class="form-group">
+                                                            <label>City <span class="text-danger">*</span></label>
+                                                             <input type="text" name="city" class="form-control" placeholder="City">   
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6 col-sm-12">
+                                                        <div class="form-group">
+                                                            <label>Postal Code<span class="text-danger">*</span></label>
+                                                             <input type="text" name="postalcode" class="form-control" placeholder="Postal Code">   
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6 col-sm-12">
+                                                        <div class="form-group">
+                                                            <label>Mobile Number <span class="text-danger">*</span></label>
+                                                             <input type="text" name="mobile" class="form-control" placeholder="Mobile Number">   
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6 col-sm-12">
+                                                        <div class="form-group">
+                                                            <label>Email  <span class="text-danger">*</span></label>
+                                                             <input type="text" name="email" class="form-control" placeholder="Email Id">   
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6 col-sm-12">
+                                                        <div class="form-group">
+                                                            <label>Full Name <span class="text-danger">*</span></label>
+                                                             <input type="text" name="fullname" class="form-control" placeholder="Full Name">   
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                           
                                             </div>
                                         </div>
                                         <div class="col-md-4 col-sm-12 col-lg-4">
@@ -44,18 +139,26 @@
                                                         @endforeach
                                                         </ul>
                                                         <ul class="order-total">
+                                                            @if($total<499)
+                                                            <li><span>Delivery </span> <i> 
+                                                                 <?php $ship =30; $total += $ship?> ₹{{$ship}} 
+                                                                </i>  </li>
+                                                            @endif    
                                                             <li><span>Total</span> <i>₹  {{ $total }}</i></li>
                                                            
                                                         </ul>
                                                         <ul class="order-method brd-rd2 red-bg">
                                                             <li><span>Total</span> <span class="price">₹  {{ $total }}</span></li>
-                                                            <li><span class="radio-box cash-popup-btn"><input type="radio" name="method" id="pay1-1"><label for="pay1-1"><i class="fa fa-money"></i> Cash</label></span> <span class="radio-box card-popup-btn"><input type="radio" name="method" id="pay1-2" checked><label for="pay1-2"><i class="fa fa-credit-card-alt"></i> Online</label></span></li>
-                                                            <li><a class="brd-rd2" href="#" title="" itemprop="url">CHECKOUT ORDER</a></li>
+                                                            <li><span class="radio-box cash-popup-btn"><input type="radio" name="method" value="cash" id="pay1-1"><label for="pay1-1"><i class="fa fa-money"></i> Cash</label></span> <span class="radio-box card-popup-btn"><input type="radio" name="method" id="pay1-2"  value="online" checked><label for="pay1-2"><i class="fa fa-credit-card-alt"></i> Online</label></span></li>
+                                                            <li>
+                                                                <input class="btn btn-default"  type="submit" itemprop="url" value="CHECKOUT ORDER">
+                                                            </li>
                                                         </ul>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
+                                         </form>
                                     </div>
                                 </div>
                             </div>
@@ -67,4 +170,7 @@
      
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript">
+    
+</script>
 <script src="{{url('assets/js/custom.js')}}"></script>
