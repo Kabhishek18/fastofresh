@@ -91,4 +91,30 @@ class front_model extends Model
         $value=DB::table('users')->where($array)->first();
         return $value;
   }   
+  //Add Location
+   public static function AddLocation($array)
+  {
+    $value= DB::insert('insert into locations (`userid`,`location`,`created_at`,`updated_at` ) values(?,?,?,?)',[$array['userid'],$array['location'],date('Y-m-d h:s:i'),date('Y-m-d h:s:i')]);
+    return $value;
+  }
+
+  //Add Order
+  public static function PaymentOrder($order)
+  {
+    $value= DB::insert('insert into orders (`orderamount`,`transactionid`,`order_cart`,`orderdetail`,`userid`,`status`,`created_at`,`updated_at` ) values(?,?,?,?,?,?,?,?)',[$order['order_amount'],$order['transactionid'],$order['order_cart'],$order['orderdetail'],$order['userid'],'pending',$order['created_at'],$order['updated_at']]);
+    return $value;
+  }
+
+   // Get Order   
+  public static function getOrderUserid($id= ''){
+    if($id){
+      $array =array('userid' => $id);
+    $value=DB::table('orders')->where($array)->orderBy('id', 'desc')->get();
+    }
+    else{
+    $value=DB::table('orders')->orderBy('id', 'desc')->get();
+    }
+    return $value;
+  }
+
 }

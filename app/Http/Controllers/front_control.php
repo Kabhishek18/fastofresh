@@ -58,20 +58,68 @@ class front_control extends Controller
         $user['user'] = session()->get('user_session');
         if($user['user']){
           $cart['locations'] =front_model::getLocationUid($user['user']->id);
-        }
           echo view('front/inc/header');
           echo view('front/inc/nav');
           echo view('front/checkout',$cart);
           echo view('front/inc/footer');
+        }
+        else{
+          return redirect()->back()->with('warning', 'Please login for checkout');
+        }
       }
       else{
           return redirect('')->with('success', 'Empty Cart');
       }
    }
 
-  public function payment($value='')
+  public function payment(Request $request)
   {
-    dd(json_encode($_POST));
+    $user['user'] = session()->get('user_session');
+    if($user['user']){
+        $val['locationadd'] = Request::post('locationadd');
+          if ($val['locationadd']=="add") {
+            $reg['addressline1'] = Request::post('addressline1');
+            $reg['landmark'] = Request::post('landmark');
+            $reg['city'] = Request::post('city');
+            $reg['postalcode'] = Request::post('postalcode');
+            $reg['mobile'] = Request::post('mobile');
+           
+            //$rep Varialble used
+            $rep['location'] =json_encode($reg);
+            $val['loc'] =$rep['location'];
+            //Add Location 
+            $rep['userid'] =$user['user']->id;
+            
+            $insert =front_model::AddLocation($rep);
+            //NOt Insert Location
+            if(!$insert){
+              return redirect()->back()->with('warning', 'Location Not Added');
+            }
+          }else{
+            $val['loc'] = Request::post('loc');
+          }
+        $val['method'] =Request::post('method');
+
+        $order['order_amount'] =session()->get('total');
+        $order['transactionid'] = rand(9,0);
+        $order['order_cart'] =json_encode(session()->get('cart')); 
+        $order['orderdetail'] =json_encode($val);
+        $order['userid'] =$user['user']->id;
+        $order['created_at'] =date('y-m-d h:i:s');
+        $order['updated_at'] =date('y-m-d h:i:s');  
+         $insert =front_model::PaymentOrder($order);
+         if($insert){
+            dd($order);
+          }
+          else{
+             return redirect()->back()->with('warning', 'Order Has Been Declined Due To Technical Issue');
+          }
+
+        }
+    else{
+          return redirect()->back()->with('warning', 'Please login for checkout');
+      }
+    
   }
 
   //Login  
@@ -97,6 +145,7 @@ class front_control extends Controller
   {
     $user['user'] = session()->get('user_session');
     if ($user['user']) {
+      $user['orders'] =front_model::getOrderUserid($user['user']->id);
       echo view('front/inc/header');
       echo view('front/inc/nav');
       echo view('front/dashboard',$user);

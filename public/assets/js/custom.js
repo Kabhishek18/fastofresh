@@ -21,15 +21,15 @@ $(document).ready(function(){
      $('#filllocation').hide();
     $('#locationcheck').on('change', function(){
         var chek = $(this).val();
-        if(chek ==0){
+        if(chek =='work'){
             $('#hidelocation').hide(); // this.value
             $('#filllocation').show(); // this.value
-            $('#locationcheck').val('1');
+            $('#locationcheck').val('add');
         }
         else{
             $('#hidelocation').show(); // this.value
             $('#filllocation').hide(); // this.value  
-             $('#locationcheck').val('0'); 
+             $('#locationcheck').val('work'); 
         }
 
     });
