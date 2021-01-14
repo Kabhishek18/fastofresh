@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Request;
+use File;
 use App\front_model;
 use PHPMailerPHPMailerPHPMailer;
 use PHPMailerPHPMailerException;
@@ -123,7 +124,7 @@ class front_control extends Controller
   }
 
   //Login  
-  public function login(Request $request)
+  public function login()
   {
 
     $val['email'] = Request::post('email');
@@ -146,10 +147,103 @@ class front_control extends Controller
     $user['user'] = session()->get('user_session');
     if ($user['user']) {
       $user['orders'] =front_model::getOrderUserid($user['user']->id);
+      $user['locations'] =front_model::getLocationUid($user['user']->id);
       echo view('front/inc/header');
       echo view('front/inc/nav');
       echo view('front/dashboard',$user);
       echo view('front/inc/footer');
+    }
+    else{
+       session()->flash('warning', 'Access Denied');
+      return redirect('');
+    }
+  }
+
+  //Location remove
+  public function LocationRemove($value)
+  {
+    $user['user'] = session()->get('user_session');
+    if ($user['user']) {
+      $var['id'] =$value;
+      $var['userid'] =$user['user']->id;
+      $update =front_model::UserLocationDelete($var);
+      if($update){
+        return redirect()->back()->with('success', 'Remove Location SuccessFully!');
+      }
+      else{
+         return redirect()->back()->with('warning', 'Something Went Wrong!');
+       }
+    }
+    else{
+       session()->flash('warning', 'Access Denied');
+      return redirect('');
+    }
+  }
+  
+  
+  //Profile Image UIpklo-ad
+  public function profileimageupload(Request $request)
+  {
+    $user['user'] = session()->get('user_session');
+    if ($user['user']) {
+        if (Request::hasFile('image'))
+          {
+              $file = Request::file('image');
+              $path = public_path().'/profileimages/'.$user['user']->id;
+              if(!File::isDirectory($path)){
+                File::makeDirectory($path, 0777, true, true);
+              }
+              $name = Request::file('image')->getClientOriginalName();
+              Request::file('image')->move($path,$name);
+              $var['image'] =$name;
+              $var['id'] =$user['user']->id;
+              $insert =front_model::UserImageUpload($var);
+              if ($insert) {
+                 $updateuser = session()->get('user_session');
+                 $updateuser->avatar =$name;
+                session()->put('user_session', $updateuser);
+                return redirect()->back()->with('success', 'Updated Success');
+              }
+              else{
+                 return redirect()->back()->with('warning', 'Something Went Wrong!');
+              }
+             
+                
+          }
+        else{
+             return redirect()->back()->with('warning', 'Something Went Wrong With Upload!');
+        }  
+    }
+    else{
+       session()->flash('warning', 'Access Denied');
+      return redirect('');
+    }
+  }
+
+  //Profile Password change
+  public function changepassword(Request $request)
+  {
+    $user['user'] = session()->get('user_session');
+    if ($user['user']) {
+        $password = Request::post('password');
+        $cpassword = Request::post('cpassword');
+        if($password == $cpassword)
+        {
+          $password =sha1($password);
+          $var['password'] =$password;
+           $var['id'] =$user['user']->id;
+           $insert =front_model::UserPassword($var);
+              if ($insert) {
+                return redirect()->back()->with('success', 'Updated Success');
+              }
+              else{
+                 return redirect()->back()->with('warning', 'Something Went Wrong!');
+              }
+        }
+        else{
+           return redirect()->back()->with('warning', 'Password Match Failed !');
+        }
+
     }
     else{
        session()->flash('warning', 'Access Denied');

@@ -30,4 +30,7 @@ Route::post('payment', 'front_control@payment');
 //Dasboard
 Route::post('login','front_control@login');
 Route::get('dashboard', 'front_control@dashboard');
+Route::post('dashboard/profileimageupload', 'front_control@profileimageupload');
+Route::get('dashboard/changepassword', 'front_control@changepassword');
+Route::get('dashboard/locationremove/{id}', 'front_control@LocationRemove');
 Route::get('logout', 'front_control@Logout');

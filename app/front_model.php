@@ -91,19 +91,6 @@ class front_model extends Model
         $value=DB::table('users')->where($array)->first();
         return $value;
   }   
-  //Add Location
-   public static function AddLocation($array)
-  {
-    $value= DB::insert('insert into locations (`userid`,`location`,`created_at`,`updated_at` ) values(?,?,?,?)',[$array['userid'],$array['location'],date('Y-m-d h:s:i'),date('Y-m-d h:s:i')]);
-    return $value;
-  }
-
-  //Add Order
-  public static function PaymentOrder($order)
-  {
-    $value= DB::insert('insert into orders (`orderamount`,`transactionid`,`order_cart`,`orderdetail`,`userid`,`status`,`created_at`,`updated_at` ) values(?,?,?,?,?,?,?,?)',[$order['order_amount'],$order['transactionid'],$order['order_cart'],$order['orderdetail'],$order['userid'],'pending',$order['created_at'],$order['updated_at']]);
-    return $value;
-  }
 
    // Get Order   
   public static function getOrderUserid($id= ''){
@@ -114,6 +101,55 @@ class front_model extends Model
     else{
     $value=DB::table('orders')->orderBy('id', 'desc')->get();
     }
+    return $value;
+  }
+
+
+
+
+
+
+
+  //Insert
+
+  //Add Location
+   public static function AddLocation($array)
+  {
+    $value= DB::insert('insert into locations (`userid`,`location`,`created_at`,`updated_at` ) values(?,?,?,?)',[$array['userid'],$array['location'],date('Y-m-d h:s:i'),date('Y-m-d h:s:i')]);
+    return $value;
+  }
+
+
+  //Add Order
+  public static function PaymentOrder($order)
+  {
+    $value= DB::insert('insert into orders (`orderamount`,`transactionid`,`order_cart`,`orderdetail`,`userid`,`status`,`created_at`,`updated_at` ) values(?,?,?,?,?,?,?,?)',[$order['order_amount'],$order['transactionid'],$order['order_cart'],$order['orderdetail'],$order['userid'],'pending',$order['created_at'],$order['updated_at']]);
+    return $value;
+  }
+
+
+//UPdate
+
+    //UPdate Users
+  public static function UserImageUpload($array)
+  {
+    $value= DB::update('update users set `avatar` = ?,`updated_at` = ?  where id =? ',[$array['image'],date('Y-m-d h:s:i'),$array['id']]);
+    return $value;
+  }
+   //UPdate Users password
+  public static function UserPassword($array)
+  {
+    $value= DB::update('update users set `password` = ?,`updated_at` = ?  where id =? ',[$array['password'],date('Y-m-d h:s:i'),$array['id']]);
+    return $value;
+  }
+
+
+  //Delete
+
+   //UPdate Users password
+  public static function UserLocationDelete($array)
+  {
+    $value= DB::delete('delete from locations  where id =? and userid = ?',[$array['id'],$array['userid']]);
     return $value;
   }
 
