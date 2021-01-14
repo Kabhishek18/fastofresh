@@ -129,7 +129,8 @@ class front_control extends Controller
 
     $val['email'] = Request::post('email');
     $val['password'] = sha1(Request::post('password'));
-
+    $val['type'] = 'user';
+    $val['status'] = 'active';
     $auth =front_model::Authenticate($val);
     if (!empty($auth)) {
       session()->put('user_session',$auth);

@@ -34,3 +34,23 @@ Route::post('dashboard/profileimageupload', 'front_control@profileimageupload');
 Route::get('dashboard/changepassword', 'front_control@changepassword');
 Route::get('dashboard/locationremove/{id}', 'front_control@LocationRemove');
 Route::get('logout', 'front_control@Logout');
+
+
+//     _       _           _       
+//    / \   __| |_ __ ___ (_)_ __  
+//   / _ \ / _` | '_ ` _ \| | '_ \ 
+//  / ___ \ (_| | | | | | | | | | |
+// /_/   \_\__,_|_| |_| |_|_|_| |_|
+
+Route::get('laravel-admin','admin_control@index');
+Route::post('laravel-admin/authenticate','admin_control@Authenticate');
+
+Route::get('laravel-admin/dashboard', 'admin_control@dashboard');
+Route::get('laravel-admin/logout', 'admin_control@Logout');
+
+Route::get('laravel-admin/category', 'admin_control@Category');
+Route::get('laravel-admin/category/add', 'admin_control@CategoryAdd');
+Route::get('laravel-admin/category/edit/{id}', 'admin_control@CategoryAdd');
+
+
+
