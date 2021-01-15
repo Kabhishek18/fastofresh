@@ -51,6 +51,11 @@ Route::get('laravel-admin/logout', 'admin_control@Logout');
 Route::get('laravel-admin/category', 'admin_control@Category');
 Route::get('laravel-admin/category/add', 'admin_control@CategoryAdd');
 Route::get('laravel-admin/category/edit/{id}', 'admin_control@CategoryAdd');
+Route::post('laravel-admin/category/insert', 'admin_control@CategoryInsert');
 
+Route::get('laravel-admin/product', 'admin_control@Product');
+Route::get('laravel-admin/product/add', 'admin_control@ProductAdd');
+Route::get('laravel-admin/product/edit/{id}', 'admin_control@ProductAdd');
+Route::post('laravel-admin/product/insert', 'admin_control@ProductInsert');
 
-
+Route::get('laravel-admin/order', 'admin_control@Order');

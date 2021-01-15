@@ -10,12 +10,12 @@
                 <div class="content-header-left col-md-9 col-12 mb-2">
                     <div class="row breadcrumbs-top">
                         <div class="col-12">
-                            <h2 class="content-header-title float-left mb-0">Categories</h2>
+                            <h2 class="content-header-title float-left mb-0">Products</h2>
                             <div class="breadcrumb-wrapper col-12">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="{{url('laravel-admin/dashboard')}}">Home</a>
                                     </li>
-                                    <li class="breadcrumb-item active">Category List
+                                    <li class="breadcrumb-item active">Products List
                                     </li>
                                 </ol>
                             </div>
@@ -26,23 +26,22 @@
                   
                 </div>
             </div>
-             @if(Session::has('success'))
-
-                                            <div class="alert alert-success" role="alert">
-                                                                    <!-- <h4 class="alert-heading">Success</h4> -->
-                                                                    <p class="mb-0">
-                                                                        {{ Session::get('success') }}
-                                                                    </p>
-                                                                </div>
-                                            @endif              
-                                            @if(Session::has('warning'))  
-                                               <div class="alert alert-danger" role="alert">
-                                                                    <!-- <h4 class="alert-heading">Danger</h4> -->
-                                                                    <p class="mb-0">
-                                                                       {{ Session::get('warning') }}
-                                                                    </p>
-                                                                </div>
-                                            @endif 
+                @if(Session::has('success'))
+                <div class="alert alert-success" role="alert">
+                                        <!-- <h4 class="alert-heading">Success</h4> -->
+                                        <p class="mb-0">
+                                            {{ Session::get('success') }}
+                                        </p>
+                                    </div>
+                @endif              
+                @if(Session::has('warning'))  
+                   <div class="alert alert-danger" role="alert">
+                                        <!-- <h4 class="alert-heading">Danger</h4> -->
+                                        <p class="mb-0">
+                                           {{ Session::get('warning') }}
+                                        </p>
+                                    </div>
+                @endif 
             <div class="content-body">
             
                 <!-- Column selectors with Export Options and print table -->
@@ -52,7 +51,7 @@
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="card-title"><a href="{{url('laravel-admin/')}}/category/add" class="btn btn-outline-light mr-1 mb-1 waves-effect waves-light">Category Add</a> </h4>
+                                    <h4 class="card-title"><a href="{{url('laravel-admin/')}}/product/add" class="btn btn-outline-light mr-1 mb-1 waves-effect waves-light">Product Add</a> </h4>
                                 </div>
                                 <div class="card-content">
                                     <div class="card-body card-dashboard">
@@ -63,7 +62,7 @@
                                             <table class="table dataex-html5-selectors">
                                                 <thead>
                                                     <tr>
-                                                        <th>Category Id</th>
+                                                        <th>Product Id</th>
                                                         <th>Name</th>
                                                         <th>Status</th>
                                                         <th>Last Modified</th>
@@ -71,19 +70,19 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    @foreach($categories as $category)
+                                                    @foreach($products as $product)
                                                     <tr>
-                                                        <td>{{$category->id}}</td>
-                                                        <td>{{$category->name}}</td>
-                                                        <td>{{$category->status}}</td>  
-                                                        <td>{{date('F d y h:i:s',strtotime($category->updated_at))}}</td>
+                                                        <td>{{$product->id}}</td>
+                                                        <td>{{$product->name}}</td>
+                                                        <td>{{$product->status}}</td>  
+                                                        <td>{{date('F d y h:i:s',strtotime($product->updated_at))}}</td>
                                                         <td><span class="action-edit">
-                                                                <a href="{{url('laravel-admin')}}/category/edit/{{$category->id}}">
+                                                                <a href="{{url('laravel-admin')}}/product/edit/{{$product->id}}">
                                                                  <i class="feather icon-edit"></i>
                                                                 </a>
                                                             </span>
                                                             <span class="action-delete">
-                                                                <a href="{{url('')}}/home/CategoryDelete/{{$category->id}}" onclick="return confirm('Are you sure, you want to delete it?')">
+                                                                <a href="{{url('')}}/home/CategoryDelete/{{$product->id}}" onclick="return confirm('Are you sure, you want to delete it?')">
                                                                     <i class="feather icon-trash"></i>
                                                                 </a>
                                                             </span></td>

@@ -6,23 +6,7 @@
                     <div class="mr-auto float-left bookmark-wrapper d-flex align-items-center">
                         <!-- Left Item Top Nav -->
                         <h1><marquee>Welcome To Fast O Fresh Admin Panel</marquee>  </h1>
-                        @if(Session::has('success'))
-
-                                            <div class="alert alert-success" role="alert">
-                                                                    <!-- <h4 class="alert-heading">Success</h4> -->
-                                                                    <p class="mb-0">
-                                                                        {{ Session::get('success') }}
-                                                                    </p>
-                                                                </div>
-                                            @endif              
-                                            @if(Session::has('warning'))  
-                                               <div class="alert alert-danger" role="alert">
-                                                                    <!-- <h4 class="alert-heading">Danger</h4> -->
-                                                                    <p class="mb-0">
-                                                                       {{ Session::get('warning') }}
-                                                                    </p>
-                                                                </div>
-                                            @endif 
+                        
                     </div>
                     <ul class="nav navbar-nav float-right">
                      
@@ -78,9 +62,16 @@
                <li class=" nav-item "><a href="{{url('laravel-admin/category')}}"><i class="feather icon-eye"></i><span class="menu-title" data-i18n="Dashboard">Category </span></a>
                 </li>
 
-               
-         
-             
+               <li class=" navigation-header"><span>Product</span>
+
+               <li class=" nav-item "><a href="{{url('laravel-admin/product')}}"><i class="feather icon-shopping-cart"></i><span class="menu-title" data-i18n="Dashboard">Product </span></a>
+                </li>
+                
+               <li class=" navigation-header"><span>Orders</span>
+
+               <li class=" nav-item "><a href="{{url('laravel-admin/order')}}"><i class="feather icon-shopping-cart"></i><span class="menu-title" data-i18n="Dashboard">Order </span></a>
+                </li> 
+                
 
 
             </ul>

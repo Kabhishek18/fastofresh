@@ -10,12 +10,12 @@
                 <div class="content-header-left col-md-9 col-12 mb-2">
                     <div class="row breadcrumbs-top">
                         <div class="col-12">
-                            <h2 class="content-header-title float-left mb-0">Categories</h2>
+                            <h2 class="content-header-title float-left mb-0">Products</h2>
                             <div class="breadcrumb-wrapper col-12">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="{{url('laravel-admin/dashboard')}}">Home</a>
                                     </li>
-                                    <li class="breadcrumb-item active">Category List
+                                    <li class="breadcrumb-item active">Products List
                                     </li>
                                 </ol>
                             </div>
@@ -26,23 +26,22 @@
                   
                 </div>
             </div>
-             @if(Session::has('success'))
-
-                                            <div class="alert alert-success" role="alert">
-                                                                    <!-- <h4 class="alert-heading">Success</h4> -->
-                                                                    <p class="mb-0">
-                                                                        {{ Session::get('success') }}
-                                                                    </p>
-                                                                </div>
-                                            @endif              
-                                            @if(Session::has('warning'))  
-                                               <div class="alert alert-danger" role="alert">
-                                                                    <!-- <h4 class="alert-heading">Danger</h4> -->
-                                                                    <p class="mb-0">
-                                                                       {{ Session::get('warning') }}
-                                                                    </p>
-                                                                </div>
-                                            @endif 
+                @if(Session::has('success'))
+                <div class="alert alert-success" role="alert">
+                                        <!-- <h4 class="alert-heading">Success</h4> -->
+                                        <p class="mb-0">
+                                            {{ Session::get('success') }}
+                                        </p>
+                                    </div>
+                @endif              
+                @if(Session::has('warning'))  
+                   <div class="alert alert-danger" role="alert">
+                                        <!-- <h4 class="alert-heading">Danger</h4> -->
+                                        <p class="mb-0">
+                                           {{ Session::get('warning') }}
+                                        </p>
+                                    </div>
+                @endif 
             <div class="content-body">
             
                 <!-- Column selectors with Export Options and print table -->
@@ -52,51 +51,67 @@
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="card-title"><a href="{{url('laravel-admin/')}}/category/add" class="btn btn-outline-light mr-1 mb-1 waves-effect waves-light">Category Add</a> </h4>
+                                    <h4 class="card-title"><a href="{{url('laravel-admin/')}}/product/add" class="btn btn-outline-light mr-1 mb-1 waves-effect waves-light">Product Add</a> </h4>
                                 </div>
                                 <div class="card-content">
                                     <div class="card-body card-dashboard">
                                         <p class="card-text">
                                            <!--  The print button will open a new window in the end user's browser and, by default, automatically trigger the print function allowing the end user to print the table. The window will be closed once the print is complete, or has been cancelled. -->
+                                          
                                         </p>
                                         <div class="table-responsive">
                                             <table class="table dataex-html5-selectors">
                                                 <thead>
                                                     <tr>
-                                                        <th>Category Id</th>
-                                                        <th>Name</th>
-                                                        <th>Status</th>
-                                                        <th>Last Modified</th>
+                                                        <th>Order Id</th>
+                                                        <th>Transaction Id</th>
+                                                        <th>Order Cart</th>
+                                                        <th>Order Amount</th>
+                                                        <th>Order status</th>
+                                                        <th>Created</th>
+                                                        <th>Modified</th>
                                                         <th>Actions</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    @foreach($categories as $category)
+                                                    @foreach($orders as $order)
+                                                    {{dd(json_decode($order->order_cart,true))}}
                                                     <tr>
-                                                        <td>{{$category->id}}</td>
-                                                        <td>{{$category->name}}</td>
-                                                        <td>{{$category->status}}</td>  
-                                                        <td>{{date('F d y h:i:s',strtotime($category->updated_at))}}</td>
+                                                        <td>{{$order->id}}</td>
+                                                        <td>{{$order->transactionid}}</td>
+                                                        <?php $carts = json_decode($order->order_cart,true);?>
+                                                        <td>@foreach($carts as $cart)
+                                                            
+                                                            @endforeach
+                                                        </td>  
+                                                        <td>{{$order->orderamount}}</td>  
+                                                        <td>{{$order->status}}</td>  
+                                                        <td>{{date('F d y h:i:s',strtotime($order->updated_at))}}</td>
+                                                        <td>{{date('F d y h:i:s',strtotime($order->created_at))}}</td>
                                                         <td><span class="action-edit">
-                                                                <a href="{{url('laravel-admin')}}/category/edit/{{$category->id}}">
+                                                                <a href="{{url('laravel-admin')}}/product/edit/{{$order->id}}">
                                                                  <i class="feather icon-edit"></i>
                                                                 </a>
                                                             </span>
                                                             <span class="action-delete">
-                                                                <a href="{{url('')}}/home/CategoryDelete/{{$category->id}}" onclick="return confirm('Are you sure, you want to delete it?')">
+                                                                <a href="{{url('')}}/home/CategoryDelete/{{$order->id}}" onclick="return confirm('Are you sure, you want to delete it?')">
                                                                     <i class="feather icon-trash"></i>
                                                                 </a>
-                                                            </span></td>
+                                                            </span>
+                                                        </td>
                                                     </tr>
                                                     @endforeach
                                                         
                                                 </tbody>
                                                 <tfoot>
                                                     <tr>
-                                                        <th>Category Id</th>
-                                                        <th>Name</th>
-                                                        <th>Status</th>
-                                                        <th>Last Modified</th>
+                                                        <th>Order Id</th>
+                                                        <th>Transaction Id</th>
+                                                        <th>Order Cart</th>
+                                                        <th>Order Detail</th>
+                                                        <th>Order status</th>
+                                                        <th>Created</th>
+                                                        <th>Modified</th>
                                                         <th>Actions</th>
                                                     </tr>
                                                 </tfoot>

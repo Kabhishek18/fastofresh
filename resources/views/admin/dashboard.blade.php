@@ -9,6 +9,23 @@
         <div class="header-navbar-shadow"></div>
         <div class="content-wrapper">
             <div class="content-header row">
+                @if(Session::has('success'))
+
+                <div class="alert alert-success" role="alert">
+                                        <!-- <h4 class="alert-heading">Success</h4> -->
+                                        <p class="mb-0">
+                                            {{ Session::get('success') }}
+                                        </p>
+                                    </div>
+                @endif              
+                @if(Session::has('warning'))  
+                   <div class="alert alert-danger" role="alert">
+                                        <!-- <h4 class="alert-heading">Danger</h4> -->
+                                        <p class="mb-0">
+                                           {{ Session::get('warning') }}
+                                        </p>
+                                    </div>
+                @endif 
             </div>
             <div class="content-body">
                 <!-- Dashboard Analytics Start -->
