@@ -75,14 +75,16 @@
                                                 </thead>
                                                 <tbody>
                                                     @foreach($orders as $order)
-                                                    {{dd(json_decode($order->order_cart,true))}}
                                                     <tr>
                                                         <td>{{$order->id}}</td>
                                                         <td>{{$order->transactionid}}</td>
                                                         <?php $carts = json_decode($order->order_cart,true);?>
-                                                        <td>@foreach($carts as $cart)
-                                                            
+                                                        <td>
+                                                            <ul class="list-group">
+                                                            @foreach($carts as $id =>  $cart)
+                                                                <li class="list-group-item">{{$cart['name']}}   *  {{$cart['quantity'] }}  </li>
                                                             @endforeach
+                                                            </ul>
                                                         </td>  
                                                         <td>{{$order->orderamount}}</td>  
                                                         <td>{{$order->status}}</td>  
