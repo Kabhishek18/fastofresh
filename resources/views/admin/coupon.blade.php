@@ -57,7 +57,7 @@
                                     <div class="card-body card-dashboard">
                                         <p class="card-text">
                                            <!--  The print button will open a new window in the end user's browser and, by default, automatically trigger the print function allowing the end user to print the table. The window will be closed once the print is complete, or has been cancelled. -->
-                                          
+                                          {{dd($coupons)}}
                                         </p>
                                         <div class="table-responsive">
                                             <table class="table dataex-html5-selectors">
@@ -78,35 +78,9 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    @foreach($coupons as $coupon)
-                                                    <tr>
-                                                        <td>{{$order->id}}</td>
-                                                        <td>{{$order->transactionid}}</td>
-                                                        <?php $carts = json_decode($order->order_cart,true);?>
-                                                        <td>
-                                                            <ul class="list-group">
-                                                            @foreach($carts as $id =>  $cart)
-                                                                <li class="list-group-item">{{$cart['name']}}   *  {{$cart['quantity'] }}  </li>
-                                                            @endforeach
-                                                            </ul>
-                                                        </td>  
-                                                        <td>{{$order->orderamount}}</td>  
-                                                        <td>{{$order->status}}</td>  
-                                                        <td>{{date('F d y h:i:s',strtotime($order->updated_at))}}</td>
-                                                        <td>{{date('F d y h:i:s',strtotime($order->created_at))}}</td>
-                                                        <td><span class="action-edit">
-                                                                <a href="{{url('laravel-admin')}}/product/edit/{{$order->id}}">
-                                                                 <i class="feather icon-edit"></i>
-                                                                </a>
-                                                            </span>
-                                                            <span class="action-delete">
-                                                                <a href="{{url('')}}/home/CategoryDelete/{{$order->id}}" onclick="return confirm('Are you sure, you want to delete it?')">
-                                                                    <i class="feather icon-trash"></i>
-                                                                </a>
-                                                            </span>
-                                                        </td>
-                                                    </tr>
-                                                    @endforeach
+                                                  @foreach()
+
+                                                  @endforeach
                                                         
                                                 </tbody>
                                                 <tfoot>
