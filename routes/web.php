@@ -59,3 +59,4 @@ Route::get('laravel-admin/product/edit/{id}', 'admin_control@ProductAdd');
 Route::post('laravel-admin/product/insert', 'admin_control@ProductInsert');
 
 Route::get('laravel-admin/order', 'admin_control@Order');
+Route::get('laravel-admin/coupon', 'admin_control@Coupon');

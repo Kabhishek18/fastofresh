@@ -71,6 +71,10 @@
 
                <li class=" nav-item "><a href="{{url('laravel-admin/order')}}"><i class="feather icon-shopping-cart"></i><span class="menu-title" data-i18n="Dashboard">Order </span></a>
                 </li> 
+                <li class=" navigation-header"><span>Coupons</span>
+
+               <li class=" nav-item "><a href="{{url('laravel-admin/coupon')}}"><i class="feather icon-feather"></i><span class="menu-title" data-i18n="Dashboard">Coupons </span></a>
+                </li> 
                 
 
 

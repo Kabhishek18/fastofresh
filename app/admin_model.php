@@ -91,4 +91,16 @@ class admin_model extends Model
       return $value;
     }  
 
+  //Category By Id  
+  public static function getCoupon($id= ''){
+      if($id){
+        $array =array('id' => $id);
+      $value=DB::table('coupons')->where($array)->orderBy('id', 'desc')->first();
+      }
+      else{
+      $value=DB::table('coupons')->orderBy('id', 'desc')->get();
+      }
+      return $value;
+    }  
+
 }

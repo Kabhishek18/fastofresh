@@ -263,5 +263,21 @@ class admin_control extends Controller
 	    }
     }
 
+    //Coupon view  
+    public function Coupon()
+    {
+    	$user['user'] = session()->get('admin_session');
+	    if ($user['user']) {
+	    	$user['coupons'] =admin_model::getCoupon();
+	      echo view('admin/inc/header');
+	      echo view('admin/coupon',$user);
+	      echo view('admin/inc/footer');
+	    	}
+	    else{
+	       session()->flash('warning', 'Access Denied');
+	      return redirect('laravel-admin');
+	    }
+    }
+
 
 }
