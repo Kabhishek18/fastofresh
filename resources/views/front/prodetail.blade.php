@@ -96,7 +96,7 @@ input.qtyminus { width:25px; height:25px;}
                                                         <?php $total += $details['price'] * $details['quantity'] ?>
                                                             <li>
                                                                 <div class="dish-name">
-                                                                    <i>1.</i> <h6 itemprop="headline">{{ $details['name'] }}  X ({{$details['quantity'] }})</h6> <span class="price">₹ {{ $details['price'] }}</span>
+                                                                    <i>{{$i++}}.</i> <h6 itemprop="headline">{{ $details['name'] }}  X ({{$details['quantity'] }})</h6> <span class="price">₹ {{ $details['price'] }}</span>
                                                                 </div>
                                                                
                                                             </li>

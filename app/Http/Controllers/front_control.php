@@ -101,7 +101,8 @@ class front_control extends Controller
             $val['loc'] = Request::post('loc');
           }
         $val['method'] =Request::post('method');
-
+        $val['slottime'] =Request::post('slottime');
+        
         $order['order_amount'] =session()->get('total');
         $order['transactionid'] = rand(9,0);
         $order['order_cart'] =json_encode(session()->get('cart')); 

@@ -112,44 +112,51 @@
                                                         $deliverytime = new DateTime($date);
                                                          $hour = $deliverytime->format('H');
                                                         
-                                                         if ($hour < 11 ) { ?>
-                                                            <input type="radio" name="loc" class="card-input-element" value="" />
+                                                         if ($hour < 7 ) { ?>
+                                                          <label>
+                                                            <input type="radio" name="slottime" class="card-input-element" value="7:30 AM To 11:30 AM" />
 
-                                                            <div class="panel panel-default card-input">
-                                                              <div class="panel-heading">Slot 1 </div>
+                                                            <div class="panel panel-info card-input">
+                                                              <div class="panel-heading">Morning Slot </div>
                                                               <div class="panel-body">
-                                                               <p>7:30 AM</p> 
+                                                               <p>7:30 AM To 11:30 AM</p> 
                                                               </div>
                                                             </div>
+                                                          </label>  
+                                                        <?php } if ($hour < 11 ) { ?>
+                                                            <label>
+                                                            <input type="radio" name="slottime" class="card-input-element" value="11:30 AM To 3:30 PM" />
+
+                                                            <div class="panel panel-default card-input">
+                                                              <div class="panel-heading">Afternoon Slot </div>
+                                                              <div class="panel-body">
+                                                               <p>11:30 AM To 3:30 PM</p> 
+                                                              </div>
+                                                            </div>
+                                                            </label>
                                                         <?php } if ($hour < 15 ) { ?>
-                                                            <input type="radio" name="loc" class="card-input-element" value="" />
+                                                            <label>
+                                                            <input type="radio" name="slottime" class="card-input-element" value="3:30 PM To 7:30 PM" />
 
                                                             <div class="panel panel-default card-input">
-                                                              <div class="panel-heading">Slot 2 </div>
+                                                              <div class="panel-heading">Evening Slot </div>
                                                               <div class="panel-body">
-                                                               <p>7:30 AM</p> 
+                                                               <p>3:30 PM To 7:30 PM</p> 
                                                               </div>
                                                             </div>
-                                                        <?php } if ($hour < 18 ) { ?>
-                                                            <input type="radio" name="loc" class="card-input-element" value="" />
+                                                            </label>
+                                                        <?php } if ($hour < 19 ) { ?>
+                                                            <label>
+                                                            <input type="radio" name="slottime" class="card-input-element" value="7:30 PM To 10:00 PM" />
 
                                                             <div class="panel panel-default card-input">
-                                                              <div class="panel-heading">Slot 3 </div>
+                                                              <div class="panel-heading">Night Slot </div>
                                                               <div class="panel-body">
-                                                               <p>7:30 AM</p> 
+                                                               <p>7:30 PM To 10:00 PM</p> 
                                                               </div>
-                                                            </div>
-                                                        <?php } if ($hour < 22 ) { ?>
-                                                            <input type="radio" name="loc" class="card-input-element" value="" />
-
-                                                            <div class="panel panel-default card-input">
-                                                              <div class="panel-heading">Slot 4 </div>
-                                                              <div class="panel-body">
-                                                               <p>7:30 AM</p> 
-                                                              </div>
-                                                            </div>        
+                                                            </div> 
+                                                            </label>       
                                                          <?php } ?>
-                                                        <label>
                                                          
 
                                                         </label>
@@ -170,7 +177,7 @@
                                                         <?php $total += $details['price'] * $details['quantity'] ?>
                                                             <li>
                                                                 <div class="dish-name">
-                                                                    <i>1.</i> <h6 itemprop="headline">{{ $details['name'] }}  X ({{$details['quantity'] }})</h6> <span class="price">₹ {{ $details['price'] }}</span>
+                                                                    <i>{{$i++}}.</i> <h6 itemprop="headline">{{ $details['name'] }}  X ({{$details['quantity'] }})</h6> <span class="price">₹ {{ $details['price'] }}</span>
                                                                 </div>
                                                                
                                                             </li>
