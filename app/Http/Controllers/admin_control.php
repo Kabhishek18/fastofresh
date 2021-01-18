@@ -198,7 +198,10 @@ class admin_control extends Controller
 	    if ($user['user']) {
 	    		$cat['name'] = Request::post('name');
 	    	 	$cat['meta'] = Request::post('meta');
+	    	 	$cat['s_price'] = Request::post('s_price');
+	    	 	$cat['b_price'] = Request::post('b_price');
 	    	 	$cat['parent_id'] = Request::post('parent_id');
+	    	 	$cat['information'] = Request::post('information');
 	    	 	$cat['short_descrip'] = Request::post('short_descrip');
 	    	 	$cat['description'] = Request::post('description');
 	    	 	$cat['status'] = Request::post('status');

@@ -68,7 +68,7 @@
                                                     <div class="form-check" >
                                                       <input class="form-check-input" type="checkbox" name="locationadd" id="locationcheck" value="work" style="display: contents;">
                                                       <label class="form-check-label" for="locationcheck" style="font-size: x-large">
-                                                        <i class="fa fa-plus-circle" aria-hidden="true"></i>  <i class="fa fa-map-marker" aria-hidden="true"></i> Add New Location 
+                                                        <i class="fa fa-plus-circle" aria-hidden="true"></i>  <i class="fa fa-map-marker" aria-hidden="true"></i> <u>Add New Location </u>
                                                       </label>
                                                     </div>
                                                 </div>
@@ -105,7 +105,56 @@
                                                     </div>
                                                  
                                                 </div>
-                                           
+                                                <div class="col-md-12 col-sm-12">
+                                                    <h4><u>Check You Time Slots</u></h4>
+                                                     <div class="col-md-4 col-lg-4 col-sm-4">
+                                                        <?php $date =date('y-m-d H:i:s');
+                                                        $deliverytime = new DateTime($date);
+                                                         $hour = $deliverytime->format('H');
+                                                        
+                                                         if ($hour < 11 ) { ?>
+                                                            <input type="radio" name="loc" class="card-input-element" value="" />
+
+                                                            <div class="panel panel-default card-input">
+                                                              <div class="panel-heading">Slot 1 </div>
+                                                              <div class="panel-body">
+                                                               <p>7:30 AM</p> 
+                                                              </div>
+                                                            </div>
+                                                        <?php } if ($hour < 15 ) { ?>
+                                                            <input type="radio" name="loc" class="card-input-element" value="" />
+
+                                                            <div class="panel panel-default card-input">
+                                                              <div class="panel-heading">Slot 2 </div>
+                                                              <div class="panel-body">
+                                                               <p>7:30 AM</p> 
+                                                              </div>
+                                                            </div>
+                                                        <?php } if ($hour < 18 ) { ?>
+                                                            <input type="radio" name="loc" class="card-input-element" value="" />
+
+                                                            <div class="panel panel-default card-input">
+                                                              <div class="panel-heading">Slot 3 </div>
+                                                              <div class="panel-body">
+                                                               <p>7:30 AM</p> 
+                                                              </div>
+                                                            </div>
+                                                        <?php } if ($hour < 22 ) { ?>
+                                                            <input type="radio" name="loc" class="card-input-element" value="" />
+
+                                                            <div class="panel panel-default card-input">
+                                                              <div class="panel-heading">Slot 4 </div>
+                                                              <div class="panel-body">
+                                                               <p>7:30 AM</p> 
+                                                              </div>
+                                                            </div>        
+                                                         <?php } ?>
+                                                        <label>
+                                                         
+
+                                                        </label>
+                                                    </div>
+                                                </div>    
                                             </div>
                                         </div>
                                         <div class="col-md-4 col-sm-12 col-lg-4">

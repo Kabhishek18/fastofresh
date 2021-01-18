@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+date_default_timezone_set("Asia/Calcutta");
 use Request;
 use File;
 use App\front_model;
@@ -43,7 +43,8 @@ class front_control extends Controller
 
    //Product Detail
    public function productDetail($name ="")
-   {
+   {  
+      $var['cart'] = session()->get('cart');
       $var['product'] =front_model::getProductname($name);
       echo view('front/inc/header');
        echo view('front/inc/nav');

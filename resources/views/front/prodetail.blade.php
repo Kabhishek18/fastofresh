@@ -24,18 +24,18 @@ input.qtyminus { width:25px; height:25px;}
                             
                                 <div class="sec-wrapper">
                                     <div class="row">
-                                        <div class="col-md-8 col-sm-12 col-lg-8">
+                                        <div class="<?=(!empty($cart)?'col-md-8':'col-md-12')?> col-sm-12 col-lg-8">
                                             <div class="restaurant-detail-wrapper">
                                                 <div class="restaurant-detail-info">
                                                     <div class="restaurant-detail-thumb">
                                                         <ul class="restaurant-detail-img-carousel">
-                                                            <li><img class="brd-rd3" src="{{$product->image}}" alt="{{$product->image}}" itemprop="image"></li>
-                                                            <li><img class="brd-rd3" src="{{$product->image}}" alt="{{$product->image}}" itemprop="image"></li>
+                                                            <li><img class="brd-rd3" src="{{url('')}}/products/{{$product->image}}" alt="{{$product->image}}" itemprop="image"></li>
+                                                            <li><img class="brd-rd3" src="{{$product->image}}" alt="{{url('')}}/products/{{$product->image}}" itemprop="image"></li>
                                                             
                                                         </ul>
                                                         <ul class="restaurant-detail-thumb-carousel">
-                                                            <li><img class="brd-rd3" src="{{$product->image}}" alt="{{$product->image}}" itemprop="image"></li>
-                                                            <li><img class="brd-rd3" src="{{$product->image}}" alt="{{$product->image}}" itemprop="image"></li>
+                                                            <li><img class="brd-rd3" src="{{url('')}}/products/{{$product->image}}" alt="{{$product->image}}" itemprop="image"></li>
+                                                            <li><img class="brd-rd3" src="{{url('')}}/products/{{$product->image}}" alt="{{$product->image}}" itemprop="image"></li>
                                                             
                                                         </ul>
                                                     </div>
@@ -48,7 +48,7 @@ input.qtyminus { width:25px; height:25px;}
                                                        
                                                         <div class="popular-dish-info">
                                                            <div class="col-md-6 col-sm-12 col-lg-6 ">
-                                                                <span class="price">MRP: ₹ 456 </span>
+                                                                <span class="price">MRP: ₹ {{$product->s_price}} </span>
                                                            </div> 
                                                             
                                                             <div class="col-md-6 col-sm-12 col-lg-6 ">
@@ -70,11 +70,11 @@ input.qtyminus { width:25px; height:25px;}
                                                         </ul>
                                                         <div class="tab-content">
                                                             <div class="tab-pane fade in active" id="tab1-1">
-                                                              Description
+                                                              {{strip_tags(html_entity_decode($product->description))}}
 
                                                             </div>
                                                             <div class="tab-pane fade in" id="tab1-2">
-                                                                Information
+                                                                {{strip_tags(html_entity_decode($product->information))}}
 
                                                             </div>
                                                         </div>
@@ -82,14 +82,15 @@ input.qtyminus { width:25px; height:25px;}
                                                 </div>
                                             </div>
                                         </div>
+                                        
+                                         @if($cart)               
                                         <div class="col-md-4 col-sm-12 col-lg-4">
                                             <div class="order-wrapper wow fadeIn" data-wow-delay="0.2s">
                                                 <div class="order-inner gradient-brd">
                                                     <h4 itemprop="headline">Your Order</h4>
                                                     <div class="order-list-wrapper">
                                                         <ul class="order-list-inner">
-                                                        <?php $cart = session()->get('cart');
-                                                        ?>
+                                                        
                                                         <?php $i =1;$total = 0 ;?>
                                                         @foreach($cart as $id => $details)
                                                         <?php $total += $details['price'] * $details['quantity'] ?>
@@ -114,6 +115,7 @@ input.qtyminus { width:25px; height:25px;}
                                                 </div>
                                             </div>
                                         </div>
+                                        @endif
                                     </div>
                                 </div>
                             </div>

@@ -7,7 +7,41 @@
 }
 input.qtyplus { width:25px; height:25px;}
 input.qtyminus { width:25px; height:25px;}
+.parent {
+  overflow: hidden; /* required */
+  margin: 25px auto; /* for demo only */
+  position: relative; /* required  for demo*/
+}
 
+.ribbon {
+  margin: 0;
+  padding: 0;
+  background: rebeccapurple;
+  color:white;
+  padding:1em 0;
+  position: absolute;
+  top:0;
+  right:0;
+  transform: translateX(30%) translateY(0%) rotate(45deg);
+  transform-origin: top left;
+}
+.ribbon:before,
+.ribbon:after {
+  content: '';
+  position: absolute;
+  top:0;
+  margin: 0 -1px; /* tweak */
+  width: 100%;
+  height: 100%;
+  background: rebeccapurple;
+}
+.ribbon:before {
+  right:100%;
+}
+
+.ribbon:after {
+  left:100%;
+}
 </style>
   
         <section>
@@ -37,20 +71,27 @@ input.qtyminus { width:25px; height:25px;}
                                                 <div class="row">
                                                 
                                                  <!-- Product Shuffling -->
+                                                 <?php $i=1;?>
                                                  @foreach ($products as $product)
                                                 
                                                  <div class="col-md-4 col-sm-6 col-lg-4">
                                                  {{ Form::open(array('url' => 'cartadd')) }}
                                                  @csrf
                                                  <input type="hidden" name="pid" value="{{$product->id}}">
-                                                    <div class="popular-dish-box style2 wow fadeIn" data-wow-delay="0.2s">
+                                                    <div class="popular-dish-box  parent style1 wow fadeIn" data-wow-delay="0.{{$i++}}s">
                                                         <div class="popular-dish-thumb">
-                                                            <a href="{{url('product').'/'.$product->name}}" title="" itemprop="url"><img src="{{$product->image}}" alt="popular-dish-img1.jpg" itemprop="image"></a>
-                                                            <span class="post-rate yellow-bg brd-rd2"><i class="fa fa-star yellow-clr"></i> 4.25</span>
+                                                            <a href="{{url('product').'/'.$product->name}}" title="" itemprop="url"><img src="{{url('')}}/products/{{$product->image}}" alt="popular-dish-img1.jpg" itemprop="image"></a>
+                                                           <h4 class="ribbon">@if($product->b_price)
+                                                            Discount
+                                                            {{number_format(($product->b_price-$product->s_price)/$product->b_price *100)}}
+                                                            <i class="fa fa-percent"></i> 
+                                                            
+                                                            @endif</h4>
+                                                            
                                                         </div>
                                                         <div class="popular-dish-info">
                                                             <h4 itemprop="headline"><a href="{{url('product').'/'.$product->name}}" title="" itemprop="url">{{$product->name}}</a></h4>
-                                                            <p itemprop="description">{{$product->short_descrip}}</p>
+                                                            <p>{{strip_tags(html_entity_decode($product->short_descrip))}}</p>
                                                             <span class="price">MRP: ₹ 
                                                             @if($product->b_price)
                                                             <del>{{$product->b_price}}</del>

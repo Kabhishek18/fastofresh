@@ -26,7 +26,13 @@
                                 <ul class="restaurants-wrapper style2">
 									<?php ?>
                                     @foreach($categories as $category)
-									<li class="wow bounceIn" data-wow-delay="0.2s"><div class="top-restaurant"><a class="brd-rd50" href="category/{{$category->name}}" title="Restaurant 1" itemprop="url"><img src="{{$category->image}}" alt="top-restaurant1.png" itemprop="image"></a></div></li>
+									<li class="wow bounceIn" data-wow-delay="0.2s"><div class="top-restaurant"><a class="brd-rd50" href="category/{{$category->name}}" title="Restaurant 1" itemprop="url"><img src="{{url('')}}/categories/{{$category->image}}" alt="{{$category->image}}" itemprop="image">
+                                    <div class="text-info" style="margin-top: -15%;">
+                                        <h4>{{$category->name}}</h4>
+                                    </div>
+                                    </a>
+                                    </div>
+                                    </li>
 									@endforeach
 							   </ul>
                             </div>

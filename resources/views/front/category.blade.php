@@ -54,7 +54,7 @@
                                                     <div class="col-md-4 col-sm-4 col-lg-4">
                                                         <div class="featured-restaurant-box with-bg style2 brd-rd12 wow fadeIn" data-wow-delay="0.2s">
                                                             <div class="featured-restaurant-thumb">
-                                                                <a href="<?=URL::to('/');?>/category/{{$category->name}}" title="" itemprop="url"><img src="{{$category->image}}" alt="{{$category->image}}" itemprop="image"></a>
+                                                                <a href="<?=URL::to('/');?>/category/{{$category->name}}" title="" itemprop="url"><img src="{{url('')}}/categories/{{$category->image}}" alt="{{$category->image}}" itemprop="image"></a>
                                                             </div>
                                                             <div class="featured-restaurant-info">
                                                                 <!-- <span class="red-clr">5th Avenue New York 68</span> -->

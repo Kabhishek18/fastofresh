@@ -155,7 +155,7 @@
                                                 </div>
                                                 <div class="col-sm-2">
                                                      @if(!empty($datalist->image))
-                                                <img src="{{url('')}}/Products/{{$datalist->image}}" width="100px">
+                                                <img src="{{url('')}}/products/{{$datalist->image}}" width="100px">
                                                 @endif
                                                 </div>
                                                 <div class="col-sm-12">
