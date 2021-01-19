@@ -25,7 +25,7 @@ class front_model extends Model
         }
         else{
           $array =array('status' => 'active');
-        $value=DB::table('categories')where($array)->->orderBy('id', 'asc')->get();
+        $value=DB::table('categories')->where($array)->orderBy('id', 'asc')->get();
         }
         return $value;
       }  
