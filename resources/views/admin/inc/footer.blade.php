@@ -9,7 +9,13 @@
     <script src="{{url('')}}/resource/app-assets/vendors/js/vendors.min.js"></script>
     <!-- BEGIN Vendor JS-->
 
-
+<script type="text/javascript">
+    $.ajaxSetup({
+    headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+    });
+</script>
     <!-- BEGIN: Page Vendor JS-->
     <script src="{{url('')}}/resource/app-assets/vendors/js/tables/datatable/pdfmake.min.js"></script>
     <script src="{{url('')}}/resource/app-assets/vendors/js/tables/datatable/vfs_fonts.js"></script>

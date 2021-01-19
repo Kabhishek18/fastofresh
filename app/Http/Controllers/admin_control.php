@@ -55,7 +55,69 @@ class admin_control extends Controller
 	    return redirect('laravel-admin');
 	}
 
-	
+	public function Homelist()
+    {
+    	$user['user'] = session()->get('admin_session');
+	    if ($user['user']) {
+	   	$user['popular'] =admin_model::getHomeList(1);
+	   		
+	   	foreach (json_decode($user['popular']->description) as $value) {
+
+	   	    $user['popularproduct'][] = admin_model::getProduct(number_format($value));
+	   	}
+
+	   	$user['best'] =admin_model::getHomeList(2);
+    	foreach (json_decode($user['best']->description) as $value) {
+
+	   	    $user['bestproduct'][] = admin_model::getProduct(number_format($value));
+	   	}
+
+   		$user['suggest'] =admin_model::getHomeList(3);
+	   		
+	   	foreach (json_decode($user['suggest']->description) as $value) {
+
+	   	    $user['suggestproduct'][] = admin_model::getProduct(number_format($value));
+	   	}
+    	$user['products'] =admin_model::getProduct();
+
+	   		echo view('admin/inc/header');
+		    echo view('admin/home_list',$user);
+		    echo view('admin/inc/footer');
+	    }
+	    else{
+	       session()->flash('warning', 'Access Denied');
+	      return redirect('laravel-admin');
+	    }
+    }
+
+    public function HomelistInsert()
+    {
+    	$user['user'] = session()->get('admin_session');
+	    if ($user['user']) {
+	   		if(Request::post('id'))
+	   		{
+	   			$value['id'] =Request::post('id');
+	   			$description =Request::post('popular');
+	   			$value['description'] =json_encode($description);
+	   			$value['updated_at'] =date('y-m-d h:i:s');
+	    		$update=admin_model::Updatehome_list($value);
+	    		if($update)
+	    		{
+	    			return redirect()->back()->with('success', 'Update Successfully');
+	    		}
+	    		else{
+	    			return redirect()->back()->with('warning', 'Something Misfortune Happen');
+	    		}
+	   		}
+	   		else{
+	   			return redirect()->back()->with('warning', 'Error Happen');
+	   		}
+	    }
+	    else{
+	       session()->flash('warning', 'Access Denied');
+	      return redirect('laravel-admin');
+	    }
+    }
 	//Category view  
     public function Category()
     {
@@ -65,6 +127,24 @@ class admin_control extends Controller
 	      echo view('admin/inc/header');
 	      echo view('admin/category',$user);
 	      echo view('admin/inc/footer');
+	    	}
+	    else{
+	       session()->flash('warning', 'Access Denied');
+	      return redirect('laravel-admin');
+	    }
+    }
+	//Category delete  
+    public function CategoryDelete($id)
+    {
+    	$user['user'] = session()->get('admin_session');
+	    if ($user['user']) {
+	    		$delete =admin_model::CategoryDelete($id);
+	    		if($delete){
+	    			return redirect()->back()->with('success', 'Updated succes');
+	    		}
+	    		else{
+	    			return redirect()->back()->with('warning', 'Update Failure');
+	    		}
 	    	}
 	    else{
 	       session()->flash('warning', 'Access Denied');
@@ -111,7 +191,7 @@ class admin_control extends Controller
 		              $file = Request::file('image');
 		              $path = public_path().'/categories';
 		              if(!File::isDirectory($path)){
-		                File::makeDirectory($path, 0777, true, true);
+		                File::makeDirectory($path, 0755, true, true);
 		              }
 		              $cat['image'] = Request::file('image')->getClientOriginalName();
 		              Request::file('image')->move($path,$cat['image']);
@@ -123,7 +203,7 @@ class admin_control extends Controller
 	    	 	$cat['id'] = Request::post('id');
 	    	 	$value =admin_model::UpdateCategory($cat);
 	    	 	if ($value) {
-	    	 		return redirect()->back()->with('succes', 'Updated succes');
+	    	 		return redirect()->back()->with('success', 'Updated succes');
 	    	 	}
 	    	 	else{
 	    	 		 return redirect()->back()->with('warning', 'Failed To Add!');
@@ -133,7 +213,7 @@ class admin_control extends Controller
 	    	 	$cat['created_at'] = date('y-m-d h:i:s');
 	    	 	$value =admin_model::CreateCategory($cat);
 	    	 	if ($value) {
-	    	 		return redirect()->back()->with('succes', 'Added succes');
+	    	 		return redirect()->back()->with('success', 'Added succes');
 	    	 	}
 	    	 	else{
 	    	 		 return redirect()->back()->with('warning', 'Failed To Add!');
@@ -165,6 +245,24 @@ class admin_control extends Controller
 	    }
     }
 
+    //Product delete  
+    public function ProductDelete($id)
+    {
+    	$user['user'] = session()->get('admin_session');
+	    if ($user['user']) {
+	    		$delete =admin_model::ProductDelete($id);
+	    		if($delete){
+	    			return redirect()->back()->with('success', 'Updated succes');
+	    		}
+	    		else{
+	    			return redirect()->back()->with('warning', 'Update Failure');
+	    		}
+	    	}
+	    else{
+	       session()->flash('warning', 'Access Denied');
+	      return redirect('laravel-admin');
+	    }
+    }
     //ProductAdd 
 	public function ProductAdd($id ='')
     {
@@ -212,7 +310,7 @@ class admin_control extends Controller
 		              $file = Request::file('image');
 		              $path = public_path().'/products';
 		              if(!File::isDirectory($path)){
-		                File::makeDirectory($path, 0777, true, true);
+		                File::makeDirectory($path, 0755, true, true);
 		              }
 		              $cat['image'] = Request::file('image')->getClientOriginalName();
 		              Request::file('image')->move($path,$cat['image']);
@@ -282,5 +380,118 @@ class admin_control extends Controller
 	    }
     }
 
+
+
+   //Category view  
+    public function Blog()
+    {
+    	$user['user'] = session()->get('admin_session');
+	    if ($user['user']) {
+	    	$user['blogs'] =admin_model::getBlog();
+	      echo view('admin/inc/header');
+	      echo view('admin/blog',$user);
+	      echo view('admin/inc/footer');
+	    	}
+	    else{
+	       session()->flash('warning', 'Access Denied');
+	      return redirect('laravel-admin');
+	    }
+    }
+	//Category delete  
+    public function BlogDelete($id)
+    {
+    	$user['user'] = session()->get('admin_session');
+	    if ($user['user']) {
+	    		$delete =admin_model::BlogDelete($id);
+	    		if($delete){
+	    			return redirect()->back()->with('success', 'Updated succes');
+	    		}
+	    		else{
+	    			return redirect()->back()->with('warning', 'Update Failure');
+	    		}
+	    	}
+	    else{
+	       session()->flash('warning', 'Access Denied');
+	      return redirect('laravel-admin');
+	    }
+    }
+
+    //Category Add
+	public function BlogAdd($id ='')
+    {
+    	$user['user'] = session()->get('admin_session');
+	    if ($user['user']) {
+	    	echo view('admin/inc/header');
+	    	if($id){
+	    		$user['datalist'] =admin_model::getBlog($id);
+			    echo view('admin/blogadd',$user);
+			  	
+	    	}
+	    	else{
+			    echo view('admin/blogadd',$user);
+	    		
+	    	}
+	    	  echo view('admin/inc/footer');
+	    }
+	    else{
+	       session()->flash('warning', 'Access Denied');
+	      return redirect('laravel-admin');
+	    }
+    }
+
+    public function BlogInsert(Request $request)
+    {
+    	$user['user'] = session()->get('admin_session');
+	    if ($user['user']) {
+	    	 	$cat['author'] = Request::post('author');
+	    	 	$cat['meta'] = Request::post('meta');
+	    	 	$cat['email'] = Request::post('email');
+	    	 	$cat['title'] = Request::post('title');
+	    	 	$cat['subtitle'] = Request::post('subtitle');
+	    	 	$cat['short_descrip'] = Request::post('short_descrip');
+	    	 	$cat['description'] = Request::post('description');
+	    	 	$cat['status'] = Request::post('status');
+	    	 	$cat['updated_at'] = date('y-m-d h:i:s');
+	    	 	//Image Checking while uploading 
+			 	 if (Request::hasFile('image'))
+		          {
+		              $file = Request::file('image');
+		              $path = public_path().'/blogs';
+		              if(!File::isDirectory($path)){
+		                File::makeDirectory($path, 0755, true, true);
+		              }
+		              $cat['image'] = Request::file('image')->getClientOriginalName();
+		              Request::file('image')->move($path,$cat['image']);
+		          }
+
+
+
+	    	 if(Request::post('id')){
+	    	 	$cat['id'] = Request::post('id');
+	    	 	$value =admin_model::UpdateBlog($cat);
+	    	 	if ($value) {
+	    	 		return redirect()->back()->with('success', 'Updated succes');
+	    	 	}
+	    	 	else{
+	    	 		 return redirect()->back()->with('warning', 'Failed To Add!');
+	    	 	}	
+	    	 }
+	    	 else{
+	    	 	$cat['created_at'] = date('y-m-d h:i:s');
+	    	 	$value =admin_model::CreateBlog($cat);
+	    	 	if ($value) {
+	    	 		return redirect()->back()->with('success', 'Added succes');
+	    	 	}
+	    	 	else{
+	    	 		 return redirect()->back()->with('warning', 'Failed To Add!');
+	    	 	}
+	    	 }
+
+
+		}else{
+	       session()->flash('warning', 'Access Denied');
+	      return redirect('laravel-admin');
+	    }
+    } 
 
 }

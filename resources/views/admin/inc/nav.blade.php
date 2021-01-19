@@ -55,7 +55,9 @@
         <div class="main-menu-content">
             <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
 
-                <li class=" nav-item "><a href="{{url('laravel-admin/dashboard')}}"><i class="feather icon-home"></i><span class="menu-title" data-i18n="Dashboard">Dashboard</span></a>
+                <li class=" nav-item  "><a href="{{url('laravel-admin/dashboard')}}"><i class="feather icon-book"></i><span class="menu-title" data-i18n="Dashboard">Dashboard</span></a>
+                </li>
+                <li class=" nav-item "><a href="{{url('laravel-admin/home_list')}}"><i class="feather icon-home"></i><span class="menu-title" data-i18n="Dashboard">HomeList</span></a>
                 </li>
                 <li class=" navigation-header"><span>Category,Subcategory</span>
 
@@ -76,7 +78,8 @@
                <li class=" nav-item "><a href="{{url('laravel-admin/coupon')}}"><i class="feather icon-feather"></i><span class="menu-title" data-i18n="Dashboard">Coupons </span></a>
                 </li> 
                 
-
+                 <li class=" nav-item  "><a href="{{url('laravel-admin/blog')}}"><i class="feather icon-book"></i><span class="menu-title" data-i18n="Dashboard">Blog</span></a>
+                </li>
 
             </ul>
         </div>

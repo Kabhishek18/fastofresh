@@ -78,9 +78,6 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                  @foreach()
-
-                                                  @endforeach
                                                         
                                                 </tbody>
                                                 <tfoot>

@@ -17,12 +17,12 @@ class Products extends Migration
             $table->id();
             $table->string('name');
             $table->bigInteger('parent_id');
-            $table->text('short_descrip');
-            $table->text('description');
-            $table->text('image');
+            $table->text('short_descrip')->nullable();
+            $table->text('description')->nullable();
+            $table->text('image')->nullable();
             $table->bigInteger('s_price');
-            $table->bigInteger('b_price');
-            $table->text('information');
+            $table->bigInteger('b_price')->nullable();
+            $table->text('information')->nullable();
             $table->enum('status', ['active', 'inactive']);
             $table->text('meta')->nullable();
             $table->timestamps();

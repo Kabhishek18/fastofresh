@@ -1223,7 +1223,7 @@ header.sticky nav > div > ul > li span {font-size: 11px;}
   width: 100%;
 }
 .top-restaurant > a {
-    background-color: #f5f5f5;
+   /* background-color: #f5f5f5;*/
     display: inline-block;
     height: 155px;
     line-height: 155px;
@@ -1232,7 +1232,7 @@ header.sticky nav > div > ul > li span {font-size: 11px;}
 }
 
 .restaurants-wrapper > li:nth-child(2n) a {
-    background: #fcfcfc none repeat scroll 0 0;
+    /*background: #fcfcfc none repeat scroll 0 0;*/
 }
 
 .restaurants-wrapper.style2 .top-restaurant > a {

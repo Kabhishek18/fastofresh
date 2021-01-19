@@ -9,6 +9,7 @@
     <meta name="description" content="kabhishek18@admin template">
     <meta name="keywords" content="Web App ">
     <meta name="author" content="Kabhishek18">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Admin Panel  </title>
     <link rel="apple-touch-icon" href="{{url('')}}/resource/app-assets/images/ico/apple-icon-120.png">
     <link rel="shortcut icon" type="image/x-icon" href="{{url('')}}/resource/app-assets/images/ico/favicon.ico">

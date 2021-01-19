@@ -18,9 +18,9 @@ class Categories extends Migration
             $table->id();
             $table->string('name');
             $table->bigInteger('parent_id')->default(0);
-            $table->text('short_descrip');
-            $table->text('description');
-            $table->text('image');
+            $table->text('short_descrip')->nullable();
+            $table->text('description')->nullable();
+            $table->text('image')->nullable();
             $table->enum('status', ['active', 'inactive']);
             $table->text('meta')->nullable();
             $table->timestamps();

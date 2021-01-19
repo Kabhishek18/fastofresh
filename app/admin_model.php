@@ -31,7 +31,12 @@ class admin_model extends Model
     return $value;
   }
 
-
+  public static function getHomeList($id){
+      $array =array('id' => $id);
+      $value=DB::table('home_list')->where($array)->first();
+      
+      return $value;
+    }  
   //UPdate
 
   //UPdate Caegories
@@ -41,7 +46,12 @@ class admin_model extends Model
     return $value;
   }
 
-
+//UPdate Home list
+  public static function Updatehome_list($array)
+  {
+    $value = DB::table('home_list')->where('id',$array['id'])->update($array);
+    return $value;
+  }
 
 
 
@@ -102,5 +112,52 @@ class admin_model extends Model
       }
       return $value;
     }  
+  
+  public static function CategoryDelete($array)
+  {
+    $value= DB::delete('delete from categories  where id =?',[$array]);
+    return $value;
+  }
+
+   public static function ProductDelete($array)
+  {
+    $value= DB::delete('delete from products  where id =?',[$array]);
+    return $value;
+  }
+
+
+  //Blog
+  //Category By Id  
+  public static function getBlog($id= ''){
+      if($id){
+        $array =array('id' => $id);
+      $value=DB::table('blogs')->where($array)->orderBy('created_at', 'desc')->first();
+      }
+      else{
+      $value=DB::table('blogs')->orderBy('created_at', 'desc')->get();
+      }
+      return $value;
+    }  
+
+  //Add Blog
+  public static function CreateBlog($array)
+  {
+    $value = DB::table('blogs')->insert($array);
+    return $value;
+  }
+
+
+  //UPdate Blog
+  public static function UpdateBlog($array)
+  {
+    $value = DB::table('blogs')->where('id',$array['id'])->update($array);
+    return $value;
+  }
+
+   public static function BlogDelete($array)
+  {
+    $value= DB::delete('delete from blogs  where id =?',[$array]);
+    return $value;
+  }
 
 }

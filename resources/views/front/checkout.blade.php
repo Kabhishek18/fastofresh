@@ -1,24 +1,4 @@
-<style type="text/css">
-    
-.card-input-element {
-    display: none;
-}
-
-.card-input {
-    margin: 10px;
-    padding: 00px;
-}
-
-.card-input:hover {
-    cursor: pointer;
-}
-
-.card-input-element:checked + .card-input {
-     box-shadow: 0 0 1px 1px #2ecc71;
- }
-
-
-</style>       
+      
         <section>
             <div class="gray-bg">
             @include('../status')
@@ -217,7 +197,5 @@
      
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script type="text/javascript">
-    
-</script>
+
 <script src="{{url('assets/js/custom.js')}}"></script>

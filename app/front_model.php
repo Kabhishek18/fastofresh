@@ -7,7 +7,16 @@ use Illuminate\Database\Eloquent\Model;
 class front_model extends Model
 {
    
-    
+    public static function getBlog($id= ''){
+      if($id){
+        $array =array('id' => $id,'status' =>'active');
+      $value=DB::table('blogs')->where($array)->orderBy('created_at', 'desc')->first();
+      }
+      else{
+      $value=DB::table('blogs')->orderBy('created_at', 'desc')->get();
+      }
+      return $value;
+    }  
     //Category By Id  
     public static function getCategory($id= ''){
         if($id){
@@ -15,10 +24,19 @@ class front_model extends Model
         $value=DB::table('categories')->where($array)->orderBy('id', 'asc')->first();
         }
         else{
-        $value=DB::table('categories')->orderBy('id', 'asc')->get();
+          $array =array('status' => 'active');
+        $value=DB::table('categories')where($array)->->orderBy('id', 'asc')->get();
         }
         return $value;
       }  
+
+    public static function getHomeList($id){
+      $array =array('id' => $id);
+      $value=DB::table('home_list')->where($array)->first();
+      
+      return $value;
+    }    
+
     // Category By name
     public static function getCategoryName($id= ''){
         if($id){
@@ -42,6 +60,16 @@ class front_model extends Model
         }
         return $value;
       }
+
+      //Produc by id  
+    public static function getProductlike($id){
+        if($id){
+        $value=DB::table('products')->where('name','like',$id.'%')->orderBy('name', 'asc')->get();
+        }
+      
+        return $value;
+      }
+        
     //Produc by Name  
     public static function getProductname($id= ''){
       if($id){

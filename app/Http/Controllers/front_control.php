@@ -11,68 +11,96 @@ use PHPMailerPHPMailerException;
 class front_control extends Controller
 {
     //Home Page
-   public function index()
-   {
+  public function index()
+  {
       $categories['categories'] = front_model::getCategory();
+      $popular =front_model::getHomeList(1);
+        
+      foreach (json_decode($popular->description) as $value) {
+
+          $categories['popular'][] = front_model::getProduct(number_format($value));
+      }
+
+      $best =front_model::getHomeList(2);
+      foreach (json_decode($best->description) as $value) {
+
+          $categories['best'][] = front_model::getProduct(number_format($value));
+      }
+      $categories['blogs'] = front_model::getBlog();
+
       echo view('front/inc/header');
       echo view('front/inc/nav');
       echo view('front/index',$categories);
       echo view('front/inc/footer');
-   }
+  }
 
    //Categories
-   public function categories()
-   {  
+  public function categories()
+  {  
       $var['categories'] =front_model::getCategory();
       echo view('front/inc/header');
       echo view('front/inc/nav');
       echo view('front/category',$var);
       echo view('front/inc/footer');
-   }
+  }
 
    //Categories Products
-   public function products($name ="")
-   {  
+  public function products($name ="")
+  {  
       $var['category'] =front_model::getCategoryName($name);
       $var['products'] =front_model::GetCatPro($var['category']->id);
        echo view('front/inc/header');
        echo view('front/inc/nav');
        echo view('front/product',$var);
        echo view('front/inc/footer');
-   }
+  }
+
+   //Prdouct via Seach
+  public function productSearch(Request $request)
+  {
+        $query = Request::post('query');
+       $products =front_model::getProductlike($query);
+       return json_decode($products); 
+  }
+
+  public function Search(Request $request)
+  {
+        $query = Request::post('product');
+        return redirect('product/'.$query);
+  }
 
    //Product Detail
-   public function productDetail($name ="")
-   {  
-      $var['cart'] = session()->get('cart');
-      $var['product'] =front_model::getProductname($name);
-      echo view('front/inc/header');
-       echo view('front/inc/nav');
-       echo view('front/prodetail',$var);
-       echo view('front/inc/footer');
-   }
-   //checkout
-
-   public function checkout()
-   {
-      $cart['cart'] = session()->get('cart');
-      if($cart['cart']){
-        $user['user'] = session()->get('user_session');
-        if($user['user']){
-          $cart['locations'] =front_model::getLocationUid($user['user']->id);
-          echo view('front/inc/header');
-          echo view('front/inc/nav');
-          echo view('front/checkout',$cart);
-          echo view('front/inc/footer');
-        }
-        else{
-          return redirect()->back()->with('warning', 'Please login for checkout');
-        }
+  public function productDetail($name ="")
+  {  
+    $var['cart'] = session()->get('cart');
+    $var['product'] =front_model::getProductname($name);
+    echo view('front/inc/header');
+     echo view('front/inc/nav');
+     echo view('front/prodetail',$var);
+     echo view('front/inc/footer');
+  }
+  
+  //checkout
+  public function checkout()
+  {
+    $cart['cart'] = session()->get('cart');
+    if($cart['cart']){
+      $user['user'] = session()->get('user_session');
+      if($user['user']){
+        $cart['locations'] =front_model::getLocationUid($user['user']->id);
+        echo view('front/inc/header');
+        echo view('front/inc/nav');
+        echo view('front/checkout',$cart);
+        echo view('front/inc/footer');
       }
       else{
-          return redirect('')->with('success', 'Empty Cart');
+        return redirect()->back()->with('warning', 'Please login for checkout');
       }
-   }
+    }
+    else{
+        return redirect('')->with('success', 'Empty Cart');
+    }
+  }
 
   public function payment(Request $request)
   {
@@ -121,8 +149,7 @@ class front_control extends Controller
         }
     else{
           return redirect()->back()->with('warning', 'Please login for checkout');
-      }
-    
+      }  
   }
 
   //Login  
@@ -254,13 +281,22 @@ class front_control extends Controller
     }
   }
 
-  //Dashboard
+  //Logout
   public function Logout($value='')
   {
     session()->flush('user_session');
     return redirect('');
   }
 
+  public function BlogDetail($value='')
+  {
+    dd($value);
+    $var['product'] =front_model::getProductname($name);
+    echo view('front/inc/header');
+     echo view('front/inc/nav');
+     echo view('front/blogdetail',$var);
+     echo view('front/inc/footer');
+  }
   public function sendEmail (Request $request) {
     
     // is method a POST ?

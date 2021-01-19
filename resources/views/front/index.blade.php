@@ -8,8 +8,12 @@
                     <div class="restaurant-searching-inner">
 						<span>Delicious <i>Product</i> </span>
                         <h2 itemprop="headline">Order Delivery & Take-Out</h2>
-                        <form class="restaurant-search-form2 brd-rd30">
-                            <input class="brd-rd30" type="text" placeholder="Search for any delicious product">
+                        <form class="restaurant-search-form2 brd-rd30" action="{{url('')}}/search" method="post">
+                            @csrf
+                            <input class="brd-rd30" id="search_text" type="text" name="product" placeholder="Search for any delicious product"  list="browsers">
+                           <datalist class="searchspecial" id="browsers">
+                               
+                              </datalist>
                             <button class="brd-rd30 red-bg" type="submit">SEARCH</button>
                         </form>
                     </div>
@@ -27,7 +31,7 @@
 									<?php ?>
                                     @foreach($categories as $category)
 									<li class="wow bounceIn" data-wow-delay="0.2s"><div class="top-restaurant"><a class="brd-rd50" href="category/{{$category->name}}" title="Restaurant 1" itemprop="url"><img src="{{url('')}}/categories/{{$category->image}}" alt="{{$category->image}}" itemprop="image">
-                                    <div class="text-info" style="margin-top: -15%;">
+                                    <div class="text-default" style="text-transform: uppercase">
                                         <h4>{{$category->name}}</h4>
                                     </div>
                                     </a>
@@ -83,51 +87,47 @@
                             </div>
                             <div class="remove-ext">
                                 <div class="row">
+                                	<?php $i=1;?>
+                                   @foreach($popular as $product)
                                     <div class="col-md-4 col-sm-6 col-lg-4">
-                                        <div class="popular-dish-box style2 wow fadeIn" data-wow-delay="0.2s">
-                                            <div class="popular-dish-thumb">
-                                                <a href="food-detail.html" title="" itemprop="url"><img src="{{ url('assets/images/resource/Img1.webp') }}" alt="popular-dish-img1.jpg" itemprop="image"></a>
-                                                <span class="post-rate yellow-bg brd-rd2"><i class="fa fa-star yellow-clr"></i> 4.25</span>
-                                            </div>
-                                            <div class="popular-dish-info">
-                                                <h4 itemprop="headline"><a href="food-detail.html" title="" itemprop="url">Chicken Curry Cut (Small Pcs)</a></h4>
-                                                <p itemprop="description">Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
-                                                <span class="price">MRP: ₹ 135</span>
-                                                <a class="brd-rd4 " href="food-detail.html" title="Order Now" itemprop="url">ADD TO CART</a>
-                                               
-                                            </div>
-                                        </div><!-- Popular Dish Box -->
-                                    </div>
-                                    <div class="col-md-4 col-sm-6 col-lg-4">
-                                        <div class="popular-dish-box style2 wow fadeIn" data-wow-delay="0.4s">
-                                            <div class="popular-dish-thumb">
-                                                <a href="food-detail.html" title="" itemprop="url"><img src="{{ url('assets/images/resource/Img2.webp') }}" alt="popular-dish-img2.jpg" itemprop="image"></a>
-                                                <span class="post-rate yellow-bg brd-rd2"><i class="fa fa-star yellow-clr"></i> 3.25</span>
-                                            </div>
-                                            <div class="popular-dish-info">
-                                                <h4 itemprop="headline"><a href="food-detail.html" title="" itemprop="url">Chicken Breast - Boneless</a></h4>
-                                                <p itemprop="description">Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
-                                                <span class="price">MRP: ₹ 135</span>
-                                                <a class="brd-rd4" href="food-detail.html" title="Order Now" itemprop="url">ADD TO CART</a>
-                                                
-                                            </div>
-                                        </div><!-- Popular Dish Box -->
-                                    </div>
-                                    <div class="col-md-4 col-sm-6 col-lg-4">
-                                        <div class="popular-dish-box style2 wow fadeIn" data-wow-delay="0.6s">
-                                            <div class="popular-dish-thumb">
-                                                <a href="food-detail.html" title="" itemprop="url"><img src="{{ url('assets/images/resource/Img3.webp') }}" alt="popular-dish-img3.jpg" itemprop="image"></a>
-                                                <span class="post-rate yellow brd-rd2"><i class="fa fa-star yellow-clr"></i> 5.00</span>
-                                            </div>
-                                            <div class="popular-dish-info">
-                                                <h4 itemprop="headline"><a href="food-detail.html" title="" itemprop="url">Rich Goat Curry Cut</a></h4>
-                                                <p itemprop="description">Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
-                                                <span class="price">MRP: ₹ 135</span>
-                                                <a class="brd-rd4" href="food-detail.html" title="Order Now" itemprop="url">ADD TO CART</a>
-                                               
-                                            </div>
-                                        </div><!-- Popular Dish Box -->
-                                    </div>
+                                                 {{ Form::open(array('url' => 'cartadd')) }}
+                                                 @csrf
+                                                 <input type="hidden" name="pid" value="{{$product->id}}">
+                                                    <div class="popular-dish-box  parent style1 wow fadeIn" data-wow-delay="0.{{$i++}}s">
+                                                        <div class="popular-dish-thumb">
+                                                            <a href="{{url('product').'/'.$product->name}}" title="" itemprop="url"><img src="{{url('')}}/products/{{$product->image}}" alt="popular-dish-img1.jpg" itemprop="image"></a>
+                                                           <h4 class="ribbon">
+                                                            @if($product->b_price)
+                                                              @if(number_format(($product->b_price-$product->s_price)/$product->b_price *100) > 0)
+                                                            Discount
+                                                            {{number_format(($product->b_price-$product->s_price)/$product->b_price *100)}}
+                                                            <i class="fa fa-percent"></i> 
+                                                              @endif
+                                                            
+                                                            
+                                                            @endif</h4>
+                                                            
+                                                        </div>
+                                                        <div class="popular-dish-info">
+                                                            <h4 itemprop="headline"><a href="{{url('product').'/'.$product->name}}" title="" itemprop="url">{{$product->name}}</a></h4>
+                                                            <p>{{strip_tags(html_entity_decode($product->short_descrip))}}</p>
+                                                            <span class="price">MRP: ₹ 
+                                                            @if($product->b_price)
+                                                            <del>{{$product->b_price}}</del>
+                                                            {{$product->s_price}}
+                                                            @else
+                                                            {{$product->s_price}}
+                                                            @endif
+                                                             </span>
+                                                            <a class="brd-rd4 " id="hide-{{$product->id}}" data-value="{{$product->id}}" href="javascript:void(0)" title="Order Now" itemprop="url">ADD TO CART</a>
+                                                           
+                                                            <div id="show-{{$product->id}}"></div>
+                                                           
+                                                        </div>
+                                                    </div><!-- Product Box -->
+                                                    {{ Form::close() }}
+                                                </div>
+                                   @endforeach
                                 </div>
                             </div>
                         </div>
@@ -136,61 +136,6 @@
             </div>
         </section>
 
-        <section>
-            <div class="block remove-bottom blackish low-opacity margin-bottom">
-                <div class="fixed-bg" style="background-image: url({{ url('assets/images/parallax3.jpg') }});"></div>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12 col-sm-12 col-lg-12">
-                            <div class="title1-wrapper text-center text-white">
-                                <div class="title1-inner">
-                                    <h2 itemprop="headline">Popular Localities </h2>
-                                </div>
-                            </div>
-                            <div class="localities-wrapper">
-                                <div class="localities-inner brd-rd2 wow fadeInUp" data-wow-delay="0.2s">
-                                    <div class="row">
-                                        <div class="col-md-4 col-sm-6 col-lg-4">
-                                            <ul class="locat-list">
-                                                <li>England <span>( 98 Places )</span></li>
-                                                <li>Berkshire <span>( 98 Places )</span></li>
-                                                <li>Bedfords <span>( 98 Places )</span></li>
-                                                <li>Scotland <span>( 98 Places )</span></li>
-                                                <li>Cambridges <span>( 98 Places )</span></li>
-                                                <li>London <span>( 98 Places )</span></li>
-                                                <li>Canada <span>( 98 Places )</span></li>
-                                            </ul>
-                                        </div>
-                                        <div class="col-md-4 col-sm-6 col-lg-4">
-                                            <ul class="locat-list">
-                                                <li>England <span>( 98 Places )</span></li>
-                                                <li>Berkshire <span>( 98 Places )</span></li>
-                                                <li>Bedfords <span>( 98 Places )</span></li>
-                                                <li>Scotland <span>( 98 Places )</span></li>
-                                                <li>Cambridges <span>( 98 Places )</span></li>
-                                                <li>London <span>( 98 Places )</span></li>
-                                                <li>Canada <span>( 98 Places )</span></li>
-                                            </ul>
-                                        </div>
-                                        <div class="col-md-4 col-sm-6 col-lg-4">
-                                            <ul class="locat-list">
-                                                <li>England <span>( 98 Places )</span></li>
-                                                <li>Berkshire <span>( 98 Places )</span></li>
-                                                <li>Bedfords <span>( 98 Places )</span></li>
-                                                <li>Scotland <span>( 98 Places )</span></li>
-                                                <li>Cambridges <span>( 98 Places )</span></li>
-                                                <li>London <span>( 98 Places )</span></li>
-                                                <li>Canada <span>( 98 Places )</span></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div><!-- Localities Wrapper -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
 
         <section>
             <div class="block gray-bg top-padd210">
@@ -205,128 +150,50 @@
 									<h2 itemprop="headline">Explore by Bestsellers</h2>
 								</div>
 							</div>
-                            
-							<ul class="filter-buttons right">
-								<li class="active"><a class="brd-rd30" data-filter="*" href="#" itemprop="url">All</a></li>
-								<li><a class="brd-rd30" data-filter=".filter-item1" href="#" itemprop="url">Chicken</a></li>
-								<li><a class="brd-rd30" data-filter=".filter-item2" href="#" itemprop="url">Fish & Seafood</a></li>
-								<li><a class="brd-rd30" data-filter=".filter-item3" href="#" itemprop="url">Mutton</a></li>
-
-							</ul><!-- Filter Buttons -->
-							<div class="filters-inner style2">
-								<div class="row">
-									<div class="masonry">
-										<div class="col-md-6 col-sm-12 col-lg-6 filter-item filter-item1">
-											<div class="featured-restaurant-box wow fadeIn" data-wow-delay="0.1s">
-												<div class="featured-restaurant-thumb">
-													<a href="food-detail.html" title="" itemprop="url"><img class="brd-rd50" src="{{ url('assets/images/resource/featured-restaurant-img1.jpg') }}" alt="featured-restaurant-img1.jpg" itemprop="image"></a>
-												</div>
-												<div class="featured-restaurant-info">
-													<span class="red-clr">Value Pack</span>
-													<h4 itemprop="headline"><a href="food-detail.html" title="" itemprop="url">Chicken Curry Cut Small - Large Pack</a></h4>
-													<span class="price">MRP: ₹ 265</span>
-													
-													<ul class="post-meta">
-														<li><i class="fa fa-check-circle-o"></i> Net Wt: 100gms</li>
-														<li><i class="flaticon-transport"></i> Tomorrow 7 AM - 9 AM</li>
-													</ul>
-													<span class="post-rate yellow-bg brd-rd2"><i class="fa fa-star yellow-clr"></i> 4.25</span>
-												</div>
-											</div>
-										</div>
-										<div class="col-md-6 col-sm-12 col-lg-6 filter-item filter-item1">
-											<div class="featured-restaurant-box wow fadeIn" data-wow-delay="0.1s">
-												<div class="featured-restaurant-thumb">
-													<a href="food-detail.html" title="" itemprop="url"><img class="brd-rd50" src="{{ url('assets/images/resource/featured-restaurant-img1.jpg') }}" alt="featured-restaurant-img1.jpg" itemprop="image"></a>
-												</div>
-												<div class="featured-restaurant-info">
-													<span class="red-clr">Value Pack</span>
-													<h4 itemprop="headline"><a href="food-detail.html" title="" itemprop="url">Chicken Curry Cut Small - Large Pack</a></h4>
-													<span class="price">MRP: ₹ 265</span>
-													
-													<ul class="post-meta">
-														<li><i class="fa fa-check-circle-o"></i> Net Wt: 100gms</li>
-														<li><i class="flaticon-transport"></i> Tomorrow 7 AM - 9 AM</li>
-													</ul>
-													<span class="post-rate yellow-bg brd-rd2"><i class="fa fa-star yellow-clr"></i> 4.25</span>
-												</div>
-											</div>
-										</div>
-										<div class="col-md-6 col-sm-12 col-lg-6 filter-item filter-item1">
-											<div class="featured-restaurant-box wow fadeIn" data-wow-delay="0.1s">
-												<div class="featured-restaurant-thumb">
-													<a href="food-detail.html" title="" itemprop="url"><img class="brd-rd50" src="{{ url('assets/images/resource/featured-restaurant-img1.jpg') }}" alt="featured-restaurant-img1.jpg" itemprop="image"></a>
-												</div>
-												<div class="featured-restaurant-info">
-													<span class="red-clr">Value Pack</span>
-													<h4 itemprop="headline"><a href="food-detail.html" title="" itemprop="url">Chicken Curry Cut Small - Large Pack</a></h4>
-													<span class="price">MRP: ₹ 265</span>
-													
-													<ul class="post-meta">
-														<li><i class="fa fa-check-circle-o"></i> Net Wt: 100gms</li>
-														<li><i class="flaticon-transport"></i> Tomorrow 7 AM - 9 AM</li>
-													</ul>
-													<span class="post-rate yellow-bg brd-rd2"><i class="fa fa-star yellow-clr"></i> 4.25</span>
-												</div>
-											</div>
-										</div>
-										<div class="col-md-6 col-sm-12 col-lg-6 filter-item filter-item1">
-											<div class="featured-restaurant-box wow fadeIn" data-wow-delay="0.1s">
-												<div class="featured-restaurant-thumb">
-													<a href="food-detail.html" title="" itemprop="url"><img class="brd-rd50" src="{{ url('assets/images/resource/featured-restaurant-img1.jpg') }}" alt="featured-restaurant-img1.jpg" itemprop="image"></a>
-												</div>
-												<div class="featured-restaurant-info">
-													<span class="red-clr">Value Pack</span>
-													<h4 itemprop="headline"><a href="food-detail.html" title="" itemprop="url">Chicken Curry Cut Small - Large Pack</a></h4>
-													<span class="price">MRP: ₹ 265</span>
-													
-													<ul class="post-meta">
-														<li><i class="fa fa-check-circle-o"></i> Net Wt: 100gms</li>
-														<li><i class="flaticon-transport"></i> Tomorrow 7 AM - 9 AM</li>
-													</ul>
-													<span class="post-rate yellow-bg brd-rd2"><i class="fa fa-star yellow-clr"></i> 4.25</span>
-												</div>
-											</div>
-										</div>
-										<div class="col-md-6 col-sm-12 col-lg-6 filter-item filter-item1">
-											<div class="featured-restaurant-box wow fadeIn" data-wow-delay="0.1s">
-												<div class="featured-restaurant-thumb">
-													<a href="food-detail.html" title="" itemprop="url"><img class="brd-rd50" src="{{ url('assets/images/resource/featured-restaurant-img1.jpg') }}" alt="featured-restaurant-img1.jpg" itemprop="image"></a>
-												</div>
-												<div class="featured-restaurant-info">
-													<span class="red-clr">Value Pack</span>
-													<h4 itemprop="headline"><a href="food-detail.html" title="" itemprop="url">Chicken Curry Cut Small - Large Pack</a></h4>
-													<span class="price">MRP: ₹ 265</span>
-													
-													<ul class="post-meta">
-														<li><i class="fa fa-check-circle-o"></i> Net Wt: 100gms</li>
-														<li><i class="flaticon-transport"></i> Tomorrow 7 AM - 9 AM</li>
-													</ul>
-													<span class="post-rate yellow-bg brd-rd2"><i class="fa fa-star yellow-clr"></i> 4.25</span>
-												</div>
-											</div>
-										</div>
-										<div class="col-md-6 col-sm-12 col-lg-6 filter-item filter-item1">
-											<div class="featured-restaurant-box wow fadeIn" data-wow-delay="0.1s">
-												<div class="featured-restaurant-thumb">
-													<a href="food-detail.html" title="" itemprop="url"><img class="brd-rd50" src="{{ url('assets/images/resource/featured-restaurant-img1.jpg') }}" alt="featured-restaurant-img1.jpg" itemprop="image"></a>
-												</div>
-												<div class="featured-restaurant-info">
-													<span class="red-clr">Value Pack</span>
-													<h4 itemprop="headline"><a href="food-detail.html" title="" itemprop="url">Chicken Curry Cut Small - Large Pack</a></h4>
-													<span class="price">MRP: ₹ 265</span>
-													
-													<ul class="post-meta">
-														<li><i class="fa fa-check-circle-o"></i> Net Wt: 100gms</li>
-														<li><i class="flaticon-transport"></i> Tomorrow 7 AM - 9 AM</li>
-													</ul>
-													<span class="post-rate yellow-bg brd-rd2"><i class="fa fa-star yellow-clr"></i> 4.25</span>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
+                            <div class="row">
+                                	<?php $i=1;?>
+                                   @foreach($best as $product)
+                                    <div class="col-md-4 col-sm-6 col-lg-4">
+                                                 {{ Form::open(array('url' => 'cartadd')) }}
+                                                 @csrf
+                                                 <input type="hidden" name="pid" value="{{$product->id}}">
+                                                    <div class="popular-dish-box  parent style1 wow fadeIn" data-wow-delay="0.{{$i++}}s">
+                                                        <div class="popular-dish-thumb">
+                                                            <a href="{{url('product').'/'.$product->name}}" title="" itemprop="url"><img src="{{url('')}}/products/{{$product->image}}" alt="popular-dish-img1.jpg" itemprop="image"></a>
+                                                           <h4 class="ribbon">
+                                                            @if($product->b_price)
+                                                              @if(number_format(($product->b_price-$product->s_price)/$product->b_price *100) > 0)
+                                                            Discount
+                                                            {{number_format(($product->b_price-$product->s_price)/$product->b_price *100)}}
+                                                            <i class="fa fa-percent"></i> 
+                                                              @endif
+                                                            
+                                                            
+                                                            @endif</h4>
+                                                            
+                                                        </div>
+                                                        <div class="popular-dish-info">
+                                                            <h4 itemprop="headline"><a href="{{url('product').'/'.$product->name}}" title="" itemprop="url">{{$product->name}}</a></h4>
+                                                            <p>{{strip_tags(html_entity_decode($product->short_descrip))}}</p>
+                                                            <span class="price">MRP: ₹ 
+                                                            @if($product->b_price)
+                                                            <del>{{$product->b_price}}</del>
+                                                            {{$product->s_price}}
+                                                            @else
+                                                            {{$product->s_price}}
+                                                            @endif
+                                                             </span>
+                                                            <a class="brd-rd4 " id="hide-{{$product->id}}" data-value="{{$product->id}}" href="javascript:void(0)" title="Order Now" itemprop="url">ADD TO CART</a>
+                                                           
+                                                            <div id="show-{{$product->id}}"></div>
+                                                           
+                                                        </div>
+                                                    </div><!-- Product Box -->
+                                                    {{ Form::close() }}
+                                                </div>
+                                   @endforeach
+                                </div>
+							
                             </div>
                         </div>
                     </div>
@@ -335,96 +202,7 @@
         </section>
 		
 		
-		
-		<section>
-			<div class="block">
-                <div class="container">
-                    <div class="row">
-						<div class="col-md-12 col-sm-12 col-lg-12">
-							<div class="title1-wrapper text-center">
-								<div class="title1-inner">
-									<h2 itemprop="headline">Explore by category</h2>
-								</div>
-							</div>
-						</div>	
-						<div class="resturent-services remove-ext">
-							<div class="col-md-4 col-sm-6">
-								<div class="servise-box wow fadeIn" data-wow-delay="0.2s">
-									<figure>
-										<img src="{{ url('assets/images/resource/resto-service1.jpg') }}" alt="">
-									</figure>
-									<div class="uper-meta">
-										<i><img src="{{ url('assets/images/icon1.png') }}" alt=""></i>
-										<h4><a href="#" title="">CHICKEN</a></h4>
-										<span>About electric do in market</span>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-4 col-sm-6">
-								<div class="servise-box wow fadeIn" data-wow-delay="0.3s">
-									<figure>
-										<img src="{{ url('assets/images/resource/resto-service2.jpg') }}" alt="">
-									</figure>
-									<div class="uper-meta">
-										<i><img src="{{ url('assets/images/icon2.png') }}" alt=""></i>
-										<h4><a href="#" title="">HAPPY HOUR</a></h4>
-										<span>About electric do in market</span>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-4 col-sm-6">
-								<div class="servise-box wow fadeIn" data-wow-delay="0.4s">
-									<figure>
-										<img src="{{ url('assets/images/resource/resto-service3.jpg') }}" alt="">
-									</figure>
-									<div class="uper-meta">
-										<i><img src="{{ url('assets/images/icon3.png') }}" alt=""></i>
-										<h4><a href="#" title="">PRE ORDER</a></h4>
-										<span>About electric do in market</span>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-4 col-sm-6">
-								<div class="servise-box wow fadeIn" data-wow-delay="0.5s">
-									<figure>
-										<img src="{{ url('assets/images/resource/resto-service4.jpg') }}" alt="">
-									</figure>
-									<div class="uper-meta">
-										<i><img src="{{ url('assets/images/icon4.png') }}" alt=""></i>
-										<h4><a href="#" title="">COMBO</a></h4>
-										<span>About electric do in market</span>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-4 col-sm-6">
-								<div class="servise-box wow fadeIn" data-wow-delay="0.6s">
-									<figure>
-										<img src="{{ url('assets/images/resource/resto-service5.jpg') }}" alt="">
-									</figure>
-									<div class="uper-meta">
-										<i><img src="{{ url('assets/images/icon5.png') }}" alt=""></i>
-										<h4><a href="#" title="">READY TO COOK</a></h4>
-										<span>About electric do in market</span>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-4 col-sm-6">
-								<div class="servise-box wow fadeIn" data-wow-delay="0.7s">
-									<figure>
-										<img src="{{ url('assets/images/resource/resto-service6.jpg') }}" alt="">
-									</figure>
-									<div class="uper-meta">
-										<i><img src="{{ url('assets/images/icon6.png') }}" alt=""></i>
-										<h4><a href="#" title="">KEBABS</a></h4>
-										<span>About electric do in market</span>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section><!-- our services -->
+	
 		
 		<section>
             <div class="block gray-bg">
@@ -514,51 +292,31 @@
                             </div>
                             <div class="remove-ext">
                                 <div class="row">
+                                    @if(!empty($blogs))
+                                      @foreach($blogs as $blog)
                                     <div class="col-md-4 col-sm-6 col-lg-4">
                                         <div class="news-box wow fadeIn" data-wow-delay="0.2s">
                                             <div class="news-thumb">
-                                                <a class="brd-rd2" href="blog-detail-right-sidebar.html" title="" itemprop="url"><img src="{{ url('assets/images/resource/news-img1.jpg') }}" alt="news-img1.jpg" itemprop="image"></a>
+                                                <a class="brd-rd2" href="blog-detail-right-sidebar.html" title="" itemprop="url"><img src="
+                                                    @if(!empty($blog->image))
+                                                        {{url('')}}/blogs/{{$blog->image}}
+                                                    @else
+                                                    {{ url('assets/images/resource/news-img1.jpg') }}
+                                                    @endif
+                                                    " alt="news-img1.jpg" itemprop="image"></a>
                                                 <div class="news-btns">
-                                                    <a class="post-date red-bg" href="#" title="" itemprop="url">DEC 2020</a>
-                                                    <a class="read-more" href="blog-detail-right-sidebar.html" itemprop="url">READ MORE</a>
+                                                    <a class="post-date red-bg" href="#" title="" itemprop="url">{{date('F y' ,strtotime($blog->created_at))}}</a>
+                                                    <a class="read-more" href="{{url('')}}/blog/{{$blog->id}}" itemprop="url">READ MORE</a>
                                                 </div>
                                             </div>
                                             <div class="news-info">
-                                                <h4 itemprop="headline"><a href="blog-detail-right-sidebar.html" title="" itemprop="url">Make Hyderabadi Mutton Masala</a></h4>
-                                                <p itemprop="description">The only thing bad about the place was the time they .took to provide us with our food</p>
+                                                <h4 itemprop="headline"><a href="{{url('')}}/blog/{{$blog->id}}" title="" itemprop="url">{{strip_tags(html_entity_decode($blog->title))}}</a></h4>
+                                                <p itemprop="description">{{strip_tags(html_entity_decode($blog->subtitle))}}</p>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-4 col-sm-6 col-lg-4">
-                                        <div class="news-box wow fadeIn" data-wow-delay="0.4s">
-                                            <div class="news-thumb">
-                                                <a class="brd-rd2" href="blog-detail-left-sidebar.html" title="" itemprop="url"><img src="{{ url('assets/images/resource/news-img2.jpg') }}" alt="news-img2.jpg" itemprop="image"></a>
-                                                <div class="news-btns">
-                                                    <a class="post-date red-bg" href="#" title="" itemprop="url">DEC 2020</a>
-                                                    <a class="read-more" href="blog-detail-left-sidebar.html" itemprop="url">READ MORE</a>
-                                                </div>
-                                            </div>
-                                            <div class="news-info">
-                                                <h4 itemprop="headline"><a href="blog-detail-right-sidebar.html" title="" itemprop="url">Make Hyderabadi Mutton Masala</a></h4>
-                                                <p itemprop="description">The only thing bad about the place was the time they .took to provide us with our food</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 col-sm-6 col-lg-4">
-                                        <div class="news-box wow fadeIn" data-wow-delay="0.6s">
-                                            <div class="news-thumb">
-                                                <a class="brd-rd2" href="blog-detail.html" title="" itemprop="url"><img src="{{ url('assets/images/resource/news-img3.jpg') }}" alt="news-img3.jpg" itemprop="image"></a>
-                                                <div class="news-btns">
-                                                    <a class="post-date red-bg" href="#" title="" itemprop="url">DEC 2020</a>
-                                                    <a class="read-more" href="blog-detail.html" itemprop="url">READ MORE</a>
-                                                </div>
-                                            </div>
-                                            <div class="news-info">
-                                                <h4 itemprop="headline"><a href="blog-detail-right-sidebar.html" title="" itemprop="url">Make Hyderabadi Mutton Masala</a></h4>
-                                                <p itemprop="description">The only thing bad about the place was the time they .took to provide us with our food</p>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    @endforeach
+                                    @endif
                                 </div>
                             </div>
                         </div>
@@ -595,5 +353,51 @@
                 </div>
             </div>
         </section><!-- red section -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="{{url('assets/js/custom.js')}}"></script>        
+  
+    <script>
+$(document).ready(function(){
 
-    
+ load_data();
+
+ function load_data(query)
+ {
+    var token = $('meta[name="csrf-token"]').attr('content');
+
+  $.ajax({
+   url:"<?php echo url(''); ?>/productsearch",
+   method:"POST",
+   data:{_token : token, query:query},
+   success:function(responseData){
+    onSuccess(responseData);
+   }
+  })
+ }
+ function onSuccess(responseData) {
+  let html = "";
+   
+  if(responseData){
+      $.each(responseData, function(key, value){
+        console.log(value);
+         html += `<option value="${ value.name }">`
+      });
+    }
+  else{
+        html +=`<option value="No Match Data Found">`;
+  }
+  $('.searchspecial').html(html);
+}
+ $('#search_text').keyup(function(){
+  var search = $(this).val();
+  if(search != '')
+  {
+   load_data(search);
+  }
+  else
+  {
+   load_data();
+  }
+ });
+});
+</script>

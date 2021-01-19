@@ -26,24 +26,25 @@
                   
                 </div>
             </div>
-                @if(Session::has('success'))
+            
+            <div class="content-body">
+                  @if(Session::has('success'))
+
                 <div class="alert alert-success" role="alert">
-                                        <!-- <h4 class="alert-heading">Success</h4> -->
-                                        <p class="mb-0">
-                                            {{ Session::get('success') }}
-                                        </p>
-                                    </div>
+                                    <!-- <h4 class="alert-heading">Success</h4> -->
+                                    <p class="mb-0">
+                                        {{ Session::get('success') }}
+                                    </p>
+                                </div>
                 @endif              
                 @if(Session::has('warning'))  
-                   <div class="alert alert-danger" role="alert">
-                                        <!-- <h4 class="alert-heading">Danger</h4> -->
-                                        <p class="mb-0">
-                                           {{ Session::get('warning') }}
-                                        </p>
-                                    </div>
+                <div class="alert alert-danger" role="alert">
+                                    <!-- <h4 class="alert-heading">Danger</h4> -->
+                                    <p class="mb-0">
+                                       {{ Session::get('warning') }}
+                                    </p>
+                                </div>
                 @endif 
-            <div class="content-body">
-            
                 <!-- Column selectors with Export Options and print table -->
                 <section id="column-selectors">
               
@@ -82,7 +83,7 @@
                                                                 </a>
                                                             </span>
                                                             <span class="action-delete">
-                                                                <a href="{{url('')}}/home/CategoryDelete/{{$product->id}}" onclick="return confirm('Are you sure, you want to delete it?')">
+                                                                <a href="{{url('')}}/laravel-admin/product/delete/{{$product->id}}" onclick="return confirm('Are you sure, you want to delete it?')">
                                                                     <i class="feather icon-trash"></i>
                                                                 </a>
                                                             </span></td>

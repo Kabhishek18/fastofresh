@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="{{ url('assets/css/red-color.css') }}">
     <link rel="stylesheet" href="{{ url('assets/css/yellow-color.css') }}">
     <link rel="stylesheet" href="{{ url('assets/css/responsive.css') }}">
+    <link rel="stylesheet" href="{{ url('assets/css/custom.css') }}">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
 <body itemscope>

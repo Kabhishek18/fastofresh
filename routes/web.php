@@ -18,12 +18,18 @@ Route::get('', 'front_control@index' );
 Route::get('category', 'front_control@categories' );
 Route::get('category/{name}', 'front_control@products');
 Route::get('product/{name}', 'front_control@productDetail');
+Route::post('productsearch', 'front_control@productSearch');
+Route::post('search', 'front_control@Search');
+Route::post('blog', 'front_control@BlogDetail');
+Route::post('blog/{$id}', 'front_control@BlogDetail');
+
 //Cart
 Route::post('cartadd', 'cart@AddToCart');
 Route::get('cart', 'cart@CartView');
 Route::patch('update-cart', 'cart@update');
 Route::delete('remove-from-cart', 'cart@remove');
 Route::get('clearcart', 'cart@removeall');
+
 //Checkout
 Route::get('checkout', 'front_control@checkout');
 Route::post('payment', 'front_control@payment');
@@ -48,15 +54,26 @@ Route::post('laravel-admin/authenticate','admin_control@Authenticate');
 Route::get('laravel-admin/dashboard', 'admin_control@dashboard');
 Route::get('laravel-admin/logout', 'admin_control@Logout');
 
+Route::get('laravel-admin/home_list', 'admin_control@Homelist');
+Route::post('laravel-admin/home_list/insert', 'admin_control@HomelistInsert');
+
 Route::get('laravel-admin/category', 'admin_control@Category');
 Route::get('laravel-admin/category/add', 'admin_control@CategoryAdd');
 Route::get('laravel-admin/category/edit/{id}', 'admin_control@CategoryAdd');
 Route::post('laravel-admin/category/insert', 'admin_control@CategoryInsert');
+Route::get('laravel-admin/category/delete/{id}', 'admin_control@CategoryDelete');
 
 Route::get('laravel-admin/product', 'admin_control@Product');
 Route::get('laravel-admin/product/add', 'admin_control@ProductAdd');
 Route::get('laravel-admin/product/edit/{id}', 'admin_control@ProductAdd');
 Route::post('laravel-admin/product/insert', 'admin_control@ProductInsert');
+Route::get('laravel-admin/product/delete/{id}', 'admin_control@ProductDelete');
 
 Route::get('laravel-admin/order', 'admin_control@Order');
 Route::get('laravel-admin/coupon', 'admin_control@Coupon');
+
+Route::get('laravel-admin/blog', 'admin_control@Blog');
+Route::get('laravel-admin/blog/add', 'admin_control@BlogAdd');
+Route::get('laravel-admin/blog/edit/{id}', 'admin_control@BlogAdd');
+Route::post('laravel-admin/blog/insert', 'admin_control@BlogInsert');
+Route::get('laravel-admin/blog/delete/{id}', 'admin_control@BlogDelete');
