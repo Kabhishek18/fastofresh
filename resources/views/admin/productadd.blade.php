@@ -115,7 +115,7 @@
                                                         <div class="controls">
 
                                                             <label>Base price <span class="text-danger">*</span></label>
-                                                            <input type="text" name="b_price" class="form-control" placeholder="Base price" required data-validation-required-message="This Course Name field is required" value="<?=(!empty($datalist->b_price)?$datalist->b_price:'')?>">
+                                                            <input type="text" name="b_price" class="form-control" placeholder="Base price" value="<?=(!empty($datalist->b_price)?$datalist->b_price:'')?>">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -190,7 +190,26 @@
                                                        
                                                    </script>
                                                 </div>
+                                                 <div class="col-sm-12">
+                                                    <div class="form-group">
+                                                        <label>Select Product Recipe</label>
+                                                        <select class="select2 form-control" multiple="multiple" name="recipe[]">
 
+                                                                @if($selrecipes[0] != null))
+                                                                    @foreach($selrecipes as $selrecipe)
+                                                                    <option value="{{$selrecipe->id}}" selected="">
+                                                                        {!!$selrecipe->title!!}
+                                                                    </option>
+                                                                    @endforeach
+                                                                @endif
+                                                            @foreach($recipes as $recipe)
+                                                              <option value="{{$recipe->id}}">
+                                                                  {!!$recipe->title!!}
+                                                              </option>
+                                                            @endforeach
+                                                        </select>
+                                                    </div>
+                                                 </div>   
                                                 <div class="col-sm-6">
                                                     <div class="form-group">
                                                         <div class="controls">

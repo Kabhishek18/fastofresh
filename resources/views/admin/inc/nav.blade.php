@@ -59,6 +59,8 @@
                 </li>
                 <li class=" nav-item "><a href="{{url('laravel-admin/home_list')}}"><i class="feather icon-home"></i><span class="menu-title" data-i18n="Dashboard">HomeList</span></a>
                 </li>
+                <li class=" nav-item "><a href="{{url('laravel-admin/recipe')}}"><i class="feather icon-aperture"></i><span class="menu-title" data-i18n="Dashboard">Recipe</span></a>
+                </li>
                 <li class=" navigation-header"><span>Category,Subcategory</span>
 
                <li class=" nav-item "><a href="{{url('laravel-admin/category')}}"><i class="feather icon-eye"></i><span class="menu-title" data-i18n="Dashboard">Category </span></a>

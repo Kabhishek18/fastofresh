@@ -7,6 +7,7 @@ use File;
 use App\admin_model;
 use PHPMailerPHPMailerPHPMailer;
 use PHPMailerPHPMailerException;
+use charlieuki\ReceiptPrinter\ReceiptPrinter as ReceiptPrinter;
 
 class admin_control extends Controller
 {
@@ -133,6 +134,7 @@ class admin_control extends Controller
 	      return redirect('laravel-admin');
 	    }
     }
+
 	//Category delete  
     public function CategoryDelete($id)
     {
@@ -226,9 +228,7 @@ class admin_control extends Controller
 	      return redirect('laravel-admin');
 	    }
     }
-   
-
-
+ 
    //Product view  
     public function Product()
     {
@@ -270,11 +270,20 @@ class admin_control extends Controller
 	    if ($user['user']) {
 	    	echo view('admin/inc/header');
 	    	$user['categories'] =admin_model::getCategory();
-
+	    	$user['recipes'] =admin_model::getRecipe();
 	    	if($id){
 	    		$user['datalist'] =admin_model::getProduct($id);
 	    		$user['datalist']->parent_id;
 	    		$user['parent'] =admin_model::getCategory($user['datalist']->parent_id);
+	    		if(!empty($user['datalist']->recipe)){
+	    		foreach (json_decode($user['datalist']->recipe) as $value) {
+
+			          $user['selrecipes'][] = admin_model::getRecipe(number_format($value));
+			        
+			      }}
+			    else{
+			    	 $user['selrecipes'] =null;
+			    }  
 			    echo view('admin/productadd',$user);
 			  	
 	    	}
@@ -304,6 +313,8 @@ class admin_control extends Controller
 	    	 	$cat['description'] = Request::post('description');
 	    	 	$cat['status'] = Request::post('status');
 	    	 	$cat['updated_at'] = date('y-m-d h:i:s');
+	    	 	$cat['recipe'] = json_encode( Request::post('recipe'));
+
 	    	 	//Image Checking while uploading 
 			 	 if (Request::hasFile('image'))
 		          {
@@ -382,7 +393,7 @@ class admin_control extends Controller
 
 
 
-   //Category view  
+   //Blog view  
     public function Blog()
     {
     	$user['user'] = session()->get('admin_session');
@@ -397,7 +408,7 @@ class admin_control extends Controller
 	      return redirect('laravel-admin');
 	    }
     }
-	//Category delete  
+	//Blog delete  
     public function BlogDelete($id)
     {
     	$user['user'] = session()->get('admin_session');
@@ -416,7 +427,7 @@ class admin_control extends Controller
 	    }
     }
 
-    //Category Add
+    //BlogAdd Add
 	public function BlogAdd($id ='')
     {
     	$user['user'] = session()->get('admin_session');
@@ -494,4 +505,190 @@ class admin_control extends Controller
 	    }
     } 
 
+   //Recipe view  
+    public function Recipe()
+    {
+    	$user['user'] = session()->get('admin_session');
+	    if ($user['user']) {
+	    	$user['recipes'] =admin_model::getRecipe();
+	      echo view('admin/inc/header');
+	      echo view('admin/recipe',$user);
+	      echo view('admin/inc/footer');
+	    	}
+	    else{
+	       session()->flash('warning', 'Access Denied');
+	      return redirect('laravel-admin');
+	    }
+    }
+	//Recipe delete  
+    public function RecipeDelete($id)
+    {
+    	$user['user'] = session()->get('admin_session');
+	    if ($user['user']) {
+	    		$delete =admin_model::RecipeDelete($id);
+	    		if($delete){
+	    			return redirect()->back()->with('success', 'Updated succes');
+	    		}
+	    		else{
+	    			return redirect()->back()->with('warning', 'Update Failure');
+	    		}
+	    	}
+	    else{
+	       session()->flash('warning', 'Access Denied');
+	      return redirect('laravel-admin');
+	    }
+    }
+
+    //BlogAdd Add
+	public function RecipeAdd($id ='')
+    {
+    	$user['user'] = session()->get('admin_session');
+	    if ($user['user']) {
+	    	echo view('admin/inc/header');
+	    	if($id){
+	    		$user['datalist'] =admin_model::getRecipe($id);
+			    echo view('admin/recipeadd',$user);
+			  	
+	    	}
+	    	else{
+			    echo view('admin/recipeadd',$user);
+	    		
+	    	}
+	    	  echo view('admin/inc/footer');
+	    }
+	    else{
+	       session()->flash('warning', 'Access Denied');
+	      return redirect('laravel-admin');
+	    }
+    }
+
+    public function RecipeInsert(Request $request)
+    {
+    	$user['user'] = session()->get('admin_session');
+	    if ($user['user']) {
+	    	 	$cat['title'] = Request::post('title');
+	    	 	$cat['description'] = Request::post('description');
+	    	 	$cat['ingredient'] = Request::post('ingredient');
+	    	 	$cat['status'] = Request::post('status');
+	    	 	$cat['updated_at'] = date('y-m-d h:i:s');
+	    	 	//Image Checking while uploading 
+			 	 if (Request::hasFile('image'))
+		          {
+		              $file = Request::file('image');
+		              $path = public_path().'/recipes';
+		              if(!File::isDirectory($path)){
+		                File::makeDirectory($path, 0755, true, true);
+		              }
+		              $cat['image'] = Request::file('image')->getClientOriginalName();
+		              Request::file('image')->move($path,$cat['image']);
+		          }
+
+
+
+	    	 if(Request::post('id')){
+	    	 	$cat['id'] = Request::post('id');
+	    	 	$value =admin_model::UpdateRecipe($cat);
+	    	 	if ($value) {
+	    	 		return redirect()->back()->with('success', 'Updated succes');
+	    	 	}
+	    	 	else{
+	    	 		 return redirect()->back()->with('warning', 'Failed To Add!');
+	    	 	}	
+	    	 }
+	    	 else{
+	    	 	$cat['created_at'] = date('y-m-d h:i:s');
+	    	 	$value =admin_model::CreateRecipe($cat);
+	    	 	if ($value) {
+	    	 		return redirect()->back()->with('success', 'Added succes');
+	    	 	}
+	    	 	else{
+	    	 		 return redirect()->back()->with('warning', 'Failed To Add!');
+	    	 	}
+	    	 }
+
+
+		}else{
+	       session()->flash('warning', 'Access Denied');
+	      return redirect('laravel-admin');
+	    }
+    } 
+
+   public function PrintThermaal($value='')
+    {
+    	// Set params
+		$mid = '123123456';
+		$store_name = 'YOURMART';
+		$store_address = 'Mart Address';
+		$store_phone = '1234567890';
+		$store_email = 'yourmart@email.com';
+		$store_website = 'yourmart.com';
+		$tax_percentage = 10;
+		$transaction_id = 'TX123ABC456';
+		$currency = 'Rp';
+
+		// Set items
+		$items = [
+		    [
+		        'name' => 'French Fries (tera)',
+		        'qty' => 2,
+		        'price' => 65000,
+		    ],
+		    [
+		        'name' => 'Roasted Milk Tea (large)',
+		        'qty' => 1,
+		        'price' => 24000,
+		    ],
+		    [
+		        'name' => 'Honey Lime (large)',
+		        'qty' => 3,
+		        'price' => 10000,
+		    ],
+		    [
+		        'name' => 'Jasmine Tea (grande)',
+		        'qty' => 3,
+		        'price' => 8000,
+		    ],
+		];
+
+		// Init printer
+		$printer = new ReceiptPrinter;
+		$printer->init(
+		    config('receiptprinter.connector_type'),
+		    config('receiptprinter.connector_descriptor')
+		);
+
+		// Set store info
+		$printer->setStore($mid, $store_name, $store_address, $store_phone, $store_email, $store_website);
+
+		// Set currency
+		$printer->setCurrency($currency);
+
+		// Add items
+		foreach ($items as $item) {
+		    $printer->addItem(
+		        $item['name'],
+		        $item['qty'],
+		        $item['price']
+		    );
+		}
+		// Set tax
+		$printer->setTax($tax_percentage);
+
+		// Calculate total
+		$printer->calculateSubTotal();
+		$printer->calculateGrandTotal();
+
+		// Set transaction ID
+		$printer->setTransactionID($transaction_id);
+
+		// Set qr code
+		$printer->setQRcode([
+		    'tid' => $transaction_id,
+		]);
+
+		// Print receipt
+		$printer->printReceipt();
+    } 
+
+    
 }

@@ -181,4 +181,18 @@ class front_model extends Model
     return $value;
   }
 
+
+
+  //Recipe
+
+    public static function getRecipe($id= ''){
+      if($id){
+        $array =array('id' => $id,'status' =>'active');
+      $value=DB::table('recipe')->where($array)->orderBy('created_at', 'desc')->first();
+      }
+      else{
+      $value=DB::table('recipe')->orderBy('created_at', 'desc')->get();
+      }
+      return $value;
+    }  
 }

@@ -1397,7 +1397,7 @@ h3.marginb-0 {margin-bottom: 0;}
     width: 100%;
 }
 .popular-dish-info > h4 {
-  font-size: 18px;
+  font-size: 14px;
   font-weight: 600;
   letter-spacing: 0;
   margin-bottom: 8px;
@@ -1414,7 +1414,7 @@ h3.marginb-0 {margin-bottom: 0;}
 .price {
   float: left;
   font-size: 18px;
-  font-family: Poppins;
+  font-family: calibri;
   color: #1e1e1e;
   letter-spacing: -.3px;
 	font-weight: bold;

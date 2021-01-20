@@ -160,4 +160,41 @@ class admin_model extends Model
     return $value;
   }
 
+
+
+  //Recipe
+  //Category By Id  
+  public static function getRecipe($id= ''){
+      if($id){
+        $array =array('id' => $id);
+      $value=DB::table('recipe')->where($array)->orderBy('created_at', 'desc')->first();
+      }
+      else{
+      $value=DB::table('recipe')->orderBy('created_at', 'desc')->get();
+      }
+      return $value;
+    }  
+
+  //Add Recipe
+  public static function CreateRecipe($array)
+  {
+    $value = DB::table('recipe')->insert($array);
+    return $value;
+  }
+
+
+  //UPdate Recipe
+  public static function UpdateRecipe($array)
+  {
+    $value = DB::table('recipe')->where('id',$array['id'])->update($array);
+    return $value;
+  }
+
+   public static function RecipeDelete($array)
+  {
+    $value= DB::delete('delete from recipe  where id =?',[$array]);
+    return $value;
+  }
+
+
 }

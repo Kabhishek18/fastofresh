@@ -74,6 +74,17 @@ class front_control extends Controller
   {  
     $var['cart'] = session()->get('cart');
     $var['product'] =front_model::getProductname($name);
+     if(!empty($var['product']->recipe)){
+     foreach (json_decode($var['product']->recipe) as $value) {
+
+         $var['recipes'][] = front_model::getRecipe(number_format($value));
+      }
+    }
+      else
+      {
+        $var['recipes'] =null;
+      }
+
     echo view('front/inc/header');
      echo view('front/inc/nav');
      echo view('front/prodetail',$var);

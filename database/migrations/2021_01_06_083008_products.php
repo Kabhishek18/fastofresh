@@ -23,6 +23,7 @@ class Products extends Migration
             $table->bigInteger('s_price');
             $table->bigInteger('b_price')->nullable();
             $table->text('information')->nullable();
+            $table->text('recipe')->nullable();
             $table->enum('status', ['active', 'inactive']);
             $table->text('meta')->nullable();
             $table->timestamps();

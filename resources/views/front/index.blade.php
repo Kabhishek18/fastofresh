@@ -27,15 +27,18 @@
                     <div class="row">
                         <div class="col-md-12 col-sm-12 col-lg-12">
                             <div class="top-restaurants-wrapper">
-                                <ul class="restaurants-wrapper style2">
-									<?php ?>
+                                <ul class="restaurants-wrapper style1">
+									<?php $i=0.0;?>
                                     @foreach($categories as $category)
-									<li class="wow bounceIn" data-wow-delay="0.2s"><div class="top-restaurant"><a class="brd-rd50" href="category/{{$category->name}}" title="Restaurant 1" itemprop="url"><img src="{{url('')}}/categories/{{$category->image}}" alt="{{$category->image}}" itemprop="image">
-                                    <div class="text-default" style="text-transform: uppercase">
-                                        <h4>{{$category->name}}</h4>
-                                    </div>
-                                    </a>
-                                    </div>
+                                    
+									<li class="wow bounceIn" data-wow-delay="{{$i +=0.2}}s">
+                                        <div class="top-restaurant">
+                                        <a class="brd-rd50" href="category/{{$category->name}}" title="Restaurant 1" itemprop="url"><img src="{{url('')}}/categories/{{$category->image}}" alt="{{$category->image}}" itemprop="image">
+                                        <div class="text-default" style="text-transform: uppercase">
+                                            <h4>{{$category->name}}</h4>
+                                        </div>
+                                        </a>
+                                        </div>
                                     </li>
 									@endforeach
 							   </ul>
@@ -110,7 +113,7 @@
                                                         </div>
                                                         <div class="popular-dish-info">
                                                             <h4 itemprop="headline"><a href="{{url('product').'/'.$product->name}}" title="" itemprop="url">{{$product->name}}</a></h4>
-                                                            <p>{{strip_tags(html_entity_decode($product->short_descrip))}}</p>
+                                                            <p>{!!$product->short_descrip!!}</p>
                                                             <span class="price">MRP: ₹ 
                                                             @if($product->b_price)
                                                             <del>{{$product->b_price}}</del>
@@ -174,7 +177,7 @@
                                                         </div>
                                                         <div class="popular-dish-info">
                                                             <h4 itemprop="headline"><a href="{{url('product').'/'.$product->name}}" title="" itemprop="url">{{$product->name}}</a></h4>
-                                                            <p>{{strip_tags(html_entity_decode($product->short_descrip))}}</p>
+                                                            <p>{!!$product->short_descrip!!}</p>
                                                             <span class="price">MRP: ₹ 
                                                             @if($product->b_price)
                                                             <del>{{$product->b_price}}</del>
@@ -310,8 +313,8 @@
                                                 </div>
                                             </div>
                                             <div class="news-info">
-                                                <h4 itemprop="headline"><a href="{{url('')}}/blog/{{$blog->id}}" title="" itemprop="url">{{strip_tags(html_entity_decode($blog->title))}}</a></h4>
-                                                <p itemprop="description">{{strip_tags(html_entity_decode($blog->subtitle))}}</p>
+                                                <h4 itemprop="headline"><a href="{{url('')}}/blog/{{$blog->id}}" title="" itemprop="url">{!!$blog->title!!}</a></h4>
+                                                <p itemprop="description">{!!$blog->subtitle!!}</p>
                                             </div>
                                         </div>
                                     </div>

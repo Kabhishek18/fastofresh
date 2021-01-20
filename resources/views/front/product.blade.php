@@ -1,8 +1,4 @@
 
-<style>
-
-</style>
-  
         <section>
             <div class="gray-bg bottom-padd210">
                 @include('../status')
@@ -54,7 +50,7 @@
                                                         </div>
                                                         <div class="popular-dish-info">
                                                             <h4 itemprop="headline"><a href="{{url('product').'/'.$product->name}}" title="" itemprop="url">{{$product->name}}</a></h4>
-                                                            <p>{{strip_tags(html_entity_decode($product->short_descrip))}}</p>
+                                                            <p>{!!$product->short_descrip!!}</p>
                                                             <span class="price">MRP: ₹ 
                                                             @if($product->b_price)
                                                             <del>{{$product->b_price}}</del>
