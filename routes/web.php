@@ -17,11 +17,12 @@ Route::get('', 'front_control@index' );
 //Category Product
 Route::get('category', 'front_control@categories' );
 Route::get('category/{name}', 'front_control@products');
-Route::get('product/{name}', 'front_control@productDetail');
+Route::get('product/{id}', 'front_control@productDetail');
 Route::post('productsearch', 'front_control@productSearch');
 Route::post('search', 'front_control@Search');
 Route::post('blog', 'front_control@BlogDetail');
 Route::post('blog/{$id}', 'front_control@BlogDetail');
+Route::get('test', 'front_control@testRoute');
 
 //Cart
 Route::post('cartadd', 'cart@AddToCart');

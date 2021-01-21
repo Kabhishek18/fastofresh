@@ -7,6 +7,8 @@ use File;
 use App\front_model;
 use PHPMailerPHPMailerPHPMailer;
 use PHPMailerPHPMailerException;
+use GuzzleHttp\Exception\GuzzleException;
+use GuzzleHttp\Client;
 
 class front_control extends Controller
 {
@@ -70,12 +72,10 @@ class front_control extends Controller
   }
 
    //Product Detail
-  public function productDetail($name)
+  public function productDetail($id,$name="")
   {  
-    $name =urldecode($name);
-    dd($name);
     $var['cart'] = session()->get('cart');
-    $var['product'] =front_model::getProductname($name);
+    $var['product'] =front_model::getProduct($id);
      if(!empty($var['product']->recipe)){
      foreach (json_decode($var['product']->recipe) as $value) {
 
@@ -364,4 +364,31 @@ class front_control extends Controller
 
 
   //end
+
+  public function Test()
+  {
+    echo view('front/test');
+  }
+  /*
+  Geocodes an addres so we can get the latitude and longitude
+*/
+    private $api_key = "AIzaSyBrjZaOesaW4b_ZnNoxsePK7Ni1_goBhnQ"; // replace with your google maps api key
+
+ 
+
+    public function testRoute()
+    {
+        $client = new Client(); 
+        $result = $client->request('GET', 'https://maps.googleapis.com/maps/api/directions/json',
+            ['query' => [
+                'origin' => 'Disneyland',
+                'destination' => 'Universal+Studios+Hollywood',
+                'key' => $this->api_key
+            ]
+        ]);
+        
+       dd(json_decode($result->getBody()));
+    }
+
+
 }
