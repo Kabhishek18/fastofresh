@@ -1,82 +1,4 @@
-<style type="text/css">
-    .tcb-product-slider {
-  background: #333;
-  background-image: url(https://unsplash.it/1240/530?image=721);
-  background-size: cover;
-  background-repeat: no-repeat;
-  padding: 100px 0;
-}
-.tcb-product-slider .carousel-control {
-  width: 5%;
-}
-.tcb-product-item a {
-  color: #147196;
-}
-.tcb-product-item a:hover {
-  text-decoration: none;
-}
-.tcb-product-item .tcb-hline {
-  margin: 10px 0;
-  height: 1px;
-  background: #ccc;
-}
-@media all and (max-width: 768px) {
-  .tcb-product-item {
-    margin-bottom: 30px;
-  }
-}
-.tcb-product-photo {
-  text-align: center;
-  height: 180px;
-  background: #fff;
-}
-.tcb-product-photo img {
-  height: 100%;
-  display: inline-block;
-}
-.tcb-product-info {
-  background: #f0f0f0;
-  padding: 15px;
-}
-.tcb-product-title h4 {
-  margin-top: 0;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden;
-}
-.tcb-product-rating {
-  color: #acacac;
-}
-.tcb-product-rating .active {
-  color: #FFB500;
-}
-.tcb-product-price {
-  color: firebrick;
-  font-size: 18px;
-}
 
-
-
-.details {
-    margin: 50px 0; }
- .details h1 {
-      font-size: 32px;
-      text-align: center;
-      margin-bottom: 3px; }
-    .details .back-link {
-      text-align: center; }
-      .details .back-link a {
-        display: inline-block;
-        margin: 20px 0;
-        padding: 15px 30px;
-        background: #333;
-        color: #fff;
-        border-radius: 24px; }
-        .details .back-link a svg {
-          margin-right: 10px;
-          vertical-align: text-top;
-          display: inline-block; }
-</style>
         <section>
             <div class="gray-bg bottom-padd210">
             @include('../status')
@@ -188,109 +110,36 @@
                             <div class="col-md-12 col-sm-12 col-lg-12">
                                 <div class="sec-wrapper">
                                     <div class="row">
-
-                                        <div class="tcb-product-slider">
-                                            <div class="container">
-                                                <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-                                                    <!-- Wrapper for slides -->
-                                                    <div class="carousel-inner" role="listbox">
-                                                        <div class="item active">
-                                                            <div class="row">
-                                                                <div class="col-xs-6 col-sm-3">
-                                                                    <div class="tcb-product-item">
-                                                                        <div class="tcb-product-photo">
-                                                                            <a href="#"><img src="https://i.imgur.com/Z7eqMnj.jpg" class="img-responsive" alt="a" /></a>
-                                                                        </div>
-                                                                        <div class="tcb-product-info">
-                                                                            <div class="tcb-product-title">
-                                                                                <h4><a href="#">Olympus Photo Camera </a></h4></div>
-                                                                            <div class="tcb-product-rating">
-                                                                                <i class="active glyphicon glyphicon-star"></i><i class="active glyphicon glyphicon-star"></i><i class="active glyphicon glyphicon-star"></i><i class="active glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i>
-                                                                                <a href="#">(4,585 ratings)</a>
-                                                                            </div>
-                                                                            <div class="tcb-hline"></div>
-                                                                            <div class="tcb-product-price">
-                                                                                $ 495.00 (17% off)
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-xs-6 col-sm-3">
-                                                                    <div class="tcb-product-item">
-                                                                        <div class="tcb-product-photo">
-                                                                            <a href="#"><img src="https://i.imgur.com/fCrZot6.jpg" class="img-responsive" alt="a" /></a>
-                                                                        </div>
-                                                                        <div class="tcb-product-info">
-                                                                            <div class="tcb-product-title">
-                                                                                <h4><a href="#">Coca Cola Bottle</a></h4></div>
-                                                                            <div class="tcb-product-rating">
-                                                                                <i class="active glyphicon glyphicon-star"></i><i class="active glyphicon glyphicon-star"></i><i class="active glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i>
-                                                                                <a href="#">(245 ratings)</a>
-                                                                            </div>
-                                                                            <div class="tcb-hline"></div>
-                                                                            <div class="tcb-product-price">
-                                                                                $ 99.00 (21% off)
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-xs-6 col-sm-3">
-                                                                    <div class="tcb-product-item">
-                                                                        <div class="tcb-product-photo">
-                                                                            <a href="#"><img src="https://i.imgur.com/kTmJp8W.jpg" class="img-responsive" alt="a" /></a>
-                                                                        </div>
-                                                                        <div class="tcb-product-info">
-                                                                            <div class="tcb-product-title">
-                                                                                <h4><a href="#">Jewel from Italy</a></h4></div>
-                                                                            <div class="tcb-product-rating">
-                                                                                <i class="active glyphicon glyphicon-star"></i><i class="active glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i>
-                                                                                <a href="#">(345 ratings)</a>
-                                                                            </div>
-                                                                            <div class="tcb-hline"></div>
-                                                                            <div class="tcb-product-price">
-                                                                                $ 999.00 (33% off)
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-xs-6 col-sm-3">
-                                                                    <div class="tcb-product-item">
-                                                                        <div class="tcb-product-photo">
-                                                                            <a href="#"><img src="https://i.imgur.com/sMwmKmh.jpg" class="img-responsive" alt="a" /></a>
-                                                                        </div>
-                                                                        <div class="tcb-product-info">
-                                                                            <div class="tcb-product-title">
-                                                                                <h4><a href="#">White Pepper</a></h4></div>
-                                                                            <div class="tcb-product-rating">
-                                                                                <i class="active glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i>
-                                                                                <a href="#">(45 ratings)</a>
-                                                                            </div>
-                                                                            <div class="tcb-hline"></div>
-                                                                            <div class="tcb-product-price">
-                                                                                $ 199.00 (37% off)
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                     
+                                      <div class="row">
+                                          <div class="col-md-9">
+                                              <h3>
+                                                  Recipes</h3>
+                                          </div>
+                                        
+                                      </div>
+                                      @foreach($recipes as $recipe) 
+                                            <div class="col-sm-3">
+                                                <div class="col-item">
+                                                    <div class="photo">
+                                                        <img src="{{url('')}}/recipes/{{$recipe->image}}" class="img-responsive" alt="a" style="width:100% ;height :250px !important" />
                                                     </div>
-                                                    <!-- Controls -->
-                                                    <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-                                                        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                                                        <span class="sr-only">Previous</span>
-                                                    </a>
-                                                    <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-                                                        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                                                        <span class="sr-only">Next</span>
-                                                    </a>
+                                                    <div class="text-default" style="text-align: center;text-transform: capitalize;">
+                                                        <div class="row">
+                                                            <div class=" col-md-12">
+                                                                <h5>
+                                                                   {!!$recipe->title!!}</h5>
+                                                               
+                                                            </div>
+                                                           
+                                                        </div>
+                                                   
+                                                        <div class="clearfix">
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-
-                                        {{var_dump($recipes)}}
-                                    </div>
+                                          @endforeach
+                                  </div>
                                 </div>
                             </div>    
                         </div>

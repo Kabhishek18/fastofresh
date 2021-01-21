@@ -35,7 +35,7 @@
                                                  <input type="hidden" name="pid" value="{{$product->id}}">
                                                     <div class="popular-dish-box  parent style1 wow fadeIn" data-wow-delay="0.{{$i++}}s">
                                                         <div class="popular-dish-thumb">
-                                                            <a href="{{url('product').'/'.$product->name}}" title="" itemprop="url"><img src="{{url('')}}/products/{{$product->image}}" alt="popular-dish-img1.jpg" itemprop="image"></a>
+                                                            <a href="{{url('product').'/'.urlencode($product->name)}}" title="" itemprop="url"><img src="{{url('')}}/products/{{$product->image}}" alt="popular-dish-img1.jpg" itemprop="image"></a>
                                                            <h4 class="ribbon">
                                                             @if($product->b_price)
                                                               @if(number_format(($product->b_price-$product->s_price)/$product->b_price *100) > 0)
@@ -49,7 +49,7 @@
                                                             
                                                         </div>
                                                         <div class="popular-dish-info">
-                                                            <h4 itemprop="headline"><a href="{{url('product').'/'.$product->name}}" title="" itemprop="url">{{$product->name}}</a></h4>
+                                                            <h4 itemprop="headline"><a href="{{url('product').'/'.urlencode($product->name)}}" title="" itemprop="url">{{$product->name}}</a></h4>
                                                             <p>{!!$product->short_descrip!!}</p>
                                                             <span class="price">MRP: ₹ 
                                                             @if($product->b_price)

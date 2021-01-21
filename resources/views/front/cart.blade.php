@@ -7,7 +7,7 @@
                             <div class="col-md-12 col-sm-12 col-lg-12">
                                 <div class="sec-wrapper">
                                     <div class="row">
-                                        
+                                       
                                         <div class="col-md-12 col-sm-12 col-lg-12">
                                         <table class="table table-striped">
                                             <thead>
@@ -27,20 +27,23 @@
                                                     <td><?=$i++?></td>
                                                     <td data-th="Product">
                                                         <div class="row">
-                                                            <div class="col-sm-3 hidden-xs"><img src="{{ $details['photo'] }}" width="100" height="100" class="img-responsive"/></div>
+                                                            <div class="col-sm-3 hidden-xs"><img src="{{url('products/')}}/{{ $details['photo'] }}" width="100" height="100" class="img-responsive"/></div>
                                                             <div class="col-sm-9">
                                                                 <h4 class="nomargin">{{ $details['name'] }}</h4>
                                                             </div>
                                                         </div>
                                                     </td>
                                                     <td data-th="Price">₹ {{ $details['price'] }}</td>
-                                                    <td data-th="Quantity">
-                                                        <input type="text" id="qty" value="{{ $details['quantity'] }}" class="form-control quantity" />
+                                                    <td data-th="Quantity" >
+                                                         <input type='button' onclick="decrementValueCart(<?=$details['pid']?>)" value='-' class='btn btn-default' field='quantity' />
+                                                        <input type="number" id="qty<?=$details['pid']?>" value="{{ $details['quantity'] }}" class=" " min="1"  style="width: 20%;
+    text-align: center;"/>
+                                                        <input type='button' onclick="incrementValuecart(<?=$details['pid']?>)" value='+' class='btn btn-default' field='quantity' />
                                                     </td>
                                                     <td data-th="Subtotal" class="text-center">₹ {{ $details['price'] * $details['quantity'] }}</td>
                                                     <td class="actions" data-th="">
-                                                        <button class="btn btn-info btn-sm update-cart" data-id="{{ $id }}" data-value="{{$id}}"><i class="fa fa-refresh"></i></button>
-                                                        <button class="btn btn-danger btn-sm remove-from-cart" style="background-color: #ea1b25;" data-id="{{ $id }}"><i class="fa fa-trash-o"></i></button>
+                                                        <button class="btn btn-info btn-sm update-cart" data-id="{{ $id }}" data-value="{{$id}}"><i class="fa fa-refresh"></i>Update</button>
+                                                        <button class="btn btn-danger btn-sm remove-from-cart" style="background-color: #ea1b25;" data-id="{{ $id }}"><i class="fa fa-trash-o"></i>Remove</button>
                                                     </td>
                                                 </tr>
                                                 @endforeach
@@ -86,8 +89,8 @@
                 </div><!-- Section Box -->
             </div>
         </section>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
- 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="{{url('assets/js/custom.js')}}"></script>
 <script type="text/javascript">
         $(".update-cart").click(function (e) {
            e.preventDefault();
@@ -115,4 +118,26 @@
                 });
             }
         });
+
+ function incrementValuecart(pid)
+{   var id = 'qty'+pid;
+    console.log(id);
+    var value = parseInt(document.getElementById(id).value, 10);
+     value = isNaN(value) ? 0 : value;
+    value++;
+    document.getElementById(id).value = value;
+}
+function decrementValueCart(pid)
+{   var id = 'qty'+pid;
+    var value = parseInt(document.getElementById(id).value, 10);
+     value = isNaN(value) ? 0 : value;
+    var data = value - 1;
+    if(data >0){    
+    document.getElementById(id).value = data;}
+    else{
+        data = '1';
+    document.getElementById(id).value = data;}
+   
+}
+       
     </script>        

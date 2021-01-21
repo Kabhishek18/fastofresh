@@ -25,6 +25,7 @@ class cart extends Controller
         if(!$cart) {
             $cart = [
                      $val['pid'] => [
+                        "pid" => $val['pid'],
                         "name" => $product->name,
                         "quantity" => $val['qty'],
                         "price" => $product->s_price,
@@ -43,6 +44,7 @@ class cart extends Controller
 
          // if item not exist in cart then add to cart with quantity = 1
          $cart[$val['pid']] = [
+             "pid" => $val['pid'],
             "name" => $product->name,
             "quantity" => $val['qty'],
             "price" => $product->s_price,

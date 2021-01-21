@@ -70,8 +70,10 @@ class front_control extends Controller
   }
 
    //Product Detail
-  public function productDetail($name ="")
+  public function productDetail($name)
   {  
+    $name =urldecode($name);
+    dd($name);
     $var['cart'] = session()->get('cart');
     $var['product'] =front_model::getProductname($name);
      if(!empty($var['product']->recipe)){
