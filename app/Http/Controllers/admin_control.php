@@ -715,7 +715,8 @@ class admin_control extends Controller
     	$order=admin_model::getOrders($id);
     	
     	 // Set params
-        $mid = '123123456';
+        $cin = 'U15490DL2020PTC367249';
+        $gst = '07AAECF1671R1Z5';
         $store_name = 'Fast O Fresh';
         $store_address = 'M/S Fast O Fresh Pvt Ltd, B-155, Ghazipur, New Delhi 110096';
         $store_phone = '1234567890';
@@ -756,7 +757,7 @@ class admin_control extends Controller
         );
 
         // Set store info
-        $printer->setStore($mid, $store_name, $store_address, $store_phone, $store_email, $store_website);
+        $printer->setStore($cin,$gst, $store_name, $store_address, $store_phone, $store_email, $store_website);
 
         // Add items
         foreach ($items as $item) {
@@ -782,7 +783,7 @@ class admin_control extends Controller
         ]);
 
         // Print receipt
-         //$printer->printReceipt();
+         $printer->printReceipt();
     } 
 
     
