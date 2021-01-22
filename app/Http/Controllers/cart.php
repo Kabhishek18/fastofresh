@@ -27,6 +27,7 @@ class cart extends Controller
                      $val['pid'] => [
                         "pid" => $val['pid'],
                         "name" => $product->name,
+                        "parent_id" => $product->parent_id,
                         "quantity" => $val['qty'],
                         "price" => $product->s_price,
                         "photo" => $product->image
@@ -46,6 +47,7 @@ class cart extends Controller
          $cart[$val['pid']] = [
              "pid" => $val['pid'],
             "name" => $product->name,
+             "parent_id" => $product->parent_id,
             "quantity" => $val['qty'],
             "price" => $product->s_price,
             "photo" => $product->image

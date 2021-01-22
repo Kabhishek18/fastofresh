@@ -17,10 +17,10 @@ class Orders extends Migration
            $table->id();
             $table->string('orderamount');
             $table->string('transactionid');
-            $table->string('order_cart');
+            $table->text('order_cart');
             $table->text('orderdetail');
             $table->text('userid');
-            $table->enum('status', ['pending', 'processing','delivered']);
+            $table->enum('status', ['pending', 'inprocess','dispatched','delivered']);
             $table->timestamps();
         });
     }

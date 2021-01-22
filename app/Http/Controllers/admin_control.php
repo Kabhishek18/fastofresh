@@ -276,11 +276,12 @@ class admin_control extends Controller
 	    		$user['datalist']->parent_id;
 	    		$user['parent'] =admin_model::getCategory($user['datalist']->parent_id);
 	    		if(!empty($user['datalist']->recipe)){
-	    		foreach (json_decode($user['datalist']->recipe) as $value) {
+					foreach (json_decode($user['datalist']->recipe) as $value) {
 
-			          $user['selrecipes'][] = admin_model::getRecipe(number_format($value));
-			        
-			      }}
+				          $user['selrecipes'][] = admin_model::getRecipe(number_format($value));
+				        
+				      }
+			  	}
 			    else{
 			    	 $user['selrecipes'] =null;
 			    }  
@@ -374,6 +375,102 @@ class admin_control extends Controller
 	      return redirect('laravel-admin');
 	    }
     }
+
+     //Order delete  
+    public function OrderDelete($id)
+    {
+    	$user['user'] = session()->get('admin_session');
+	    if ($user['user']) {
+	    		$delete =admin_model::OrderDelete($id);
+	    		if($delete){
+	    			return redirect()->back()->with('success', 'Updated succes');
+	    		}
+	    		else{
+	    			return redirect()->back()->with('warning', 'Update Failure');
+	    		}
+	    	}
+	    else{
+	       session()->flash('warning', 'Access Denied');
+	      return redirect('laravel-admin');
+	    }
+    }
+    //Order 
+	public function OrderAdd($id ='')
+    {
+    	$user['user'] = session()->get('admin_session');
+	    if ($user['user']) {
+	    	echo view('admin/inc/header');
+	    	$user['order']=admin_model::getOrders($id);
+	    	echo view('admin/orderinvoice',$user);
+	    	
+    	  echo view('admin/inc/footer');
+	    }
+	    else{
+	       session()->flash('warning', 'Access Denied');
+	      return redirect('laravel-admin');
+	    }
+    }
+
+    public function OrderInsert(Request $request)
+    {
+    	$user['user'] = session()->get('admin_session');
+	    if ($user['user']) {
+	    		$cat['name'] = Request::post('name');
+	    	 	$cat['meta'] = Request::post('meta');
+	    	 	$cat['s_price'] = Request::post('s_price');
+	    	 	$cat['b_price'] = Request::post('b_price');
+	    	 	$cat['parent_id'] = Request::post('parent_id');
+	    	 	$cat['information'] = Request::post('information');
+	    	 	$cat['short_descrip'] = Request::post('short_descrip');
+	    	 	$cat['description'] = Request::post('description');
+	    	 	$cat['status'] = Request::post('status');
+	    	 	$cat['updated_at'] = date('y-m-d h:i:s');
+	    	 	$cat['recipe'] = json_encode( Request::post('recipe'));
+
+	    	 	//Image Checking while uploading 
+			 	 if (Request::hasFile('image'))
+		          {
+		              $file = Request::file('image');
+		              $path = public_path().'/products';
+		              if(!File::isDirectory($path)){
+		                File::makeDirectory($path, 0755, true, true);
+		              }
+		              $cat['image'] = Request::file('image')->getClientOriginalName();
+		              Request::file('image')->move($path,$cat['image']);
+		          }
+
+
+
+	    	 if(Request::post('id')){
+	    	 	$cat['id'] = Request::post('id');
+	    	 	$value =admin_model::UpdateProduct($cat);
+	    	 	if ($value) {
+	    	 		return redirect()->back()->with('success', 'Updated succes');
+	    	 	}
+	    	 	else{
+	    	 		 return redirect()->back()->with('warning', 'Failed To Add!');
+	    	 	}	
+	    	 }
+	    	 else{
+	    	 	$cat['created_at'] = date('y-m-d h:i:s');
+	    	 	$value =admin_model::CreateProduct($cat);
+	    	 	if ($value) {
+	    	 		return redirect()->back()->with('success', 'Added succes');
+	    	 	}
+	    	 	else{
+	    	 		 return redirect()->back()->with('warning', 'Failed To Add!');
+	    	 	}
+	    	 }
+
+
+		}else{
+	       session()->flash('warning', 'Access Denied');
+	      return redirect('laravel-admin');
+	    }
+    }
+	
+
+
 
     //Coupon view  
     public function Coupon()

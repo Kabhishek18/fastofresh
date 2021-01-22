@@ -195,7 +195,7 @@
                                                         <label>Select Product Recipe</label>
                                                         <select class="select2 form-control" multiple="multiple" name="recipe[]">
 
-                                                                @if($selrecipes[0] != null))
+                                                                @if(!empty($selrecipes)))
                                                                     @foreach($selrecipes as $selrecipe)
                                                                     <option value="{{$selrecipe->id}}" selected="">
                                                                         {!!$selrecipe->title!!}

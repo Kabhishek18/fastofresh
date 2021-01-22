@@ -10,12 +10,12 @@
                 <div class="content-header-left col-md-9 col-12 mb-2">
                     <div class="row breadcrumbs-top">
                         <div class="col-12">
-                            <h2 class="content-header-title float-left mb-0">Products</h2>
+                            <h2 class="content-header-title float-left mb-0">Orders</h2>
                             <div class="breadcrumb-wrapper col-12">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="{{url('laravel-admin/dashboard')}}">Home</a>
                                     </li>
-                                    <li class="breadcrumb-item active">Products List
+                                    <li class="breadcrumb-item active">Orders List
                                     </li>
                                 </ol>
                             </div>
@@ -50,9 +50,7 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="card">
-                                <div class="card-header">
-                                    <h4 class="card-title"><a href="{{url('laravel-admin/')}}/product/add" class="btn btn-outline-light mr-1 mb-1 waves-effect waves-light">Product Add</a> </h4>
-                                </div>
+                               
                                 <div class="card-content">
                                     <div class="card-body card-dashboard">
                                         <p class="card-text">
@@ -87,16 +85,20 @@
                                                             </ul>
                                                         </td>  
                                                         <td>{{$order->orderamount}}</td>  
-                                                        <td>{{$order->status}}</td>  
+                                                        <td><select class="form-control">
+                                                            <option value="pending" selected="">Pending </option>
+                                                            <option value="inprocess">InProcess</option><option value="dispatched">Dispatched</option>
+                                                            <option value="delivered">Delivered</option>
+                                                        </select></td>  
                                                         <td>{{date('F d y h:i:s',strtotime($order->updated_at))}}</td>
                                                         <td>{{date('F d y h:i:s',strtotime($order->created_at))}}</td>
                                                         <td><span class="action-edit">
-                                                                <a href="{{url('laravel-admin')}}/product/edit/{{$order->id}}">
+                                                                <a href="{{url('laravel-admin')}}/order/edit/{{$order->id}}">
                                                                  <i class="feather icon-edit"></i>
                                                                 </a>
                                                             </span>
                                                             <span class="action-delete">
-                                                                <a href="{{url('')}}/home/CategoryDelete/{{$order->id}}" onclick="return confirm('Are you sure, you want to delete it?')">
+                                                                <a href="{{url('')}}/laravel-admin/orderDelete/{{$order->id}}" onclick="return confirm('Are you sure, you want to delete it?')">
                                                                     <i class="feather icon-trash"></i>
                                                                 </a>
                                                             </span>

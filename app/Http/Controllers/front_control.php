@@ -126,7 +126,8 @@ class front_control extends Controller
             $reg['city'] = Request::post('city');
             $reg['postalcode'] = Request::post('postalcode');
             $reg['mobile'] = Request::post('mobile');
-           
+            $reg['username'] =$user['user']->name;
+            $reg['email'] =$user['user']->email;
             //$rep Varialble used
             $rep['location'] =json_encode($reg);
             $val['loc'] =$rep['location'];
@@ -153,7 +154,7 @@ class front_control extends Controller
         $order['updated_at'] =date('y-m-d h:i:s');  
          $insert =front_model::PaymentOrder($order);
          if($insert){
-            dd($order);
+            echo view('front/payment');
           }
           else{
              return redirect()->back()->with('warning', 'Order Has Been Declined Due To Technical Issue');
@@ -164,7 +165,17 @@ class front_control extends Controller
           return redirect()->back()->with('warning', 'Please login for checkout');
       }  
   }
+  //ccavRequestHandler
+  public function ccavRequestHandler(Request $request)
+  {
+    echo view('front/ccavRequestHandler');
+  }
 
+  public function ccavResponseHandler(Request $request)
+  {
+    echo view('front/ccavResponseHandler');
+    
+  }
   //Login  
   public function login()
   {
@@ -372,7 +383,7 @@ class front_control extends Controller
   /*
   Geocodes an addres so we can get the latitude and longitude
 */
-    private $api_key = "AIzaSyBrjZaOesaW4b_ZnNoxsePK7Ni1_goBhnQ"; // replace with your google maps api key
+    private $api_key = "AIzaSyDjntljYk1K3SYkJRRj6d3GuajOlt-5eQk"; // replace with your google maps api key
 
  
 

@@ -20,7 +20,9 @@
                     </div>
                     <div class="topbar-register">
                         @if(!empty(session()->get('user_session')))
-                            <a href="{{url('/dashboard')}}">Dashboard</a>
+                            <a href="{{url('/dashboard')}}">{{(session()->get('user_session'))->email}}
+                                / Dashboard
+                            </a>
                         @else
                         <a class="log-popup-btn" href="#" title="Login" itemprop="url">LOGIN</a> / <a class="sign-popup-btn" href="#" title="Register" itemprop="url">REGISTER</a>
                         @endif

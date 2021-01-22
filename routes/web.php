@@ -22,7 +22,7 @@ Route::post('productsearch', 'front_control@productSearch');
 Route::post('search', 'front_control@Search');
 Route::post('blog', 'front_control@BlogDetail');
 Route::post('blog/{$id}', 'front_control@BlogDetail');
-Route::get('test', 'front_control@testRoute');
+Route::get('test', 'front_control@test');
 
 //Cart
 Route::post('cartadd', 'cart@AddToCart');
@@ -34,6 +34,8 @@ Route::get('clearcart', 'cart@removeall');
 //Checkout
 Route::get('checkout', 'front_control@checkout');
 Route::post('payment', 'front_control@payment');
+Route::post('ccavRequestHandler', 'front_control@ccavRequestHandler');
+Route::post('ccavResponseHandler', 'front_control@ccavResponseHandler');
 //Dasboard
 Route::post('login','front_control@login');
 Route::get('dashboard', 'front_control@dashboard');
@@ -71,6 +73,10 @@ Route::post('laravel-admin/product/insert', 'admin_control@ProductInsert');
 Route::get('laravel-admin/product/delete/{id}', 'admin_control@ProductDelete');
 
 Route::get('laravel-admin/order', 'admin_control@Order');
+Route::get('laravel-admin/order/edit/{id}', 'admin_control@OrderAdd');
+Route::post('laravel-admin/order/insert', 'admin_control@OrderInsert');
+Route::get('laravel-admin/order/delete/{id}', 'admin_control@OrderDelete');
+
 Route::get('laravel-admin/coupon', 'admin_control@Coupon');
 
 Route::get('laravel-admin/blog', 'admin_control@Blog');

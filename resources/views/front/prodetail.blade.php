@@ -107,6 +107,7 @@
                                     </div>
                                 </div>
                             </div>
+                            @if(!empty($recipes))
                             <div class="col-md-12 col-sm-12 col-lg-12">
                                 <div class="sec-wrapper">
                                     <div class="row">
@@ -142,6 +143,7 @@
                                   </div>
                                 </div>
                             </div>    
+                            @endif
                         </div>
                     </div>
                 </div><!-- Section Box -->
