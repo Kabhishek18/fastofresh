@@ -10,7 +10,7 @@ return [
     | Valid values are: cups, network, windows
     |
     */
-    'connector_type' => 'cups',
+    'connector_type' => 'windows',
     /*
     |--------------------------------------------------------------------------
     | Printer connector descriptor

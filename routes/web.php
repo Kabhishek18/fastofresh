@@ -75,6 +75,7 @@ Route::get('laravel-admin/product/delete/{id}', 'admin_control@ProductDelete');
 Route::get('laravel-admin/order', 'admin_control@Order');
 Route::get('laravel-admin/order/edit/{id}', 'admin_control@OrderAdd');
 Route::post('laravel-admin/order/insert', 'admin_control@OrderInsert');
+Route::post('laravel-admin/order/status', 'admin_control@OrderStatus');
 Route::get('laravel-admin/order/delete/{id}', 'admin_control@OrderDelete');
 
 Route::get('laravel-admin/coupon', 'admin_control@Coupon');

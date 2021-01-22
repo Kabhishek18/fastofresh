@@ -85,11 +85,16 @@
                                                             </ul>
                                                         </td>  
                                                         <td>{{$order->orderamount}}</td>  
-                                                        <td><select class="form-control">
+                                                        <td>
+                                                            <form method="post" action="{{url('')}}/laravel-admin/order/status">
+                                                            <select class="form-control" id="statusupdate">
                                                             <option value="pending" selected="">Pending </option>
                                                             <option value="inprocess">InProcess</option><option value="dispatched">Dispatched</option>
                                                             <option value="delivered">Delivered</option>
-                                                        </select></td>  
+                                                            </select>
+                                                              <button type="submit" ><i class="fa fa-refresh"></i></button>  
+                                                            </form>
+                                                        </td>  
                                                         <td>{{date('F d y h:i:s',strtotime($order->updated_at))}}</td>
                                                         <td>{{date('F d y h:i:s',strtotime($order->created_at))}}</td>
                                                         <td><span class="action-edit">
@@ -136,3 +141,4 @@
 
     <div class="sidenav-overlay"></div>
     <div class="drag-target"></div>
+
