@@ -85,7 +85,7 @@ Route::get('laravel-admin/blog/add', 'admin_control@BlogAdd');
 Route::get('laravel-admin/blog/edit/{id}', 'admin_control@BlogAdd');
 Route::post('laravel-admin/blog/insert', 'admin_control@BlogInsert');
 Route::get('laravel-admin/blog/delete/{id}', 'admin_control@BlogDelete');
-Route::get('laravel-admin/print', 'admin_control@PrintThermaal');
+Route::get('laravel-admin/print/{id}', 'admin_control@PrintThermaal');
 
 Route::get('laravel-admin/recipe', 'admin_control@Recipe');
 Route::get('laravel-admin/recipe/add', 'admin_control@RecipeAdd');

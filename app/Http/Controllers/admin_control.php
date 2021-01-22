@@ -710,16 +710,18 @@ class admin_control extends Controller
 	    }
     } 
 
-   public function PrintThermaal($value='')
+   public function PrintThermaal($id)
     {
+    	$order=admin_model::getOrders($id);
+    	
     	 // Set params
         $mid = '123123456';
-        $store_name = 'YOURMART';
-        $store_address = 'Mart Address';
+        $store_name = 'Fast O Fresh';
+        $store_address = 'M/S Fast O Fresh Pvt Ltd, B-155, Ghazipur, New Delhi 110096';
         $store_phone = '1234567890';
         $store_email = 'yourmart@email.com';
         $store_website = 'yourmart.com';
-        $tax_percentage = 10;
+        $tax_percentage = 0;
         $transaction_id = 'TX123ABC456';
 
         // Set items
@@ -780,7 +782,7 @@ class admin_control extends Controller
         ]);
 
         // Print receipt
-        $printer->printReceipt();
+         //$printer->printReceipt();
     } 
 
     
