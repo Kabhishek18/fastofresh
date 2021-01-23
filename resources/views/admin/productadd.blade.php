@@ -132,7 +132,7 @@
                                                     <div class="form-group">
                                                         <div class="controls">
                                                             <label>Product Short description<span class="text-danger">*</span></label>
-                                                   <textarea name="short_descrip" id="short_descrip" contenteditable="true">
+                                                   <textarea name="short_descrip" id="short_descrip" contenteditable="true" class="form-control" cols="10" rows="3">
                                                     <?=(!empty($datalist->short_descrip)?$datalist->short_descrip:'')?>
                                                    </textarea>
                                                     </div>
@@ -140,7 +140,7 @@
 
                                                 
                                                    <script>
-                                                        CKEDITOR.replace('short_descrip');
+                                                        CKEDITOR.replace('');
                                                        
                                                    </script>
                                                 </div>

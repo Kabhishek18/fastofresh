@@ -14,6 +14,10 @@ use App\Http\Controllers\front_control;
 |        |_|  |_|  \___/|_| |_|\__|
 */
 Route::get('', 'front_control@index' );
+Route::get('about-us', 'front_control@about' );
+Route::get('privacyandpolicy', 'front_control@privacy' );
+Route::get('faq', 'front_control@faq' );
+Route::get('why', 'front_control@why' );
 //Category Product
 Route::get('category', 'front_control@categories' );
 Route::get('category/{name}', 'front_control@products');

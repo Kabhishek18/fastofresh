@@ -31,15 +31,15 @@ input.qtyminus { width:25px; height:25px;}
 
 .ribbon {
   margin: 0;
-  padding: 0;
-  background: #c85f03;
-  color:white;
-  padding:1em 0;
-  position: absolute;
-  top:0;
-  right:0;
-  transform: translateX(30%) translateY(0%) rotate(45deg);
-  transform-origin: top left;
+    padding: 0;
+    background: #fff94d;
+    color: #060606;
+    padding: 1em 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translateX(30%) translateY(0%) rotate(45deg);
+    transform-origin: top left;
 }
 .ribbon:before,
 .ribbon:after {
@@ -49,7 +49,7 @@ input.qtyminus { width:25px; height:25px;}
   margin: 0 -1px; /* tweak */
   width: 100%;
   height: 100%;
-  background: #c85f03;
+  background: #fff94d;
 }
 .ribbon:before {
   right:100%;
@@ -57,4 +57,9 @@ input.qtyminus { width:25px; height:25px;}
 
 .ribbon:after {
   left:100%;
+}
+
+del{
+  color: grey;
+    margin-right: 20px;
 }

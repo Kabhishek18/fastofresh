@@ -36,6 +36,35 @@ class front_control extends Controller
       echo view('front/inc/footer');
   }
 
+  public function about($value='')
+  {
+    echo view('front/inc/header');
+      echo view('front/inc/nav');
+      echo view('front/about');
+      echo view('front/inc/footer');
+  }
+
+   public function privacy($value='')
+  {
+    echo view('front/inc/header');
+      echo view('front/inc/nav');
+      echo view('front/privacy');
+      echo view('front/inc/footer');
+  }
+    public function faq($value='')
+  {
+    echo view('front/inc/header');
+      echo view('front/inc/nav');
+      echo view('front/faq');
+      echo view('front/inc/footer');
+  }
+  public function why($value='')
+  {
+    echo view('front/inc/header');
+      echo view('front/inc/nav');
+      echo view('front/why');
+      echo view('front/inc/footer');
+  }
    //Categories
   public function categories()
   {  
@@ -68,7 +97,8 @@ class front_control extends Controller
   public function Search(Request $request)
   {
         $query = Request::post('product');
-        return redirect('product/'.$query);
+        $products =front_model::getProductlike($query);
+        return redirect('product/'.$products[0]->id );
   }
 
    //Product Detail

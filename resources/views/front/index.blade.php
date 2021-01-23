@@ -98,7 +98,7 @@
                                                  <input type="hidden" name="pid" value="{{$product->id}}">
                                                     <div class="popular-dish-box  parent style1 wow fadeIn" data-wow-delay="0.{{$i++}}s">
                                                         <div class="popular-dish-thumb">
-                                                            <a href="{{url('product').'/'.$product->name}}" title="" itemprop="url"><img src="{{url('')}}/products/{{$product->image}}" alt="popular-dish-img1.jpg" itemprop="image"></a>
+                                                            <a href="{{url('product').'/'.$product->id}}" title="" itemprop="url"><img src="{{url('')}}/products/{{$product->image}}" alt="popular-dish-img1.jpg" itemprop="image"></a>
                                                            <h4 class="ribbon">
                                                             @if($product->b_price)
                                                               @if(number_format(($product->b_price-$product->s_price)/$product->b_price *100) > 0)
@@ -112,19 +112,23 @@
                                                             
                                                         </div>
                                                         <div class="popular-dish-info">
-                                                            <h4 itemprop="headline"><a href="{{url('product').'/'.$product->name}}" title="" itemprop="url">{{$product->name}}</a></h4>
-                                                            <p>{!!$product->short_descrip!!}</p>
-                                                            <span class="price">MRP: ₹ 
+                                                            <h4 itemprop="headline"><a href="{{url('product').'/'.$product->id}}" title="" itemprop="url">{{$product->name}}</a></h4>
+                                                            {!!$product->short_descrip!!}
+                                                            <div class="d-flex justify-content-center" style="margin-top: 10px;margin-bottom: 10px;"> 
+                                                            <span class="price "> 
                                                             @if($product->b_price)
-                                                            <del>{{$product->b_price}}</del>
-                                                            {{$product->s_price}}
+                                                            <del>MRP: ₹{{$product->b_price}}</del>
+                                                            MRP: ₹ {{$product->s_price}}
                                                             @else
-                                                            {{$product->s_price}}
+                                                            MRP: ₹ {{$product->s_price}}
                                                             @endif
                                                              </span>
-                                                            <a class="brd-rd4 " id="hide-{{$product->id}}" data-value="{{$product->id}}" href="javascript:void(0)" title="Order Now" itemprop="url">ADD TO CART</a>
+                                                            </div>
+                                                            <div class="col-sm-12 d-flex justify-content-center"> 
+                                                            <a class="btn btn-danger" id="hide-{{$product->id}}" data-value="{{$product->id}}" href="javascript:void(0)" title="Order Now" style="background: #ea1b25" itemprop="url">ADD TO CART</a>
                                                            
                                                             <div id="show-{{$product->id}}"></div>
+                                                            </div>
                                                            
                                                         </div>
                                                     </div><!-- Product Box -->
@@ -139,7 +143,54 @@
             </div>
         </section>
 
-
+ <section>
+            <div class="block blackish opac35">
+                <div class="fixed-bg" style="background-image: url({{url('/assets/images/parallax1.jpg')}});"></div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-lg-12">
+                            <div class="title1-wrapper text-center">
+                                <div class="title1-inner">
+                                    <span>Website for Restaurant and Cafe</span>
+                                    <h2 class="text-white" itemprop="headline">easy order in 3 steps</h2>
+                                </div>
+                            </div>
+                            <div class="remove-ext text-center">
+                                <div class="row">
+                                    <div class="col-md-4 col-sm-4 col-lg-4">
+                                        <div class="step-box wow fadeInUp" data-wow-delay="0.2s">
+                                            <i><img src="{{url('')}}/assets/images/resource/setp-img1.png" alt="setp-img1.png" itemprop="image"> <span class="brd-rd50 red-bg">1</span></i>
+                                            <div class="setp-box-inner">
+                                                <h4 itemprop="headline">Explore Restaurants</h4>
+                                                <p itemprop="description">Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
+                                            </div>
+                                        </div><!-- Step Box -->
+                                    </div>
+                                    <div class="col-md-4 col-sm-4 col-lg-4">
+                                        <div class="step-box wow fadeInUp" data-wow-delay="0.4s">
+                                            <i><img src="{{url('')}}/assets/images/resource/setp-img2.png" alt="setp-img2.png" itemprop="image"> <span class="brd-rd50 red-bg">2</span></i>
+                                            <div class="setp-box-inner">
+                                                <h4 itemprop="headline">Choose a Tasty Dish</h4>
+                                                <p itemprop="description">Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
+                                            </div>
+                                        </div><!-- Step Box -->
+                                    </div>
+                                    <div class="col-md-4 col-sm-4 col-lg-4">
+                                        <div class="step-box wow fadeInUp" data-wow-delay="0.6s">
+                                            <i><img src="{{url('')}}/assets/images/resource/setp-img3.png" alt="setp-img3.png" itemprop="image"> <span class="brd-rd50 red-bg">3</span></i>
+                                            <div class="setp-box-inner">
+                                                <h4 itemprop="headline">Follow The Status</h4>
+                                                <p itemprop="description">Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
+                                            </div>
+                                        </div><!-- Step Box -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
         <section>
             <div class="block gray-bg top-padd210">
                 <div class="container">
@@ -155,19 +206,19 @@
 							</div>
                             <div class="row">
                                 	<?php $i=1;?>
-                                   @foreach($best as $product)
+                                   @foreach($best as $productbest)
                                     <div class="col-md-4 col-sm-6 col-lg-4">
                                                  {{ Form::open(array('url' => 'cartadd')) }}
                                                  @csrf
-                                                 <input type="hidden" name="pid" value="{{$product->id}}">
+                                                 <input type="hidden" name="pid" value="{{$productbest->id}}">
                                                     <div class="popular-dish-box  parent style1 wow fadeIn" data-wow-delay="0.{{$i++}}s">
                                                         <div class="popular-dish-thumb">
-                                                            <a href="{{url('product').'/'.$product->name}}" title="" itemprop="url"><img src="{{url('')}}/products/{{$product->image}}" alt="popular-dish-img1.jpg" itemprop="image"></a>
+                                                            <a href="{{url('product').'/'.$product->id}}" title="" itemprop="url"><img src="{{url('')}}/products/{{$productbest->image}}" alt="popular-dish-img1.jpg" itemprop="image"></a>
                                                            <h4 class="ribbon">
-                                                            @if($product->b_price)
-                                                              @if(number_format(($product->b_price-$product->s_price)/$product->b_price *100) > 0)
+                                                            @if($productbest->b_price)
+                                                              @if(number_format(($productbest->b_price-$productbest->s_price)/$productbest->b_price *100) > 0)
                                                             Discount
-                                                            {{number_format(($product->b_price-$product->s_price)/$product->b_price *100)}}
+                                                            {{number_format(($productbest->b_price-$productbest->s_price)/$productbest->b_price *100)}}
                                                             <i class="fa fa-percent"></i> 
                                                               @endif
                                                             
@@ -176,19 +227,19 @@
                                                             
                                                         </div>
                                                         <div class="popular-dish-info">
-                                                            <h4 itemprop="headline"><a href="{{url('product').'/'.$product->name}}" title="" itemprop="url">{{$product->name}}</a></h4>
-                                                            <p>{!!$product->short_descrip!!}</p>
+                                                            <h4 itemprop="headline"><a href="{{url('product').'/'.$productbest->id}}" title="" itemprop="url">{{$productbest->name}}</a></h4>
+                                                            <p>{!!$productbest->short_descrip!!}</p>
                                                             <span class="price">MRP: ₹ 
-                                                            @if($product->b_price)
-                                                            <del>{{$product->b_price}}</del>
-                                                            {{$product->s_price}}
+                                                            @if($productbest->b_price)
+                                                            <del>{{$productbest->b_price}}</del>
+                                                            {{$productbest->s_price}}
                                                             @else
-                                                            {{$product->s_price}}
+                                                            {{$productbest->s_price}}
                                                             @endif
                                                              </span>
-                                                            <a class="brd-rd4 " id="hide-{{$product->id}}" data-value="{{$product->id}}" href="javascript:void(0)" title="Order Now" itemprop="url">ADD TO CART</a>
+                                                            <a class="brd-rd4 " id="hide-{{$productbest->id}}" data-value="{{$productbest->id}}" href="javascript:void(0)" title="Order Now" itemprop="url">ADD TO CART</a>
                                                            
-                                                            <div id="show-{{$product->id}}"></div>
+                                                            <div id="show-{{$productbest->id}}"></div>
                                                            
                                                         </div>
                                                     </div><!-- Product Box -->
@@ -207,7 +258,7 @@
 		
 	
 		
-		<section>
+	<!-- 	<section>
             <div class="block gray-bg">
 				<div class="top-mockup"><img src="{{ url('assets/images/resource/mockup2.png') }}" alt=""></div>
                 <div class="container">
@@ -281,7 +332,7 @@
 				</div>
 				<div class="bottom-mockup"><img src="{{ url('assets/images/resource/mockup1.png') }}" alt=""></div>
             </div>
-        </section>
+        </section> -->
 
         <section>
             <div class="block bottom-padd210">

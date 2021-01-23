@@ -111,11 +111,11 @@ section{
 }
 
 .sec-box {
-  margin: 0 auto;
-  max-width: 1300px;
-  width: 100%;
-  padding: 65px;
-  background-color: #fff;
+ margin: 0 auto;
+    max-width: 1300px;
+    width: 100%;
+    padding: 25px;
+    background-color: #fff;
 }
 .less-spacing,
 .block.less-spacing {padding: 70px 0;}
@@ -128,7 +128,9 @@ section{
 .bottom-padd140,
 .block.bottom-padd140 {padding-bottom: 140px;}
 .top-padd210,
-.block.top-padd210 {padding-top: 210px;}
+.block.top-padd210 { padding-top: 50px;
+    border-top: 1px solid;
+    border-color: #ecebeb;}
 .bottom-padd210,
 .block.bottom-padd210 {padding-bottom: 210px;}
 .remove-gap,
@@ -1157,7 +1159,7 @@ header.sticky nav > div > ul > li span {font-size: 11px;}
 .title1-wrapper {
   float: left;
   width: 100%;
-  margin-bottom: 50px;
+  /*margin-bottom: 50px;*/
 }
 .title1-inner {
   display: inline-block;
@@ -1285,7 +1287,7 @@ header.sticky nav > div > ul > li span {font-size: 11px;}
 .title2-wrapper {
   float: left;
   width: 100%;
-  margin-bottom: 50px;
+  margin-bottom: 0px;
 }
 .title2-wrapper > h2,
 .title2-wrapper > h3 {
@@ -1327,8 +1329,10 @@ h3.marginb-0 {margin-bottom: 0;}
 /*===== Popular Dishes Section =====*/
 .popular-dish-box {
   float: left;
-  width: 100%;
-  margin-bottom: 50px;
+    width: 100%;
+    margin-bottom: 50px;
+   /* border: 1px solid;*/
+    border-color: #efefef;
 }
 .popular-dish-thumb {
   float: left;
@@ -1390,44 +1394,48 @@ h3.marginb-0 {margin-bottom: 0;}
   z-index: 1;
 }
 .popular-dish-info {
-    background: #f9f9f9 none repeat scroll 0 0;
+     background: #fdfdfd none repeat scroll 0 0;
     float: left;
     margin-bottom: 6px;
-    padding: 30px 30px 20px;
+    padding: 20px 15px;
     width: 100%;
+    border: 1px solid;
+    border-color: #efeeee;
 }
 .popular-dish-info > h4 {
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 600;
   letter-spacing: 0;
-  margin-bottom: 8px;
-	margin-top: 0;
+  margin-bottom: 20px;
+	margin-top: 15px;
+  text-transform: uppercase;
 }
 .popular-dish-info > p {
-	margin-bottom: 24px;
+/*	margin-bottom: 24px;*/
 	color: #636363;
 	line-height: 24px;
-	font-family: lato;
+	font-family: calibri;
 	display: inline-block;
 	width: 100%;
 }
 .price {
-  float: left;
-  font-size: 18px;
-  font-family: calibri;
-  color: #1e1e1e;
-  letter-spacing: -.3px;
-	font-weight: bold;
+    font-size: 18px;
+    font-family: calibri;
+    color: #1e1e1e;
+    letter-spacing: -.3px;
+    font-weight: bold;
+    margin-top: 10px;
 }
 .popular-dish-info .price {line-height: 37px;}
 .popular-dish-info > a {
   border: 1px solid transparent;
-  float: right;
-  font-size: 12px;
-  letter-spacing: 0;
-  padding: 8.5px 28.5px;
-  background-color: #272727;
-  color: #fff;
+    float: right;
+    font-size: 12px;
+    letter-spacing: 0;
+    padding: 8.5px 28.5px;
+    background-color: #272727;
+    color: #fff;
+    margin-top: 20px;
 }
 .restaurant-info {
   float: left;
@@ -2227,18 +2235,19 @@ footer {
   width: 100%;
 }
 .breadcrumb {
-  float: left;
-  width: 100%;
-  background-color: transparent;
-  -webkit-border-radius: 0;
-  border-radius: 0;
-  margin-bottom: 0;
-  padding: 24px 0;
+   float: left;
+    width: 100%;
+    background-color: transparent;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+    margin-bottom: 0;
+    padding: 10px 0;
 }
 .breadcrumb > li {
-  font-family: Poppins;
-  color: #bcbcbc;
-  font-size: 13px;
+   font-family: calibri;
+    color: #bcbcbc;
+    font-size: 14px;
+    text-transform: uppercase;
 }
 .breadcrumb > li.breadcrumb-item + li.breadcrumb-item:before {
   color: #bcbcbc;
@@ -2871,10 +2880,12 @@ footer {
     border-right: 1px solid #f1f1f1;
     color: #343434;
     float: left;
-    font-size: 13px;
-    font-weight: 600;
+    font-size: 16px;
+    /* font-weight: 600; */
     letter-spacing: 0;
     margin-bottom: 0;
+    text-transform: uppercase;
+    font-family: calibri;
 }
 .restaurant-detail-tabs > ul > li:last-child {border-right: 0;}
 .restaurant-detail-tabs > ul > li a {
@@ -6200,7 +6211,7 @@ i.off {color: #d7d7d7;}
 /*===== Food Detail ====*/
 .restaurant-detail-title span.price {
   display: inline-block;
-  float: none;
+  float: left;
   vertical-align: middle;
 }
 .qty-wrap {margin-top: 20px;}
@@ -7102,10 +7113,13 @@ a.thanks-close:focus {color: #333;}
 		margin:0;
 	}
 	p{
-		font-size:18px;
-		color:#6f6f6f;
-		font-family: "lato";
-		margin:0;
+		font-size: 15px;
+    color: #6f6f6f;
+    font-family: "calibri";
+    margin: 0;
+    padding-top: 30px;
+    text-align: justify;
+    line-height: 24px;
 	}
 	p.startingpara{
 		font-size:18px;

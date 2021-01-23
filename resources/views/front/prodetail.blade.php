@@ -1,6 +1,6 @@
 
         <section>
-            <div class="gray-bg bottom-padd210">
+            <div class="gray-bg">
             @include('../status')
                 <div class="sec-box">
                     <div class="container">
@@ -62,8 +62,7 @@
                                                         </ul>
                                                         <div class="tab-content">
                                                             <div class="tab-pane fade in active" id="tab1-1">
-                                                              <p>{!!$product->description!!}</p>
-
+                                                              {!!$product->description!!}
                                                             </div>
                                                             <div class="tab-pane fade in" id="tab1-2">
                                                                 {!!$product->information!!}
@@ -80,23 +79,27 @@
                                                            
                                                             <div class="popular-dish-info">
                                                                <div class="col-md-6 col-sm-12 col-lg-6 ">
-                                                                    <span class="price">MRP: @if($product->b_price)
-                                                                    <del>₹ {{$product->b_price}}</del>
-                                                                    &nbsp;₹ {{$product->s_price}}
-                                                                    @else
-                                                                    {{$product->s_price}}
-                                                                    @endif
-                                                                     </span>
+                                                                   <div class="d-flex justify-content-center" style="margin-top: 10px;margin-bottom: 10px;"> 
+                                                                            <span class="price "> 
+                                                                            @if($product->b_price)
+                                                                            <del>MRP: ₹{{$product->b_price}}</del>
+                                                                            MRP: ₹ {{$product->s_price}}
+                                                                            @else
+                                                                            MRP: ₹ {{$product->s_price}}
+                                                                            @endif
+                                                                             </span>
+                                                                     </div>
                                                                </div> 
                                                                 
                                                                 <div class="col-md-6 col-sm-12 col-lg-6 ">
-                                                                    <a class="btn btn-danger" style="background-color: #ea1b25;" id="hide-{{$product->id}}" data-value="{{$product->id}}" href="javascript:void(0)" title="Order Now" itemprop="url">ADD TO CART</a>
-                                                                </div>                                                            
-
+                                                                  <div class="col-sm-12 d-flex justify-content-center" style="margin-top: 15px;"> 
+                                                                     <a class="btn btn-danger" id="hide-{{$product->id}}" data-value="{{$product->id}}" href="javascript:void(0)" title="Order Now" style="background: #ea1b25" itemprop="url">ADD TO CART</a>
+                                                                     <div id="show-{{$product->id}}"></div>
+                                                            
+                                                                    </div>         
                                                                
-                                                                <div id="show-{{$product->id}}"></div>
                                                                
-                                                            </div>
+                                                                </div>
                                                             </div><!-- Product Box -->
                                                                 {{ Form::close() }}
                                                           

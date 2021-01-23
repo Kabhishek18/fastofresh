@@ -53,11 +53,11 @@
                                 <li class="menu-item-has-children"><a href="#" title="HOMEPAGES" itemprop="url">FESTIVAL SPECIAL</a></li>
                                 <li class="menu-item-has-children"><a href="#" title="HOMEPAGES" itemprop="url">PRE ORDER</a></li>
 
-                                <li class="menu-item-has-children"><a href="#" title="HOMEPAGES" itemprop="url">ABOUT US</a></li>
+                                <li class="menu-item-has-children"><a href="{{url('')}}/about-us" title="HOMEPAGES" itemprop="url">ABOUT US</a></li>
 								<li class="menu-item-has-children"><a href="#" title="HOMEPAGES" itemprop="url">WHY FAST 'O' FRESH</a></li>
 
                             </ul>
-							                            <a class="red-bg brd-rd4" href="#" title="Register" itemprop="url" style="margin-left:40px;">TOLLFREE: 1800 123 456</a>
+							                            <a class="red-bg brd-rd4" href="#" title="Register" itemprop="url" style="margin-left:40px;background: #306f06">TOLLFREE: 1800 123 456</a>
 
                         </div>
                     </nav><!-- Navigation -->
