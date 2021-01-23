@@ -712,43 +712,43 @@ class admin_control extends Controller
 
    public function PrintThermaal($id)
     {
+		$user['user'] = session()->get('admin_session');
+	    if ($user['user']) {
+
     	$order=admin_model::getOrders($id);
+    	 $cart =json_decode($order->order_cart,true);
+    	 $client = json_decode($order->orderdetail,true);
+    	 $clientLocation = json_decode($client['loc'],true);
     	
     	 // Set params
         $cin = 'U15490DL2020PTC367249';
         $gst = '07AAECF1671R1Z5';
-        $store_name = 'Fast O Fresh';
-        $store_address = 'M/S Fast O Fresh Pvt Ltd, B-155, Ghazipur, New Delhi 110096';
+        $store_name = 'M/S Fast O Fresh Pvt Ltd,';
+        $store_address = ' B-155, Ghazipur, New Delhi 110096';
         $store_phone = '1234567890';
         $store_email = 'yourmart@email.com';
         $store_website = 'yourmart.com';
         $tax_percentage = 0;
-        $transaction_id = 'TX123ABC456';
+        $transaction_id = $order->transactionid;
 
-        // Set items
-        $items = [
-            [
-                'name' => 'French Fries (tera)',
-                'qty' => 2,
-                'price' => 65000,
-            ],
-            [
-                'name' => 'Roasted Milk Tea (large)',
-                'qty' => 1,
-                'price' => 24000,
-            ],
-            [
-                'name' => 'Honey Lime (large)',
-                'qty' => 3,
-                'price' => 10000,
-            ],
-            [
-                'name' => 'Jasmine Tea (grande)',
-                'qty' => 3,
-                'price' => 8000,
-            ],
-        ];
-
+    	// Set items
+      	$i=0;
+       	foreach ($cart as $key => $value) {
+       		$items[$i]['name'] =$value['name'];
+       		$items[$i]['qty'] =$value['quantity'];
+       		$items[$i]['price'] =$value['price'];
+       		if($value['parent_id']==4){
+       			$items[$i]['gst'] =($value['price']*12/100);
+       		}
+       		elseif($value['parent_id']==5){
+       			$items[$i]['gst'] =($value['price']*12/100);
+       		}
+       		else{
+       			$items[$i]['gst'] =0;
+       		}
+       		$i++;
+       	}
+        
         // Init printer
         $printer = new ReceiptPrinter;
         $printer->init(
@@ -756,6 +756,8 @@ class admin_control extends Controller
             config('receiptprinter.connector_descriptor')
         );
 
+        // Set Client Info
+        $printer->SetClient($clientLocation['addressline1'],$clientLocation['landmark'],$clientLocation['city'],$clientLocation['postalcode'],$clientLocation['mobile'],$clientLocation['username'],$clientLocation['email']);
         // Set store info
         $printer->setStore($cin,$gst, $store_name, $store_address, $store_phone, $store_email, $store_website);
 
@@ -764,7 +766,8 @@ class admin_control extends Controller
             $printer->addItem(
                 $item['name'],
                 $item['qty'],
-                $item['price']
+                $item['price'],
+                $item['gst']
             );
         }
         // Set tax
@@ -779,11 +782,18 @@ class admin_control extends Controller
 
         // Set qr code
         $printer->setQRcode([
-            'tid' => $transaction_id,
+            'txnid' => $transaction_id
+
         ]);
 
         // Print receipt
-         $printer->printReceipt();
+      	$printer->printReceipt();
+      	return redirect()->back()->with('success', 'Print succes');
+
+      	}else{
+	       session()->flash('warning', 'Access Denied');
+	      return redirect('laravel-admin');
+	    }
     } 
 
     

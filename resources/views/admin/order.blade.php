@@ -66,6 +66,7 @@
                                                         <th>Order Cart</th>
                                                         <th>Order Amount</th>
                                                         <th>Order status</th>
+                                                        <th>Print Pos Bill</th>
                                                         <th>Created</th>
                                                         <th>Modified</th>
                                                         <th>Actions</th>
@@ -95,6 +96,7 @@
                                                               <button type="submit" ><i class="fa fa-refresh"></i></button>  
                                                             </form>
                                                         </td>  
+                                                        <td><a class="btn btn-default" href="{{url('')}}/laravel-admin/print/{{$order->id}}"><i class="fa fa-print"></i></a></td>
                                                         <td>{{date('F d y h:i:s',strtotime($order->updated_at))}}</td>
                                                         <td>{{date('F d y h:i:s',strtotime($order->created_at))}}</td>
                                                         <td><span class="action-edit">
