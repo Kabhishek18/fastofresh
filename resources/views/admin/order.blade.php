@@ -79,21 +79,37 @@
                                                         <td>{{$order->transactionid}}</td>
                                                         <?php $carts = json_decode($order->order_cart,true);?>
                                                         <td>
-                                                            <ul class="list-group">
+                                                            <ul class="list-group" >
                                                             @foreach($carts as $id =>  $cart)
-                                                                <li class="list-group-item">{{$cart['name']}}   *  {{$cart['quantity'] }}  </li>
+                                                                <li class="list-group-item"  width="100%">{{$cart['name']}}   *  {{$cart['quantity'] }}  </li>
                                                             @endforeach
                                                             </ul>
                                                         </td>  
                                                         <td>{{$order->orderamount}}</td>  
-                                                        <td>
+                                                        <td width="100%">
                                                             <form method="post" action="{{url('')}}/laravel-admin/order/status">
-                                                            <select class="form-control" id="statusupdate">
+                                                            @csrf
+                                                            <input type="hidden" value="{{$order->id}}" name="id">
+                                                            <select class="form-control" name="statusupdate" id="statusupdate">
+                                                            @if($order->status =='pending')    
                                                             <option value="pending" selected="">Pending </option>
-                                                            <option value="inprocess">InProcess</option><option value="dispatched">Dispatched</option>
+                                                            <option value="inprocess">InProcess</option>
+                                                            <option value="dispatched">Dispatched</option>
                                                             <option value="delivered">Delivered</option>
+                                                            @elseif($order->status =='inprocess')  
+                                                            <option value="inprocess">InProcess</option>
+                                                            <option value="dispatched">Dispatched</option>
+                                                            <option value="delivered">Delivered</option>
+                                                             @elseif($order->status =='dispatched')  
+                                                             <option value="dispatched">Dispatched</option>
+                                                            <option value="delivered">Delivered</option>
+                                                            @elseif($order->status =='delivered')
+                                                            <option value="delivered">Delivered</option>
+                                                            @else
+                                                            <option> Something Is Fishy</option>
+                                                            @endif  
                                                             </select>
-                                                              <button type="submit" ><i class="fa fa-refresh"></i></button>  
+                                                              <button type="submit" class="btn btn-info" ><i class="fa fa-refresh"></i></button>  
                                                             </form>
                                                         </td>  
                                                         <td><a class="btn btn-default" href="{{url('')}}/laravel-admin/print/{{$order->id}}"><i class="fa fa-print"></i></a></td>

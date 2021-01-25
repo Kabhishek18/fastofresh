@@ -46,7 +46,7 @@
                                         <div class="col-md-8 col-sm-12 col-lg-8">
                                             <div class="tab-content">
                                                 
-                                                <div class="tab-pane fade " id="my-orders">
+                                                <div class="tab-pane fade in active" id="my-orders">
                                                     <div class="tabs-wrp brd-rd5">
                                                         <h4 itemprop="headline">MY ORDERS</h4>
                                                         <div class="order-list">
@@ -83,7 +83,7 @@
                                                        
                                                     </div>
                                                 </div>
-                                                <div class="tab-pane fade in active " id="my-location">
+                                                <div class="tab-pane fade  " id="my-location">
                                                     <div class="tabs-wrp brd-rd5">
                                                         <h4 itemprop="headline">MY LOCATIONS</h4>
                                                        <br>

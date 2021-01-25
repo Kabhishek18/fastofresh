@@ -22,12 +22,12 @@
         </section>
 		
         <section>
-            <div class="block no-padding overlape-45">
+            <div class="block no-padding overlape-95">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12 col-sm-12 col-lg-12">
                             <div class="top-restaurants-wrapper">
-                                <ul class="restaurants-wrapper style1">
+                                <ul class="restaurants-wrapper style2">
 									<?php $i=0.0;?>
                                     @foreach($categories as $category)
                                     
@@ -35,7 +35,7 @@
                                         <div class="top-restaurant">
                                         <a class="brd-rd50" href="category/{{$category->name}}" title="Restaurant 1" itemprop="url"><img src="{{url('')}}/categories/{{$category->image}}" alt="{{$category->image}}" itemprop="image">
                                         <div class="text-default" style="text-transform: uppercase">
-                                            <h4>{{$category->name}}</h4>
+                                            <h4 style="margin-top: 0px;">{{$category->name}}</h4>
                                         </div>
                                         </a>
                                         </div>
@@ -58,15 +58,8 @@
 								<div class="welcome-secinfo">
 									<h2>Welcome To Fast 'O' Fresh </h2>
 									<span>We Create Delicious Memories</span>
-									<p>Proin luctus, justo sit amet laoreet venenatis, libero velit tincidunt mi, nec 
-            	fermentum ante massa id quam. In gravida erat vel diam blandit consequat morbi. Ut interdum nuceu egestas arcu uspend isse sodales. Eiusmod tempor incidiunt labore velit dolore magna aliqu sed enimi nim.</p>
-									<div class="award">
-										<img src="{{ url('assets/images/award.png') }}" alt="">
-										<span><em>Delivered </em>Fresh <i>Everyday</i></span>
-									</div>
-									<span class="sign">
-										<img src="{{ url('assets/images/sign.png') }}" alt="">
-									</span>
+									<p>We pride ourselves on having hands-on involvement every step of the way literally from the farm to the table. And since quality is so important to us, we figured, why not control the process ourselves? And the best way to do that is to keep it in the family and do the work together.</p><p> We produce quality meats and maintain the highest standards that are the fabric of our business. We own many farms, where we can always be assured that the care and quality that goes into everything is top notch and beyond reproach.</p>
+									
 								</div>
 							</div>
 							<div class="col-md-6 col-sm-6 col-lg-6">
@@ -86,8 +79,13 @@
                             <div class="title1-wrapper text-center">
                                 <div class="title1-inner">
                                     <h2 itemprop="headline">popular of the month</h2>
+
+                                    <h5 >Buy the freshest and most palatable meat from your very own online meat shop. where you will get to enjoy the flavours of freshness and moistness all in one. </h5>
+                                
                                 </div>
+
                             </div>
+                               
                             <div class="remove-ext">
                                 <div class="row">
                                 	<?php $i=1;?>
@@ -151,7 +149,6 @@
                         <div class="col-md-12 col-sm-12 col-lg-12">
                             <div class="title1-wrapper text-center">
                                 <div class="title1-inner">
-                                    <span>Website for Restaurant and Cafe</span>
                                     <h2 class="text-white" itemprop="headline">easy order in 3 steps</h2>
                                 </div>
                             </div>
@@ -159,7 +156,7 @@
                                 <div class="row">
                                     <div class="col-md-4 col-sm-4 col-lg-4">
                                         <div class="step-box wow fadeInUp" data-wow-delay="0.2s">
-                                            <i><img src="{{url('')}}/assets/images/resource/setp-img1.png" alt="setp-img1.png" itemprop="image"> <span class="brd-rd50 red-bg">1</span></i>
+                                            <i><img src="{{url('')}}/assets/images/setp-img1.png" alt="setp-img1.png" itemprop="image"> <span class="brd-rd50 red-bg">1</span></i>
                                             <div class="setp-box-inner">
                                                 <h4 itemprop="headline">Explore Restaurants</h4>
                                                 <p itemprop="description">Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
@@ -168,7 +165,7 @@
                                     </div>
                                     <div class="col-md-4 col-sm-4 col-lg-4">
                                         <div class="step-box wow fadeInUp" data-wow-delay="0.4s">
-                                            <i><img src="{{url('')}}/assets/images/resource/setp-img2.png" alt="setp-img2.png" itemprop="image"> <span class="brd-rd50 red-bg">2</span></i>
+                                            <i><img src="{{url('')}}/assets/images/setp-img2.png" alt="setp-img2.png" itemprop="image"> <span class="brd-rd50 red-bg">2</span></i>
                                             <div class="setp-box-inner">
                                                 <h4 itemprop="headline">Choose a Tasty Dish</h4>
                                                 <p itemprop="description">Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
@@ -177,7 +174,7 @@
                                     </div>
                                     <div class="col-md-4 col-sm-4 col-lg-4">
                                         <div class="step-box wow fadeInUp" data-wow-delay="0.6s">
-                                            <i><img src="{{url('')}}/assets/images/resource/setp-img3.png" alt="setp-img3.png" itemprop="image"> <span class="brd-rd50 red-bg">3</span></i>
+                                            <i><img src="{{url('')}}/assets/images/setp-img3.png" alt="setp-img3.png" itemprop="image"> <span class="brd-rd50 red-bg">3</span></i>
                                             <div class="setp-box-inner">
                                                 <h4 itemprop="headline">Follow The Status</h4>
                                                 <p itemprop="description">Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>

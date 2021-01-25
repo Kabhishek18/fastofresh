@@ -1,6 +1,34 @@
-
         <section>
-            <div class="gray-bg bottom-padd210">
+            <div class="gray-bg ">
+                <div class="sec-box bottom-padd140">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12 col-lg-12">
+                                <div class="sec-wrapper">
+                                    <div class="row">
+                             
+                                        <div class="col-md-12 col-sm-12 col-lg-12">
+                                            <div class="title2-wrapper">
+                                                <h3 class="marginb-0" itemprop="headline">About {{$category->name}}</h3>
+                                            </div>
+                                            <div class="remove-ext">
+                                                <div class="row">
+                                                    <div class="col-md-12 col-sm-12 col-lg-12">
+                                                        {!!$category->description!!}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- Section Box -->
+            </div>
+        </section>
+        <section>
+            <div class="gray-bg ">
                 @include('../status')
                 <div class="sec-box bottom-padd140">
                     <div class="container">
@@ -22,6 +50,7 @@
                                             </ol>
 
                                             </div>
+                                           
                                             <div class="remove-ext">
                                                 <div class="row">
                                                 
@@ -50,18 +79,22 @@
                                                         </div>
                                                         <div class="popular-dish-info">
                                                             <h4 itemprop="headline"><a href="{{url('product').'/'.$product->id}}" title="" itemprop="url">{{$product->name}}</a></h4>
-                                                            <p>{!!$product->short_descrip!!}</p>
-                                                            <span class="price">MRP: ₹ 
+                                                            {!!$product->short_descrip!!}
+                                                            <div class="d-flex justify-content-center" style="margin-top: 10px;margin-bottom: 10px;"> 
+                                                            <span class="price "> 
                                                             @if($product->b_price)
-                                                            <del>{{$product->b_price}}</del>
-                                                            {{$product->s_price}}
+                                                            <del>MRP: ₹{{$product->b_price}}</del>
+                                                            MRP: ₹ {{$product->s_price}}
                                                             @else
-                                                            {{$product->s_price}}
+                                                            MRP: ₹ {{$product->s_price}}
                                                             @endif
                                                              </span>
-                                                            <a class="brd-rd4 " id="hide-{{$product->id}}" data-value="{{$product->id}}" href="javascript:void(0)" title="Order Now" itemprop="url">ADD TO CART</a>
+                                                            </div>
+                                                            <div class="col-sm-12 d-flex justify-content-center"> 
+                                                            <a class="btn btn-danger" id="hide-{{$product->id}}" data-value="{{$product->id}}" href="javascript:void(0)" title="Order Now" style="background: #ea1b25" itemprop="url">ADD TO CART</a>
                                                            
                                                             <div id="show-{{$product->id}}"></div>
+                                                            </div>
                                                            
                                                         </div>
                                                     </div><!-- Product Box -->

@@ -140,7 +140,7 @@
 
                                                 
                                                    <script>
-                                                        CKEDITOR.replace('');
+                                                        CKEDITOR.replace('short_descrip');
                                                        
                                                    </script>
                                                 </div>

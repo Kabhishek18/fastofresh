@@ -56,6 +56,26 @@ class admin_control extends Controller
 	    return redirect('laravel-admin');
 	}
 
+	public function OrderStatus(Request $request)
+	{
+	   	$user['user'] = session()->get('admin_session');
+	    if ($user['user']) {
+	   		$val['status'] = Request::post('statusupdate');
+	   		$val['id'] = Request::post('id');
+	   		$update = admin_model::StatusOrder($val);
+	   		if ($update) {
+	   			return redirect()->back()->with('success', 'Update Successfully');
+	    		}
+    		else{
+    			return redirect()->back()->with('warning', 'Something Misfortune Happen');
+    		}
+	    }
+	    else{
+	       session()->flash('warning', 'Access Denied');
+	      return redirect('laravel-admin');
+	    }
+	}
+
 	public function Homelist()
     {
     	$user['user'] = session()->get('admin_session');
@@ -782,7 +802,8 @@ class admin_control extends Controller
 
         // Set qr code
         $printer->setQRcode([
-            'txnid' => $transaction_id
+            'txnid' => $transaction_id,
+            'customer' =>$clientLocation,
 
         ]);
 

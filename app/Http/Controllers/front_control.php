@@ -77,7 +77,8 @@ class front_control extends Controller
 
    //Categories Products
   public function products($name ="")
-  {  
+  {   
+      $var['categories'] = front_model::getCategory();
       $var['category'] =front_model::getCategoryName($name);
       $var['products'] =front_model::GetCatPro($var['category']->id);
        echo view('front/inc/header');

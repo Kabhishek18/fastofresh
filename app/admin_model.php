@@ -196,5 +196,11 @@ class admin_model extends Model
     return $value;
   }
 
+  public static function StatusOrder($array)
+  {
+    
+    $value = DB::table('orders')->where('id',$array['id'])->update($array);
+    return $value;
+  }
 
 }

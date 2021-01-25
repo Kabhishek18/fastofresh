@@ -152,7 +152,7 @@ form.dark-red-bg {background-color: #c33332;}
 }
 .black-bg{background: #272727;}
 .overlape-45 {margin-top: -45px;}
-.overlape-95 {margin-top: -95px;}
+.overlape-95 {margin-top: -75px;}
 .sec-wrapper {
   float: left;
   width: 100%;
@@ -1403,6 +1403,7 @@ h3.marginb-0 {margin-bottom: 0;}
     border-color: #efeeee;
 }
 .popular-dish-info > h4 {
+  height: 20px;
   font-size: 16px;
   font-weight: 600;
   letter-spacing: 0;
@@ -2005,7 +2006,7 @@ footer {
   width: 52px;
   background-color: #fff;
   position: absolute;
-  right: -25px;
+  right: -32px;
   top: 37px;
   z-index: -1;
 }
@@ -7113,11 +7114,11 @@ a.thanks-close:focus {color: #333;}
 		margin:0;
 	}
 	p{
-		font-size: 15px;
+		font-size: 17px;
     color: #6f6f6f;
     font-family: "calibri";
     margin: 0;
-    padding-top: 30px;
+    /*padding-top: 30px;*/
     text-align: justify;
     line-height: 24px;
 	}
