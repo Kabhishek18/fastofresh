@@ -2,6 +2,7 @@
 <html>
 <head>
 <title> Non-Seamless-kit</title>
+   <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
 <body>
 <center>
@@ -22,7 +23,8 @@
 	$encrypted_data=encrypt($merchant_data,$working_key); // Method for encrypting the data.
 
 ?>
-<form method="post" name="redirect" action="https://secure.ccavenue.com/transaction/transaction.do?command=initiateTransaction"> 
+<form method="post" name="redirect" action="https://test.ccavenue.com/transaction/transaction.do?command=initiateTransaction"> 
+	@csrf
 <?php
 echo "<input type=hidden name=encRequest value=$encrypted_data>";
 echo "<input type=hidden name=access_code value=$access_code>";
@@ -31,5 +33,12 @@ echo "<input type=hidden name=access_code value=$access_code>";
 </center>
 <script language='javascript'>document.redirect.submit();</script>
 </body>
+<script type="text/javascript">
+    $.ajaxSetup({
+    headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+    });
+</script>
 </html>
 

@@ -1,5 +1,6 @@
 <html>
 <head>
+	    <meta name="csrf-token" content="{{ csrf_token() }}">
 <script>
 	window.onload = function() {
 		var d = new Date().getTime();
@@ -34,10 +35,10 @@
 					<td>Currency	:</td><td><input type="text" name="currency" value="INR"/></td>
 				</tr>
 				<tr>
-					<td>Redirect URL	:</td><td><input type="text" name="redirect_url" value="http://192.168.1.10:8000/ccavResponseHandler"/></td>
+					<td>Redirect URL	:</td><td><input type="text" name="redirect_url" value="{{url('')}}/ccavResponseHandler"/></td>
 				</tr>
 			 	<tr>
-			 		<td>Cancel URL	:</td><td><input type="text" name="cancel_url" value="http://192.168.1.10:8000/ccavResponseHandler"/></td>
+			 		<td>Cancel URL	:</td><td><input type="text" name="cancel_url" value="{{url('')}}/ccavResponseHandler"/></td>
 			 	</tr>
 			 	<tr>
 					<td>Language	:</td><td><input type="text" name="language" value="EN"/></td>
@@ -109,10 +110,10 @@
 					<td>Merchant Param5	:</td><td><input type="text" name="merchant_param5" value="additional Info."/></td>
 				</tr>
 				<tr>
-					<td>Promo Code	:</td><td><input type="text" name="promo_code" value=""/></td>
+					<td>Promo Code	:</td><td><input type="text" name="promo_code" value="asd"/></td>
 				</tr>
 				<tr>
-					<td>Vault Info.	:</td><td><input type="text" name="customer_identifier" value=""/></td>
+					<td>Vault Info.	:</td><td><input type="text" name="customer_identifier" value="123"/></td>
 				</tr>
 		        <tr>
 		        	<td></td><td><INPUT TYPE="submit" value="CheckOut"></td>
@@ -120,6 +121,13 @@
 	      	</table>
 	      </form>
 	</body>
+	<script type="text/javascript">
+    $.ajaxSetup({
+    headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+    });
+</script>
 </html>
 
 
