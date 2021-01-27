@@ -56,14 +56,16 @@
                                                               
                                                                 <div class="order-info">
                                                                     <span class="red-clr">{{date('F d y h:i A',strtotime($order->created_at))}}</span>
-                                                                    <?php $cart = json_decode($order->order_cart,true);?>
+                                                                    <?php $cart = json_decode($order->order_cart,true
+                                                                        );?>
+
                                                                     <div class="row">
                                                                         @foreach($cart as $item)
                                                                         <div class="col-md-12"> 
                                                                             <table class="table">
                                                                                 <tr>
                                                                                     <td><h4 class="text-info">{{$item['name']}}</h4></td>
-                                                                                    <td> <img src="{{$item['photo']}}" width="150px"></td>
+                                                                                    <td style="float: right;"> <img src="{{url('')}}/products/{{$item['photo']}}" width="150px"></td>
                                                                                 </tr>
                                                                               <!--   <tr>
                                                                                     <td><span >₹ {{$item['price']}} X {{$item['quantity']}}</span>= ₹ {{$item['price'] * $item['quantity']}}</span></td>
@@ -89,11 +91,11 @@
                                                        <br>
                                                         <?php $i=1;?>
                                                        @foreach($locations as $location) 
-                                                      <div class="row">
-                                                            <div class="card">
+                                                      <div class="order-list">
+                                                            <div class="order-item card">
                                                               <div class="card-header" style="padding: 15px;
 ">
-                                                                <h5>Location {{$i++}}</h5>
+                                                                <h5><strong>Saved Address</strong></h5>
                                                               </div>
                                                               <div class="card-body">
                                                                 <?php $address =json_decode($location->location,true);?>

@@ -60,8 +60,10 @@ class cart extends Controller
    {
     $cart['cart'] = session()->get('cart');
         if($cart['cart']){
+      $var['categories'] = front_model::getCategory();
+
             echo view('front/inc/header');
-            echo view('front/inc/nav');
+            echo view('front/inc/nav',$var);
             echo view('front/cart',$cart);
             echo view('front/inc/footer');
         }

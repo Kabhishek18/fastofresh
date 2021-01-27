@@ -739,6 +739,8 @@ class admin_control extends Controller
     	 $cart =json_decode($order->order_cart,true);
     	 $client = json_decode($order->orderdetail,true);
     	 $clientLocation = json_decode($client['loc'],true);
+
+    	
     	
     	 // Set params
         $cin = 'U15490DL2020PTC367249';
@@ -777,7 +779,8 @@ class admin_control extends Controller
         );
 
         // Set Client Info
-        $printer->SetClient($clientLocation['addressline1'],$clientLocation['landmark'],$clientLocation['city'],$clientLocation['postalcode'],$clientLocation['mobile'],$clientLocation['username'],$clientLocation['email']);
+        $printer->SetClient($clientLocation['addressline1'],$clientLocation['landmark'],$clientLocation['city'],$clientLocation['postalcode'],$clientLocation['mobile'],$clientLocation['username'],$clientLocation['email'],$client['method'],$client['slottime']);
+
         // Set store info
         $printer->setStore($cin,$gst, $store_name, $store_address, $store_phone, $store_email, $store_website);
 
@@ -800,10 +803,12 @@ class admin_control extends Controller
         // Set transaction ID
         $printer->setTransactionID($transaction_id);
 
+      
+        //Set Payment method and slot
+    
         // Set qr code
         $printer->setQRcode([
             'txnid' => $transaction_id,
-            'customer' =>$clientLocation,
 
         ]);
 

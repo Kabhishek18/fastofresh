@@ -58,16 +58,16 @@
                                                 <div class="restaurant-detail-tabs">
                                                         <ul class="nav nav-tabs">
                                                             <li class="active"><a href="#tab1-1" data-toggle="tab"><i class="fa fa-cutlery"></i> Description</a></li>
-                                                            <li><a href="#tab1-2" data-toggle="tab"><i class="fa fa-info"></i>Information</a></li>
+                                                            <!-- <li><a href="#tab1-2" data-toggle="tab"><i class="fa fa-info"></i>Information</a></li> -->
                                                         </ul>
                                                         <div class="tab-content">
                                                             <div class="tab-pane fade in active" id="tab1-1">
                                                               {!!$product->description!!}
                                                             </div>
-                                                            <div class="tab-pane fade in" id="tab1-2">
+                                                            <!-- <div class="tab-pane fade in" id="tab1-2">
                                                                 {!!$product->information!!}
 
-                                                            </div>
+                                                            </div> -->
                                                         </div>
                                                 </div>
                                                 <div class="restaurant-detail-title">

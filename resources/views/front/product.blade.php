@@ -1,12 +1,21 @@
         <section>
             <div class="gray-bg ">
-                <div class="sec-box bottom-padd140">
+
+                @include('../status')
+                <div class="sec-box ">
                     <div class="container">
                         <div class="row">
                             <div class="col-md-12 col-sm-12 col-lg-12">
                                 <div class="sec-wrapper">
                                     <div class="row">
-                             
+                                         <div class="bread-crumbs-wrapper">
+
+                                            <ol class="breadcrumb">
+                                                <li class="breadcrumb-item"><a href="#" title="" itemprop="url">Home</a></li>
+                                                <li class="breadcrumb-item active">All Category</li>
+                                            </ol>
+
+                                            </div>
                                         <div class="col-md-12 col-sm-12 col-lg-12">
                                             <div class="title2-wrapper">
                                                 <h3 class="marginb-0" itemprop="headline">About {{$category->name}}</h3>
@@ -29,7 +38,6 @@
         </section>
         <section>
             <div class="gray-bg ">
-                @include('../status')
                 <div class="sec-box bottom-padd140">
                     <div class="container">
                         <div class="row">
@@ -38,18 +46,9 @@
                                     <div class="row">
                              
                                         <div class="col-md-12 col-sm-12 col-lg-12">
-                                            <div class="title2-wrapper" style="margin-bottom:0px">
-                                                <h3 class="marginb-0" itemprop="headline">{{$category->name}}</h3>
-                                            </div>
+                                      
 
-                                            <div class="bread-crumbs-wrapper">
-
-                                            <ol class="breadcrumb">
-                                                <li class="breadcrumb-item"><a href="#" title="" itemprop="url">Home</a></li>
-                                                <li class="breadcrumb-item active">All Category</li>
-                                            </ol>
-
-                                            </div>
+                                           
                                            
                                             <div class="remove-ext">
                                                 <div class="row">

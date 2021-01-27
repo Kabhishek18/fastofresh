@@ -31,7 +31,7 @@ class front_control extends Controller
       $categories['blogs'] = front_model::getBlog();
 
       echo view('front/inc/header');
-      echo view('front/inc/nav');
+      echo view('front/inc/nav',$categories);
       echo view('front/index',$categories);
       echo view('front/inc/footer');
   }
@@ -70,7 +70,7 @@ class front_control extends Controller
   {  
       $var['categories'] =front_model::getCategory();
       echo view('front/inc/header');
-      echo view('front/inc/nav');
+      echo view('front/inc/nav',$var);
       echo view('front/category',$var);
       echo view('front/inc/footer');
   }
@@ -82,7 +82,7 @@ class front_control extends Controller
       $var['category'] =front_model::getCategoryName($name);
       $var['products'] =front_model::GetCatPro($var['category']->id);
        echo view('front/inc/header');
-       echo view('front/inc/nav');
+       echo view('front/inc/nav',$var);
        echo view('front/product',$var);
        echo view('front/inc/footer');
   }
@@ -118,8 +118,9 @@ class front_control extends Controller
         $var['recipes'] =null;
       }
 
+      $var['categories'] = front_model::getCategory();
     echo view('front/inc/header');
-     echo view('front/inc/nav');
+     echo view('front/inc/nav',$var);
      echo view('front/prodetail',$var);
      echo view('front/inc/footer');
   }
@@ -132,8 +133,10 @@ class front_control extends Controller
       $user['user'] = session()->get('user_session');
       if($user['user']){
         $cart['locations'] =front_model::getLocationUid($user['user']->id);
+        $var['categories'] = front_model::getCategory();
+
         echo view('front/inc/header');
-        echo view('front/inc/nav');
+        echo view('front/inc/nav',$var);
         echo view('front/checkout',$cart);
         echo view('front/inc/footer');
       }
@@ -231,10 +234,12 @@ class front_control extends Controller
   {
     $user['user'] = session()->get('user_session');
     if ($user['user']) {
+      $var['categories'] = front_model::getCategory();
+
       $user['orders'] =front_model::getOrderUserid($user['user']->id);
       $user['locations'] =front_model::getLocationUid($user['user']->id);
       echo view('front/inc/header');
-      echo view('front/inc/nav');
+      echo view('front/inc/nav',$var);
       echo view('front/dashboard',$user);
       echo view('front/inc/footer');
     }
@@ -345,11 +350,12 @@ class front_control extends Controller
 
   public function BlogDetail($value='')
   {
-    dd($value);
     $var['product'] =front_model::getProductname($name);
+     $var['categories'] = front_model::getCategory();
+
     echo view('front/inc/header');
-     echo view('front/inc/nav');
-     echo view('front/blogdetail',$var);
+    echo view('front/inc/nav',$var);
+    echo view('front/blogdetail',$var);
      echo view('front/inc/footer');
   }
   public function sendEmail (Request $request) {

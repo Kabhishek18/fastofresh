@@ -20,8 +20,8 @@
                     </div>
                     <div class="topbar-register">
                         @if(!empty(session()->get('user_session')))
-                            <a href="{{url('/dashboard')}}">{{(session()->get('user_session'))->email}}
-                                / Dashboard
+                            <a href="{{url('/dashboard')}}">Hi, {{(session()->get('user_session'))->name}}
+                                (MyAccount)
                             </a>
                         @else
                         <a class="log-popup-btn" href="#" title="Login" itemprop="url">LOGIN</a> / <a class="sign-popup-btn" href="#" title="Register" itemprop="url">REGISTER</a>
@@ -49,7 +49,14 @@
                     <nav>
                         <div class="menu-sec">
                             <ul>
-                                <li class="menu-item-has-children"><a href="#" title="HOMEPAGES" itemprop="url">TODAY'S DEALS</a></li>
+                                 <li class="menu-item-has-children" >CATEGORIES
+                                    <ul class="sub-dropdown">
+                                       @foreach($categories as $category)
+                                        <li style="text-transform: uppercase;"><a href="{{url('')}}/category/{{$category->name}}" title="REGISTER RESERVATION" itemprop="url">{{$category->name}}</a></li>
+                                        
+                                        @endforeach
+                                    </ul>
+                                </li>
                                 <li class="menu-item-has-children"><a href="#" title="HOMEPAGES" itemprop="url">FESTIVAL SPECIAL</a></li>
                                 <li class="menu-item-has-children"><a href="#" title="HOMEPAGES" itemprop="url">PRE ORDER</a></li>
 

@@ -36,13 +36,13 @@
                                                     <td data-th="Price">₹ {{ $details['price'] }}</td>
                                                     <td data-th="Quantity" >
                                                          <input type='button' onclick="decrementValueCart(<?=$details['pid']?>)" value='-' class='btn btn-default' field='quantity' />
-                                                        <input type="number" id="qty<?=$details['pid']?>" value="{{ $details['quantity'] }}" class=" " min="1"  style="width: 20%;
+                                                        <input type="number" id="qty<?=$details['pid']?>" value="{{ $details['quantity'] }}" class="updatecart " min="1"  style="width: 20%;
     text-align: center;"/>
                                                         <input type='button' onclick="incrementValuecart(<?=$details['pid']?>)" value='+' class='btn btn-default' field='quantity' />
                                                     </td>
                                                     <td data-th="Subtotal" class="text-center">₹ {{ $details['price'] * $details['quantity'] }}</td>
                                                     <td class="actions" data-th="">
-                                                        <button class="btn btn-info btn-sm update-cart" data-id="{{ $id }}" data-value="{{$id}}"><i class="fa fa-refresh"></i>Update</button>
+                                                        <button class="btn btn-warning btn-sm update-cart" data-id="{{ $id }}" data-value="{{$id}}"><i class="fa fa-refresh"></i>Update</button>
                                                         <button class="btn btn-danger btn-sm remove-from-cart" style="background-color: #ea1b25;" data-id="{{ $id }}"><i class="fa fa-trash-o"></i>Remove</button>
                                                     </td>
                                                 </tr>
@@ -98,7 +98,7 @@
            $.ajax({
                url: '{{ url('update-cart') }}',
                method: "patch",
-               data: {_token: '{{ csrf_token() }}', id: ele.attr("data-id"), quantity: ele.parents("tr").find(".quantity").val()},
+               data: {_token: '{{ csrf_token() }}', id: ele.attr("data-id"), quantity: ele.parents("tr").find(".updatecart").val()},
                success: function (response) {
                    window.location.reload();
                }
@@ -121,7 +121,6 @@
 
  function incrementValuecart(pid)
 {   var id = 'qty'+pid;
-    console.log(id);
     var value = parseInt(document.getElementById(id).value, 10);
      value = isNaN(value) ? 0 : value;
     value++;

@@ -18,7 +18,7 @@
                                             <div class="restaurant-detail-wrapper">
                                 
                                                 
-                                              <div id="hidelocation">
+                                              <div id="hidelocation" class="order-list" style="margin-bottom: 50px;">
                                                 <?php $i=1;?>
                                                    @foreach($locations as $location)
                                                     <div class="col-md-4 col-lg-4 col-sm-4">
@@ -27,9 +27,9 @@
                                                             <?php $loc = json_decode($location->location,true)?>
                                                           <input type="radio" name="loc" class="card-input-element" value="{{$location->location}}" />
 
-                                                            <div class="panel panel-info card-input">
-                                                              <div class="panel-heading">Location {{$i++}}</div>
-                                                              <div class="panel-body">
+                                                            <div class="panel panel-success card-input">
+                                                              <div class="slot-panel-heading"><strong>Saved Address</strong></div>
+                                                              <div class="slots-body">
                                                                <p>{{$loc['addressline1']}}</p> 
                                                                <p>{{$loc['city']}},{{$loc['postalcode']}}</p>
                                                                <p><strong>LandMark: ({{$loc['landmark']}})</strong></p>
@@ -44,7 +44,7 @@
                                                   
 
                                 
-                                                <div class="col-md-12 col-sm-12 ">
+                                                <div class="col-md-12 col-sm-12 text-left " style="margin-bottom: 20px;">
                                                     <div class="form-check" >
                                                       <input class="form-check-input" type="checkbox" name="locationadd" id="locationcheck" value="work" style="display: contents;">
                                                       <label class="form-check-label" for="locationcheck" style="font-size: x-large">
@@ -52,7 +52,7 @@
                                                       </label>
                                                     </div>
                                                 </div>
-                                                <div id="filllocation">
+                                                <div id="filllocation" class="text-left" style="margin-bottom: 50px;">
                                                     <div class="col-md-6 col-sm-12">
                                                         <div class="form-group">
                                                             <label>Flat no / Building name / Street name <span class="text-danger">*</span></label>
@@ -85,12 +85,13 @@
                                                     </div>
                                                  
                                                 </div>
-                                                <div class="col-md-12 col-sm-12">
-                                                    <h4><u>Check You Time Slots</u></h4>
+                                             
+                                                <div class="col-md-12 col-sm-12 slots"  >
+                                                    <h3 class="text-left"><u>Check You Time Slots</u></h3>
                                                      
                                                     
                                                     <div class="row">
-                                                      <h6>Today Slots</h6>
+                                                      <h4 class="text-left"> Today Slots</h4>
                                                           <?php 
                                                         
                                                           $date =date('y-m-d H:i:s');
@@ -99,7 +100,7 @@
                                                           $deliverytime = new DateTime($date);
 
                                                           $hour = $deliverytime->format('H');
-                                                           $dateplus = date('y-m-d h:i:s',strtotime('+1 day',strtotime($date)));?>
+                                                           $dateplus = date('y-m-d',strtotime('+1 day',strtotime($date)));?>
                                                          
                                                         
                                                          <?php if ($hour < 7 ) { ?>
@@ -107,9 +108,9 @@
                                                           <label>
                                                             <input type="radio" name="slottime" class="card-input-element" value="7:30 AM To 11:30 AM" />
 
-                                                            <div class="panel panel-info card-input">
-                                                              <div class="panel-heading">Morning Slot </div>
-                                                              <div class="panel-body">
+                                                            <div class="panel panel-success card-input">
+                                                             
+                                                              <div class="slots-body">
                                                                <p>7:30 AM To 11:30 AM</p> 
                                                               </div>
                                                             </div>
@@ -120,9 +121,9 @@
                                                             <label>
                                                             <input type="radio" name="slottime" class="card-input-element" value="11:30 AM To 3:30 PM" />
 
-                                                            <div class="panel panel-info card-input">
-                                                              <div class="panel-heading">Afternoon Slot </div>
-                                                              <div class="panel-body">
+                                                            <div class="panel panel-success card-input">
+                                                              
+                                                              <div class="slots-body">
                                                                <p>11:30 AM To 3:30 PM</p> 
                                                               </div>
                                                             </div>
@@ -133,9 +134,9 @@
                                                           <label>
                                                           <input type="radio" name="slottime" class="card-input-element" value="3:30 PM To 7:30 PM" />
 
-                                                          <div class="panel panel-info card-input">
-                                                            <div class="panel-heading">Evening Slot </div>
-                                                            <div class="panel-body">
+                                                          <div class="panel panel-success card-input">
+                                                            
+                                                            <div class="slots-body">
                                                              <p>3:30 PM To 7:30 PM</p> 
                                                             </div>
                                                           </div>
@@ -146,9 +147,9 @@
                                                           <label>
                                                           <input type="radio" name="slottime" class="card-input-element" value="7:30 PM To 10:00 PM" />
 
-                                                          <div class="panel panel-info card-input">
-                                                            <div class="panel-heading">Night Slot </div>
-                                                            <div class="panel-body">
+                                                          <div class="panel panel-success card-input">
+                                                            
+                                                            <div class="slots-body">
                                                              <p>7:30 PM To 10:00 PM</p> 
                                                             </div>
                                                           </div> 
@@ -157,15 +158,15 @@
                                                         <?php } ?>
                                                     </div>  
                                                     <div class="row">
-                                                      <h6>Tommorow Slots</h6>
+                                                      <h4 class="text-left">Tommorow Slots</h4>
 
                                                         <div class="col-md-3">
                                                           <label>
                                                             <input type="radio" name="slottime" class="card-input-element" value="{{$dateplus}} 7:30 AM To 11:30 AM" />
 
-                                                            <div class="panel panel-info card-input">
-                                                              <div class="panel-heading">Morning Slot </div>
-                                                              <div class="panel-body">
+                                                            <div class="panel panel-success card-input">
+                                                            
+                                                              <div class="slots-body">
                                                                <p>7:30 AM To 11:30 AM</p> 
                                                               </div>
                                                             </div>
@@ -176,9 +177,9 @@
                                                             <label>
                                                             <input type="radio" name="slottime" class="card-input-element" value="{{$dateplus}} 11:30 AM To 3:30 PM" />
 
-                                                            <div class="panel panel-info card-input">
-                                                              <div class="panel-heading">Afternoon Slot </div>
-                                                              <div class="panel-body">
+                                                            <div class="panel panel-success card-input">
+                                                              
+                                                              <div class="slots-body">
                                                                <p>11:30 AM To 3:30 PM</p> 
                                                               </div>
                                                             </div>
@@ -189,9 +190,9 @@
                                                           <label>
                                                           <input type="radio" name="slottime" class="card-input-element" value="{{$dateplus}} 3:30 PM To 7:30 PM" />
 
-                                                          <div class="panel panel-info card-input">
-                                                            <div class="panel-heading">Evening Slot </div>
-                                                            <div class="panel-body">
+                                                          <div class="panel panel-success card-input">
+                                                           
+                                                            <div class="slots-body">
                                                              <p>3:30 PM To 7:30 PM</p> 
                                                             </div>
                                                           </div>
@@ -202,9 +203,9 @@
                                                           <label>
                                                           <input type="radio" name="slottime" class="card-input-element" value="{{$dateplus}} 7:30 PM To 10:00 PM" />
 
-                                                          <div class="panel panel-info card-input">
-                                                            <div class="panel-heading">Night Slot </div>
-                                                            <div class="panel-body">
+                                                          <div class="panel panel-success card-input">
+                                                           
+                                                            <div class="slots-body">
                                                              <p>7:30 PM To 10:00 PM</p> 
                                                             </div>
                                                           </div> 

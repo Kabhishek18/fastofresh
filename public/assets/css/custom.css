@@ -1,4 +1,9 @@
-    
+  .slots p {
+    font-size: 13px
+  }
+  .slots-body{
+    padding: 15px;
+  }    
 .card-input-element {
     display: none;
 }
@@ -13,8 +18,24 @@
 }
 
 .card-input-element:checked + .card-input {
-     box-shadow: 0 0 1px 1px #2ecc71;
+     box-shadow: 0 0 2px 4px #306f06;
  }
+
+.slot-panel-heading{
+  padding-left: 5px;
+    margin-top: 5px;
+    padding-bottom: 17px;
+    padding-top: 17px;
+    /* border-radius: 50px 0px 0px 50px; */
+    text-decoration: none;
+    border: none;
+    background-color: #f9f9f9;
+ }
+ .panel-success>.slot-panel-heading {
+    color: #3c763d;
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+}
 .qty {
     width: 40px;
     height: 25px;
