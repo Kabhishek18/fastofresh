@@ -93,7 +93,7 @@ class admin_model extends Model
   public static function getOrders($id= ''){
       if($id){
         $array =array('id' => $id);
-      $value=DB::table('orders')->where($array)->orderBy('id', 'desc')->first();
+      $value=DB::table('orders')->where($array)->orderBy('created_at', 'desc')->first();
       }
       else{
       $value=DB::table('orders')->orderBy('id', 'desc')->get();
@@ -200,6 +200,11 @@ class admin_model extends Model
   {
     
     $value = DB::table('orders')->where('id',$array['id'])->update($array);
+    return $value;
+  }
+    public static function OrderDelete($array)
+  {
+    $value= DB::delete('delete from orders  where id =?',[$array]);
     return $value;
   }
 

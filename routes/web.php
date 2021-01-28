@@ -27,6 +27,7 @@ Route::post('search', 'front_control@Search');
 Route::post('blog', 'front_control@BlogDetail');
 Route::post('blog/{$id}', 'front_control@BlogDetail');
 Route::get('test', 'front_control@test');
+Route::post('location/saved', 'front_control@LocationSaved');
 
 //Cart
 Route::post('cartadd', 'cart@AddToCart');

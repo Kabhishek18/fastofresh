@@ -75,7 +75,7 @@
                                                 <tbody>
                                                     @foreach($orders as $order)
                                                     <tr>
-                                                        <td>{{$order->id}}</td>
+                                                        <td>{{date('ymdhsi',strtotime($order->created_at))}}</td>
                                                         <td>{{$order->transactionid}}</td>
                                                         <?php $carts = json_decode($order->order_cart,true);?>
                                                         <td>
@@ -121,7 +121,7 @@
                                                                 </a>
                                                             </span>
                                                             <span class="action-delete">
-                                                                <a href="{{url('')}}/laravel-admin/orderDelete/{{$order->id}}" onclick="return confirm('Are you sure, you want to delete it?')">
+                                                                <a href="{{url('')}}/laravel-admin/order/delete/{{$order->id}}" onclick="return confirm('Are you sure, you want to delete it?')">
                                                                     <i class="feather icon-trash"></i>
                                                                 </a>
                                                             </span>

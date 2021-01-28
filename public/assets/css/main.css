@@ -5049,8 +5049,8 @@ input:checked + .switch-slider:before {
 .newsletter-popup-inner {
   display: inline-block;
   text-align: left;
-  width: 100%;
-  max-width: 650px;
+  /*width: 100%;
+  max-width: 650px;*/
   margin: 140px auto;
   position: relative;
   padding: 60px 130px 60px 50px;

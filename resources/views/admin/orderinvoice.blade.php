@@ -135,18 +135,18 @@
                                                  <td>{{ $details['quantity'] }}</td>
                                                  <td> ₹ 
                                                     @if($details['parent_id'] == 4)
-                                                    {{($details['price'] - $details['price']*12/100)}}
+                                                    {{number_format($details['price'] - ($details['price'] - $details['price']*(100/(100+12))),2)}}
                                                     @elseif($details['parent_id']==5)
-                                                    {{($details['price'] -$details['price']*12/100)}}
+                                                   {{number_format($details['price'] - ($details['price'] - $details['price']*(100/(100+12))),2)}}
                                                     @else
                                                     {{($details['price'] -$details['price']*0)}}
 
                                                     @endif</td>
                                                  <td> ₹ 
-                                                    @if($details['parent_id'] == 4)
-                                                    {{($details['price']*12/100)}}
+                                                     @if($details['parent_id'] == 4)
+                                                    {{number_format($details['price'] - $details['price']*(100/(100+12)),2)}}
                                                     @elseif($details['parent_id']==5)
-                                                    {{($details['price']*12/100)}}
+                                                   {{number_format($details['price'] - $details['price']*(100/(100+12)),2)}}
                                                     @else
                                                     {{($details['price']*0)}}
 

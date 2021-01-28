@@ -416,28 +416,25 @@ class front_control extends Controller
 
   public function Test()
   {
-    echo view('front/test');
+   // echo view('front/test');
+    
+    echo "Gst :".$gst = 12;
+    echo "<br>";
+    echo "BAse :".$base = 279;
+    echo "<br>";
+
+    echo $value = $base - ($base * (100/ (100+$gst)));
+
+    echo "<br>";
+    $test = ($base/($base-$value)) -1;
+    echo $test;
+
   }
-  /*
-  Geocodes an addres so we can get the latitude and longitude
-*/
-    private $api_key = "AIzaSyDjntljYk1K3SYkJRRj6d3GuajOlt-5eQk"; // replace with your google maps api key
-
- 
-
-    public function testRoute()
-    {
-        $client = new Client(); 
-        $result = $client->request('GET', 'https://maps.googleapis.com/maps/api/directions/json',
-            ['query' => [
-                'origin' => 'Disneyland',
-                'destination' => 'Universal+Studios+Hollywood',
-                'key' => $this->api_key
-            ]
-        ]);
-        
-       dd(json_decode($result->getBody()));
-    }
-
-
+  
+  public function LocationSaved(Request $request)
+  {
+      $weblocation = Request::post('weblocation');
+       session()->put('location',$weblocation);
+          return redirect()->back();
+  }
 }

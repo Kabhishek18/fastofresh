@@ -1,22 +1,33 @@
+<?php
+$json_string =    file_get_contents("locationpin.json");
+$parsed_json = json_decode($json_string, true);
+dd($parsed_json);
+?>
 <header class="stick">
             <div class="topbar">
                 <div class="container">
                     <div class="select-wrp">
                         <select data-placeholder="Feel Like Eating">
-                            <option>TODAY's ORDER</option>
-                            <option>Caption - 1</option>
-                            <option>Caption - 2</option>
-                            <option>Caption - 3</option>
-                            <option>Caption - 4</option>
+                            <option>Check Delivery  Availabilty </option>
+                            @foreach($parsed_json as $key =>$value)
+                             <optgroup>{{$key}}</optgroup>   
+                            @endforeach
+
                         </select>
                     </div>
                     <div class="select-wrp">
-                        <select data-placeholder="Choose Location">
-                            <option>CHOOSE LOCATION</option>
-                            <option>Gurgaon</option>
-                            <option>Noida</option>
-                            <option>Delhi</option>
+                         <form action="{{url('')}}/location/saved" method="post">
+                            @csrf
+                        <select data-placeholder="Choose Location" name="weblocation" onchange="this.form.submit()">
+                            @if(!empty(session()->get('location')))
+                            <option selected="" value="{{session()->get('location')}}" >{{session()->get('location')}}</option>
+                            @endif
+                            <option value="Ghaziabad">Ghaziabad </option>
+                            <option value="Noida">Noida </option>
+                            <option value="East Delhi">East Delhi </option>
+
                         </select>
+                        </form>
                     </div>
                     <div class="topbar-register">
                         @if(!empty(session()->get('user_session')))

@@ -376,6 +376,99 @@
             </div>
         </section>
 
+<style type="text/css">
+    .modal-content{
+        max-width: 480px;
+    }
+    label {
+    width: 100%;
+
+    }
+    .location-heading{
+        padding-left: 5px;
+    margin-top: 5px;
+    padding-bottom: 17px;
+    padding-top: 17px;
+    text-decoration: none;
+    border: none;
+    color: #fff;
+    background-color: #306f06;
+    }
+    .card-input-element {
+        display: none;
+    }
+
+    .card-input {
+        margin: 10px;
+        padding: 00px;
+
+    }
+
+    .card-input:hover {
+        cursor: pointer;
+    }
+
+    .card-input-element:checked + .card-input {
+         box-shadow: 0 0 3px 5px #306f06;
+     }
+
+</style>
+        @if(empty(session()->get('location')))
+        <div class="newsletter-popup-wrapper text-center">
+            <div class="modal-content">
+                    <div class="modal-header">
+                      <div class="modal-logo"><img src="/assets/images/logo2.png"></div>
+                      <h4><i class="fa fa-map-marker"></i> Please select your location</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form action="{{url('')}}/location/saved" method="post">
+                            @csrf
+                            <div class="col-md-12">
+                                <label>
+                                  <input type="radio" name="weblocation" class="card-input-element" value="East Delhi" />
+
+                                    <div class=" card-input">
+                                      <div class="location-heading">East Delhi</div>
+                                     </div>
+
+                                </label>
+                                
+                            </div>
+
+                            <div class="col-md-12">
+                                <label>
+                                  <input type="radio" name="weblocation" class="card-input-element" value="Ghaziabad" />
+
+                                    <div class=" card-input">
+                                      <div class="location-heading">Ghaziabad</div>
+                                     </div>
+
+                                </label>
+                                
+                            </div>
+
+                           
+                            <div class="col-md-12">
+                                <label>
+                                  <input type="radio" name="weblocation" class="card-input-element" value="Noida" />
+
+                                    <div class=" card-input">
+                                      <div class="location-heading">Noida</div>
+                                     </div>
+
+                                </label>
+                                
+                            </div>
+                        </form>
+                    
+                    </div>
+                    <div class="modal-footer">
+                      
+                    </div>
+                  </div><!-- /.modal-content -->
+        </div>
+        @endif
+
         <section>
             <div class="block no-padding red-bg">
                 <img class="bottom-clouds-mockup" src="{{ url('assets/images/resource/clouds2.png') }}" alt="clouds2.png" itemprop="image">
@@ -406,7 +499,7 @@
         </section><!-- red section -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="{{url('assets/js/custom.js')}}"></script>        
-  
+
     <script>
 $(document).ready(function(){
 
@@ -450,5 +543,10 @@ $(document).ready(function(){
    load_data();
   }
  });
+
+$('input[type=radio]').on('change', function() {
+    $(this).closest("form").submit();
+});
+
 });
 </script>

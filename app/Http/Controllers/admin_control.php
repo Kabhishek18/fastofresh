@@ -760,10 +760,10 @@ class admin_control extends Controller
        		$items[$i]['qty'] =$value['quantity'];
        		$items[$i]['price'] =$value['price'];
        		if($value['parent_id']==4){
-       			$items[$i]['gst'] =($value['price']*12/100);
+       			$items[$i]['gst'] =($value['price'] - ($value['price']*(100/(100+12) )));
        		}
        		elseif($value['parent_id']==5){
-       			$items[$i]['gst'] =($value['price']*12/100);
+       			$items[$i]['gst'] =($value['price'] - ($value['price']*(100/(100+12) )));
        		}
        		else{
        			$items[$i]['gst'] =0;
@@ -779,7 +779,7 @@ class admin_control extends Controller
         );
 
         // Set Client Info
-        $printer->SetClient($clientLocation['addressline1'],$clientLocation['landmark'],$clientLocation['city'],$clientLocation['postalcode'],$clientLocation['mobile'],$clientLocation['username'],$clientLocation['email'],$client['method'],$client['slottime'],date('ymdhis'));
+        $printer->SetClient($clientLocation['addressline1'],$clientLocation['landmark'],$clientLocation['city'],$clientLocation['postalcode'],$clientLocation['mobile'],$clientLocation['username'],$clientLocation['email'],$client['method'],$client['slottime'],date('ymdhis',strtotime($order->created_at)));
 
         // Set store info
         $printer->setStore($cin,$gst, $store_name, $store_address, $store_phone, $store_email, $store_website);
