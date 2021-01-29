@@ -6,7 +6,19 @@ use Illuminate\Database\Eloquent\Model;
 
 class front_model extends Model
 {
-   
+     public static function getCoupon($id= ''){
+      if($id){
+        $array =array('name' => $id,'status'=>'active' );
+      $value=DB::table('coupons')->where($array)->orderBy('id', 'desc')->first();
+      }
+      else{
+        $array =array('status'=>'active' );
+
+      $value=DB::table('coupons')->where($array)->orderBy('id', 'desc')->get();
+      }
+      return $value;
+    }  
+
     public static function getBlog($id= ''){
       if($id){
         $array =array('id' => $id,'status' =>'active');

@@ -18,6 +18,7 @@ Route::get('about-us', 'front_control@about' );
 Route::get('privacyandpolicy', 'front_control@privacy' );
 Route::get('faq', 'front_control@faq' );
 Route::get('why', 'front_control@why' );
+
 //Category Product
 Route::get('category', 'front_control@categories' );
 Route::get('category/{name}', 'front_control@products');
@@ -29,6 +30,8 @@ Route::post('blog/{$id}', 'front_control@BlogDetail');
 Route::get('test', 'front_control@test');
 Route::post('location/saved', 'front_control@LocationSaved');
 Route::post('pincode/saved', 'front_control@PincodeSaved');
+Route::post('applycoupon', 'cart@ApplyCoupon');
+Route::get('removeCoupon', 'cart@removeCoupon');
 
 //Cart
 Route::post('cartadd', 'cart@AddToCart');

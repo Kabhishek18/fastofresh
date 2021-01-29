@@ -345,7 +345,7 @@ class front_control extends Controller
   //Logout
   public function Logout($value='')
   {
-    session()->flush('user_session');
+    session()->forget('user_session');
     return redirect('');
   }
 

@@ -52,7 +52,7 @@ class admin_control extends Controller
 
     public function Logout($value='')
 	{
-	    session()->flush('admin_session');
+	    session()->forget('admin_session');
 	    return redirect('laravel-admin');
 	}
 

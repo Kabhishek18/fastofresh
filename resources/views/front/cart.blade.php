@@ -1,13 +1,85 @@
-<section>
-            <div class="gray-bg bottom-padd210">
-                @include('../status')
-                <div class="sec-box bottom-padd140">
+<style type="text/css">
+ 
+
+.modal-dialog {
+  position: fixed;
+  top: auto;
+  left: auto;
+  right: 0.5rem;
+  bottom: 0;
+  margin-bottom: 0.5rem;
+  min-width: 300px;
+  max-width: 400px;
+  
+  .notice {
+    padding: 0rem 1rem;
+    
+    h4 {
+      margin-bottom: 1.5rem;
+    }
+    
+    p {
+      margin-bottom: 0.5rem;
+    }
+  }
+  
+  .icon {
+    font-size: 3rem;
+  }
+}
+
+</style>
+    <section>
+            <div class="gray-bg bottom-padd210" >
+              
+                <div class="sec-box bottom-padd140" style="margin-top: 30px">
+                   @include('../status')
                     <div class="container">
                         <div class="row">
                             <div class="col-md-12 col-sm-12 col-lg-12">
+
                                 <div class="sec-wrapper">
                                     <div class="row">
-                                       
+                                        <br>
+                                           <div class="container">
+                                              <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#discountModal">
+                                                Apply Coupon
+                                              </button>  
+                                            </div>
+                                            <br>
+                                            <div class="modal fade" id="discountModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                              <div class="modal-dialog" role="document">
+                                                <div class="modal-content">
+                                                
+                                                  
+                                                  <div class="modal-body text-center">
+
+                                                    <div class="icon text-danger">
+                                                      <i class="fas fa-percent"></i>
+                                                    </div>
+                                                    <div class="notice">
+                                                      <h4>Get Discount</h4>
+                                                      <p>For the next 24 hours you can get any product at half-price.</p>
+                                                      
+                                                      <p>Use promo code <span class="badge badge-info">50-OFF</span> at checkout.</p>
+                                                    </div>
+                                                          
+                                                        
+                                                    <div class="code"></div>
+                                                  </div>
+                                                  <div class="modal-footer d-flex justify-content-between">
+                                                     <form action="{{url('')}}/applycoupon" method="post">
+                                                       <div class="form-group">
+                                                        @csrf
+                                                            <input type="text" name="coupon" class="form-control" placeholder="Coupon Code">
+                                                       </div>
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Nevermind</button>
+                                                    <button type="submit" class="btn btn-danger">Apply Code</button>
+                                                  </div>
+                                                  </form>
+                                                </div>
+                                              </div>
+                                            </div>
                                         <div class="col-md-12 col-sm-12 col-lg-12">
                                         <table class="table table-striped">
                                             <thead>
@@ -58,6 +130,24 @@
                                                     <td colspan="1"></td>
                                                 </tr>
                                                 @endif
+                                                @if(!empty(session()->get('coupon')))
+                                                <?php $coupon =session()->get('coupon'); ?>
+                                                    <tr>
+                                                        <td colspan="3"></td>
+                                                        <td class="text-center"><strong>Coupon Applied ({{$coupon->name}})</strong></td>
+                                                           @if($coupon->coupon_type =='percent')
+                                                           <?php $couponvalue = ($coupon->coupon_value*$total/100) ;?>
+                                                           @else
+                                                           <?php $couponvalue = ($coupon->coupon_value) ;?>
+                                                           @endif  
+                                                           <?php if($total >$couponvalue){
+                                                            $total = $total - $couponvalue;
+                                                               }else{$total = 0;}?>
+                                                        <td class="text-center"><strong>₹ {{$couponvalue}}</strong>
+                                                            <a href="{{url('')}}/removeCoupon" class="text-danger"><i class="fa fa-trash-o"></i></a></td>
+                                                        <td colspan="1"></td>
+                                                    </tr>
+                                                @endif
                                                 <tr class="visible-xs">
                                                     <td class="text-center"><strong>Total ₹  {{ $total }}</strong></td>
                                                 </tr>
@@ -92,6 +182,9 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="{{url('assets/js/custom.js')}}"></script>
 <script type="text/javascript">
+    // $(document).ready(function() {  
+    //   $('#discountModal').modal('show');
+    // });
         $(".update-cart").click(function (e) {
            e.preventDefault();
            var ele = $(this);

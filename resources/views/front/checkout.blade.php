@@ -244,8 +244,24 @@
                                                             <li><span>Delivery </span> <i> 
                                                                  <?php $ship =30; $total += $ship?> ₹{{$ship}} 
                                                                 </i>  </li>
+                                                            @endif
+
+                                                             @if(!empty(session()->get('coupon')))
+                                                            <?php $coupon =session()->get('coupon'); ?>
+                                                                    <li >Coupon Applied &nbsp; ({{$coupon->name}})
+                                                                       @if($coupon->coupon_type =='percent')
+                                                                       <?php $couponvalue = ($coupon->coupon_value*$total/100) ;?>
+                                                                       @else
+                                                                       <?php $couponvalue = ($coupon->coupon_value) ;?>
+                                                                       @endif  
+                                                                       <?php if($total >$couponvalue){
+                                                                        $total = $total - $couponvalue;
+                                                                           }else{$total = 0;}?>
+                                                                          ₹ {{$couponvalue}}
+                                                                        <a href="{{url('')}}/removeCoupon" class="text-danger" ><i class="fa fa-trash-o"></i></a></li>
+                                                                 
                                                             @endif    
-                                                            <li><span>Total</span> <i>₹  {{ $total }}</i></li>
+                                                           
                                                            
                                                         </ul>
                                                         <ul class="order-method brd-rd2 red-bg">

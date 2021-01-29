@@ -394,7 +394,7 @@
                                 </div>
                             </form>
                             </div>
-                            <h1>Or</h1>
+                            <h1>And</h1>
 
                             <div class="pincode">
                                 <?php

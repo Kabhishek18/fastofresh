@@ -99,12 +99,48 @@ class cart extends Controller
     public function removeall(Request $request)
     {
         
-            session()->flush('cart');
-            session()->flash('success', 'Cart removed successfully');
-            return redirect('/');
+            session()->forget('cart');
+            return redirect('/')->back()->with('success', 'Cart Removed Successfully');
+
         
     }
-    
+    public function removeCoupon(Request $request)
+    {
+        
+            session()->forget('coupon');
+            return redirect()->back()->with('warning', 'Coupon Removed Successfully');
+        
+    }
+
+  public function ApplyCoupon(Request $request)
+  {
+       $coupon = Request::post('coupon');
+       $appcoupons =front_model::getCoupon($coupon);
+       if(!empty($appcoupons)){
+           $cart = session()->get('cart');  
+           $total = 0;
+           foreach($cart as $id => $details){
+            $total += $details['price'] * $details['quantity'];
+           }
+               if ($appcoupons->cart_min < $total) {
+                    if(date('y-m-d',strtotime($appcoupons->date_expire)) >= date('y-m-d')){
+                        session()->put('coupon', $appcoupons);
+                        return redirect()->back()->with('success', 'Coupon Applied Successfully');       
+                    }
+                    else{
+                        return redirect()->back()->with('warning', 'Coupon Expired');
+                    }
+               }
+               else{
+                return redirect()->back()->with('warning', 'Increase Cart Minimum Value To Apply Coupon');
+
+               }
+        }
+        else{
+            return redirect()->back()->with('warning', 'Coupon Invaild');
+
+        }
+  }
 
 
 }
