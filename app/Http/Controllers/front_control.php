@@ -437,4 +437,11 @@ class front_control extends Controller
        session()->put('location',$weblocation);
           return redirect()->back();
   }
+
+   public function PincodeSaved(Request $request)
+  {
+      $weblocation = Request::post('pinlocation');
+       session()->put('pinlocation',$weblocation);
+          return redirect()->back();
+  }
 }

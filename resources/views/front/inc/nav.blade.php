@@ -1,19 +1,35 @@
 <?php
 $json_string =    file_get_contents("locationpin.json");
 $parsed_json = json_decode($json_string, true);
-dd($parsed_json);
 ?>
 <header class="stick">
             <div class="topbar">
                 <div class="container">
                     <div class="select-wrp">
-                        <select data-placeholder="Feel Like Eating">
+                        <form action="{{url('')}}/pincode/saved" method="post">
+                            @csrf
+                        <select data-placeholder="Feel Like Eating" name="pinlocation" onchange="this.form.submit()">
+                            @if(!empty(session()->get('pinlocation')))
+                            <option selected="" value="{{session()->get('pinlocation')}}" >
+                               Pincode : {{session()->get('pinlocation')}}</option>
+                            @else
                             <option>Check Delivery  Availabilty </option>
+
+                            @endif
                             @foreach($parsed_json as $key =>$value)
-                             <optgroup>{{$key}}</optgroup>   
+                            
+                                @foreach($value as $meg =>$locdetail)
+                                    <option value="{{($locdetail['Pincode'])}}">{{($locdetail['Area'])}}</option>
+
+                                @endforeach 
+                                @foreach($value as $meg =>$locdetail)
+                                    <option value="{{($locdetail['Pincode'])}}">{{($locdetail['Pincode'])}}</option>
+                                    
+                                @endforeach  
                             @endforeach
 
                         </select>
+                        </form>
                     </div>
                     <div class="select-wrp">
                          <form action="{{url('')}}/location/saved" method="post">
@@ -21,6 +37,8 @@ dd($parsed_json);
                         <select data-placeholder="Choose Location" name="weblocation" onchange="this.form.submit()">
                             @if(!empty(session()->get('location')))
                             <option selected="" value="{{session()->get('location')}}" >{{session()->get('location')}}</option>
+                            @else
+                            <option>Select Your Location </option>
                             @endif
                             <option value="Ghaziabad">Ghaziabad </option>
                             <option value="Noida">Noida </option>
@@ -72,10 +90,10 @@ dd($parsed_json);
                                 <li class="menu-item-has-children"><a href="#" title="HOMEPAGES" itemprop="url">PRE ORDER</a></li>
 
                                 <li class="menu-item-has-children"><a href="{{url('')}}/about-us" title="HOMEPAGES" itemprop="url">ABOUT US</a></li>
-								<li class="menu-item-has-children"><a href="#" title="HOMEPAGES" itemprop="url">WHY FAST 'O' FRESH</a></li>
+                                <li class="menu-item-has-children"><a href="#" title="HOMEPAGES" itemprop="url">WHY FAST 'O' FRESH</a></li>
 
                             </ul>
-							                            <a class="red-bg brd-rd4" href="#" title="Register" itemprop="url" style="margin-left:40px;background: #306f06">TOLLFREE: 1800 123 456</a>
+                                                        <a class="red-bg brd-rd4" href="#" title="Register" itemprop="url" style="margin-left:40px;background: #306f06">TOLLFREE: 1800 123 456</a>
 
                         </div>
                     </nav><!-- Navigation -->
@@ -104,7 +122,7 @@ dd($parsed_json);
                     </div>
             </div>
             <div class="responsive-logomenu">
-			                    <div class="logo"><h1 itemprop="headline"><a href="<?=URL::to('/');?>" title="Home" itemprop="url"><img src="{{ url('assets/images/logo-white.png') }}" alt="logo.png" itemprop="image"></a></h1></div>
+                                <div class="logo"><h1 itemprop="headline"><a href="<?=URL::to('/');?>" title="Home" itemprop="url"><img src="{{ url('assets/images/logo-white.png') }}" alt="logo.png" itemprop="image"></a></h1></div>
 
                 <span class="menu-btn yellow-bg brd-rd4"><i class="fa fa-align-justify"></i></span>
             </div>
@@ -117,10 +135,10 @@ dd($parsed_json);
                                 <li class="menu-item-has-children"><a href="#" title="HOMEPAGES" itemprop="url">PRE ORDER</a></li>
 
                                 <li class="menu-item-has-children"><a href="#" title="HOMEPAGES" itemprop="url">ABOUT US</a></li>
-								<li class="menu-item-has-children"><a href="#" title="HOMEPAGES" itemprop="url">WHY FAST 'O' FRESH</a></li>
+                                <li class="menu-item-has-children"><a href="#" title="HOMEPAGES" itemprop="url">WHY FAST 'O' FRESH</a></li>
 
                             </ul>
-							                            
+                                                        
                 </div>
                 <div class="topbar-register">
                     <a class="log-popup-btn" href="#" title="Login" itemprop="url">LOGIN</a> / <a class="sign-popup-btn" href="#" title="Register" itemprop="url">REGISTER</a>

@@ -6,7 +6,7 @@
                 <div class="fixed-bg" style="background-image: url({{ url('assets/images/parallax2.jpg') }});"></div>
                 <div class="restaurant-searching style2 text-center">
                     <div class="restaurant-searching-inner">
-						<span>Delicious <i>Product</i> </span>
+                        <span>Delicious <i>Product</i> </span>
                         <h2 itemprop="headline">Order Delivery & Take-Out</h2>
                         <form class="restaurant-search-form2 brd-rd30" action="{{url('')}}/search" method="post">
                             @csrf
@@ -20,7 +20,7 @@
                 </div><!-- Restaurant Searching -->
             </div>
         </section>
-		
+        
         <section>
             <div class="block no-padding overlape-95">
                 <div class="container">
@@ -28,10 +28,10 @@
                         <div class="col-md-12 col-sm-12 col-lg-12">
                             <div class="top-restaurants-wrapper">
                                 <ul class="restaurants-wrapper style2">
-									<?php $i=0.0;?>
+                                    <?php $i=0.0;?>
                                     @foreach($categories as $category)
                                     
-									<li class="wow bounceIn" data-wow-delay="{{$i +=0.2}}s">
+                                    <li class="wow bounceIn" data-wow-delay="{{$i +=0.2}}s">
                                         <div class="top-restaurant">
                                         <a class="brd-rd50" href="category/{{$category->name}}" title="Restaurant 1" itemprop="url"><img src="{{url('')}}/categories/{{$category->image}}" alt="{{$category->image}}" itemprop="image">
                                         <div class="text-default" style="text-transform: uppercase">
@@ -40,32 +40,32 @@
                                         </a>
                                         </div>
                                     </li>
-									@endforeach
-							   </ul>
+                                    @endforeach
+                               </ul>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section><!-- top returents -->
-		
-		<section>
+        
+        <section>
             <div class="block remove-bottom">
                 <div class="container">
                     <div class="row">
-						<div class="welcome-sec">
-							<div class="col-md-6 col-sm-6 col-lg-6">
-								<div class="welcome-secinfo">
-									<h2>Welcome To Fast 'O' Fresh </h2>
-									<span>We Create Delicious Memories</span>
-									<p>We pride ourselves on having hands-on involvement every step of the way literally from the farm to the table. And since quality is so important to us, we figured, why not control the process ourselves? And the best way to do that is to keep it in the family and do the work together.</p><p> We produce quality meats and maintain the highest standards that are the fabric of our business. We own many farms, where we can always be assured that the care and quality that goes into everything is top notch and beyond reproach.</p>
-									
-								</div>
-							</div>
-							<div class="col-md-6 col-sm-6 col-lg-6">
-								<figure class="wow fadeIn" data-wow-delay="0.2s"><img src="{{ url('assets/images/resource/image-pack.png') }}" alt=""></figure>
-							</div>
-						</div>	
+                        <div class="welcome-sec">
+                            <div class="col-md-6 col-sm-6 col-lg-6">
+                                <div class="welcome-secinfo">
+                                    <h2>Welcome To Fast 'O' Fresh </h2>
+                                    <span>We Create Delicious Memories</span>
+                                    <p>We pride ourselves on having hands-on involvement every step of the way literally from the farm to the table. And since quality is so important to us, we figured, why not control the process ourselves? And the best way to do that is to keep it in the family and do the work together.</p><p> We produce quality meats and maintain the highest standards that are the fabric of our business. We own many farms, where we can always be assured that the care and quality that goes into everything is top notch and beyond reproach.</p>
+                                    
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6 col-lg-6">
+                                <figure class="wow fadeIn" data-wow-delay="0.2s"><img src="{{ url('assets/images/resource/image-pack.png') }}" alt=""></figure>
+                            </div>
+                        </div>  
                     </div>
                 </div>
             </div>
@@ -88,7 +88,7 @@
                                
                             <div class="remove-ext">
                                 <div class="row">
-                                	<?php $i=1;?>
+                                    <?php $i=1;?>
                                    @foreach($popular as $product)
                                     <div class="col-md-4 col-sm-6 col-lg-4">
                                                  {{ Form::open(array('url' => 'cartadd')) }}
@@ -193,16 +193,16 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12 col-sm-12 col-lg-12">
-							<div class="filters-wrapper">
+                            <div class="filters-wrapper">
                             <div class="title1-wrapper">
-								<i><img src="{{ url('assets/images/resource/icon.png') }}" alt=""></i>
-								<div class="title1-inner">
-									<span>Your Favourite Food</span>
-									<h2 itemprop="headline">Explore by Bestsellers</h2>
-								</div>
-							</div>
+                                <i><img src="{{ url('assets/images/resource/icon.png') }}" alt=""></i>
+                                <div class="title1-inner">
+                                    <span>Your Favourite Food</span>
+                                    <h2 itemprop="headline">Explore by Bestsellers</h2>
+                                </div>
+                            </div>
                             <div class="row">
-                                	<?php $i=1;?>
+                                    <?php $i=1;?>
                                    @foreach($best as $productbest)
                                     <div class="col-md-4 col-sm-6 col-lg-4">
                                                  {{ Form::open(array('url' => 'cartadd')) }}
@@ -244,92 +244,16 @@
                                                 </div>
                                    @endforeach
                                 </div>
-							
+                            
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-		
-		
-	
-		
-	<!-- 	<section>
-            <div class="block gray-bg">
-				<div class="top-mockup"><img src="{{ url('assets/images/resource/mockup2.png') }}" alt=""></div>
-                <div class="container">
-                    <div class="row">
-						<div class="col-md-5 col-sm-5">
-							<div class="booking-form-sec wow fadeIn" data-wow-delay="0.2s">
-								<div class="fit-bg" style="background-image: url({{ url('assets/images/resource/booking-frombg.jpg') }})"></div>
-								<div class="form-meta">
-									<h2>Book Your Order</h2>
-									<span>Place Your Order Now</span>
-									<form method="post">
-										<input type="text" placeholder="Name">
-										<input type="text" placeholder="Email">
-										<input type="text" placeholder="Phone No">
-										<button type="submit">place order now</button>
-									</form>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-7 col-sm-7">
-							<div class="upcoming-event">
-								<div class="title1-wrapper">
-									<i><img alt="" src="{{ url('assets/images/resource/icon.png') }}"></i>
-									<div class="title1-inner">
-										<h2 itemprop="headline">UPCOMING EVENT</h2>
-										<b>Place Your Order Now</b>
-									</div>
-								</div>
-								<div class="article-data">
-									<div class="article-info-meta">
-										<span>Mon</span>
-										<a title="" href="#">25 Dec 2020</a>
-										<a title="" href="#">By Eat 'O' Fresh</a>
-									</div>
-									<div class="article-meta">
-										<h3><a title="" href="#">
-												Kick-Start The New Year With The Serpentine Running Club's Annual
-											</a>
-										</h3>
-										<p>
-											Pellentesque nibh felis, eleifend id, commodo in, interdum vitae, leo praese
-                Ut eu ligula. Class aptent taciti sociosqu ad litora torquent conubia.
-										</p>
-										
-									</div>
-								</div>
-								<div class="counter-meta">
-									<ul class="countdown">
-										<li class="white-bg">
-											<span class="days">00</span>
-											<p class="days_ref">Days</p>
-										</li>
-										<li class="white-bg">
-											<span class="hours">00</span>
-											<p class="hours_ref">Hours</p>
-										</li>
-										<li class="white-bg">
-											<span class="minutes">00</span>
-											<p class="minutes_ref">Minutes</p>
-										</li>
-										<li class="white-bg">
-											<span class="seconds">00</span>
-											<p class="seconds_ref">Seconds</p>
-										</li>
-									</ul>
-									<a class="view-more" title="" href="#">view more food</a>
-								</div>	
-							</div>
-						</div>
-					</div>	
-				</div>
-				<div class="bottom-mockup"><img src="{{ url('assets/images/resource/mockup1.png') }}" alt=""></div>
-            </div>
-        </section> -->
+        
+        
+
 
         <section>
             <div class="block bottom-padd210">
@@ -411,61 +335,105 @@
     .card-input-element:checked + .card-input {
          box-shadow: 0 0 3px 5px #306f06;
      }
+     .select-pin{
+        border-radius: 2px solid #306f06;
+        padding-bottom: 15px;
+        padding-top: 15px;
+        background-color: #306f06;
+     }
 
 </style>
-        @if(empty(session()->get('location')))
+        @if(empty(session()->get('location')) or empty(session()->get('pinlocation')))
         <div class="newsletter-popup-wrapper text-center">
-            <div class="modal-content">
-                    <div class="modal-header">
-                      <div class="modal-logo"><img src="/assets/images/logo2.png"></div>
-                      <h4><i class="fa fa-map-marker"></i> Please select your location</h4>
-                    </div>
-                    <div class="modal-body">
-                        <form action="{{url('')}}/location/saved" method="post">
-                            @csrf
-                            <div class="col-md-12">
-                                <label>
-                                  <input type="radio" name="weblocation" class="card-input-element" value="East Delhi" />
 
-                                    <div class=" card-input">
-                                      <div class="location-heading">East Delhi</div>
-                                     </div>
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                        <div class="modal-header">
+                          <div class="modal-logo"><img src="/assets/images/logo2.png"></div>
+                          <h4><i class="fa fa-map-marker"></i> Please select your location</h4>
+                        </div>
+                        <div class="modal-body" style="padding: 0px">
+                            <div class="" >
+                                <form action="{{url('')}}/location/saved" method="post">
+                                @csrf
+                                <div class="col-md-12">
+                                    <label>
+                                      <input type="radio" name="weblocation" class="card-input-element" value="East Delhi" />
 
-                                </label>
-                                
+                                        <div class=" card-input">
+                                          <div class="location-heading">East Delhi</div>
+                                         </div>
+
+                                    </label>
+                                    
+                                </div>
+
+                                <div class="col-md-12">
+                                    <label>
+                                      <input type="radio" name="weblocation" class="card-input-element" value="Ghaziabad" />
+
+                                        <div class=" card-input">
+                                          <div class="location-heading">Ghaziabad</div>
+                                         </div>
+
+                                    </label>
+                                    
+                                </div>
+
+                               
+                                <div class="col-md-12">
+                                    <label>
+                                      <input type="radio" name="weblocation" class="card-input-element" value="Noida" />
+
+                                        <div class=" card-input">
+                                          <div class="location-heading">Noida</div>
+                                         </div>
+
+                                    </label>
+                                    
+                                </div>
+                            </form>
                             </div>
+                            <h1>Or</h1>
 
-                            <div class="col-md-12">
-                                <label>
-                                  <input type="radio" name="weblocation" class="card-input-element" value="Ghaziabad" />
+                            <div class="pincode">
+                                <?php
+                                    $json_string =    file_get_contents("locationpin.json");
+                                    $parsed_json = json_decode($json_string, true);
+                                    ?>
+                                <form action="{{url('')}}/pincode/saved" method="post">
+                                    @csrf
+                                    <div class="col-md-12 select-pin">
+                                        <select class="form-control " data-placeholder="Feel Like Eating" name="pinlocation" onchange="this.form.submit()">
+                                    @if(!empty(session()->get('pinlocation')))
+                                    <option selected="" value="{{session()->get('pinlocation')}}" >
+                                       Pincode : {{session()->get('pinlocation')}}</option>
+                                    @else
+                                    <option>Check Delivery Pincode </option>
 
-                                    <div class=" card-input">
-                                      <div class="location-heading">Ghaziabad</div>
-                                     </div>
+                                    @endif
+                                    @foreach($parsed_json as $key =>$value)
+                                    
+                                        @foreach($value as $meg =>$locdetail)
+                                            <option value="{{($locdetail['Pincode'])}}">{{($locdetail['Area'])}}</option>
 
-                                </label>
-                                
-                            </div>
+                                        @endforeach 
+                                        @foreach($value as $meg =>$locdetail)
+                                            <option value="{{($locdetail['Pincode'])}}">{{($locdetail['Pincode'])}}</option>
+                                            
+                                        @endforeach  
+                                    @endforeach
 
+                                  </select>
+                                    </div>
+                                </form>
+                            </div> 
+                        </div>
+                        <div class="modal-footer">
                            
-                            <div class="col-md-12">
-                                <label>
-                                  <input type="radio" name="weblocation" class="card-input-element" value="Noida" />
-
-                                    <div class=" card-input">
-                                      <div class="location-heading">Noida</div>
-                                     </div>
-
-                                </label>
-                                
-                            </div>
-                        </form>
-                    
-                    </div>
-                    <div class="modal-footer">
-                      
-                    </div>
-                  </div><!-- /.modal-content -->
+                        </div>
+                 </div><!-- /.modal-content -->
+              </div>   
         </div>
         @endif
 
