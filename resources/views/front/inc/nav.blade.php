@@ -60,7 +60,7 @@ $parsed_json = json_decode($json_string, true);
                         <a href="{{url('cart')}}" title="Facebook" itemprop="url" ><i class="fa fa-cart-arrow-down" aria-hidden="true"></i>
                         @if(session()->get('cart')) 
                         <sup> (
-                           <span class="text-danger">
+                           <span >
                            <?php $cart = session()->get('cart')?>
                             {{count($cart)}}
                         </span>
