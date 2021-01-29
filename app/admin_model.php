@@ -208,4 +208,21 @@ class admin_model extends Model
     return $value;
   }
 
+  //Add Coupon
+  public static function CreateCoupon($array)
+  {
+    $value = DB::table('coupons')->insert($array);
+    return $value;
+  }
+  public static function UpdateCoupon($array)
+  {
+    $value = DB::table('coupons')->where('id',$array['id'])->update($array);
+    return $value;
+  }
+  public static function CouponDelete($array)
+  {
+    $value= DB::delete('delete from coupons  where id =?',[$array]);
+    return $value;
+  }
+
 }

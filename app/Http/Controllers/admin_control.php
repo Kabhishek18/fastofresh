@@ -508,6 +508,89 @@ class admin_control extends Controller
 	    }
     }
 
+    
+     //Order delete  
+    public function CouponDelete($id)
+    {
+    	$user['user'] = session()->get('admin_session');
+	    if ($user['user']) {
+	    		$delete =admin_model::CouponDelete($id);
+	    		if($delete){
+	    			return redirect()->back()->with('success', 'Updated succes');
+	    		}
+	    		else{
+	    			return redirect()->back()->with('warning', 'Update Failure');
+	    		}
+	    	}
+	    else{
+	       session()->flash('warning', 'Access Denied');
+	      return redirect('laravel-admin');
+	    }
+    }
+    //Order 
+	public function CouponAdd($id ='')
+    {
+    	$user['user'] = session()->get('admin_session');
+	    if ($user['user']) {
+	    	echo view('admin/inc/header');
+	    	$user['datalist']=admin_model::getCoupon($id);
+	    	echo view('admin/couponadd',$user);
+	    	
+    	  echo view('admin/inc/footer');
+	    }
+	    else{
+	       session()->flash('warning', 'Access Denied');
+	      return redirect('laravel-admin');
+	    }
+    }
+
+    public function CouponInsert(Request $request)
+    {
+    	$user['user'] = session()->get('admin_session');
+	    if ($user['user']) {
+	    		$cat['name'] = Request::post('name');
+	    	 	$cat['description'] = Request::post('description');
+	    	 	$cat['cart_min'] = Request::post('cart_min');
+	    	 	$cat['cart_max'] = Request::post('cart_max');
+	    	 	$cat['coupon_value'] = Request::post('coupon_value');
+	    	 	$cat['date_expire'] = Request::post('date_expire');
+	    	 	$cat['coupon_type'] = Request::post('coupon_type');
+	    	 	$cat['status'] = Request::post('status');
+	    	 	$cat['updated_at'] = date('y-m-d h:i:s');
+
+	    	 	
+
+
+	    	 if(Request::post('id')){
+	    	 	$cat['id'] = Request::post('id');
+	    	 	$value =admin_model::UpdateCoupon($cat);
+	    	 	if ($value) {
+	    	 		return redirect()->back()->with('success', 'Updated succes');
+	    	 	}
+	    	 	else{
+	    	 		 return redirect()->back()->with('warning', 'Failed To Add!');
+	    	 	}	
+	    	 }
+	    	 else{
+	    	 	$cat['created_at'] = date('y-m-d h:i:s');
+	    	 	$value =admin_model::CreateCoupon($cat);
+	    	 	if ($value) {
+	    	 		return redirect()->back()->with('success', 'Added succes');
+	    	 	}
+	    	 	else{
+	    	 		 return redirect()->back()->with('warning', 'Failed To Add!');
+	    	 	}
+	    	 }
+
+
+		}else{
+	       session()->flash('warning', 'Access Denied');
+	      return redirect('laravel-admin');
+	    }
+    }
+	
+
+
 
 
    //Blog view  

@@ -85,6 +85,11 @@ Route::post('laravel-admin/order/status', 'admin_control@OrderStatus');
 Route::get('laravel-admin/order/delete/{id}', 'admin_control@OrderDelete');
 
 Route::get('laravel-admin/coupon', 'admin_control@Coupon');
+Route::get('laravel-admin/coupon/add', 'admin_control@CouponAdd');
+Route::get('laravel-admin/coupon/edit/{id}', 'admin_control@CouponAdd');
+Route::post('laravel-admin/coupon/insert', 'admin_control@CouponInsert');
+Route::post('laravel-admin/coupon/status', 'admin_control@CouponStatus');
+Route::get('laravel-admin/coupon/delete/{id}', 'admin_control@CouponDelete');
 
 Route::get('laravel-admin/blog', 'admin_control@Blog');
 Route::get('laravel-admin/blog/add', 'admin_control@BlogAdd');
