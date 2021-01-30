@@ -190,14 +190,13 @@ class front_control extends Controller
         $order['userid'] =$user['user']->id;
         $order['created_at'] =date('y-m-d h:i:s');
         $order['updated_at'] =date('y-m-d h:i:s');  
+        session()->put('order', $order);
+        $var['categories'] = front_model::getCategory();
+        echo view('front/inc/header');
+        echo view('front/inc/nav',$var);
          echo view('front/razorpay',$order);
-         // $insert =front_model::PaymentOrder($order);
-         // if($insert){
-            
-         //  }
-         //  else{
-         //     return redirect()->back()->with('warning', 'Order Has Been Declined Due To Technical Issue');
-         //  }
+         echo view('front/inc/footer');
+         
 
         }
     else{

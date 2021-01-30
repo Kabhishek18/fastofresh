@@ -1,182 +1,490 @@
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="csrf-token" content="{{ csrf_token() }}">
-<title></title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" />
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>  
-<style>
-.card-product .img-wrap {
-border-radius: 3px 3px 0 0;
-overflow: hidden;
-position: relative;
-height: 220px;
-text-align: center;
+<style type="text/css">
+	.invoice {
+  width: 1090px;
+
+  margin: 0px auto;
+  font-family: Trebuchet MS;
+  overflow: hidden;
 }
-.card-product .img-wrap img {
-max-height: 100%;
-max-width: 100%;
-object-fit: cover;
+
+.header {
+  width: 100%;
 }
-.card-product .info-wrap {
-overflow: hidden;
-padding: 15px;
-border-top: 1px solid #eee;
+
+.header img {
+  width: 100%;
 }
-.card-product .bottom-wrap {
-padding: 15px;
-border-top: 1px solid #eee;
+
+.thanks {
+  width: 100%;
+  text-align: center;
+  font-family: Trebuchet MS;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  text-transform: uppercase;
 }
-.label-rating { margin-right:10px;
-color: #333;
-display: inline-block;
-vertical-align: middle;
+
+.thanks p {
+  font-size: 25px;
+  font-weight: bold;
+  color: #393939;
+  margin-bottom: 4px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
 }
-.card-product .price-old {
-color: #999;
+
+.deliver {
+  display: inline-block;
+  width: 220px;
+  height: 190px;
+  float: left;
+  line-height: 150%;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.deliver p {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 0px;
+  color: #393939;
+}
+
+.client {
+  display: inline-block;
+  margin-left: 10px;
+  margin-right: 20px;
+  width: 325px;
+  height: 190px;
+  float: left;
+  line-height: 150%;
+  padding-left: 15px;
+  border-left: 1px dashed;
+}
+
+.client p {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 0px;
+  color: #393939;
+}
+
+.orderinfo {
+  float: left;
+  margin-left: 30px;
+  width: 430px;
+  line-height: 150%;
+  padding-left: 15px;
+  border-left: 1px dashed;
+  height: 190px;
+}
+
+.orderinfo p {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 0px;
+  color: #393939;
+}
+
+.spacing hr {
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  display: inline-block;
+  border: 1px dashed #393939;
+}
+
+.payinfo {
+  width: 1070px;
+  margin-top: 10px;
+  display: inline-block;
+  line-height: 20px;
+  border: 1px solid;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 5px;
+}
+
+.payinfo p {
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  color: #393939;
+  text-align: center;
+}
+
+.productinfo {
+	text-align: center;
+  display: inline-block;
+  margin-top: 20px;
+  float: left;
+  width: 98.3%;
+  background: #306f06;
+  padding: 10px;
+  margin-right: 30px;
+  border-radius: 10px;
+}
+
+.productinfo p {
+  margin-top: 0px;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+.productinfo table {
+  width: 100%;
+}
+
+.productinfo th.name {
+  width: 35%;
+	text-align: center;
+
+  background: #ffffff;
+  border-radius: 5px;
+  line-height: 150%;
+  color: #393939;
+}
+
+.productinfo th.detail {
+  width: 35%;
+  background: #ffffff;
+  border-radius: 5px;
+  line-height: 150%;
+  color: #393939;
+}
+
+.productinfo td.name {
+  background: #ffffff;
+  border-radius: 5px;
+  line-height: 150%;
+  color: #000000;
+  padding: 3px;
+}
+
+.productinfo td.detail {
+  background: #ffffff;
+  border-radius: 5px;
+  line-height: 150%;
+  color: #000000;
+  padding: 3px;
+}
+
+.productinfo th.qty {
+  width: 5%;
+  background: #ffffff;
+  border-radius: 5px;
+  line-height: 150%;
+  color: #393939;
+}
+
+.productinfo th.cost {
+  width: 10%;
+  background: #ffffff;
+  border-radius: 5px;
+  line-height: 150%;
+  color: #393939;
+}
+
+.productinfo td.qty {
+  background: #ffffff;
+  border-radius: 5px;
+  line-height: 150%;
+  color: #000000;
+  padding-left: 3px;
+  text-align: center;
+}
+
+.productinfo td.cost {
+  background: #ffffff;
+  border-radius: 5px;
+  line-height: 150%;
+  color: #000000;
+  padding-left: 3px;
+  text-align: center;
+}
+
+.ordernotes{
+  display: inline-block;
+  float: left;
+  width: 700px;
+  height: 150px;
+  padding-right: 10px;
+  border-right: 1px dashed;
+}
+
+.ordernotes p {
+  font-size: 18px;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #393939;
+  text-transform: uppercase;
+}
+
+.payment {
+  float: right;
+  margin-top: 10px;
+  margin-bottom: 0px;
+  display: inline-block;
+  width: 365px;
+  line-height: 140%;
+  font-size: 12pt;
+  height: 150px;
+  }
+
+.payment strong {
+  color: #393939;
+}
+
+.note{
+  width: 100%;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 10pt;
+  text-align: center;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.note p {
+  font-weight: bold;
+  color: #393939;
+  margin-top: -10px;
+  margin-bottom: 5px;
+  font-size: 12pt;
+}
+
+.footer{
+  width: 100%;
+  font-size: 10pt;
+  margin-top: -10px;
+}
+
+.footer p {
+  font-size: 13pt;
+  font-weight: bold;
+  margin-top: 0px;
+  margin-bottom: 10px;
+  color: #393939;
+  display:inline-block;
+  float: left;
+  width: 100%;
+}
+
+.footer img {
+  width: 100%;
+  margin-top: 15px;
+  position: relative;
 }
 </style>
-</head>
-<body>
-<div class="container">
-<br>  
-<p class="text-center">More article on <a href="https://www.tutsmake.com/">Tutsmake.com</a></p>
-<hr>
-<div class="row">
-<div class="col-md-4">
-<figure class="card card-product">
-<div class="img-wrap"><img src="//www.tutsmake.com/wp-content/uploads/2019/03/c05917807.png"></div>
-<figcaption class="info-wrap">
-<h4 class="title">Mouse</h4>
-<p class="desc">Some small description goes here</p>
-<div class="rating-wrap">
-<div class="label-rating">132 reviews</div>
-<div class="label-rating">154 orders </div>
-</div>
-<!-- rating-wrap.// -->
-</figcaption>
-<div class="bottom-wrap">
-<a href="javascript:void(0)" class="btn btn-sm btn-primary float-right buy_now" data-amount="1000" data-id="1">Order Now</a> 
-<div class="price-wrap h5">
-<span class="price-new">₹1000</span> <del class="price-old">₹1200</del>
-</div>
-<!-- price-wrap.// -->
-</div>
-<!-- bottom-wrap.// -->
-</figure>
-</div>
-<!-- col // -->
-<div class="col-md-4">
-<figure class="card card-product">
-<div class="img-wrap"><img src="//www.tutsmake.com/wp-content/uploads/2019/03/vvjghg.png"> </div>
-<figcaption class="info-wrap">
-<h4 class="title">Sony Watch</h4>
-<p class="desc">Some small description goes here</p>
-<div class="rating-wrap">
-<div class="label-rating">132 reviews</div>
-<div class="label-rating">154 orders </div>
-</div>
-<!-- rating-wrap.// -->
-</figcaption>
-<div class="bottom-wrap">
-<a href="javascript:void(0)" class="btn btn-sm btn-primary float-right buy_now" data-amount="1280" data-id="2">Order Now</a> 
-<div class="price-wrap h5">
-<span class="price-new">₹1280</span> <del class="price-old">₹1400</del>
-</div>
-<!-- price-wrap.// -->
-</div>
-<!-- bottom-wrap.// -->
-</figure>
-</div>
-<!-- col // -->
-<div class="col-md-4">
-<figure class="card card-product">
-<div class="img-wrap"><img src="//www.tutsmake.com/wp-content/uploads/2019/03/jhgjhgjg.jpg"></div>
-<figcaption class="info-wrap">
-<h4 class="title">Mobile</h4>
-<p class="desc">Some small description goes here</p>
-<div class="rating-wrap">
-<div class="label-rating">132 reviews</div>
-<div class="label-rating">154 orders </div>
-</div>
-<!-- rating-wrap.// -->
-</figcaption>
-<div class="bottom-wrap">
-<a href="javascript:void(0)" class="btn btn-sm btn-primary float-right order_now" data-amount="1280" data-id="3">Order Now</a> 
-<div class="price-wrap h5">
-<span class="price-new">₹1500</span> <del class="price-old">₹1980</del>
-</div>
-<!-- price-wrap.// -->
-</div>
-<!-- bottom-wrap.// -->
-</figure>
-</div>
-<!-- col // -->
-</div>
-<!-- row.// -->
-</div>
-<!--container.//-->
-<br><br><br>
-<article class="bg-secondary mb-3">
-<div class="card-body text-center">
-<h4 class="text-white">Welcome to Tutsmake.com<br>  </h4>
-<p class="h5 text-white">Thank you for being here </p>
-<br>
-<p><a class="btn btn-warning" target="_blank" href="//tutsmake.com/"> Tutsmake.com  
-<i class="fa fa-window-restore "></i></a>
-</p>
-</div>
-<br><br><br>
-</article>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>  
+	
+
+        <div class="bread-crumbs-wrapper">
+            <div class="container">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{url('')}}}" title="" itemprop="url">Home</a></li>
+                    <li class="breadcrumb-item active">Checkout Page</li>
+                </ol>
+            </div>
+        </div>
+
+        <section>
+            <div class="block less-spacing gray-bg">
+                <div class="sec-box bottom-padd140">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12 col-lg-12">
+                                <div class="row">
+                                    <div class="col-md-12 col-sm-12 col-lg-12">
+										                                        
+										<div class="invoice">
+										  <?php  
+										  		$orderdetails =json_decode($orderdetail,true); 
+										  		$loc =json_decode($orderdetails['loc']);    				
+										  		?>
+										<div class="header">
+										</div>
+										  
+										  <div class="thanks">
+										  	<h2>Invoice Order</h2>
+										    Please find attatched below your order invoice information for <strong>
+										    	{{$loc->username}}
+										    </strong>. 
+										  </div>
+										  
+										  <div class="spacing">
+										  <hr>
+										  </div>
+										  
+										  <div class="deliver">
+										<p> Delivery Details:</p>
+										    {{$loc->addressline1}} <br>
+										   Landmark: {{$loc->landmark}} <br>
+										    {{$loc->city}} <br>
+										    {{$loc->postalcode}} <br>
+
+										  </div>
+
+										  <div class="client">
+										<p>Client Details: </p>
+										<strong>Contact:</strong> {{$loc->username}}<br />
+										<strong>Email:</strong> {{$loc->email}}<br />
+										<strong> Contact Number: </strong> {{$loc->mobile}}<br />
+										  </div>
+										  
+										  <div class="orderinfo">
+										    <p> Order Information: </p><br>
+										<strong> Order Number: FOF</strong>{{date('ymdhis',strtotime($created_at))}} <br />
+										<strong> Order Date: </strong> {{date('F d y h:i:s A',strtotime($created_at))}} <br />
+										<strong>Payment Due: </strong> within {tag_directdebitdays} day(s) of order date <br />
+										</div>
+										  
+										  <div class="spacing">
+										  <hr>
+										  </div>
+										  
+											<?php $cart = json_decode($order_cart,true) ?>
+										  
+										  <div class="productinfo">
+										<p> Your order information:</p>
+										<table>
+										    <tbody>
+										        <tr>
+										        <th class="name"> Product Name </th>
+										        <th class="detail"> Product Image </th>
+										        <th class="qty">Qty</th>
+										        <th class="cost">SubTotal</th>
+										        </tr>
+										        <?php $total = 0 ;?>
+                                                @foreach($cart as $id => $details)
+                                            	<?php $total += $details['price'] * $details['quantity'] ?>
+										        <tr>
+										        <td class="name">{{ $details['name'] }}</td>
+										        <td class="detail"><img src="{{url('products/')}}/{{ $details['photo'] }}" width="100" height="100" class="img-responsive"/></td>
+										        <td class="qty">{{$details['quantity'] }}</td>
+										        <td class="cost">₹ {{ $details['price'] * $details['quantity'] }}</td>
+										        </tr>
+										        @endforeach
+										    </tbody>
+										</table>
+										</div>
+										  
+										  <div class="ordernotes">
+											
+										  </div>
+										  
+										<div class="payment">
+										<strong>Sub Total: </strong>₹  {{$total}} <br />
+										@if($total<499)
+                                                <?php $ship =30; $total += $ship?>
+										<strong> Postage &amp; Packaging: </strong>₹ {{$ship}}<br />
+										 @endif
+										@if(!empty(session()->get('coupon')))
+                                        <?php $coupon =session()->get('coupon'); ?>
+										<strong> Discounts ({{$coupon->name}}): </strong> 
+										@if($coupon->coupon_type =='percent')
+                                                           <?php $couponvalue = ($coupon->coupon_value*$total/100) ;?>
+                                                           @else
+                                                           <?php $couponvalue = ($coupon->coupon_value) ;?>
+                                                           @endif  
+                                                           <?php if($total >$couponvalue){
+                                                            $total = $total - $couponvalue;
+                                                               }else{$total = 0;}?>
+                                                               ₹ {{$couponvalue}} 
+                                                                <br />
+                                          @endif                      
+										<strong> Order Total: </strong> ₹  {{$total}} <br />
+											<a href="javascript:void(0)" class="btn btn-warning float-right buy_now" data-amount="{{$total}}" data-id="1">Pay Now</a> 
+										</div>
+										  
+										  <div class="spacing">
+										  <hr>
+										  </div>
+										  
+										  <div class="note">
+										    <p> PLEASE NOTE:</p><br>
+										    <p>In case of any modifications made to your order, the inital delivery address will remain the same.</p>
+										If any of the above information is incorrect, you must inform us as soon as possible using info@fastofresh.cpm Failure to do so will result in your order being dispatched as above. Orders are accepted up to 5pm every working day. if they arrive with Fast O Fresh Pvt. Ltd. after this time, they are considered to have arrived the next day. There may be a delay if you have opted in for a printed proof to be sent to yourself or there is a delay with your payment. We aim to notify our customers of all delays where possible. Once your order has been dispatched, you will recieve an email of estimated delivery date and tracking number if applicable. For full terms and conditions please visit fastofresh.com
+										  </div>
+										  
+										 <div class="spacing">
+										  <hr>
+										  </div>
+										  
+										  
+										  <div class="footer">
+										   <!--  <p>In case of any modifications made to your order, the inital delivery address will remain the same.</p>
+										If any of the above information is incorrect, you must inform us as soon as possible using info@fastofresh.cpm Failure to do so will result in your order being dispatched as above. Orders are accepted up to 5pm every working day. if they arrive with Fast O Fresh Pvt. Ltd. after this time, they are considered to have arrived the next day. There may be a delay if you have opted in for a printed proof to be sent to yourself or there is a delay with your payment. We aim to notify our customers of all delays where possible. Once your order has been dispatched, you will recieve an email of estimated delivery date and tracking number if applicable. For full terms and conditions please visit fastofresh.com
+										<img alt="" src="http://FastoFresh.com" /> -->
+										</div>
+										  </div>
+										  
+										</div>
+
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- Section Box -->
+            </div>
+        </section>
+
+
 <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 <script>
-var SITEURL = '{{url('')}}';
-$.ajaxSetup({
-headers: {
-'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-}
-}); 
-$('body').on('click', '.buy_now', function(e){
-var totalAmount = $(this).attr("data-amount");
-var product_id =  $(this).attr("data-id");
-var options = {
-"key": "rzp_test_CCfZwvKLQbXPYa",
-"amount": (totalAmount*100), // 2000 paise = INR 20
-"name": "Tutsmake",
-"description": "Payment",
-"image": "//www.tutsmake.com/wp-content/uploads/2018/12/cropped-favicon-1024-1-180x180.png",
-"handler": function (response){
-$.ajax({
-url: SITEURL + 'paysuccess',
-type: 'post',
-dataType: 'json',
-data: {
-razorpay_payment_id: response.razorpay_payment_id , 
-totalAmount : totalAmount ,product_id : product_id,
-}, 
-success: function (msg) {
-window.location.href = SITEURL + 'razor-thank-you';
-}
-});
-},
-"prefill": {
-"contact": '9988665544',
-"email":   'devfeedly21@gmail.com',
-},
-"theme": {
-"color": "#528FF0"
-}
-};
-var rzp1 = new Razorpay(options);
-rzp1.open();
-e.preventDefault();
-});
-/*document.getElementsClass('buy_plan1').onclick = function(e){
-rzp1.open();
-e.preventDefault();
-}*/
+	var SITEURL = '{{url('')}}';
+	$.ajaxSetup({
+	headers: {
+	'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+	}
+	}); 
+	$('body').on('click', '.buy_now', function(e){
+	var totalAmount = '{{$total}}';
+	var options = {
+	"key": "rzp_test_CCfZwvKLQbXPYa",
+	"amount": (totalAmount*100), // 2000 paise = INR 20
+	"name": "FastoFresh",
+	"description": "Payment order{{$total}}",
+	"image": SITEURL+ "/assets/images/logo2.png",
+	"handler": function (response){
+	$.ajax({
+		url: SITEURL + '/paysuccess',
+		type: 'post',
+		dataType: 'json',
+		data: {"_token": "{{ csrf_token() }}",razorpay_payment_id: response.razorpay_payment_id ,
+		totalAmount : totalAmount ,
+		}, 
+		success: function (msg) {
+			window.location.href = SITEURL + '/razor-thank-you';
+		},
+		error: function (error) {
+		  	
+		}
+
+	});
+	},
+	"prefill": {
+	"contact": '{{$loc->mobile}}',
+	"email":   '{{$loc->email}}',
+	},
+	"theme": {
+	"color": "#e03335"
+	}
+	};
+	var rzp1 = new Razorpay(options);
+	rzp1.open();
+	e.preventDefault();
+	});
+	/*document.getElementsClass('buy_plan1').onclick = function(e){
+	rzp1.open();
+	e.preventDefault();
+	}*/
 </script>
-</body>
-</html>
