@@ -36,6 +36,11 @@ class front_control extends Controller
       echo view('front/inc/footer');
   }
 
+  public function dummy($value='')
+  {
+  	echo view('dummy');
+  }
+
   public function about($value='')
   {
      $categories['categories'] = front_model::getCategory();

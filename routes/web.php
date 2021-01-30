@@ -13,7 +13,8 @@ use App\Http\Controllers\front_control;
 |        |  _|| | | (_) | | | | |_ 
 |        |_|  |_|  \___/|_| |_|\__|
 */
-Route::get('', 'front_control@index' );
+// Route::get('', 'front_control@index' );
+Route::get('', 'front_control@dummy' );
 Route::get('about-us', 'front_control@about' );
 Route::get('privacyandpolicy', 'front_control@privacy' );
 Route::get('faq', 'front_control@faq' );
