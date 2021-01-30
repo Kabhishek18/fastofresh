@@ -178,9 +178,19 @@ class front_control extends Controller
               return redirect()->back()->with('warning', 'Location Not Added');
             }
           }else{
+            //No else
+            if(empty(Request::post('loc'))){
+                return redirect()->back()->with('warning', 'Please Select Or Add Location');
+            }
             $val['loc'] = Request::post('loc');
           }
+         if(empty(Request::post('method'))){
+                return redirect()->back()->with('warning', 'Please Select Your Method');
+            }  
         $val['method'] =Request::post('method');
+        if(empty(Request::post('slottime'))){
+                return redirect()->back()->with('warning', 'Please Select Your Slotime');
+            }  
         $val['slottime'] =Request::post('slottime');
         
         $order['order_amount'] =session()->get('total');
@@ -361,6 +371,18 @@ class front_control extends Controller
     echo view('front/inc/header');
     echo view('front/inc/nav',$var);
     echo view('front/blogdetail',$var);
+     echo view('front/inc/footer');
+  }
+
+
+  public function RecipeDetail($id='')
+  {
+    $var['recipe'] =front_model::getRecipe($id);
+     $var['categories'] = front_model::getCategory();
+     dd($var);
+    echo view('front/inc/header');
+    echo view('front/inc/nav',$var);
+    echo view('front/recipeview',$var);
      echo view('front/inc/footer');
   }
   public function sendEmail (Request $request) {

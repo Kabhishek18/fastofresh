@@ -1413,17 +1413,18 @@ h3.marginb-0 {margin-bottom: 0;}
 }
 .popular-dish-info > p {
 /*	margin-bottom: 24px;*/
-	color: #636363;
-	line-height: 24px;
-	font-family: Trebuchet MS;
-	display: inline-block;
-	width: 100%;
+	 color: #636363;
+    line-height: 15px;
+    font-family: calibri;
+    display: inline-block;
+    width: 100%;
+    text-align: center;
 }
 .price {
-    font-size: 18px;
-    font-family: Trebuchet MS;
+    font-size: 15px;
+    font-family: calibri;
     color: #1e1e1e;
-    letter-spacing: -.3px;
+    /* letter-spacing: -.3px; */
     font-weight: bold;
     margin-top: 10px;
 }

@@ -33,6 +33,9 @@ Route::post('pincode/saved', 'front_control@PincodeSaved');
 Route::post('applycoupon', 'cart@ApplyCoupon');
 Route::get('removeCoupon', 'cart@removeCoupon');
 
+
+Route::get('recipes/{$id}', 'cart@RecipeDetail');
+
 //Cart
 Route::post('cartadd', 'cart@AddToCart');
 Route::get('cart', 'cart@CartView');
@@ -42,9 +45,9 @@ Route::get('clearcart', 'cart@removeall');
 
 //Checkout
 Route::get('checkout', 'front_control@checkout');
-  Route::post('payment', 'front_control@payment');
-  Route::post('paysuccess', 'RazorpayController@razorPaySuccess');
-  Route::get('razor-thank-you', 'RazorpayController@RazorThankYou');
+Route::post('payment', 'front_control@payment');
+Route::post('paysuccess', 'RazorpayController@razorPaySuccess');
+Route::get('razor-thank-you', 'RazorpayController@RazorThankYou');
 
 // Route::post('payment', 'front_control@payment');
 // Route::post('ccavRequestHandler', 'front_control@ccavRequestHandler');

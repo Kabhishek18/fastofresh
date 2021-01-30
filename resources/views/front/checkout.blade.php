@@ -1,7 +1,7 @@
-      
+        @include('../status')
         <section>
             <div class="gray-bg">
-            @include('../status')
+          
                 <div class="sec-box">
                     <div class="container">
                         <div class="row">
