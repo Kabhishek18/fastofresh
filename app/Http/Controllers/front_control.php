@@ -38,30 +38,34 @@ class front_control extends Controller
 
   public function about($value='')
   {
-    echo view('front/inc/header');
-      echo view('front/inc/nav');
+     $categories['categories'] = front_model::getCategory();
+      echo view('front/inc/header');
+      echo view('front/inc/nav',$categories);
       echo view('front/about');
       echo view('front/inc/footer');
   }
 
    public function privacy($value='')
   {
-    echo view('front/inc/header');
-      echo view('front/inc/nav');
+     $categories['categories'] = front_model::getCategory();
+      echo view('front/inc/header');
+      echo view('front/inc/nav',$categories);
       echo view('front/privacy');
       echo view('front/inc/footer');
   }
     public function faq($value='')
   {
-    echo view('front/inc/header');
-      echo view('front/inc/nav');
+     $categories['categories'] = front_model::getCategory();
+      echo view('front/inc/header');
+      echo view('front/inc/nav',$categories);
       echo view('front/faq');
       echo view('front/inc/footer');
   }
   public function why($value='')
   {
-    echo view('front/inc/header');
-      echo view('front/inc/nav');
+     $categories['categories'] = front_model::getCategory();
+      echo view('front/inc/header');
+      echo view('front/inc/nav',$categories);
       echo view('front/why');
       echo view('front/inc/footer');
   }
@@ -186,13 +190,14 @@ class front_control extends Controller
         $order['userid'] =$user['user']->id;
         $order['created_at'] =date('y-m-d h:i:s');
         $order['updated_at'] =date('y-m-d h:i:s');  
-         $insert =front_model::PaymentOrder($order);
-         if($insert){
-            echo view('front/payment');
-          }
-          else{
-             return redirect()->back()->with('warning', 'Order Has Been Declined Due To Technical Issue');
-          }
+         echo view('front/razorpay',$order);
+         // $insert =front_model::PaymentOrder($order);
+         // if($insert){
+            
+         //  }
+         //  else{
+         //     return redirect()->back()->with('warning', 'Order Has Been Declined Due To Technical Issue');
+         //  }
 
         }
     else{
@@ -411,25 +416,6 @@ class front_control extends Controller
       }
   }
 
-
-  //end
-
-  public function Test()
-  {
-   // echo view('front/test');
-    
-    echo "Gst :".$gst = 12;
-    echo "<br>";
-    echo "BAse :".$base = 279;
-    echo "<br>";
-
-    echo $value = $base - ($base * (100/ (100+$gst)));
-
-    echo "<br>";
-    $test = ($base/($base-$value)) -1;
-    echo $test;
-
-  }
   
   public function LocationSaved(Request $request)
   {
@@ -444,4 +430,7 @@ class front_control extends Controller
        session()->put('pinlocation',$weblocation);
           return redirect()->back();
   }
+
+
+  //End Of Code
 }

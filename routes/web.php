@@ -42,9 +42,13 @@ Route::get('clearcart', 'cart@removeall');
 
 //Checkout
 Route::get('checkout', 'front_control@checkout');
-Route::post('payment', 'front_control@payment');
-Route::post('ccavRequestHandler', 'front_control@ccavRequestHandler');
-Route::post('ccavResponseHandler', 'front_control@ccavResponseHandler');
+  Route::get('productpay', 'RazorpayController@razorpayProduct');
+  Route::post('paysuccess', 'RazorpayController@paysuccess');
+  Route::post('razor-thank-you', 'RazorpayController@thankYou');
+
+// Route::post('payment', 'front_control@payment');
+// Route::post('ccavRequestHandler', 'front_control@ccavRequestHandler');
+// Route::post('ccavResponseHandler', 'front_control@ccavResponseHandler');
 //Dasboard
 Route::post('login','front_control@login');
 Route::get('dashboard', 'front_control@dashboard');

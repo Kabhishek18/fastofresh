@@ -19,13 +19,10 @@ $parsed_json = json_decode($json_string, true);
                             @foreach($parsed_json as $key =>$value)
                             
                                 @foreach($value as $meg =>$locdetail)
-                                    <option value="{{($locdetail['Pincode'])}}">{{($locdetail['Area'])}}</option>
+                                    <option value="{{($locdetail['Pincode'])}}">{{($locdetail['Area'])}} ,{{($locdetail['Pincode'])}}</option>
 
                                 @endforeach 
-                                @foreach($value as $meg =>$locdetail)
-                                    <option value="{{($locdetail['Pincode'])}}">{{($locdetail['Pincode'])}}</option>
-                                    
-                                @endforeach  
+                               
                             @endforeach
 
                         </select>
