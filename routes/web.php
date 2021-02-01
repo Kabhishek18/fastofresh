@@ -13,12 +13,13 @@ use App\Http\Controllers\front_control;
 |        |  _|| | | (_) | | | | |_ 
 |        |_|  |_|  \___/|_| |_|\__|
 */
-// Route::get('', 'front_control@index' );
-Route::get('', 'front_control@dummy' );
+Route::get('', 'front_control@index' );
+//Route::get('', 'front_control@dummy' );
 Route::get('about-us', 'front_control@about' );
 Route::get('privacyandpolicy', 'front_control@privacy' );
 Route::get('faq', 'front_control@faq' );
 Route::get('why', 'front_control@why' );
+Route::get('test', 'front_control@Test' );
 
 //Category Product
 Route::get('category', 'front_control@categories' );
@@ -35,7 +36,7 @@ Route::post('applycoupon', 'cart@ApplyCoupon');
 Route::get('removeCoupon', 'cart@removeCoupon');
 
 
-Route::get('recipes/{$id}', 'cart@RecipeDetail');
+Route::get('recipes/{$id}', 'front_control@RecipeDetail');
 
 //Cart
 Route::post('cartadd', 'cart@AddToCart');
@@ -55,6 +56,7 @@ Route::get('razor-thank-you', 'RazorpayController@RazorThankYou');
 // Route::post('ccavResponseHandler', 'front_control@ccavResponseHandler');
 //Dasboard
 Route::post('login','front_control@login');
+Route::post('register','front_control@register');
 Route::get('dashboard', 'front_control@dashboard');
 Route::post('dashboard/profileimageupload', 'front_control@profileimageupload');
 Route::get('dashboard/changepassword', 'front_control@changepassword');

@@ -182,9 +182,8 @@ $(document).ready(function(){
         <div class="bottom-bar dark-bg text-center">
             <div class="container">
                 <p itemprop="description">&copy; 2020 <a class="red-clr" href="#" title="FAST O FRESH" itemprop="url" target="_blank">FAST 'O" FRESH</a>. ALL RIGHTS RESERVED</p> |   <p itemprop="description">Credit By: <a class="red-clr" href="https://www.techcentrica.com" title="TechCentrica" itemprop="url" target="_blank">TECHCENTRICA</a></p>
-                <p Style="line-height:22px;">Licious is your one-stop fresh meat delivery shop. In here, you get nothing but the freshest meat & seafood, delivered straight to your doorstep. Now you can buy meat online anytime at your convenience. Indulge in our diverse selection: Chicken, Mutton, Seafood (Fish, Prawns, Crabs), Marinades & Cold Cuts. All our products are completely natural and healthy. Once you've experienced Licious, you'll never go back to the old way of buying meat and seafood.
-
-</p>
+                <p Style="line-height:22px;">FastOFresh brings fresh meat to your doorsteps with a few screen taps. We strictly maintain hygiene and ensure that the meat you are served with is natural, fresh, and healthy. We have Mutton, Chicken, Mutton, Seafood (Fish, Prawns, Crabs), etc., as of now and are constantly upgrading ourselves. Don’t wait anymore; explore the power of your clicks.
+                </p>
             </div>
         </div><!-- Bottom Bar -->
 
@@ -197,32 +196,65 @@ $(document).ready(function(){
                 <div class="sign-popup-inner brd-rd5">
                     <a class="log-close-btn" href="#" title="" itemprop="url"><i class="fa fa-close"></i></a>
                     <div class="sign-popup-title text-center">
-                        <h4 itemprop="headline">SIGN IN</h4>
-                        <span>with your social network</span>
+                        <h4 itemprop="headline">LOG IN</h4>
+                       
                     </div>
-                    <div class="popup-social text-center">
-                        <a class="facebook brd-rd3" href="#" title="Facebook" itemprop="url" target="_blank"><i class="fa fa-facebook"></i> Facebook</a>
-                        <a class="google brd-rd3" href="#" title="Google Plus" itemprop="url" target="_blank"><i class="fa fa-google-plus"></i> Google</a>
-                    </div>
-                    <span class="popup-seprator text-center"><i class="brd-rd50">or</i></span>
-                    <form class="sign-form" method="post" action="{{url('login')}}">
+                       <form class="sign-form" method="post" action="{{url('login')}}">
                           @csrf
                         <div class="row">
                             <div class="col-md-12 col-sm-12 col-lg-12">
-                                <input class="brd-rd3" type="text" name="email" placeholder="Email">
+                                <label>Enter Email ID / Mobile Number<span class="text-danger">*</span></label>
+                                <input class="brd-rd3" type="text" name="email" placeholder="Enter Email ID / Mobile Number" required>
                             </div>
                             <div class="col-md-12 col-sm-12 col-lg-12">
-                                <input class="brd-rd3" type="password" name="password" placeholder="Password">
+                                <label>Password<span class="text-danger">*</span></label>
+                                <input class="brd-rd3" type="password" name="password" placeholder="Password" required>
                             </div>
                             <div class="col-md-12 col-sm-12 col-lg-12">
-                                <button class="red-bg brd-rd3" type="submit">SIGN IN</button>
+                                <button class="red-bg brd-rd3" type="submit">LOG IN</button>
                             </div>
                             
+                        </div>
+                        <div class="row" >
+                             New To Fast O Fresh? <a class="sign-popup-btn" style="font-size: 14px;color: red" href="#" title="Register" itemprop="url">Sign up Here</a>
+                        </div>
+                        <div class="row" >
+                              <a class="forgot-popup-btn" style="font-size: 14px;color: red" href="#" title="Forgot" itemprop="url">Forgot Your Password ??</a>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
+
+        <div class="forgot-pop text-center">
+            <div class="sign-popup-wrapper brd-rd5">
+                <div class="sign-popup-inner brd-rd5">
+                    <a class="log-close-btn" href="#" title="" itemprop="url"><i class="fa fa-close"></i></a>
+                    <div class="sign-popup-title text-center">
+                        <h4 itemprop="headline">Forgot Password</h4>
+                        <p>Please Enter your email address below. You will receive an OTP to reset your password </p>
+                       
+                    </div>
+                       <form class="sign-form" method="post" action="{{url('login')}}">
+                          @csrf
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12 col-lg-12">
+                                <label>Enter Email ID<span class="text-danger">*</span></label>
+                                <input class="brd-rd3" type="text" name="email" placeholder="Enter Email ID" required>
+                            </div>
+                          <div class="col-md-12 col-sm-12 col-lg-12">
+                                <button class="red-bg brd-rd3" type="submit">Submit</button>
+                            </div>
+                            
+                        </div>
+                        <div class="row" >
+                             New To Fast O Fresh? <a class="sign-popup-btn" style="font-size: 14px;color: red" href="#" title="Register" itemprop="url">Sign up Here</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
 
         <div class="sign-popup text-center">
             <div class="sign-popup-wrapper brd-rd5">
@@ -230,31 +262,84 @@ $(document).ready(function(){
                     <a class="sign-close-btn" href="#" title="" itemprop="url"><i class="fa fa-close"></i></a>
                     <div class="sign-popup-title text-center">
                         <h4 itemprop="headline">SIGN UP</h4>
-                        <span>with your social network</span>
+                       
                     </div>
-                    <div class="popup-social text-center">
-                        <a class="facebook brd-rd3" href="#" title="Facebook" itemprop="url" target="_blank"><i class="fa fa-facebook"></i> Facebook</a>
-                        <a class="google brd-rd3" href="#" title="Google Plus" itemprop="url" target="_blank"><i class="fa fa-google-plus"></i> Google</a>
-                    </div>
-                    <span class="popup-seprator text-center"><i class="brd-rd50">or</i></span>
-                    <form class="sign-form">
+                    
+                    <form class="sign-form" method="post" action="{{url('')}}/register">
+                        @csrf
                         <div class="row">
                             <div class="col-md-12 col-sm-12 col-lg-12">
-                                <input class="brd-rd3" type="text" name="name" placeholder="Username">
+                                <label>Name<span class="text-danger">*</span></label>
+                                <input class="brd-rd3" type="text" name="name" placeholder="Name" required value="test">
                             </div>
                             <div class="col-md-12 col-sm-12 col-lg-12">
-                                <input class="brd-rd3" type="email" name="email" placeholder="Email">
+                                <label>Email<span class="text-danger">*</span></label>
+                                <input class="brd-rd3" type="email" name="email" placeholder="Email" required value="kabhishek18@gmail.com">
                             </div>
                             <div class="col-md-12 col-sm-12 col-lg-12">
-                                <input class="brd-rd3" type="number" name="phone" placeholder="Email">
+                                <label>Mobile<span class="text-danger">*</span></label>
+                                <input class="brd-rd3" type="number" name="phone" placeholder="Mobile" required value="9654221960">
                             </div>
                             <div class="col-md-12 col-sm-12 col-lg-12">
-                                <input class="brd-rd3" type="password" name="password" placeholder="Password">
+                                <label>Password<span class="text-danger">*</span></label>
+                                <input class="brd-rd3" type="password" name="password" placeholder="Password" required value="789456123">
+                            </div>
+
+                            <div class="col-md-12 col-sm-12 col-lg-12">
+                               
+                                <style type="text/css">
+                                    .form-group input {
+                                  padding: 0;
+                                  height: initial;
+                                  width: initial;
+                                  margin-bottom: 0;
+                                  display: none;
+                                  cursor: pointer;
+                                        }
+                                        .form-group label {
+                                          position: relative;
+                                          cursor: pointer;
+                                        }
+
+                                        .form-group label:before {
+                                          content:'';
+                                          -webkit-appearance: none;
+                                          background-color: transparent;
+                                          border: 2px solid #0079bf;
+                                          box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05);
+                                          padding: 10px;
+                                          display: inline-block;
+                                          position: relative;
+                                          vertical-align: middle;
+                                          cursor: pointer;
+                                          margin-right: 5px;
+                                        }
+
+                                        .form-group input:checked + label:after {
+                                          content: '';
+                                          display: block;
+                                          position: absolute;
+                                          top: 2px;
+                                          left: 9px;
+                                          width: 6px;
+                                          height: 14px;
+                                          border: solid #0079bf;
+                                          border-width: 0 2px 2px 0;
+                                          transform: rotate(45deg);
+                                        }
+                                </style>
+                                <div class="form-group">
+                                    <input type="checkbox" id="subcribe">
+                                     <label for="subcribe">Subscribe To Our Newsletter</span></label>
+                                </div>
                             </div>
                             <div class="col-md-12 col-sm-12 col-lg-12">
                                 <button class="red-bg brd-rd3" type="submit">REGISTER NOW</button>
                             </div>
                             
+                        </div>
+                        <div class="row">
+                           Already on FastOFresh?  <a class="log-popup-btn" href="#" title="Login" itemprop="url">LOGIN</a>
                         </div>
                     </form>
                 </div>

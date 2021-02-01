@@ -10,7 +10,7 @@ $(document).ready(function(){
                 <input type='button' onclick="incrementValue(${matchvalue})" value='+' class='btn btn-default' field='quantity' />
             </div>    
             <div class='form-group'>
-            <input type='submit' class="btn btn-danger  " style='background-color: #ea1b25;' value="Add to cart"/>
+            <input type='submit' class="btn btn-danger  " style='background-color: #800000;' value="Add to cart"/>
             </div>
           `;
 

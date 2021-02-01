@@ -3,15 +3,16 @@ $json_string =    file_get_contents("locationpin.json");
 $parsed_json = json_decode($json_string, true);
 ?>
 <header class="stick">
-            <div class="topbar">
+            <div class="topbar" >
                 <div class="container">
                     <div class="select-wrp">
-                        <form action="{{url('')}}/pincode/saved" method="post">
+                        <form action="{{url('')}}/pincode/saved" method="post" style="display: flex;color: #fff !important">
                             @csrf
-                        <select data-placeholder="Feel Like Eating" name="pinlocation" onchange="this.form.submit()">
+                            <i class="fa fa-map-marker"></i>
+                            <select data-placeholder="Feel Like Eating" name="pinlocation" onchange="this.form.submit()">
                             @if(!empty(session()->get('pinlocation')))
                             <option selected="" value="{{session()->get('pinlocation')}}" >
-                               Pincode : {{session()->get('pinlocation')}}</option>
+                               {{session()->get('pinlocation')}}</option>
                             @else
                             <option>Check Delivery  Availabilty </option>
 
@@ -19,7 +20,7 @@ $parsed_json = json_decode($json_string, true);
                             @foreach($parsed_json as $key =>$value)
                             
                                 @foreach($value as $meg =>$locdetail)
-                                    <option value="{{($locdetail['Pincode'])}}">{{($locdetail['Area'])}} ,{{($locdetail['Pincode'])}}</option>
+                                    <option value="{{($locdetail['Area'])}} ,{{($locdetail['Pincode'])}}">{{($locdetail['Area'])}} ,{{($locdetail['Pincode'])}}</option>
 
                                 @endforeach 
                                
@@ -28,7 +29,7 @@ $parsed_json = json_decode($json_string, true);
                         </select>
                         </form>
                     </div>
-                    <div class="select-wrp">
+                    <!-- <div class="select-wrp">
                          <form action="{{url('')}}/location/saved" method="post">
                             @csrf
                           <select data-placeholder="Choose Location" name="weblocation" onchange="this.form.submit()">
@@ -43,6 +44,30 @@ $parsed_json = json_decode($json_string, true);
 
                           </select>
                         </form>
+                    </div> -->
+                    <div class="select-wrp " style="color: #fff;display: inline-flex; ">
+                        <div class="text-center">
+                            <form  action="{{url('')}}/search" method="post" style="display: inline-flex;margin-top: 5px;width: 136%;">
+                            @csrf
+                            <input class="form-control" id="search_text" type="text" name="product" placeholder="Decided what to cook?"  list="browsers">
+                               <datalist class="searchspecial" id="browsers">
+                           
+                                  </datalist>
+                            <button class="btn btn-danger" style="background: #ea1b25" type="submit"><i class="fa fa-search"></i></button>
+                        </form>
+                        </div>
+                         <a href="{{url('cart')}}" title="Cart" itemprop="url"  style="font-size: 20px;margin-left: 180px;
+    margin-top: 7px;"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i>
+                                        @if(session()->get('cart')) 
+                                        <sup> (
+                                           
+                                           <?php $cart = session()->get('cart')?>
+                                            {{count($cart)}}
+                                        )</sup>
+                                        <span style="font-size: 16px"> Cart</span>
+                                        @endif
+                                        </a>
+
                     </div>
                     <div class="topbar-register">
                         @if(!empty(session()->get('user_session')))
@@ -50,11 +75,11 @@ $parsed_json = json_decode($json_string, true);
                                 (MyAccount)
                             </a>
                         @else
-                        <a class="log-popup-btn" href="#" title="Login" itemprop="url">LOGIN</a> / <a class="sign-popup-btn" href="#" title="Register" itemprop="url">REGISTER</a>
+                        <a class="log-popup-btn" href="#" title="Login" itemprop="url">LOGIN</a>
                         @endif
                     </div>
                     <div class="social1">
-                      
+                       
                         <a href="#" title="Twitter" itemprop="url" target="_blank"><i class="fa fa-twitter"></i></a>
                         <a href="#" title="Google Plus" itemprop="url" target="_blank"><i class="fa fa-google-plus"></i></a>
                     </div>
@@ -68,40 +93,38 @@ $parsed_json = json_decode($json_string, true);
                     <div class="logo"><h1 itemprop="headline"><a href="<?=URL::to('/');?>" title="Home" itemprop="url"><img src="{{ url('assets/images/logo2.png') }}" alt="logo.png" itemprop="image"></a></h1></div>
                     <nav>
                         <div class="menu-sec">
+                            <style type="text/css">
+                               .menumom{
+                                margin-right: 15px
+                                padding-right: 0px;
+                                font-size: 15px;
+                                width: 90px;
+                                padding: 5px;
+                                border-radius: 10px
+                               }
+                               .menumom img{
+                                 padding: 5px
+                               }
+                            </style>
                             <ul>
-                                 
-                                 <li class="menu-item-has-children" >CATEGORIES
-                                    <ul class="sub-dropdown">
-                                       @foreach($categories as $category)
-                                        <li style="text-transform: uppercase;"><a href="{{url('')}}/category/{{$category->name}}" title="REGISTER RESERVATION" itemprop="url">{{$category->name}}</a></li>
-                                        
-                                        @endforeach
-                                    </ul>
-                                </li>
-                                <li class="menu-item-has-children" width="100%"> <form  action="{{url('')}}/search" method="post">
-                                    @csrf
-                                    <input class="brd-rd30" id="search_text" type="text" name="product" placeholder="Search for any delicious product"  list="browsers">
-                                   <datalist class="searchspecial" id="browsers">
-                               
-                                      </datalist>
-                                    <button class="btn brd-rd30 red-bg" type="submit">SEARCH</button>
-                                </form></li>
-                                <li class="menu-item-has-children">
-                                      <a href="{{url('cart')}}" title="Cart" itemprop="url"  style="font-size: 20px"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i>
-                                        @if(session()->get('cart')) 
-                                        <sup> (
-                                           
-                                           <?php $cart = session()->get('cart')?>
-                                            {{count($cart)}}
-                                        )</sup>
-                                        @endif
+                                   <?php $i=0.0;?>
+                                    @foreach($categories as $category)
+                                    <li class="wow  bounceIn menumom " data-wow-delay="{{$i +=0.2}}s" style="" >
+                                        <div class="imag" style="">
+                                        <a class="" href="{{url('')}}/category/{{$category->name}}" title="{{$category->name}}" itemprop="url"><img src="{{url('')}}/categories/{{$category->image}}" alt="{{$category->image}}" itemprop="image">
+                                             <div class="text-center">{{$category->name}}</div>
                                         </a>
+                                        </div>
+                                    </li>
+                                    @endforeach
+                                <li class="menu-item-has-children">
+                                      
                                 </li>
 
                                
 
                             </ul>
-                                                        <a class="red-bg brd-rd4" href="#" title="Register" itemprop="url" style="margin-left:40px;background: #306f06">TOLLFREE: 1800 123 456</a>
+                                                        
 
                         </div>
                     </nav><!-- Navigation -->
@@ -135,7 +158,7 @@ $parsed_json = json_decode($json_string, true);
                         </form>
                     </div>
                     <div class="select-wrp">
-                         <form action="{{url('')}}/location/saved" method="post">
+                      <!--    <form action="{{url('')}}/location/saved" method="post">
                             @csrf
                           <select data-placeholder="Choose Location" name="weblocation" onchange="this.form.submit()">
                             @if(!empty(session()->get('location')))
@@ -148,7 +171,7 @@ $parsed_json = json_decode($json_string, true);
                             <option value="East Delhi">East Delhi </option>
 
                           </select>
-                        </form>
+                        </form> -->
                     </div>
             </div>
             <div class="responsive-logomenu">

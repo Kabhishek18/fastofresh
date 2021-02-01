@@ -99,9 +99,9 @@ class front_control extends Controller
    //Prdouct via Seach
   public function productSearch(Request $request)
   {
-        $query = Request::post('query');
-       $products =front_model::getProductlike($query);
-       return json_decode($products); 
+      $query = Request::post('query');
+      $products =front_model::getProductlike($query);
+      return json_decode($products); 
   }
 
   public function Search(Request $request)
@@ -231,7 +231,7 @@ class front_control extends Controller
     
   }
   //Login  
-  public function login()
+  public function login(Request $request)
   {
 
     $val['email'] = Request::post('email');
@@ -249,13 +249,28 @@ class front_control extends Controller
     }
   } 
    
+  public function register(Request $request)
+  {
+    $val['name'] = Request::post('name');
+    $val['email'] = (Request::post('email'));
+    $val['phone'] = (Request::post('phone'));
+    $val['password'] = sha1(Request::post('password'));
+    $val['sixdigit'] =  mt_rand(100000, 999999);
+    $val['sendsms'] =$val['sixdigit'] .' is your verification code. Please use this code to access your account. Thanks for using Fast O Fresh.';
+    // sendSms($val['phone'], $val['sendsms']);
+    $var['categories'] = front_model::getCategory();
+    echo view('front/inc/header');
+    echo view('front/inc/nav',$var);
+    echo view('front/otpverifcation',$val);
+    echo view('front/inc/footer');
+
+  } 
   //Dashboard
   public function Dashboard($value='')
   {
     $user['user'] = session()->get('user_session');
     if ($user['user']) {
       $var['categories'] = front_model::getCategory();
-
       $user['orders'] =front_model::getOrderUserid($user['user']->id);
       $user['locations'] =front_model::getLocationUid($user['user']->id);
       echo view('front/inc/header');
@@ -457,6 +472,11 @@ class front_control extends Controller
           return redirect()->back();
   }
 
+
+  public function Test($value='')
+  {
+    
+  }
 
   //End Of Code
 }

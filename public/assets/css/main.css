@@ -567,10 +567,11 @@ header {
   box-shadow: 0 4px 2px rgba(0,0,0,.18);
 }
 .topbar {
-  background-color: #306f06;
+  background-color: #800000;
   float: left;
   width: 100%;
   height: 46px;
+  border-bottom: 1px solid #800032;
 }
 .select-wrp {
   float: left;
@@ -855,7 +856,7 @@ header.sticky nav > div > ul > li span {font-size: 11px;}
 .responsive-logomenu {
   float: left;
   width: 100%;
-  background-color: #0d0d0d;
+  background-color: #fff;
   padding: 0 20px;
 }
 .responsive-logomenu .logo {margin: 7px 0;}
@@ -1394,22 +1395,24 @@ h3.marginb-0 {margin-bottom: 0;}
   z-index: 1;
 }
 .popular-dish-info {
-     background: #fdfdfd none repeat scroll 0 0;
+  background: #f1f1f1 none repeat scroll 0 0;
     float: left;
     margin-bottom: 6px;
     padding: 20px 15px;
     width: 100%;
     border: 1px solid;
-    border-color: #efeeee;
+    border-color: #dcdcdc;
+    border-radius: 0px 0px 15px 15px;
 }
 .popular-dish-info > h4 {
-  height: 20px;
-  font-size: 16px;
-  font-weight: 600;
-  letter-spacing: 0;
-  margin-bottom: 20px;
-	margin-top: 15px;
-  text-transform: uppercase;
+  height: 16px;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0;
+    margin-bottom: 15px;
+    margin-top: 0px;
+    text-transform: uppercase;
+
 }
 .popular-dish-info > p {
 /*	margin-bottom: 24px;*/
@@ -3202,7 +3205,7 @@ h2.title3 span.sudo-bottom:before {bottom: 7px;}
 .select-wrp2 .chosen-container {
   font-size: 12px;
   font-weight: 700;
-  color: #8a8a8a;
+  color: #fff;
   letter-spacing: .3px;
 }
 .select-wrp2 .chosen-container > a {
@@ -5324,7 +5327,7 @@ input:checked + .switch-slider:before {
 .sign-form input {
   float: left;
   width: 100%;
-  font-size: 10.8px;
+  font-size: 12.5px;
   color: #a2a2a2;
   background-color: #f6f6f6;
   height: 50px;
@@ -5366,7 +5369,7 @@ input:checked + .switch-slider:before {
 }
 .log-popup .sign-popup-wrapper,
 .sign-popup .sign-popup-wrapper {
-  max-width: 570px;
+  max-width: 450px;
   display: inline-block;
   float: none;
   margin: 40px auto;
@@ -7149,12 +7152,7 @@ a.thanks-close:focus {color: #333;}
 	h3.client#nextclient{
 		color:#ffff;
 	}
-	form{
-		float:left;
-		width: 100%;
-		position: relative;
-		text-align:center;
-	}
+	
 	input.input-faq{
 		margin-left:45px;
 		padding-top:20px;

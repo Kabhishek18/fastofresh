@@ -268,7 +268,7 @@
                                                             <li><span>Total</span> <span class="price">₹  {{ $total }}
                                                             <?php session()->put('total',$total);?>    
                                                             </span></li>
-                                                            <li><span class="radio-box cash-popup-btn"><input type="radio" name="method" value="cash" id="pay1-1"><label for="pay1-1"><i class="fa fa-money"></i> Cash</label></span> <span class="radio-box card-popup-btn"><input type="radio" name="method" id="pay1-2"  value="online" checked><label for="pay1-2"><i class="fa fa-credit-card-alt"></i> Online</label></span></li>
+                                                            <li><span class="radio-box cash-popup-btn"><input type="radio" name="method" value="cash" id="pay1-1"><label for="pay1-1"><i class="fa fa-money"></i> Cash</label></span> <span class="radio-box card-popup-btn"><input type="radio" name="method" id="pay1-2"  value="online" ><label for="pay1-2"><i class="fa fa-credit-card-alt"></i> Online</label></span></li>
                                                             <li>
                                                                 <input class="btn btn-default"  type="submit" itemprop="url" value="CHECKOUT ORDER">
                                                             </li>
@@ -287,7 +287,3 @@
             </div>
         </section>
      
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
-<script src="{{url('assets/js/custom.js')}}"></script>
