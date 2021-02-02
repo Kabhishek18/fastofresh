@@ -80,8 +80,10 @@ $parsed_json = json_decode($json_string, true);
                     </div>
                     <div class="social1">
                        
-                        <a href="#" title="Twitter" itemprop="url" target="_blank"><i class="fa fa-twitter"></i></a>
-                        <a href="#" title="Google Plus" itemprop="url" target="_blank"><i class="fa fa-google-plus"></i></a>
+                     
+                        <a href="#" title="Facebook" itemprop="url" target="_blank"><i class="fa fa-facebook"></i></a>
+                        <a href="#" title="Instagram" itemprop="url" target="_blank"><i class="fa fa-instagram"></i></a>
+                           <a href="#" title="Twitter" itemprop="url" target="_blank"><i class="fa fa-twitter"></i></a>
                     </div>
                     <div >
                         
