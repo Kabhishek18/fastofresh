@@ -5,7 +5,7 @@
                 <div class="sec-box ">
                     <div class="container">
                         <div class="row">
-                            <div class="col-md-12 col-sm-12 col-lg-12">
+                            <div class="col-md-12 col-sm-12 col-lg-12" s>
                                 <div class="sec-wrapper">
                                     <div class="row">
                                          <div class="bread-crumbs-wrapper">
@@ -16,9 +16,9 @@
                                             </ol>
 
                                             </div>
-                                        <div class="col-md-12 col-sm-12 col-lg-12">
+                                        <div class="col-md-12 col-sm-12 col-lg-12" style="background: #95999c3b;border-radius: 25px; padding: 34px;">
                                             <div class="title2-wrapper">
-                                                <h3 class="marginb-0" itemprop="headline">About {{$category->name}}</h3>
+                                                <h3 class="marginb-0" itemprop="headline">{!!$category->short_descrip!!}</h3>
                                             </div>
                                             <div class="remove-ext">
                                                 <div class="row">
@@ -56,12 +56,11 @@
                                                  <!-- Product Shuffling -->
                                                  <?php $i=1;?>
                                                  @foreach ($products as $product)
-                                                
                                                  <div class="col-md-4 col-sm-6 col-lg-4">
                                                  {{ Form::open(array('url' => 'cartadd')) }}
                                                  @csrf
                                                  <input type="hidden" name="pid" value="{{$product->id}}">
-                                                    <div class="popular-dish-box  parent style1 wow fadeIn" data-wow-delay="0.{{$i++}}s">
+                                                    <div class="popular-dish-box style1 wow fadeIn" data-wow-delay="0.{{$i++}}s">
                                                         <div class="popular-dish-thumb">
                                                             <a href="{{url('product').'/'.$product->id}}" title="" itemprop="url"><img src="{{url('')}}/products/{{$product->image}}" alt="popular-dish-img1.jpg" itemprop="image"></a>
                                                           
@@ -78,21 +77,18 @@
                                                             @else
                                                             MRP: ₹ {{$product->s_price}}
                                                             @endif
+                                                            &nbsp;
+                                                             
                                                              </span>
-                                                             <span>
-                                                                  @if($product->b_price)
+                                                             <span class="price" style="color: green;text-transform: uppercase;font-weight: 600">@if($product->b_price)
                                                               @if(number_format(($product->b_price-$product->s_price)/$product->b_price *100) > 0)
-                                                            Discount
                                                             {{number_format(($product->b_price-$product->s_price)/$product->b_price *100)}}
-                                                            <i class="fa fa-percent"></i> 
+                                                            % Off
                                                               @endif
-                                                            
-                                                            
-                                                            @endif
-                                                             </span>
+                                                            @endif</span>
                                                             </div>
                                                             <div class="col-sm-12 d-flex justify-content-center"> 
-                                                            <a class="btn btn-danger" id="hide-{{$product->id}}" data-value="{{$product->id}}" href="javascript:void(0)" title="Order Now" style="background: #ea1b25" itemprop="url">ADD TO CART</a>
+                                                            <a class="btn btn-danger" id="hide-{{$product->id}}" data-value="{{$product->id}}" href="javascript:void(0)" title="Order Now" style="background-color: #800000 ;border:none;" itemprop="url">ADD TO CART</a>
                                                            
                                                             <div id="show-{{$product->id}}"></div>
                                                             </div>
