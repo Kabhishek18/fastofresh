@@ -207,4 +207,28 @@ class front_model extends Model
       }
       return $value;
     }  
+
+
+//User
+  public static function GetUserEmail($email){
+        $array = array('email' => $email );
+        $value=DB::table('users')->where($array)->count();
+        return $value;
+  }  
+  public static function GetUserPhone($mobile){
+        $array = array('mobile' => $mobile );
+        $value=DB::table('users')->where($array)->count();
+        return $value;
+  }  
+  public static function InsertUser($array){
+      $value= DB::insert('insert into users (`name`, `email`, `mobile`,`type`, `status`, `password`, `created_at`, `updated_at`) values(?,?,?,?,?,?,?,?)',[$array['name'],$array['email'],$array['mobile'],$array['type'],$array['status'],$array['password'],date('Y-m-d h:s:i'),date('Y-m-d h:s:i')]);
+        return $value;
+  }  
+   //UPdate Users password
+  public static function UserPasswordEmail($array)
+  {
+    $value= DB::update('update users set `password` = ?,`updated_at` = ?  where email =? ',[$array['password'],date('Y-m-d h:s:i'),$array['email']]);
+    return $value;
+  }
+
 }

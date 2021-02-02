@@ -5,8 +5,11 @@ date_default_timezone_set("Asia/Calcutta");
 use Request;
 use File;
 use App\front_model;
-use PHPMailerPHPMailerPHPMailer;
-use PHPMailerPHPMailerException;
+// Import PHPMailer classes into the global namespace
+// These must be at the top of your script, not inside a function
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
 use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Client;
 
@@ -253,11 +256,24 @@ class front_control extends Controller
   {
     $val['name'] = Request::post('name');
     $val['email'] = (Request::post('email'));
-    $val['phone'] = (Request::post('phone'));
+    $val['mobile'] = (Request::post('mobile'));
+
+     $emailverify = front_model::GetUserEmail($val['email']);
+     if($emailverify >0){
+      return redirect()->back()->with('warning', 'Email Id Already Register');
+     }
+      $mobileverify = front_model::GetUserPhone($val['mobile']);
+     if($mobileverify >0){
+      return redirect()->back()->with('warning', 'Mobile Number Already Register');
+     }
+     
     $val['password'] = sha1(Request::post('password'));
     $val['sixdigit'] =  mt_rand(100000, 999999);
     $val['sendsms'] =$val['sixdigit'] .' is your verification code. Please use this code to access your account. Thanks for using Fast O Fresh.';
-    // sendSms($val['phone'], $val['sendsms']);
+    sendSms($val['mobile'], $val['sendsms']);
+
+    session()->put('verifysession',$val);
+
     $var['categories'] = front_model::getCategory();
     echo view('front/inc/header');
     echo view('front/inc/nav',$var);
@@ -265,6 +281,145 @@ class front_control extends Controller
     echo view('front/inc/footer');
 
   } 
+
+  public function otpVerifcation(Request $request)
+  {
+    if(!empty(session()->get('verifysession')))
+    {
+      $otp = Request::post('otp');
+      $var = session()->get('verifysession');
+      $var['type'] ='user';
+      $var['status'] ='active';
+
+      if($otp ==$var['sixdigit']){
+        $insert= front_model::InsertUser($var);
+         if($insert){
+          session()->forget('verifysession');
+         return redirect('')->with('success', 'Success Registered');
+
+         } 
+         else{
+           session()->forget('verifysession');
+         return redirect('')->with('warning', 'Something Misfortune Happen!');
+         }
+      }
+      else{
+           session()->forget('verifysession');
+         return redirect('')->with('warning', 'OTP Did Not Matched');
+      }
+    }
+    else{
+         return redirect()->back()->with('warning', 'Something Went Wrong!');
+    }
+  }
+
+
+  //Email Verification
+  public function EmailotpForgot(Request $request)
+  {
+    
+      $val['email'] = (Request::post('email'));
+      $emailverify = front_model::GetUserEmail($val['email']);
+      if($emailverify == 0){
+        return redirect()->back()->with('warning', 'Email Id Invalid');
+      }
+      $val['otp'] =  mt_rand(100000, 999999);
+      $subject ="Password Recovery Mail";
+      $msg  ='
+              <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%">
+                <tr>
+                  <td style="padding: 20px 0 30px 0;">
+
+                    <table align="center" border="0" cellpadding="0" cellspacing="0" width="600" style="border-collapse: collapse; border: 1px solid #cccccc;">
+                      <tr>
+                        <td align="center" bgcolor="white" style="padding: 40px 0 30px 0;">
+                          <img src="http://fastofresh.com/assets/images/logo2.png" alt="Creating Email Magic."  style="display: block;
+                           background:white;" />
+                        </td>
+                      </tr>
+                      <tr>
+                        <td bgcolor="#ffffff" style="padding: 40px 30px 40px 30px;">
+                          <table border="0" cellpadding="0" cellspacing="0" width="100%" style="border-collapse: collapse;">
+                            <tr>
+                              <td style="color: #153643; font-family: Arial, sans-serif;">
+                                <h1 style="font-size: 24px; margin: 0;">Welcome To Fast O Fresh,</h1>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td style="color: #153643; font-family: Arial, sans-serif; font-size: 16px; line-height: 24px; padding: 20px 0 30px 0;">
+                                <p style="margin: 0;">Below is your verification code. Please use this code to access your account. Thanks for using Fast O Fresh.</p>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td align="center" bgcolor="#80000" style="color:whitesmoke;padding: 40px 0 30px 0;" >
+                                <h1>'.$val['otp'].' </h1>
+                              </td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td bgcolor="#800000" style="padding: 30px 30px;">
+                            <table border="0" cellpadding="0" cellspacing="0" width="100%" style="border-collapse: collapse;">
+                            <tr>
+                              <td style="color: #ffffff; font-family: Arial, sans-serif; font-size: 14px;">
+                                <p style="margin: 0;">&reg; Fastofresh,  2021<br/>
+                               <a href="#" style="color: #ffffff;">Unsubscribe</a> to this newsletter instantly</p>
+                              </td>
+                              <td align="right">
+                                
+                              </td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+                    </table>
+
+                  </td>
+                </tr>
+              </table>';
+      sendEmail( $val['email'],$msg,$subject);
+    session()->put('verifyemail',$val);
+    $var['categories'] = front_model::getCategory();
+    echo view('front/inc/header');
+    echo view('front/inc/nav',$var);
+    echo view('front/emailforgot',$val);
+    echo view('front/inc/footer');
+  }
+
+  //Email Verification
+  public function ForgotUpdate(Request $request)
+  {
+    if(!empty(session()->get('verifyemail')))
+    {
+      $otp = Request::post('otp');
+      $otp = Request::post('password');
+      $var = session()->get('verifyemail');
+
+      if($otp ==$var['otp']){
+        $update= front_model::UserPasswordEmail($var);
+         if($update){
+          session()->forget('verifyemail');
+         return redirect('')->with('success', 'Success Registered');
+
+         } 
+         else{
+           session()->forget('verifyemail');
+         return redirect('')->with('warning', 'Something Misfortune Happen!');
+         }
+      }
+      else{
+           session()->forget('verifyemail');
+         return redirect('')->with('warning', 'OTP Did Not Matched');
+      }
+    }
+    else{
+         return redirect('')->with('warning', 'Something Went Wrong!');
+    }
+  }
+
+
+
   //Dashboard
   public function Dashboard($value='')
   {
@@ -405,58 +560,7 @@ class front_control extends Controller
     echo view('front/recipeview',$var);
      echo view('front/inc/footer');
   }
-  public function sendEmail (Request $request) {
-    
-    // is method a POST ?
-      if( Request::isMethod('post') ) {
-
-        require '../vendor/autoload.php'; // load Composer's autoloader
-
-        $mail = new PHPMailer(true); // Passing `true` enables exceptions
-
-        try {
-
-          // Mail server settings
-
-          $mail->SMTPDebug = 4; // Enable verbose debug output
-          $mail->isSMTP(); // Set mailer to use SMTP
-          $mail->Host = 'smtp.gmail.com'; // Specify main and backup SMTP servers
-          $mail->SMTPAuth = true; // Enable SMTP authentication
-          $mail->Username = '@gmail.com'; // SMTP username
-          $mail->Password = 'your-gmail-password'; // SMTP password
-          $mail->SMTPSecure = 'tls'; // Enable TLS encryption, `ssl` also accepted
-          $mail->Port = 587; // TCP port to connect to
-
-          $mail->setFrom('your-email@gmail.com', 'Your Name');
-          $mail->addAddress($_POST['email']); // Add a recipient, Name is optional
-          $mail->addCC($_POST['email-cc']);
-          $mail->addBCC($_POST['email-bcc']);
-          $mail->addReplyTo('your-email@gmail.com', 'Your Name');
-          // print_r($_FILES['file']); exit;
-
-          for ($i=0; $i < count($_FILES['file']['tmp_name']) ; $i++) { 
-            $mail->addAttachment($_FILES['file']['tmp_name'][$i], $_FILES['file']['name'][$i]); // Optional name
-          }
-
-          $mail->isHTML(true); // Set email format to HTML
-
-          $mail->Subject = $_POST['subject'];
-          $mail->Body    = $_POST['message'];
-          // $mail->AltBody = plain text version of your message;
-
-          if( !$mail->send() ) {
-            echo 'Message could not be sent.';
-            echo 'Mailer Error: ' . $mail->ErrorInfo;
-          } else {
-            echo 'Message has been sent';
-          }
-
-        } catch (Exception $e) {
-          // return back()->with('error','Message could not be sent.');
-        }
-      }
-  }
-
+ 
   
   public function LocationSaved(Request $request)
   {
@@ -473,9 +577,10 @@ class front_control extends Controller
   }
 
 
-  public function Test($value='')
+  public function Test()
   {
-    
+      sendEmail('kabhishek18@gmail.com','456','5464');
+  
   }
 
   //End Of Code

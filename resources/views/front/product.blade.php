@@ -64,16 +64,7 @@
                                                     <div class="popular-dish-box  parent style1 wow fadeIn" data-wow-delay="0.{{$i++}}s">
                                                         <div class="popular-dish-thumb">
                                                             <a href="{{url('product').'/'.$product->id}}" title="" itemprop="url"><img src="{{url('')}}/products/{{$product->image}}" alt="popular-dish-img1.jpg" itemprop="image"></a>
-                                                           <h4 class="ribbon">
-                                                            @if($product->b_price)
-                                                              @if(number_format(($product->b_price-$product->s_price)/$product->b_price *100) > 0)
-                                                            Discount
-                                                            {{number_format(($product->b_price-$product->s_price)/$product->b_price *100)}}
-                                                            <i class="fa fa-percent"></i> 
-                                                              @endif
-                                                            
-                                                            
-                                                            @endif</h4>
+                                                          
                                                             
                                                         </div>
                                                         <div class="popular-dish-info">
@@ -86,6 +77,17 @@
                                                             MRP: ₹ {{$product->s_price}}
                                                             @else
                                                             MRP: ₹ {{$product->s_price}}
+                                                            @endif
+                                                             </span>
+                                                             <span>
+                                                                  @if($product->b_price)
+                                                              @if(number_format(($product->b_price-$product->s_price)/$product->b_price *100) > 0)
+                                                            Discount
+                                                            {{number_format(($product->b_price-$product->s_price)/$product->b_price *100)}}
+                                                            <i class="fa fa-percent"></i> 
+                                                              @endif
+                                                            
+                                                            
                                                             @endif
                                                              </span>
                                                             </div>

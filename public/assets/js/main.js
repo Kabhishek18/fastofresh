@@ -56,7 +56,7 @@ $(document).ready(function(){
 
   //===== Sign Up Popup Script =====//
   $('.sign-popup-btn').on('click',function(){
-    $('html').addClass('sign-popup-active');
+    $('html').removeClass('log-popup-active').addClass('sign-popup-active');
     return false;
   });
 

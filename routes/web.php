@@ -57,6 +57,9 @@ Route::get('razor-thank-you', 'RazorpayController@RazorThankYou');
 //Dasboard
 Route::post('login','front_control@login');
 Route::post('register','front_control@register');
+Route::post('otpverify','front_control@otpVerifcation');
+Route::post('emailotpverify','front_control@EmailotpForgot');
+Route::post('passwordforget','front_control@ForgotUpdate');
 Route::get('dashboard', 'front_control@dashboard');
 Route::post('dashboard/profileimageupload', 'front_control@profileimageupload');
 Route::get('dashboard/changepassword', 'front_control@changepassword');
