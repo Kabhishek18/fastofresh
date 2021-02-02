@@ -298,7 +298,7 @@
                                                             @endif</span>
                                                             </div>
                                                             <div class="col-sm-12 d-flex justify-content-center"> 
-                                                            <a class="btn btn-danger" id="hide-{{$product->id}}" data-value="{{$product->id}}" href="javascript:void(0)" title="Order Now" style="background: #800000" itemprop="url">ADD TO CART</a>
+                                                            <a class="btn btn-danger" id="hide-{{$product->id}}" data-value="{{$product->id}}" href="javascript:void(0)" title="Order Now" style="background-color: #800000 ;border:none;" itemprop="url">ADD TO CART</a>
                                                            
                                                             <div id="show-{{$product->id}}"></div>
                                                             </div>

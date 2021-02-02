@@ -1395,14 +1395,14 @@ h3.marginb-0 {margin-bottom: 0;}
   z-index: 1;
 }
 .popular-dish-info {
-  text-align: center;
-  background: #f1f1f1 none repeat scroll 0 0;
+     text-align: center;
+    background: #fbfbfb none repeat scroll 0 0;
     float: left;
     margin-bottom: 6px;
     padding: 20px 15px;
     width: 100%;
     border: 1px solid;
-    border-color: #dcdcdc;
+    border-color: #f5f3f3;
     border-radius: 0px 0px 15px 15px;
 }
 .popular-dish-info > h4 {
