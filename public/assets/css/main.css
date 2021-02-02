@@ -1176,10 +1176,10 @@ header.sticky nav > div > ul > li span {font-size: 11px;}
 }
 .title1-inner > h2, 
 .title1-inner > h3 {
-    color: #282828;
+   color: #282828;
     display: inline-block;
-    font-family: Trebuchet MS;
-    font-size: 40px;
+    font-family: calibri;
+    font-size: 32px;
     font-weight: bold;
     letter-spacing: -0.3px;
     margin-bottom: 20px;

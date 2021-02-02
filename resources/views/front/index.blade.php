@@ -408,9 +408,11 @@
                                                             % Off
                                                               @endif
                                                             @endif</span>
-                                                            <a class="brd-rd4 " id="hide-{{$productbest->id}}" data-value="{{$productbest->id}}" href="javascript:void(0)" title="Order Now" itemprop="url">ADD TO CART</a>
+                                                            <div class="col-sm-12 d-flex justify-content-center"> 
+                                                            <a class="btn btn-danger" id="hide-{{$productbest->id}}" data-value="{{$productbest->id}}" href="javascript:void(0)" title="Order Now" style="background-color: #800000 ;border:none;" itemprop="url">ADD TO CART</a>
                                                            
                                                             <div id="show-{{$productbest->id}}"></div>
+                                                            </div>
                                                            
                                                         </div>
                                                     </div><!-- Product Box -->
