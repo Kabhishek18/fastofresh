@@ -230,9 +230,11 @@
                         <div class="welcome-sec">
                             <div class="col-md-6 col-sm-6 col-lg-6">
                                 <div class="welcome-secinfo">
-                                    <h2>Welcome To Fast 'O' Fresh </h2>
-                                    <span>We Create Delicious Memories</span>
-                                    <p>We pride ourselves on having hands-on involvement every step of the way literally from the farm to the table. And since quality is so important to us, we figured, why not control the process ourselves? And the best way to do that is to keep it in the family and do the work together.</p><p> We produce quality meats and maintain the highest standards that are the fabric of our business. We own many farms, where we can always be assured that the care and quality that goes into everything is top notch and beyond reproach.</p>
+                                    <h2>Welcome To Fast O Fresh</h2>
+                                    <span>Creating Tasty Memories, True Emotions.</span>
+                                    <p>We keep a scrupulous check at every step during the production & the delivery of food items
+                                      from the farm to the table. We own multiple farms to produce natural and nutrition-rich meat. Our intensive process control measures ensure that the meat you receive is of utmost quality
+                                      while conforming with supreme hygiene practices.</p>
                                     
                                 </div>
                             </div>
@@ -573,27 +575,28 @@
                               $json_string =    file_get_contents("locationpin.json");
                               $parsed_json = json_decode($json_string, true);
                               ?>
-                              <form action="{{url('')}}/pincode/saved" method="post">
-                                  @csrf
-                              <select placeholder="This" data-placeholder="Feel Like Eating" name="pinlocation" onchange="this.form.submit()">
-                                  @if(!empty(session()->get('pinlocation')))
-                                  <option selected="" value="{{session()->get('pinlocation')}}" >
-                                     Pincode : {{session()->get('pinlocation')}}</option>
-                                  @else
-                                  <option selected disabled> Enter Your Pincode Or Locality </option>
+                              <form action="{{url('')}}/pincode/saved" method="post" style="display: flex;color: #fff !important">
+                            @csrf
+                            <i class="fa fa-map-marker"></i>
+                            <select data-placeholder="Feel Like Eating" name="pinlocation" onchange="this.form.submit()">
+                            @if(!empty(session()->get('pinlocation')))
+                            <option selected="" value="{{session()->get('pinlocation')}}" >
+                               {{session()->get('pinlocation')}}</option>
+                            @else
+                            <option>Check Delivery  Availabilty </option>
 
-                                  @endif
-                                  @foreach($parsed_json as $key =>$value)
-                                  
-                                      @foreach($value as $meg =>$locdetail)
-                                          <option value="{{($locdetail['Pincode'])}}">{{($locdetail['Area'])}} ,{{($locdetail['Pincode'])}}</option>
+                            @endif
+                            @foreach($parsed_json as $key =>$value)
+                            
+                                @foreach($value as $meg =>$locdetail)
+                                    <option value="{{($locdetail['Area'])}} ,{{($locdetail['Pincode'])}}">{{($locdetail['Area'])}} ,{{($locdetail['Pincode'])}}</option>
 
-                                      @endforeach 
-                                     
-                                  @endforeach
+                                @endforeach 
+                               
+                            @endforeach
 
-                              </select>
-                              </form>
+                        </select>
+                        </form>
                             </div>
                             </div>
                         </div>
