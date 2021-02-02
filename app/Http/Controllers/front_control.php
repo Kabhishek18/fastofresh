@@ -550,11 +550,11 @@ class front_control extends Controller
   }
 
 
-  public function RecipeDetail($id='')
+  public function recipeDetail($id)
   {
+    
     $var['recipe'] =front_model::getRecipe($id);
      $var['categories'] = front_model::getCategory();
-     dd($var);
     echo view('front/inc/header');
     echo view('front/inc/nav',$var);
     echo view('front/recipeview',$var);

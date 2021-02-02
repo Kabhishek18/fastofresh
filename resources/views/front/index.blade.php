@@ -152,7 +152,7 @@
                     </div>
                     <div data-u="slides" style="cursor:default;position:relative;top:0px;left:0px;width:980px;height:380px;overflow:hidden;">
                         <div data-p="680">
-                            <img data-u="image" src="assets/images/parallax2.jpg" />
+                            <img data-u="image" src="assets/images/banner1.jpeg" />
                             
                            
                         </div>

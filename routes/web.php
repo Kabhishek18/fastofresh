@@ -28,7 +28,7 @@ Route::get('product/{id}', 'front_control@productDetail');
 Route::post('productsearch', 'front_control@productSearch');
 Route::post('search', 'front_control@Search');
 Route::post('blog', 'front_control@BlogDetail');
-Route::post('blog/{$id}', 'front_control@BlogDetail');
+Route::post('blog/{id}', 'front_control@BlogDetail');
 Route::get('test', 'front_control@test');
 Route::post('location/saved', 'front_control@LocationSaved');
 Route::post('pincode/saved', 'front_control@PincodeSaved');
@@ -36,7 +36,7 @@ Route::post('applycoupon', 'cart@ApplyCoupon');
 Route::get('removeCoupon', 'cart@removeCoupon');
 
 
-Route::get('recipes/{$id}', 'front_control@RecipeDetail');
+Route::get('recipes/{id}', 'front_control@recipeDetail');
 
 //Cart
 Route::post('cartadd', 'cart@AddToCart');

@@ -1,11 +1,10 @@
    <section>
             <div class="block">
-                <div class="fixed-bg" style="background-image: url(assets/images/topbg.jpg);"></div>
+                <div class="fixed-bg" style="background-image: url(recipes/{{$recipe->image}});"></div>
                 <div class="page-title-wrapper text-center">
                     <div class="col-md-12 col-sm-12 col-lg-12">
                         <div class="page-title-inner">
-                            <h1 itemprop="headline">Blog Detail With No Sidebar</h1>
-                                <span>A Greate Restaurant Website</span>
+                            <h1 itemprop="headline">Recipe Detail</h1>
                         </div>
                     </div>
                 </div>
@@ -16,7 +15,7 @@
             <div class="container">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="#" title="" itemprop="url">Home</a></li>
-                    <li class="breadcrumb-item active">Blog Detail With No Sidebar</li>
+                    <li class="breadcrumb-item active">Recipe</li>
                 </ol>
             </div>
         </div>
@@ -31,7 +30,7 @@
                                     <div class="col-md-12 col-sm-12 col-lg-12">
                                         <div class="blog-detail-wrapper">
                                             <div class="blog-detail-thumb wow fadeIn" data-wow-delay="0.2s">
-                                                <img src="assets/images/resource/blog-detial-img2-1.jpg" alt="blog-detial-img2-1.jpg" itemprop="image">
+                                                <img src="{{url('')}}/recipes/{{$recipe->image}}" alt="blog-detial-img2-1.jpg" itemprop="image">
                                             </div>
                                             <div class="blog-detail-info">
                                                 <span class="post-detail-date red-clr"><i class="fa fa-clock-o"></i> August 10, 2017</span>
@@ -40,12 +39,9 @@
                                                     <span><i class="fa fa-comment-o red-clr"></i> 5 Comments</span>
                                                 </div>
                                             </div>
-                                            <h1 itemprop="headline">Tried Their Amazing Grilled Ham</h1>
-                                            <p itemprop="description">Rennie White, an advertising manager in New York City, leaves for work 10 minutes later these days because she no longer has to wait in line for coffee at a Dunkin' Donuts outlet. Instead, she preorders coffee by sending a text message from her cellphone on the way to work. "I can get off the train and get the coffee and not break my flow," Ms. White says</p>
-                                            <blockquote><p itemprop="headline">Michel ivauedaus rutrum mi utercture aliquam In habitasse platore dictumst. Integer sagittis  vulputate  similique sunt in culpa qui officia deserunt.</p></blockquote>
-                                            <p itemprop="description">Rennie White, an advertising manager in New York City, leaves for work 10 minutes later these days because she no longer has to wait in line for coffee at a Dunkin' Donuts outlet. Instead, she preorders coffee by sending a text message from her cellphone on the way to work. "I can get off the train and get the coffee and not break my flow," Ms. White says</p>
-                                            <p class="wow fadeIn" data-wow-delay="0.2s" itemprop="description"><a class="alignnone" href="assets/images/resource/blog-detial-img2-2.jpg" data-fancybox="gallery" title="" itemprop="url"><img src="assets/images/resource/blog-detial-img2-2.jpg" alt="blog-detial-img2-2.jpg" itemprop="image"></a></p>
-                                            <p itemprop="description"><span class="big-letter">R</span>ennie White, an advertising manager in New York City, leaves for work 10 minutes later these days because she no longer has to wait in line for coffee at a Dunkin' Donuts outlet. Instead, she preorders coffee by sending a text message from her cellphone <a class="alignnone wow fadeIn" data-wow-delay="0.2s" href="assets/images/resource/blog-detial-img2-3.jpg" data-fancybox="gallery" title="" itemprop="url"><img src="assets/images/resource/blog-detial-img2-3.jpg" alt="blog-detial-img2-3.jpg" itemprop="image"></a> Ennie White, an advertising manager in New York City, leaves for work 10 minutes later these days because she no longer has to wait in line for coffee at a Dunkin' Donuts outlet. Instead, she preorders coffee by sending a text message from her cellphone on the way to work. "I can get off the train and get the coffee and not break my flow," Ms. White says</p>
+                                            <h1 itemprop="headline">{!!$recipe->title!!}</h1>
+                                            {!!$recipe->description!!}
+                                                {!!$recipe->description!!}
                                             <div class="post-tags red-clr">
                                                 <span>Tags:</span>
                                                 <a href="#" title="" itemprop="url">#fish</a>,<a href="#" title="" itemprop="url">#pasta</a>,<a href="#" title="" itemprop="url">#soups</a>
