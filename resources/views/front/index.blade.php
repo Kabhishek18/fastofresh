@@ -290,7 +290,7 @@
                                                             &nbsp;
                                                              
                                                              </span>
-                                                             <span style="color: green;text-transform: uppercase;font-weight: 600">@if($product->b_price)
+                                                             <span class="price" style="color: green;text-transform: uppercase;font-weight: 600">@if($product->b_price)
                                                               @if(number_format(($product->b_price-$product->s_price)/$product->b_price *100) > 0)
                                                             {{number_format(($product->b_price-$product->s_price)/$product->b_price *100)}}
                                                             % Off

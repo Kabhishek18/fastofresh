@@ -84,4 +84,5 @@ input.qtyminus { width:25px; height:25px;}
 del{
   color: grey;
     margin-right: 20px;
+    font-weight: 200;
 }
