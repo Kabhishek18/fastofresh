@@ -42,38 +42,7 @@
                                             <h1 itemprop="headline">{!!$recipe->title!!}</h1>
                                             {!!$recipe->description!!}
                                                 {!!$recipe->description!!}
-                                            <div class="post-tags red-clr">
-                                                <span>Tags:</span>
-                                                <a href="#" title="" itemprop="url">#fish</a>,<a href="#" title="" itemprop="url">#pasta</a>,<a href="#" title="" itemprop="url">#soups</a>
-                                            </div>
-                                            <div class="post-cate red-clr">
-                                                <span>Category:</span>
-                                                <a href="#" title="Italian cuisine" itemprop="url">Italian cuisine</a>
-                                            </div>
-                                            <div class="post-share">
-                                                <span>Share:</span>
-                                                <a class="brd-rd2" href="#" title="Facebook" itemprop="url" target="_blank"><i class="fa fa-facebook"></i></a>
-                                                <a class="brd-rd2" href="#" title="Twitter" itemprop="url" target="_blank"><i class="fa fa-twitter"></i></a>
-                                                <a class="brd-rd2" href="#" title="Pinterest" itemprop="url" target="_blank"><i class="fa fa-pinterest"></i></a>
-                                                <a class="brd-rd2" href="#" title="Google Plus" itemprop="url" target="_blank"><i class="fa fa-google-plus"></i></a>
-                                                <a class="brd-rd2" href="#" title="Linkedin" itemprop="url" target="_blank"><i class="fa fa-linkedin"></i></a>
-                                                <a class="brd-rd2" href="#" title="Vimeo" itemprop="url" target="_blank"><i class="fa fa-vimeo"></i></a>
-                                            </div>
-                                            <div class="post-next-prev">
-                                                <a class="prev-post" href="#" title="Previous Post" itemprop="url"><i class="fa fa-angle-left"></i> PREV</a> -
-                                                <a class="next-post" href="#" title="Next Post" itemprop="url">NEXT <i class="fa fa-angle-right"></i></a>
-                                            </div>
-                                        </div>
-                                        <div class="author-info-wrapper">
-                                            <h3 class="title4" itemprop="headline"><span class="sudo-bottom sudo-bg-red">About</span> The Author</h3>
-                                            <div class="author-box">
-                                                <img class="brd-rd50" src="assets/images/resource/author-img.jpg" alt="author-img.jpg" itemprop="image">
-                                                <div class="author-info">
-                                                    <h4 itemprop="headline"><a href="#" title="" itemprop="url">Mr.John Cristopher</a></h4>
-                                                    <p itemprop="description">Similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. uni harum quidem sed rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihilares impedit quo repellendus eligendi optio cumque nihilare impedit quo minus id quod maxime.</p>
-                                                    <a class="red-clr" href="#" title="Webinane" itemprop="url" target="_blank">webinane.com</a>
-                                                </div>
-                                            </div>
+                                           
                                         </div>
                                     </div>
                                 </div>
