@@ -16,7 +16,7 @@
                                             </ol>
 
                                             </div>
-                                        <div class="col-md-12 col-sm-12 col-lg-12" style="background: #95999c3b;border-radius: 25px; padding: 34px;">
+                                        <div class="col-md-12 col-sm-12 col-lg-12" style="background: #eaeaea4f;border-radius: 25px;padding: 34px;border-bottom: 1px solid grey;">
                                             <div class="title2-wrapper">
                                                 <h3 class="marginb-0" itemprop="headline">{!!$category->short_descrip!!}</h3>
                                             </div>
