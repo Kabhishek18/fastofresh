@@ -3,7 +3,7 @@
   width: 1090px;
 
   margin: 0px auto;
-  font-family: Trebuchet MS;
+  font-family: calibri;
   overflow: hidden;
 }
 
@@ -18,7 +18,7 @@
 .thanks {
   width: 100%;
   text-align: center;
-  font-family: Trebuchet MS;
+  font-family: calibri;
   margin-bottom: 10px;
   margin-top: 10px;
   text-transform: uppercase;
@@ -339,9 +339,7 @@
 										  
 										  <div class="orderinfo">
 										    <p> Order Information: </p><br>
-										<strong> Order Number: FOF</strong>{{date('ymdhis',strtotime($created_at))}} <br />
 										<strong> Order Date: </strong> {{date('F d y h:i:s A',strtotime($created_at))}} <br />
-										<strong>Payment Due: </strong> within {tag_directdebitdays} day(s) of order date <br />
 										</div>
 										  
 										  <div class="spacing">

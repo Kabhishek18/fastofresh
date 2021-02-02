@@ -48,7 +48,7 @@
                                                     <div class="form-check" >
                                                       <input class="form-check-input" type="checkbox" name="locationadd" id="locationcheck" value="work" style="display: contents;">
                                                       <label class="form-check-label" for="locationcheck" style="font-size: x-large">
-                                                        <i class="fa fa-plus-circle" aria-hidden="true"></i> <u> New Location </u>
+                                                        <i class="fa fa-plus-circle" aria-hidden="true"></i> <u> Add New Address </u>
                                                       </label>
                                                     </div>
                                                 </div>

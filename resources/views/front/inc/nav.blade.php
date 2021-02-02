@@ -71,7 +71,7 @@ $parsed_json = json_decode($json_string, true);
                         @endif
                     </div>
                     <div class="social1">
-                         <a href="{{url('cart')}}" title="Cart" itemprop="url"  style="font-size: 20px;margin-right: 100px;margin-top: -1px"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i>
+                         <a href="{{url('cart')}}" title="Cart" itemprop="url"  style="font-size: 20px;margin-right: 10px;margin-top: -1px"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i>
                                         @if(session()->get('cart')) 
                                         <sup> (
                                            
