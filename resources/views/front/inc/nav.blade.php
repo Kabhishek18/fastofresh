@@ -8,7 +8,7 @@ $parsed_json = json_decode($json_string, true);
                     <div class="select-wrp">
                         <form action="{{url('')}}/pincode/saved" method="post" style="display: flex;color: #fff !important">
                             @csrf
-                            <i class="fa fa-map-marker"></i>
+                            <i class="fa fa-map-marker" style="margin-top: 6px; padding: 10px;"></i>
                             <select data-placeholder="Feel Like Eating" name="pinlocation" onchange="this.form.submit()">
                             @if(!empty(session()->get('pinlocation')))
                             <option selected="" value="{{session()->get('pinlocation')}}" >
@@ -20,8 +20,8 @@ $parsed_json = json_decode($json_string, true);
                             @foreach($parsed_json as $key =>$value)
                             
                                 @foreach($value as $meg =>$locdetail)
-                                    <option value="{{($locdetail['Area'])}} ,{{($locdetail['Pincode'])}}">{{($locdetail['Area'])}} ,{{($locdetail['Pincode'])}}</option>
-
+                                    <option value="{{($locdetail['Area'])}}, {{($locdetail['Pincode'])}}">{{($locdetail['Area'])}}, {{($locdetail['Pincode'])}}</option>
+ 
                                 @endforeach 
                                
                             @endforeach
@@ -47,7 +47,7 @@ $parsed_json = json_decode($json_string, true);
                     </div> -->
                     <div class="select-wrp " style="color: #fff;display: inline-flex; ">
                         <div class="text-center">
-                            <form  action="{{url('')}}/search" method="post" style="display: inline-flex;margin-top: 5px;width: 136%;">
+                            <form  action="{{url('')}}/search" method="post" style="display: inline-flex;margin-top: 5px;width: 150%;">
                             @csrf
                             <input class="form-control" id="search_text" type="text" name="product" placeholder="Decided what to cook?"  list="browsers">
                                <datalist class="searchspecial" id="browsers">
@@ -56,7 +56,7 @@ $parsed_json = json_decode($json_string, true);
                             <button class="btn btn-danger" style="background: #ea1b25" type="submit"><i class="fa fa-search"></i></button>
                         </form>
                         </div>
-                         <a href="{{url('cart')}}" title="Cart" itemprop="url"  style="font-size: 20px;margin-left: 180px;
+                         <a href="{{url('cart')}}" title="Cart" itemprop="url"  style="font-size: 20px;margin-left: 200px;
     margin-top: 7px;"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i>
                                         @if(session()->get('cart')) 
                                         <sup> (

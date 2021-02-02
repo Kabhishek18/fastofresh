@@ -591,7 +591,7 @@
                             @foreach($parsed_json as $key =>$value)
                             
                                 @foreach($value as $meg =>$locdetail)
-                                    <option value="{{($locdetail['Area'])}} ,{{($locdetail['Pincode'])}}">{{($locdetail['Area'])}} ,{{($locdetail['Pincode'])}}</option>
+                                    <option value="{{($locdetail['Area'])}}, {{($locdetail['Pincode'])}}">{{($locdetail['Area'])}}, {{($locdetail['Pincode'])}}</option>
 
                                 @endforeach 
                                
@@ -610,7 +610,7 @@
         </div>
         @endif
 
-        <section>
+     <!--    <section>
             <div class="block no-padding red-bg">
                 <img class="bottom-clouds-mockup" src="{{ url('assets/images/resource/clouds2.png') }}" alt="clouds2.png" itemprop="image">
                 <div class="container">
@@ -632,12 +632,13 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div><!-- App Section -->
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </section><!-- red section -->
+        </section> -->
+        <!-- red section -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="{{url('assets/js/custom.js')}}"></script>     
 <script type="text/javascript">
