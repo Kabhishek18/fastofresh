@@ -1395,6 +1395,7 @@ h3.marginb-0 {margin-bottom: 0;}
   z-index: 1;
 }
 .popular-dish-info {
+  text-align: center;
   background: #f1f1f1 none repeat scroll 0 0;
     float: left;
     margin-bottom: 6px;
@@ -7118,11 +7119,11 @@ a.thanks-close:focus {color: #333;}
 		margin:0;
 	}
 	p{
-		font-size: 17px;
+		   font-size: 18px;
     color: #6f6f6f;
-    font-family: "Trebuchet MS";
+    font-family: calibri;
     margin: 0;
-    /*padding-top: 30px;*/
+    /* padding-top: 30px; */
     text-align: justify;
     line-height: 24px;
 	}
