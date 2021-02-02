@@ -18,4 +18,4 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
 <body itemscope>
-    <main>
+    <main style="padding-top:108px; ">

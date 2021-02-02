@@ -53,7 +53,7 @@ $parsed_json = json_decode($json_string, true);
                                    <datalist class="searchspecial" id="browsers">
                                
                                       </datalist>
-                                <button class="btn btn-danger" style="background: #ea1b25" type="submit"><i class="fa fa-search"></i></button>
+                                <button class="btn btn-danger" style="background: #ffb100; color: #800000;  margin-left: 10px;border: none;" type="submit"><i class="fa fa-search"></i></button>
                                 
                             
                              </form>
@@ -101,7 +101,7 @@ $parsed_json = json_decode($json_string, true);
                                 margin-right: 15px
                                 padding-right: 0px;
                                 font-size: 15px;
-                                width: 90px;
+                                width: 110px;
                                 padding: 5px;
                                 border-radius: 10px
                                }

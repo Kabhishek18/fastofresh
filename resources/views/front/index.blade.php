@@ -157,11 +157,11 @@
                            
                         </div>
                         <div data-p="680">
-                            <img data-u="image" src="assets/images/parallax2.jpg" />
+                            <img data-u="image" src="assets/images/banner2.jpeg" />
                              
                         </div>
                         <div>
-                            <img data-u="image" src="assets/images/parallax2.jpg" />
+                            <img data-u="image" src="assets/images/banner3.jpeg" />
                             
                             
                         </div>

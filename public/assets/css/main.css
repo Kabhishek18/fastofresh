@@ -580,7 +580,7 @@ header {
 .select-wrp + .select-wrp {
   padding-left: 20px;
   margin-left: 20px;
-  border-left: 1px solid rgba(229,229,229,.2);
+  border-left: 1px solid rgba(250 206 130);
 }
 .select-wrp .chosen-container-single .chosen-single {
   background: no-repeat;
@@ -621,7 +621,7 @@ header {
   letter-spacing: .3px;
   margin-right: -30px;
   padding: 15px 0 14px 40px;
-  border-left: 1px solid rgba(229,229,229,.2);
+  border-left: 1px solid rgb(250 206 130);
   margin-left: 35px;
 }
 .select-wrp .chosen-container-single .chosen-drop {
@@ -644,6 +644,9 @@ header {
   padding: 5px 0;
   float: left;
   width: 100%;
+}
+.select-wrp :hover{
+  color: #face82
 }
 .select-wrp .chosen-container-single .chosen-drop > ul li:last-child {border-bottom: 0;}
 .select-wrp .chosen-container-single .chosen-drop > ul {
