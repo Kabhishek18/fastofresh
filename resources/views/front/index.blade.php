@@ -165,6 +165,11 @@
                             
                             
                         </div>
+                         <div>
+                            <img data-u="image" src="assets/images/banner4.jpeg" />
+                            
+                            
+                        </div>
                     </div><a data-scale="0" href="https://www.jssor.com" style="display:none;position:absolute;">html slider</a>
                     <!-- Bullet Navigator -->
                     <div data-u="navigator" class="jssorb102" style="position:absolute;bottom:16px;right:16px;" data-autocenter="1" data-scale="0.5" data-scale-bottom="0.75">
