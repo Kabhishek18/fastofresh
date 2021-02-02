@@ -45,29 +45,21 @@ $parsed_json = json_decode($json_string, true);
                           </select>
                         </form>
                     </div> -->
-                    <div class="select-wrp " style="color: #fff;display: inline-flex; ">
-                        <div class="text-center">
-                            <form  action="{{url('')}}/search" method="post" style="display: inline-flex;margin-top: 5px;width: 150%;">
-                            @csrf
-                            <input class="form-control" id="search_text" type="text" name="product" placeholder="Decided what to cook?"  list="browsers">
-                               <datalist class="searchspecial" id="browsers">
-                           
-                                  </datalist>
-                            <button class="btn btn-danger" style="background: #ea1b25" type="submit"><i class="fa fa-search"></i></button>
-                        </form>
+                    <div class="d-flex select-wrp " style="color: #fff;display: inline-flex; ">
+                      <div class="d-flex p-2 bd-highlight">
+                            <form  action="{{url('')}}/search" method="post" style="display: inline-flex; width: 200%; margin-top: 5px;">
+                                @csrf
+                                <input class="form-control" id="search_text" type="text" name="product" placeholder="Decided what to cook?"  list="browsers" width="100px">
+                                   <datalist class="searchspecial" id="browsers">
+                               
+                                      </datalist>
+                                <button class="btn btn-danger" style="background: #ea1b25" type="submit"><i class="fa fa-search"></i></button>
+                                
+                            
+                             </form>
+                            
                         </div>
-                         <a href="{{url('cart')}}" title="Cart" itemprop="url"  style="font-size: 20px;margin-left: 200px;
-    margin-top: 7px;"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i>
-                                        @if(session()->get('cart')) 
-                                        <sup> (
-                                           
-                                           <?php $cart = session()->get('cart')?>
-                                            {{count($cart)}}
-                                        )</sup>
-                                        <span style="font-size: 16px"> Cart</span>
-                                        @endif
-                                        </a>
-
+                        
                     </div>
                     <div class="topbar-register">
                         @if(!empty(session()->get('user_session')))
@@ -79,7 +71,16 @@ $parsed_json = json_decode($json_string, true);
                         @endif
                     </div>
                     <div class="social1">
-                       
+                         <a href="{{url('cart')}}" title="Cart" itemprop="url"  style="font-size: 20px;margin-right: 100px;margin-top: -1px"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i>
+                                        @if(session()->get('cart')) 
+                                        <sup> (
+                                           
+                                           <?php $cart = session()->get('cart')?>
+                                            {{count($cart)}}
+                                        )</sup>
+                                        <span style="font-size: 16px"> Cart</span>
+                                        @endif
+                                        </a>
                      
                         <a href="#" title="Facebook" itemprop="url" target="_blank"><i class="fa fa-facebook"></i></a>
                         <a href="#" title="Instagram" itemprop="url" target="_blank"><i class="fa fa-instagram"></i></a>
