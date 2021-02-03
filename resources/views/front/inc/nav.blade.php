@@ -82,9 +82,10 @@ $parsed_json = json_decode($json_string, true);
                                         @endif
                                         </a>
                      
-                        <a href="#" title="Facebook" itemprop="url" target="_blank"><i class="fa fa-facebook"></i></a>
-                        <a href="#" title="Instagram" itemprop="url" target="_blank"><i class="fa fa-instagram"></i></a>
-                           <a href="#" title="Twitter" itemprop="url" target="_blank"><i class="fa fa-twitter"></i></a>
+                        <a href="https://www.facebook.com/fastofreshfoods/" title="Facebook" itemprop="url" target="_blank"><i class="fa fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/fastofreshfoods/" title="Instagram" itemprop="url" target="_blank"><i class="fa fa-instagram"></i></a>
+                        <!-- <a href="https://www.linkedin.com/company/71600846/admin/" title="Instagram" itemprop="url" target="_blank"><i class="fa fa-linkedin"></i></a> -->
+                           <a href="https://twitter.com/fastofreshfoods" title="Twitter" itemprop="url" target="_blank"><i class="fa fa-twitter"></i></a>
                     </div>
                     <div >
                         
