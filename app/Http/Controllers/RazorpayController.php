@@ -21,7 +21,7 @@ use App\front_model;
            		session()->put('order', $order);
            		$orderdetails =json_decode($order['orderdetail'],true); 
 		  		$loc =json_decode($orderdetails['loc']); 
-		  		$sendmsg = 'Hi '.$loc->username.'Your Order has been Confirmed with Order no: '.date('ymdhis',strtotime($order['created_at']));
+		  		$sendmsg = 'Hi '.$loc->username.' Your Order has been Confirmed with Order no: '.date('ymdhis',strtotime($order['created_at']));
 				sendSms($loc->mobile,$sendmsg);
 				$arr = array('msg' => 'Payment successfully credited', 'status' => true);
 				return json_encode($arr);    

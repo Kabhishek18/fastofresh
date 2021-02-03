@@ -202,12 +202,28 @@ class front_control extends Controller
         $val['slottime'] =Request::post('slottime');
         
         $order['order_amount'] =session()->get('total');
-        $order['transactionid'] = rand(9,0);
+
+        $order['transactionid'] = rand(10000,879456);
         $order['order_cart'] =json_encode(session()->get('cart')); 
         $order['orderdetail'] =json_encode($val);
         $order['userid'] =$user['user']->id;
         $order['created_at'] =date('y-m-d h:i:s');
         $order['updated_at'] =date('y-m-d h:i:s');  
+          if(Request::post('method') == 'cash'){
+    
+            $insert =front_model::PaymentOrder($order);
+            if($insert){
+              $orderdetails =json_decode($order['orderdetail'],true); 
+              $loc =json_decode($orderdetails['loc']); 
+              $sendmsg = 'Hi '.$loc->username.' Your Order has been Confirmed with Order no: '.date('ymdhis',strtotime($order['created_at']));
+                sendSms($loc->mobile,$sendmsg);
+              return redirect('dashboard')->with('success', 'Order Placed With');
+      
+            }
+            else{
+              return redirect()->back()->with('warning', 'Something Misfortune Happen!');
+                }  
+        }
         session()->put('order', $order);
         $var['categories'] = front_model::getCategory();
         echo view('front/inc/header');
