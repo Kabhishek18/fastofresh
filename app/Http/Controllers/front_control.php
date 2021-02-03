@@ -5,6 +5,7 @@ date_default_timezone_set("Asia/Calcutta");
 use Request;
 use File;
 use App\front_model;
+use App\helpers;
 // Import PHPMailer classes into the global namespace
 // These must be at the top of your script, not inside a function
 use PHPMailer\PHPMailer\PHPMailer;
