@@ -111,7 +111,7 @@
                                                             }      
                                                       </style>
 
-                                                      <div id="exTab1" class="container" style="padding: 20px;border-radius: 25px"> 
+                                                      <div id="exTab1" class="container" style="margin-top:10px; padding: 20px;border-radius: 25px"> 
                                                         <ul  class="nav nav-pills" >
                                                           <li class="active" >
                                                             <a  href="#1a"  data-toggle="tab">Today</a>
@@ -122,7 +122,7 @@
                                                         </ul>
 
                                                         <div class="tab-content clearfix">
-                                                             <div class="tab-pane active" id="1a">
+                                                             <div class="tab-pane active" id="1a" style="margin-top: 15px;">
                                                                           <?php 
                                                                       $date =date('y-m-d H:i:s');
                                                                       $deliverytime = new DateTime($date);
@@ -131,11 +131,11 @@
                                                                      
                                                                     
                                                                      <?php if ($hour < 7 ) { ?>
-                                                                    <div class="col-md-3">
-                                                                      <label>
+                                                                    <div class="col-md-4 " style="">
+                                                                      <label style="border-radius: 25px;border:1px solid">
                                                                         <input type="radio" name="slottime" class="card-input-element" value="7:30 AM To 11:30 AM" />
 
-                                                                        <div class="panel panel-success card-input">
+                                                                        <div class="panel panel-success card-input" style="border: 2px solid #800000;">
                                                                          
                                                                           <div class="slots-body">
                                                                            <p>7:30 AM To 11:30 AM</p> 
@@ -144,11 +144,11 @@
                                                                       </label>  
                                                                     </div>
                                                                     <?php } if ($hour < 11 ) { ?>
-                                                                    <div class="col-md-3">
+                                                                    <div class="col-md-4">
                                                                         <label>
                                                                         <input type="radio" name="slottime" class="card-input-element" value="11:30 AM To 3:30 PM" />
 
-                                                                        <div class="panel panel-success card-input">
+                                                                        <div class="panel panel-success card-input" style="border: 2px solid #800000;">
                                                                           
                                                                           <div class="slots-body">
                                                                            <p>11:30 AM To 3:30 PM</p> 
@@ -157,11 +157,11 @@
                                                                         </label>
                                                                     </div>
                                                                     <?php } if ($hour < 15 ) { ?>
-                                                                    <div class="col-md-3 ">
-                                                                      <label>
+                                                                    <div class="col-md-4 ">
+                                                                      <label >
                                                                       <input type="radio" name="slottime" class="card-input-element" value="3:30 PM To 7:30 PM" />
 
-                                                                      <div class="panel panel-success card-input">
+                                                                      <div class="panel panel-success card-input" style="border: 2px solid #800000;">
                                                                         
                                                                         <div class="slots-body">
                                                                          <p>3:30 PM To 7:30 PM</p> 
@@ -170,11 +170,11 @@
                                                                       </label>
                                                                     </div>
                                                                     <?php } if ($hour < 19 ) { ?>
-                                                                    <div class="col-md-3">
+                                                                    <div class="col-md-4">
                                                                       <label>
                                                                       <input type="radio" name="slottime" class="card-input-element" value="7:30 PM To 10:00 PM" />
 
-                                                                      <div class="panel panel-success card-input">
+                                                                      <div class="panel panel-success card-input" style="border: 2px solid #800000;">
                                                                         
                                                                         <div class="slots-body">
                                                                          <p>7:30 PM To 10:00 PM</p> 
@@ -184,13 +184,13 @@
                                                                     </div>
                                                                     <?php } ?>
                                                             </div>
-                                                              <div class="tab-pane" id="2a">
+                                                            <div class="tab-pane" id="2a" style="margin-top: 15px;">
                                                                         
-                                                                  <div class="col-md-3">
+                                                                  <div class="col-md-4">
                                                                     <label>
                                                                       <input type="radio" name="slottime" class="card-input-element" value="{{$dateplus}} 7:30 AM To 11:30 AM" />
 
-                                                                      <div class="panel panel-success card-input">
+                                                                      <div class="panel panel-success card-input" style="border: 2px solid #800000;">
                                                                       
                                                                         <div class="slots-body">
                                                                          <p>7:30 AM To 11:30 AM</p> 
@@ -199,11 +199,11 @@
                                                                     </label>  
                                                                   </div>
                                                                  
-                                                                  <div class="col-md-3">
+                                                                  <div class="col-md-4">
                                                                       <label>
                                                                       <input type="radio" name="slottime" class="card-input-element" value="{{$dateplus}} 11:30 AM To 3:30 PM" />
 
-                                                                      <div class="panel panel-success card-input">
+                                                                      <div class="panel panel-success card-input" style="border: 2px solid #800000;">
                                                                         
                                                                         <div class="slots-body">
                                                                          <p>11:30 AM To 3:30 PM</p> 
@@ -212,11 +212,11 @@
                                                                       </label>
                                                                   </div>
                                                                   
-                                                                  <div class="col-md-3 ">
+                                                                  <div class="col-md-4 ">
                                                                     <label>
                                                                     <input type="radio" name="slottime" class="card-input-element" value="{{$dateplus}} 3:30 PM To 7:30 PM" />
 
-                                                                    <div class="panel panel-success card-input">
+                                                                    <div class="panel panel-success card-input" style="border: 2px solid #800000;">
                                                                      
                                                                       <div class="slots-body">
                                                                        <p>3:30 PM To 7:30 PM</p> 
@@ -225,11 +225,11 @@
                                                                     </label>
                                                                   </div>
                                                                  
-                                                                  <div class="col-md-3">
+                                                                  <div class="col-md-4">
                                                                     <label>
                                                                     <input type="radio" name="slottime" class="card-input-element" value="{{$dateplus}} 7:30 PM To 10:00 PM" />
 
-                                                                    <div class="panel panel-success card-input">
+                                                                    <div class="panel panel-success card-input" style="border: 2px solid #800000;">
                                                                      
                                                                       <div class="slots-body">
                                                                        <p>7:30 PM To 10:00 PM</p> 
@@ -296,13 +296,22 @@
                                                            
                                                            
                                                         </ul>
-                                                        <ul class="order-method brd-rd2 red-bg">
-                                                            <li><span>Total</span> <span class="price">₹  {{ $total }}
+                                                        <ul class="order-method brd-rd2 " style="background: #800000">
+                                                            <li ><span class="price" style="color: white">Total</span> <span class="price">₹  {{ $total }}
                                                             <?php session()->put('total',$total);?>    
                                                             </span></li>
-                                                            <li><span class="radio-box cash-popup-btn"><input type="radio" name="method" value="cash" id="pay1-1"><label for="pay1-1"><i class="fa fa-money"></i> Cash</label></span> <span class="radio-box card-popup-btn"><input type="radio" name="method" id="pay1-2"  value="online" ><label for="pay1-2"><i class="fa fa-credit-card-alt"></i> Online</label></span></li>
+                                                            <li  style=" border-bottom:0.5px solid; text-align: center;    font-size: 16px"><center>Payment Method</center></li>
                                                             <li>
-                                                                <input class="btn btn-default"  type="submit" itemprop="url" value="CHECKOUT ORDER">
+                                                              <span class="radio-box ">
+                                                                <input type="radio" name="method" value="cash" id="pay1-1">
+                                                                <label for="pay1-1"><i class="fa fa-money"></i> Cash</label>
+                                                              </span> 
+                                                              <span class="radio-box card-popup-btn">
+                                                                <input type="radio" name="method" id="pay1-2"  value="online" >
+                                                                <label for="pay1-2"><i class="fa fa-credit-card-alt"></i> Online</label>
+                                                              </span></li>
+                                                            <li>
+                                                                <input class="btn btn-default"  style="background: #face82;color: #800000" type="submit" itemprop="url" value="CHECKOUT ORDER">
                                                             </li>
                                                         </ul>
                                                     </div>

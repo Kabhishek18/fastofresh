@@ -18,7 +18,8 @@
 }
 
 .card-input-element:checked + .card-input {
-     box-shadow: 0 0 2px 4px #306f06;
+  border: none !important;
+  box-shadow: 0 0 2px 4px #306f06;
  }
 
 .slot-panel-heading{
