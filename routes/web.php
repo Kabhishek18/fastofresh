@@ -28,7 +28,7 @@ Route::get('product/{id}', 'front_control@productDetail');
 Route::post('productsearch', 'front_control@productSearch');
 Route::post('search', 'front_control@Search');
 Route::post('blog', 'front_control@BlogDetail');
-Route::post('blog/{id}', 'front_control@BlogDetail');
+Route::get('blog/{id}', 'front_control@BlogDetail');
 Route::get('test', 'front_control@test');
 Route::post('location/saved', 'front_control@LocationSaved');
 Route::post('pincode/saved', 'front_control@PincodeSaved');
@@ -49,7 +49,7 @@ Route::get('clearcart', 'cart@removeall');
 Route::get('checkout', 'front_control@checkout');
 Route::post('payment', 'front_control@payment');
 Route::post('paysuccess', 'RazorpayController@razorPaySuccess');
-Route::get('razor-thank-you', 'RazorpayController@RazorThankYou');
+Route::get('thank-you', 'RazorpayController@RazorThankYou');
 
 // Route::post('payment', 'front_control@payment');
 // Route::post('ccavRequestHandler', 'front_control@ccavRequestHandler');

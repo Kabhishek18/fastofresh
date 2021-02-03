@@ -168,18 +168,20 @@
                          <div>
                             <img data-u="image" src="assets/images/banner4.jpeg" />
                             
-                            
+                        </div>
+                         <div>
+                            <img data-u="image" src="assets/images/banner5.jpeg" />
                         </div>
                     </div><a data-scale="0" href="https://www.jssor.com" style="display:none;position:absolute;">html slider</a>
                     <!-- Bullet Navigator -->
-                    <div data-u="navigator" class="jssorb102" style="position:absolute;bottom:16px;right:16px;" data-autocenter="1" data-scale="0.5" data-scale-bottom="0.75">
+                 <!--    <div data-u="navigator" class="jssorb102" style="position:absolute;bottom:16px;right:16px;" data-autocenter="1" data-scale="0.5" data-scale-bottom="0.75">
                         <div data-u="prototype" class="i" style="width:16px;height:16px;">
                             <svg viewbox="0 0 16000 16000" style="position:absolute;top:0;left:0;width:100%;height:100%;">
                                 <circle class="co" cx="8000" cy="8000" r="5000"></circle>
                                 <circle class="ci" cx="8000" cy="8000" r="3000"></circle>
                             </svg>
                         </div>
-                    </div>
+                    </div> -->
                     <!-- Arrow Navigator -->
                     <div data-u="arrowleft" class="jssora051" style="width:55px;height:55px;top:0px;left:25px;" data-autocenter="2" data-scale="0.75" data-scale-left="0.75">
                         <svg viewbox="0 0 16000 16000" style="position:absolute;top:0;left:0;width:100%;height:100%;">
@@ -198,35 +200,21 @@
                            </div>
                        </div>
        </section>    
-<!-- 
-        <section>
+
+ <!--        <section>
             <div class="block no-padding overlape-95">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12 col-sm-12 col-lg-12">
                             <div class="top-restaurants-wrapper">
-                                <ul class="restaurants-wrapper style1">
-                                    <?php $i=0.0;?>
-                                    @foreach($categories as $category)
-                                    
-                                    <li class="wow bounceIn" data-wow-delay="{{$i +=0.2}}s">
-                                        <div class="top-restaurant">
-                                        <a class="brd-rd50" href="category/{{$category->name}}" title="Restaurant 1" itemprop="url"><img src="{{url('')}}/categories/{{$category->image}}" alt="{{$category->image}}" itemprop="image">
-                                        <div class="text-default" style="text-transform: uppercase">
-                                            <h4 style="margin-top: 0px;">{{$category->name}}</h4>
-                                        </div>
-                                        </a>
-                                        </div>
-                                    </li>
-                                    @endforeach
-                               </ul>
+                                <img src="{{url('')}}/assets/images/infoimage.png" width="100%">
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </section> -->
-        <!-- top returents -->
+        </section>-->
+        <!-- top returents --> 
         
         <section>
             <div class="block remove-bottom">
@@ -251,7 +239,16 @@
                 </div>
             </div>
         </section><!-- welcome section -->
-
+        <section>
+          <div class="block remove-bottom">
+            <div class="container">
+              <div class="row">
+                 <img src="{{url('')}}/assets/images/infoimage.png" width="100%">
+              </div>
+            </div>
+          </div>
+          
+        </section>
         <section>
             <div class="block">
                 <div class="container">
@@ -261,7 +258,8 @@
                                 <div class="title1-inner">
                                     <h2 itemprop="headline">popular of the month</h2>
 
-                                    <h5 >Are you looking for Chicken, Mutton, Fish, or something else? Or all at once? Aha. Someone’s having a party, are we invited? </h5>
+                                    <h4 >Are you looking for Chicken, Mutton, Fish, or something else? Or all at once? Aha. Someone’s having a party, are we invited? </h4>
+                                    <br>
                                 
                                 </div>
 
@@ -338,8 +336,8 @@
                                         <div class="step-box wow fadeInUp" data-wow-delay="0.2s">
                                             <i><img src="{{url('')}}/assets/images/setp-img1.png" alt="setp-img1.png" itemprop="image"> <span class="brd-rd50 red-bg">1</span></i>
                                             <div class="setp-box-inner">
-                                                <h4 itemprop="headline">Explore Restaurants</h4>
-                                                <p itemprop="description">Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
+                                                <h4 itemprop="headline">Tell us your craving</h4>
+                                                
                                             </div>
                                         </div><!-- Step Box -->
                                     </div>
@@ -347,8 +345,8 @@
                                         <div class="step-box wow fadeInUp" data-wow-delay="0.4s">
                                             <i><img src="{{url('')}}/assets/images/setp-img2.png" alt="setp-img2.png" itemprop="image"> <span class="brd-rd50 red-bg">2</span></i>
                                             <div class="setp-box-inner">
-                                                <h4 itemprop="headline">Choose a Tasty Dish</h4>
-                                                <p itemprop="description">Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
+                                                <h4 itemprop="headline">Wait, while we wrap it for you</h4>
+                                                
                                             </div>
                                         </div><!-- Step Box -->
                                     </div>
@@ -356,8 +354,8 @@
                                         <div class="step-box wow fadeInUp" data-wow-delay="0.6s">
                                             <i><img src="{{url('')}}/assets/images/setp-img3.png" alt="setp-img3.png" itemprop="image"> <span class="brd-rd50 red-bg">3</span></i>
                                             <div class="setp-box-inner">
-                                                <h4 itemprop="headline">Follow The Status</h4>
-                                                <p itemprop="description">Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
+                                                <h4 itemprop="headline">Tada, good food is on the way</h4>
+                                               
                                             </div>
                                         </div><!-- Step Box -->
                                     </div>
@@ -378,52 +376,52 @@
                                 <i><img src="{{ url('assets/images/resource/icon.png') }}" alt=""></i>
                                 <div class="title1-inner">
                                     <span>Meat you love the most</span>
-                                    <h2 itemprop="headline">Explore by Bestsellers</h2>
+                                    <h2 itemprop="headline">Your Favorite Food Explore By Bestsellers</h2>
 
                                 </div>
                             </div>
                             <div class="row">
                                     <?php $i=1;?>
-                                   @foreach($best as $productbest)
-                                    <div class="col-md-4 col-sm-6 col-lg-4">
-                                                 {{ Form::open(array('url' => 'cartadd')) }}
-                                                 @csrf
-                                                 <input type="hidden" name="pid" value="{{$productbest->id}}">
-                                                    <div class="popular-dish-box style1 wow fadeIn" data-wow-delay="0.{{$i++}}s">
-                                                        <div class="popular-dish-thumb">
-                                                            <a href="{{url('product').'/'.$product->id}}" title="" itemprop="url"><img src="{{url('')}}/products/{{$productbest->image}}" alt="popular-dish-img1.jpg" itemprop="image"></a>
-                                                          
-                                                        </div>
-                                                        <div class="popular-dish-info">
-                                                            <h4 itemprop="headline"><a href="{{url('product').'/'.$productbest->id}}" title="" itemprop="url">{{$productbest->name}}</a></h4>
-                                                            <p>{!!$productbest->short_descrip!!}</p>
-                                                             <span class="price "> 
-                                                            @if($productbest->b_price)
-                                                            <del>MRP: ₹{{$productbest->b_price}}</del>
-                                                            MRP: ₹ {{$productbest->s_price}}
-                                                            @else
-                                                            MRP: ₹ {{$productbest->s_price}}
-                                                            @endif
-                                                            &nbsp;
-                                                             
-                                                             </span>
-                                                              <span style="color: green;text-transform: uppercase;font-weight: 600">@if($productbest->b_price)
-                                                              @if(number_format(($productbest->b_price-$productbest->s_price)/$productbest->b_price *100) > 0)
-                                                            {{number_format(($productbest->b_price-$productbest->s_price)/$productbest->b_price *100)}}
-                                                            % Off
-                                                              @endif
-                                                            @endif</span>
-                                                            <div class="col-sm-12 d-flex justify-content-center"> 
-                                                            <a class="btn btn-danger" id="hide-{{$productbest->id}}" data-value="{{$productbest->id}}" href="javascript:void(0)" title="Order Now" style="background-color: #800000 ;border:none;" itemprop="url">ADD TO CART</a>
-                                                           
-                                                            <div id="show-{{$productbest->id}}"></div>
+                                       @foreach($best as $productbest)
+                                        <div class="col-md-4 col-sm-6 col-lg-4">
+                                                     {{ Form::open(array('url' => 'cartadd')) }}
+                                                     @csrf
+                                                     <input type="hidden" name="pid" value="{{$productbest->id}}">
+                                                        <div class="popular-dish-box style1 wow fadeIn" data-wow-delay="0.{{$i++}}s">
+                                                            <div class="popular-dish-thumb">
+                                                                <a href="{{url('product').'/'.$product->id}}" title="" itemprop="url"><img src="{{url('')}}/products/{{$productbest->image}}" alt="popular-dish-img1.jpg" itemprop="image"></a>
+                                                              
                                                             </div>
-                                                           
-                                                        </div>
-                                                    </div><!-- Product Box -->
-                                                    {{ Form::close() }}
-                                                </div>
-                                   @endforeach
+                                                            <div class="popular-dish-info">
+                                                                <h4 itemprop="headline"><a href="{{url('product').'/'.$productbest->id}}" title="" itemprop="url">{{$productbest->name}}</a></h4>
+                                                                <p>{!!$productbest->short_descrip!!}</p>
+                                                                 <span class="price "> 
+                                                                @if($productbest->b_price)
+                                                                <del>MRP: ₹{{$productbest->b_price}}</del>
+                                                                MRP: ₹ {{$productbest->s_price}}
+                                                                @else
+                                                                MRP: ₹ {{$productbest->s_price}}
+                                                                @endif
+                                                                &nbsp;
+                                                                 
+                                                                 </span>
+                                                                  <span style="color: green;text-transform: uppercase;font-weight: 600">@if($productbest->b_price)
+                                                                  @if(number_format(($productbest->b_price-$productbest->s_price)/$productbest->b_price *100) > 0)
+                                                                {{number_format(($productbest->b_price-$productbest->s_price)/$productbest->b_price *100)}}
+                                                                % Off
+                                                                  @endif
+                                                                @endif</span>
+                                                                <div class="col-sm-12 d-flex justify-content-center"> 
+                                                                <a class="btn btn-danger" id="hide-{{$productbest->id}}" data-value="{{$productbest->id}}" href="javascript:void(0)" title="Order Now" style="background-color: #800000 ;border:none;" itemprop="url">ADD TO CART</a>
+                                                               
+                                                                <div id="show-{{$productbest->id}}"></div>
+                                                                </div>
+                                                               
+                                                            </div>
+                                                        </div><!-- Product Box -->
+                                                        {{ Form::close() }}
+                                        </div>
+                                       @endforeach
                                 </div>
                             
                             </div>
@@ -437,13 +435,13 @@
 
 
         <section>
-            <div class="block bottom-padd210">
+            <div class="block ">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12 col-sm-12 col-lg-12">
                             <div class="title1-wrapper text-center">
                                 <div class="title1-inner">
-                                    <h2 itemprop="headline">Check out our blog</h2>
+                                    <h2 itemprop="headline">You won’t get bored.Check our blogs</h2>
                                 </div>
                             </div>
                             <div class="remove-ext">
@@ -481,48 +479,50 @@
             </div>
         </section>
 
-      <style type="text/css">
-          .modal-content{
-              max-width: 480px;
-          }
-          label {
-          width: 100%;
+        <style type="text/css">
+              .modal-content{
+                  max-width: 480px;
+              }
+              label {
+              width: 100%;
 
-          }
-          .location-heading{
-              padding-left: 5px;
-          margin-top: 5px;
-          padding-bottom: 17px;
-          padding-top: 17px;
-          text-decoration: none;
-          border: none;
-          color: #fff;
-          background-color: #306f06;
-          }
-          .card-input-element {
-              display: none;
-          }
+              }
+              .location-heading{
+                 padding-left: 5px;
+                margin-top: 10px;
+                padding-bottom: 10px;
+                padding-top: 10px;
+                text-decoration: none;
+                border: none;
+                color: #fff;
+                background-color: #373435;
+                font-family: calibri;
+                text-transform: uppercase;
+              }
+              .card-input-element {
+                  display: none;
+              }
 
-          .card-input {
-              margin: 10px;
-              padding: 00px;
+              .card-input {
+                  margin: 10px;
+                  padding: 00px;
 
-          }
+              }
 
-          .card-input:hover {
-              cursor: pointer;
-          }
+              .card-input:hover {
+                  cursor: pointer;
+              }
 
-          .card-input-element:checked + .card-input {
-               box-shadow: 0 0 10px 4px #ea1b25;
-           }
-           .select-pin{
-              border-radius: 2px solid #306f06;
-              padding-bottom: 15px;
-              padding-top: 15px;
-              background-color: #306f06;
-           }
-     </style>
+              .card-input-element:checked + .card-input {
+                   box-shadow: 0 0 10px 1px #800000;
+               }
+               .select-pin{
+                  border-radius: 2px solid #306f06;
+                  padding-bottom: 15px;
+                  padding-top: 15px;
+                  background-color: #306f06;
+               }
+        </style>
         @if(empty(session()->get('pinlocation')))
         <div class="newsletter-popup-wrapper text-center">
 
@@ -530,10 +530,10 @@
                 <div class="modal-content">
                         <div class="modal-header">
                           <div class="modal-logo"><img src="/assets/images/logo2.png"></div>
-                          <h4><i class="fa fa-map-marker"></i> Please select your location</h4>
+                          <br>
                           <p>Wholesome meat, swift delivery.</p>
                         </div>
-                        <div class="modal-body" style="padding: 0px">
+                        <div class="modal-body" style="padding: 10px">
                             <div class="" >
                                 <form action="{{url('')}}/location/saved" method="post">
                                 @csrf
@@ -577,6 +577,7 @@
                             </div>
 
                             <div class=" col-md-12 text-center" style="">
+                                <h4><i class="fa fa-map-marker"></i> Please select your pin location for delivery</h4>
                               <div class=""  >
                               <?php
                               $json_string =    file_get_contents("locationpin.json");

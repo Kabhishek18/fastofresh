@@ -461,7 +461,7 @@
 		totalAmount : totalAmount ,
 		}, 
 		success: function (msg) {
-			window.location.href = SITEURL + '/razor-thank-you';
+			window.location.href = SITEURL + '/thank-you';
 		},
 		error: function (error) {
 		  	

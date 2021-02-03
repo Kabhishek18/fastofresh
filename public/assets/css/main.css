@@ -120,9 +120,9 @@ section{
 .less-spacing,
 .block.less-spacing {padding: 70px 0;}
 .top-padd80,
-.block.top-padd80 {padding-top: 80px;}
+.block.top-padd80 {padding-top: 40px;}
 .bottom-padd80,
-.block.bottom-padd80 {padding-bottom: 80px;}
+.block.bottom-padd80 {padding-bottom: 40px;}
 .top-padd140,
 .block.top-padd140 {padding-top: 140px;}
 .bottom-padd140,
@@ -616,7 +616,7 @@ header {
   float: right;
   font-size: 12px;
   font-family: calibri;
-  font-weight: 500;
+  font-weight: 700;
   color: #fff;
   letter-spacing: .3px;
   margin-right: -30px;
@@ -698,6 +698,7 @@ nav {
   width: 100%;
 }
 nav > div > ul {
+  margin-top: 15px;
   float: left;
   padding-left: 0;
   list-style: none;
@@ -835,9 +836,9 @@ header.sticky .topbar {
   visibility: hidden;
 }
 header.sticky .logo {margin: 15px 0;}
-header.sticky .logo > h1 img {max-width: 50%;}
+header.sticky .logo > h1 img {max-width: 100%;}
 header.sticky nav > div > ul > li {
-  padding: 25px 29px 18px 0;
+ /* padding: 25px 29px 18px 0;*/
   font-size: 15px;
 }
 header.sticky .menu-sec > a {margin-top: 9px;}
@@ -1940,7 +1941,7 @@ footer {
 .bottom-bar p {
   color: #999;
   margin-bottom: 0;
-  padding: 22px;
+  padding: 10px;
   font-weight: 700;
   font-size: 12px;
   letter-spacing: .5px;
@@ -2192,8 +2193,6 @@ footer {
 }
 .news-info > h4 {
   font-size: 18px;
-  letter-spacing: -.2px;
-  font-weight: 600;
   margin-bottom: 11px;
 }
 .news-info > p {
@@ -7122,7 +7121,7 @@ a.thanks-close:focus {color: #333;}
 		margin:0;
 	}
 	p{
-		   font-size: 18px;
+		  font-size: 15px;
     color: #6f6f6f;
     font-family: calibri;
     margin: 0;

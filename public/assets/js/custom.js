@@ -1,16 +1,17 @@
 $(document).ready(function(){
     $('[id^="hide-"]').on('click', function(){
         $(this).hide(); // this.value
-        var matchvalue = $(this).data('value');;
+        var matchvalue = $(this).data('value');
+          $('#show-'+matchvalue).show();
+
         let html = "";
         html += `
-            <div class=''>
                 <input type='button' onclick="decrementValue(${matchvalue})" value='-' class='btn btn-default' field='quantity' />
                 <input type='text' name='qty' id="number${matchvalue}"  value='1' class='qty' />
                 <input type='button' onclick="incrementValue(${matchvalue})" value='+' class='btn btn-default' field='quantity' />
         
-            <input type='submit' class="btn btn-danger  " style='background-color: #800000;' value="Add to cart"/>
-            </div>
+            <input type='submit' class="btn btn-danger  " style='background-color: #800000;' value="Add"/>
+           
           `;
 
           $('#show-'+matchvalue).html(html);
@@ -52,6 +53,8 @@ function decrementValue(pid)
     document.getElementById(id).value = data;}
     else{
     	data = '1';
+          $('#hide-'+pid).show();
+          $('#show-'+pid).hide();
     document.getElementById(id).value = data;}
    
 }

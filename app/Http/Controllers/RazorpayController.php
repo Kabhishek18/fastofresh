@@ -42,8 +42,9 @@ use App\front_model;
 		echo view('front/inc/header');
 		echo view('front/inc/nav',$categories);
 		echo view('front/thankyou',$order);
-		echo view('front/inc/footer');
-		session()->forget('order');
+		echo view('front/inc/footer',$categories);
+		//session()->forget('order');
+		//session()->forget('cart');
 		}
 		else{
 			return redirect('')->with('warning', 'Page Reload Invaild');

@@ -37,7 +37,7 @@ class front_control extends Controller
       echo view('front/inc/header');
       echo view('front/inc/nav',$categories);
       echo view('front/index',$categories);
-      echo view('front/inc/footer');
+      echo view('front/inc/footer',$categories);
   }
 
   public function dummy($value='')
@@ -51,7 +51,7 @@ class front_control extends Controller
       echo view('front/inc/header');
       echo view('front/inc/nav',$categories);
       echo view('front/about');
-      echo view('front/inc/footer');
+      echo view('front/inc/footer',$categories);
   }
 
    public function privacy($value='')
@@ -60,7 +60,7 @@ class front_control extends Controller
       echo view('front/inc/header');
       echo view('front/inc/nav',$categories);
       echo view('front/privacy');
-      echo view('front/inc/footer');
+      echo view('front/inc/footer',$categories);
   }
     public function faq($value='')
   {
@@ -68,7 +68,7 @@ class front_control extends Controller
       echo view('front/inc/header');
       echo view('front/inc/nav',$categories);
       echo view('front/faq');
-      echo view('front/inc/footer');
+      echo view('front/inc/footer',$categories);
   }
   public function why($value='')
   {
@@ -76,7 +76,7 @@ class front_control extends Controller
       echo view('front/inc/header');
       echo view('front/inc/nav',$categories);
       echo view('front/why');
-      echo view('front/inc/footer');
+      echo view('front/inc/footer',$categories);
   }
    //Categories
   public function categories()
@@ -85,7 +85,7 @@ class front_control extends Controller
       echo view('front/inc/header');
       echo view('front/inc/nav',$var);
       echo view('front/category',$var);
-      echo view('front/inc/footer');
+      echo view('front/inc/footer',$var);
   }
 
    //Categories Products
@@ -97,7 +97,7 @@ class front_control extends Controller
        echo view('front/inc/header');
        echo view('front/inc/nav',$var);
        echo view('front/product',$var);
-       echo view('front/inc/footer');
+       echo view('front/inc/footer',$var);
   }
 
    //Prdouct via Seach
@@ -135,7 +135,7 @@ class front_control extends Controller
     echo view('front/inc/header');
      echo view('front/inc/nav',$var);
      echo view('front/prodetail',$var);
-     echo view('front/inc/footer');
+     echo view('front/inc/footer',$var);
   }
   
   //checkout
@@ -151,7 +151,7 @@ class front_control extends Controller
         echo view('front/inc/header');
         echo view('front/inc/nav',$var);
         echo view('front/checkout',$cart);
-        echo view('front/inc/footer');
+        echo view('front/inc/footer',$categories);
       }
       else{
         return redirect()->back()->with('warning', 'Please login for checkout');
@@ -210,6 +210,7 @@ class front_control extends Controller
         $order['userid'] =$user['user']->id;
         $order['created_at'] =date('y-m-d h:i:s');
         $order['updated_at'] =date('y-m-d h:i:s');  
+         session()->put('order', $order);
           if(Request::post('method') == 'cash'){
     
             $insert =front_model::PaymentOrder($order);
@@ -218,7 +219,7 @@ class front_control extends Controller
               $loc =json_decode($orderdetails['loc']); 
               $sendmsg = 'Hi '.$loc->username.' Your Order has been Confirmed with Order no: '.date('ymdhis',strtotime($order['created_at']));
                 sendSms($loc->mobile,$sendmsg);
-              return redirect('dashboard')->with('success', 'Order Placed With');
+              return redirect('thank-you')->with('success', 'Order Placed With');
       
             }
             else{
@@ -230,7 +231,7 @@ class front_control extends Controller
         echo view('front/inc/header');
         echo view('front/inc/nav',$var);
          echo view('front/razorpay',$order);
-         echo view('front/inc/footer');
+         echo view('front/inc/footer',$var);
          
 
         }
@@ -295,7 +296,7 @@ class front_control extends Controller
     echo view('front/inc/header');
     echo view('front/inc/nav',$var);
     echo view('front/otpverifcation',$val);
-    echo view('front/inc/footer');
+    echo view('front/inc/footer',$var);
 
   } 
 
@@ -401,7 +402,7 @@ class front_control extends Controller
     echo view('front/inc/header');
     echo view('front/inc/nav',$var);
     echo view('front/emailforgot',$val);
-    echo view('front/inc/footer');
+    echo view('front/inc/footer',$var);
   }
 
   //Email Verification
@@ -448,7 +449,7 @@ class front_control extends Controller
       echo view('front/inc/header');
       echo view('front/inc/nav',$var);
       echo view('front/dashboard',$user);
-      echo view('front/inc/footer');
+      echo view('front/inc/footer',$var);
     }
     else{
        session()->flash('warning', 'Access Denied');
@@ -555,15 +556,15 @@ class front_control extends Controller
     return redirect('');
   }
 
-  public function BlogDetail($value='')
+  public function BlogDetail($id)
   {
-    $var['product'] =front_model::getProductname($name);
+    $var['blog'] =front_model::getBlog($id);
      $var['categories'] = front_model::getCategory();
 
     echo view('front/inc/header');
     echo view('front/inc/nav',$var);
     echo view('front/blogdetail',$var);
-     echo view('front/inc/footer');
+     echo view('front/inc/footer',$var);
   }
 
 
@@ -575,7 +576,7 @@ class front_control extends Controller
     echo view('front/inc/header');
     echo view('front/inc/nav',$var);
     echo view('front/recipeview',$var);
-     echo view('front/inc/footer');
+     echo view('front/inc/footer',$var);
   }
  
   

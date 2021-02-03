@@ -28,16 +28,6 @@
                                                             <li><img class="brd-rd3" src="{{url('')}}/products/{{$product->image}}" alt="{{url('')}}/products/{{$product->image}}" itemprop="image"></li>
                                                             
                                                         </ul>
-                                                        <h4 class="ribbon">
-                                                            @if($product->b_price)
-                                                              @if(number_format(($product->b_price-$product->s_price)/$product->b_price *100) > 0)
-                                                            Discount
-                                                            {{number_format(($product->b_price-$product->s_price)/$product->b_price *100)}}
-                                                            <i class="fa fa-percent"></i> 
-                                                              @endif
-                                                            
-                                                            
-                                                            @endif</h4>
                                                         <ul class="restaurant-detail-thumb-carousel">
                                                             <li><img class="brd-rd3" src="{{url('')}}/products/{{$product->image}}" alt="{{$product->image}}" itemprop="image"></li>
                                                             <li><img class="brd-rd3" src="{{url('')}}/products/{{$product->image}}" alt="{{$product->image}}" itemprop="image"></li>
@@ -88,6 +78,12 @@
                                                                             MRP: ₹ {{$product->s_price}}
                                                                             @endif
                                                                              </span>
+                                                                             <span class="price" style="color: green;text-transform: uppercase;font-weight: 600">@if($product->b_price)
+                                                              @if(number_format(($product->b_price-$product->s_price)/$product->b_price *100) > 0)
+                                                            {{number_format(($product->b_price-$product->s_price)/$product->b_price *100)}}
+                                                            % Off
+                                                              @endif
+                                                            @endif</span>
                                                                      </div>
                                                                </div> 
                                                                 
@@ -110,39 +106,116 @@
                                     </div>
                                 </div>
                             </div>
+
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript"></script>
+
+<style type="text/css">
+
+
+.frame {
+  float: left;
+  height: 250px;
+    overflow: hidden;
+  position: relative;
+  width: calc(100% - 75%);
+}
+
+.frame a {
+  display: block;
+    height: 100%;
+  width: 100%;
+}
+
+
+
+.frame:nth-child(2) img {
+  top: -90%;
+  left: -70%;
+}
+.frame:nth-child(3) img {
+  top: -90%;
+}
+
+.frame a .caption {
+    background-color: rgba(0, 0, 0, 0.7);
+    display: block;
+  overflow: hidden;
+  padding: 10px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 180px;
+    transition-property: top;
+  transition-duration: 0.2s;  
+  width: 100%;  
+  z-index: 10;
+}
+
+.frame a:hover .caption {
+    top: 0;
+  transition: all 2s;
+}
+
+.frame a .caption h2 {
+  color: orange;
+  font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.frame a .caption p {
+  color: white;
+  display: none;
+  line-height: 150%;
+  transition: all 0.2s;  
+  width: 90%;
+}
+
+.frame a:hover .caption p {
+  display: block;
+  margin-bottom: 20px;
+}
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+
+<!-- partial -->
+ 
+
+
+                            
                             @if(!empty($recipes))
                             <div class="col-md-12 col-sm-12 col-lg-12">
                                 <div class="sec-wrapper">
                                     <div class="row">
                                       <div class="row">
-                                          <div class="col-md-9">
-                                              <h3>
-                                                  Recipes</h3>
+                                          <div class="col-md-9 ">
+                                              <h3>Recipes</h3>
                                           </div>
                                         
                                       </div>
+                                      <section id="main">
                                       @foreach($recipes as $recipe) 
-                                            <div class="col-sm-3">
-                                                <div class="col-item">
-                                                    <div class="photo">
-                                                        <img src="{{url('')}}/recipes/{{$recipe->image}}" class="img-responsive" alt="a" style="width:100% ;height :250px !important" />
-                                                    </div>
-                                                    <div class="text-default" style="text-align: center;text-transform: capitalize;">
-                                                        <div class="row">
-                                                            <div class=" col-md-12">
-                                                                <h5>
-                                                                   {!!$recipe->title!!}</h5>
-                                                               
-                                                            </div>
-                                                           
-                                                        </div>
-                                                   
-                                                        <div class="clearfix">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
+
+                                 
+                                      <div class="frame">
+                                        <a href="#">
+                                            <span class="caption">
+                                                <h2> {!!$recipe->title!!}</h2>
+                                            <p class="desc">Atomic Robo is an American comic book series depicting the adventures of the eponymous character, a self-aware robot built by a fictional version of Nikola Tesla, created by 8-Bit Theater writer Brian Clevinger and artist Scott Wegener.</p>
+                                            </span>
+                                        <img src="{{url('')}}/recipes/{{$recipe->image}}" class="img-responsive" alt="a" style="width:100% ;height :250px !important" >
+                                        </a>  
+                                      </div>
+                                  
+
+
+
                                           @endforeach
+                                     </section>     
                                   </div>
                                 </div>
                             </div>    
@@ -152,6 +225,5 @@
                 </div><!-- Section Box -->
             </div>
         </section>
-     
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="{{url('assets/js/custom.js')}}"></script>
