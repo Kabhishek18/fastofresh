@@ -100,7 +100,7 @@ class cart extends Controller
     {
         
             session()->forget('cart');
-            return redirect('')->back()->with('success', 'Cart Removed Successfully');
+            return redirect()->back()->with('success', 'Cart Removed Successfully');
 
         
     }

@@ -312,6 +312,7 @@ class front_control extends Controller
       if($otp ==$var['sixdigit']){
         $insert= front_model::InsertUser($var);
          if($insert){
+          sendSms($var['mobile'], 'Thank you for registration. If you have any questions, please free to contact us at 1800-313-8898 ');
           session()->forget('verifysession');
          return redirect('')->with('success', 'Success Registered');
 
