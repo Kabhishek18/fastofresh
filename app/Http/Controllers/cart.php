@@ -65,7 +65,7 @@ class cart extends Controller
             echo view('front/inc/header');
             echo view('front/inc/nav',$var);
             echo view('front/cart',$cart);
-            echo view('front/inc/footer');
+            echo view('front/inc/footer',$var);
         }
         else{
             return redirect('')->with('success', 'Empty Cart');
