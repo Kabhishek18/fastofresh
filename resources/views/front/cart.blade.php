@@ -30,9 +30,9 @@
 
 </style>
     <section>
-            <div class="gray-bg bottom-padd210" >
+            <div class="gray-bg " >
                 
-                <div class="sec-box bottom-padd140" style="margin-top: 30px">
+                <div class="sec-box " style="margin-top: 30px">
                    @include('../status')
 
                     <div class="container">

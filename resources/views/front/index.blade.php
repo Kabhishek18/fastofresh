@@ -215,7 +215,7 @@
             </div>
         </section>-->
         <!-- top returents --> 
-        
+
         <section>
             <div class="block remove-bottom">
                 <div class="container">
@@ -482,6 +482,9 @@
         <style type="text/css">
               .modal-content{
                   max-width: 480px;
+              }
+              .modal-dialog{
+                width: 475px;
               }
               label {
               width: 100%;

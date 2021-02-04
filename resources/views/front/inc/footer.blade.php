@@ -2,6 +2,7 @@
 <script src="{{url('assets/js/custom.js')}}"></script>        
 
 <script>
+
     $(document).ready(function(){
 
      load_data();
@@ -62,31 +63,30 @@
                                             <ul>
                                                 <li><a href="{{url('')}}/why" title="" itemprop="url">Why Fast 'O' Fresh?</a></li>
                                                 <li><a href="{{url('')}}/about-us" title="" itemprop="url">About Us</a></li>
-                                                <li><a href="#" title="" itemprop="url">Campaign</a></li>
+                                                <li><a href="#" title="" itemprop="url">Refer & Earn</a></li>
                                                 <li><a href="#" title="" itemprop="url">FSSC 22000 Certification</a></li>
+                                                 <li><a href="#" title="" itemprop="url">Careers</a></li>
+
                                             </ul>
                                         </div>
                                     </div>
-                                    <div class="col-md-3 col-sm-6 col-lg-3">
-                                        <div class="widget information_links wow fadeIn" data-wow-delay="0.2s">
-                                            <h4 class="widget-title" itemprop="headline">INFORMATION</h4>
-                                            <ul>
-                                                <li><a href="#" title="" itemprop="url">Careers</a></li>
-                                                <li><a href="#" title="" itemprop="url">Investor Relations</a></li>
-                                                <li><a href="#" title="" itemprop="url">Press Releases</a></li>
-                                                <li><a href="#" title="" itemprop="url">Shop with Points</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
+
                                     <div class="col-md-3 col-sm-6 col-lg-3">
                                         <div class="widget customer_care wow fadeIn" data-wow-delay="0.3s">
-                                            <h4 class="widget-title" itemprop="headline">CUSTOMER CARE</h4>
-                                            <ul>
-                                                <li><a href="#" title="" itemprop="url">Returns</a></li>
-                                                <li><a href="#" title="" itemprop="url">Shipping Info</a></li>
-                                                <li><a href="#" title="" itemprop="url">Gift Cards</a></li>
-                                                <li><a href="#" title="" itemprop="url">Size Guide</a></li>
+                                            <h4 class="widget-title" itemprop="headline">DOWNLOAD APP </h4>
+
+                                            <div class="d-flex"> 
+                                              <img src="{{url('')}}/assets/images/gp-image-large.png" width="40%">
+                                              <img src="{{url('')}}/assets/images/app-store-large.png" width="40%">
+                                              
+                                            </div><br>
+                                             <ul>
+                                                <li><a href="#" title="" itemprop="url">Terms & Condition</a></li>
+                                                <li><a href="#" title="" itemprop="url">FAQs</a></li>
+                                                 <li><a href="#" title="" itemprop="url">Privacy and Policy</a></li>
+
                                             </ul>
+                                           
                                         </div>
                                     </div>
                                     <div class="col-md-3 col-sm-6 col-lg-3">
@@ -97,6 +97,24 @@
                                                <li><i class="fa fa-phone"></i> 1800 123 456</li>
                                                <li><i class="fa fa-envelope"></i> <a href="#" title="" itemprop="url">care@fastofresh.com</a></li>
                                             </ul>
+                                        </div>
+                                    </div>
+                                      <div class="col-md-3 col-sm-6 col-lg-3">
+                                        <div class="widget information_links wow fadeIn" data-wow-delay="0.2s">
+                                            <div class="d-flex"> 
+                                              
+                                               <img src="{{url('')}}/assets/images/mastervisa-01.png" width="70%">
+
+                                            </div>
+                                            <br>
+                                            <h4 class="widget-title">
+                                              HAVE SECURITY CONCERN?
+                                            </h4>
+                                            <div class="" style="color: white">
+                                              Mail us to: security@fastofresh.com
+
+                                            </div>
+                                             
                                         </div>
                                     </div>
                                 </div>
@@ -116,12 +134,13 @@
                                       <div class="col-md-12 col-sm-12 col-lg-12">
                                         <?php $i=0.0;?>
                                          @foreach($categories as $category)
-                                           <div class="widget get_in_touch wow fadeIn" data-wow-delay="{{$i +=0.2}}s">
-                                            <h4 class="widget-title" itemprop="headline" style="margin-bottom:0px;"><u><a href="{{url('')}}/category/{{$category->name}}">{{$category->name}}</a></u></h4>
-                                            <?php ?>
-                                            <ul>
-                                               <li style="padding-left:0px;">Chicken Breast (Boneless) Chicken (Skinless) - Curry Cut (Large) Chicken Mince/Keema Chicken Leg Curry Cut (Large - 4 pieces) Chicken Lollipop - 10 Pieces Tender Spring Chicken Curry Cut Chicken - Whole with Skin Chicken Curry Cut (Small - 13 to 16 Pieces)</li>
-                                            </ul>
+                                           <div class="widget get_in_touch wow fadeIn" data-wow-delay="{{$i +=0.2}}s" style="    color: wheat;">
+                                            <h4 class="widget-title" itemprop="headline" style="margin-bottom:10px;"><u><a href="{{url('')}}/category/{{$category->name}}">{{$category->name}}</a></u></h4>
+                                            
+                                              
+                                              @foreach(footpro($category->id) as $profoot)
+                                                <a href="{{url('')}}/product/{{$profoot->id}}" >{{$profoot->name}}</a> /
+                                               @endforeach
                                             
 
                                         </div>
@@ -278,7 +297,8 @@ costly world?</strong></p>
                             
                         </div>
                         <div class="row">
-                           Already on FastOFresh?  <a class="log-popup-btn" href="#" title="Login" itemprop="url">LOGIN</a>
+                           Already on FastOFresh?  <a class="log-popup-btn" style="font-size: 14px;
+    color: #800000;" href="#" title="Login" itemprop="url">LOGIN</a>
                         </div>
                     </form>
                 </div>

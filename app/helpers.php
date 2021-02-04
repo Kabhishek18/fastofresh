@@ -2,6 +2,7 @@
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
+use App\front_model;
 
 function changeDateFormate($date,$date_format){
     return \Carbon\Carbon::createFromFormat('Y-m-d', $date)->format($date_format);    
@@ -79,3 +80,8 @@ function sendSms($contacts,$msg)
   }
 
 
+    function footpro($id)
+    {
+      $product = front_model::GetCatPro($id);
+        return $product;
+    }

@@ -26,7 +26,12 @@
                                             <div class="profile-sidebar brd-rd5 wow fadeIn" data-wow-delay="0.2s">
                                                 <div class="profile-sidebar-inner brd-rd5">
                                                     <div class="user-info red-bg">
-                                                        <img class="brd-rd50" src="{{url('profileimages')}}/{{$user->id}}/{{$user->avatar}}" alt="user-avatar.jpg" itemprop="image" width= 76px;>
+
+                                                     @if($user->avatar)
+                                                   <img class="brd-rd50" src="{{url('profileimages')}}/{{$user->id}}/{{$user->avatar}}" alt="user-avatar.jpg" itemprop="image" width= 76px;>
+                                                    @else
+                                                    <img class="brd-rd50" src="{{url('')}}/profileimages/1/download.jpeg" alt="user-avatar.jpg" itemprop="image" width= 76px;>
+                                                    @endif
                                                         <div class="user-info-inner">
                                                             <h5 itemprop="headline"><a href="#" title="" itemprop="url">{{$user->name}}</a></h5>
                                                             <span><a href="#" title="" itemprop="url">{{$user->email}}</a></span>
@@ -119,7 +124,11 @@
                                                                 <div class="col-md-4 col-sm-4 col-lg-4">
                                                                     <div class="profile-info text-center">
                                                                         <div class="profile-thumb brd-rd50">
+                                                                            @if($user->avatar)
                                                                             <img id="profile-display" src="{{url('profileimages')}}/{{$user->id}}/{{$user->avatar}}" alt="profile-img.jpg" itemprop="image">
+                                                                            @else
+                                                                            <img id="profile-display" src="{{url('')}}/profileimages/1/download.jpeg" alt="profile-img.jpg" itemprop="image">
+                                                                            @endif
                                                                         </div>
                                                                      <form method="Post" action="{{url('dashboard/profileimageupload')}}" enctype="multipart/form-data">  
                                                                         @csrf  
@@ -156,11 +165,11 @@
                                                                                 @csrf
                                                                                 <div class="col-md-12 col-sm-6 col-lg-6">
                                                                                     <label>Password <sup class="text-danger">*</sup></label>
-                                                                                    <input class="brd-rd3" type="text" name="password">
+                                                                                    <input class="brd-rd3" type="text" name="password" required="">
                                                                                 </div>
                                                                                 <div class="col-md-12 col-sm-6 col-lg-6">
                                                                                     <label>Confirm Password <sup class="text-danger">*</sup></label>
-                                                                                    <input class="brd-rd3" type="text" name="cpassword">
+                                                                                    <input class="brd-rd3" type="text" name="cpassword" required="">
                                                                                 </div>
                                                                                 <div>
                                                                                     <input type="submit" class="btn btn-success" name=""value="Update Password" style="color: white">

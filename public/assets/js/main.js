@@ -45,7 +45,7 @@ $(document).ready(function(){
 
   //===== Login Popup Script =====//
   $('.log-popup-btn').on('click',function(){
-    $('html').addClass('log-popup-active');
+    $('html').addClass('log-popup-active').removeClass('sign-popup-active');
     return false;
   });
 
