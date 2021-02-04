@@ -395,8 +395,8 @@ class front_control extends Controller
                                             </tr>
                                          </tbody>
                                       </table>';
-          $subject='Thank You For Choosing Fast o Fresh '
-          sendEmail($var['email'],$emailmsg,$subject)
+          $subject='Thank You For Choosing Fast o Fresh ';
+          sendEmail($var['email'],$emailmsg,$subject);
           session()->forget('verifysession');
          return redirect('')->with('success', 'Success Registered');
 
