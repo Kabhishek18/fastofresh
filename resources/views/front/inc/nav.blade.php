@@ -113,7 +113,7 @@ $parsed_json = json_decode($json_string, true);
                             <ul>
                                    <?php $i=0.0;?>
                                     @foreach($categories as $category)
-                                    <li class="wow  bounceIn menumom " data-wow-delay="{{$i +=0.2}}s" style="" >
+                                    <li class="wow  bounceIn menumom " data-wow-delay="{{$i +=0.1}}s" style="" >
                                         <div class="imag" style="">
                                         <a class="" href="{{url('')}}/category/{{$category->name}}" title="{{$category->name}}" itemprop="url"><img src="{{url('')}}/categories/{{$category->image}}" alt="{{$category->image}}" itemprop="image">
                                              <div class="text-center">{{$category->name}}</div>

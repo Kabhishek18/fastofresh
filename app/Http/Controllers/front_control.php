@@ -112,6 +112,9 @@ class front_control extends Controller
   {
         $query = Request::post('product');
         $products =front_model::getProductlike($query);
+       if (empty($products[0])) {
+         return redirect()->back()->with('warning', 'No Product Found');
+       }
         return redirect('product/'.$products[0]->id );
   }
 
@@ -151,7 +154,7 @@ class front_control extends Controller
         echo view('front/inc/header');
         echo view('front/inc/nav',$var);
         echo view('front/checkout',$cart);
-        echo view('front/inc/footer',$categories);
+        echo view('front/inc/footer',$var);
       }
       else{
         return redirect()->back()->with('warning', 'Please login for checkout');
@@ -219,6 +222,79 @@ class front_control extends Controller
               $loc =json_decode($orderdetails['loc']); 
               $sendmsg = 'Hi '.$loc->username.' Your Order has been Confirmed with Order no: '.date('ymdhis',strtotime($order['created_at']));
                 sendSms($loc->mobile,$sendmsg);
+                $ordermsg = '<table width="100%" cellpadding="0" cellspacing="0" border="0" id="m_-2287190302310609224m_-7533971164095270638background-table" style="border-collapse:collapse;padding:0;margin:0 auto;background-color:#ebebeb;font-size:12px">
+   <tbody>
+      <tr>
+         <td valign="top" align="center" style="font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:0;margin:0;width:100%">
+            <table cellpadding="0" cellspacing="0" border="0" align="center" style="border-collapse:collapse;padding:0;margin:0 auto;width:600px">
+               <tbody>
+                  <tr>
+                     <td align="center" style="background:#fff;font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:0;margin:0">
+                        <table cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;padding:0;margin:0">
+                           <tbody>
+                              <tr>
+                                 <td align="center"  style=" font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:15px 0px 10px 5px;margin:0">
+                                    <a href="https://www.fastofresh.com/" style="color:#3696c2;float:left;display:block" rel="noreferrer" target="_blank" data-saferedirecturl="https://www.google.com/url?q=https://www.fastofresh.com/&amp;source=gmail&amp;ust=1612437442476000&amp;usg=AFQjCNGp8vRHo85GtG1KT4EjwDV7Yqv0Lg">
+                                    <img width="" height="" src="http://fastofresh.com/assets/images/logo2.png" alt="fastofresh.com" border="0" style=" outline:none;text-decoration:none" class="CToWUd"></a>
+                                 </td>
+                              </tr>
+                           </tbody>
+                        </table>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td align="top" style="background:#fff;font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:0;margin:0">
+                        <table cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;padding:0;margin:0">
+                           <tbody>
+                           
+                              <tr>
+                                 <td style="font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:5px 15px;margin:0;">
+                                    <h3 style="text-align:left;margin:0;padding:5px 15px">Dear</h3>
+                                    <h3 style="padding:5px 15px;font-family:calibri;font-weight:normal;font-size:17px;margin-bottom:10px;margin-top:15px">Your Fast O Fresh order no.'.date('ymdhis',strtotime($order['created_at'])).' has been received. Thanks for using Fast O Fresh! Your order has been confirmed and will be delivered shortly. Look forward to serving you.</h3>
+                                    
+                                 </td>
+                              </tr>
+                              <tr>
+                                 <td style="width: 650px; font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:0;margin:0">
+                                    <table bgcolor="" width="100%" height="100px">
+                                       <tr>
+                                          <td></td>
+                                            <td colspan="3" style="color:#000; font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:5px 15px;margin:0;text-align:center">
+                                             
+                                             
+
+                                          </td>
+                                          <td></td>
+
+                                       </tr>
+                                 
+                                    </table>
+                                 </td>
+                                
+                                 </td>
+                              </tr>
+                           </tbody>
+                        </table>
+                        <table>
+                           <tbody>
+                              <tr>
+                                  <td style="font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:10px 15px;margin:10px;">
+                                       <p>Thankfully, Team Fast O fresh</p>
+                                   </td>        
+                              </tr>
+                           </tbody>
+                        </table>
+                     </td>
+                  </tr>
+               </tbody>
+            </table>
+   
+         </td>
+      </tr>
+   </tbody>
+</table>';
+                sendEmail($loc->email,$ordermsg,'Order Confirmation Email');
+
               return redirect('thank-you')->with('success', 'Order Placed With');
       
             }
@@ -405,7 +481,8 @@ class front_control extends Controller
           $subject='Thank You For Choosing Fast o Fresh ';
           sendEmail($var['email'],$emailmsg,$subject);
           session()->forget('verifysession');
-           session()->put('user_session',$var);
+          $object = (object) $var;
+           session()->put('user_session',$object);
          return redirect('')->with('success', 'Success Registered');
 
          } 
@@ -465,7 +542,7 @@ class front_control extends Controller
                            
                               <tr>
                                  <td style="font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:5px 15px;margin:0;">
-                                    <h3 style="text-align:left;margin:0;padding:5px 15px">Dear'.$user->name .' </h3>
+                                    <h3 style="text-align:left;margin:0;padding:5px 15px">Dear'.$user['name'] .' </h3>
                                     <h3 style="padding:5px 15px;font-family:calibri;font-weight:normal;font-size:17px;margin-bottom:10px;margin-top:15px">Hope you are having a great time with Fast O Fresh.
 To complete your account verification, please enter the code below.  
 </h3>
@@ -559,6 +636,11 @@ To complete your account verification, please enter the code below.
   {
     $user['user'] = session()->get('user_session');
     if ($user['user']) {
+      if(empty($user['user']->id)){
+         $data = front_model::GetUserEmailby( $user['user']->email);
+        session()->put('user_session',$data);
+       $user['user'] = session()->get('user_session');
+      }
       $var['categories'] = front_model::getCategory();
       $user['orders'] =front_model::getOrderUserid($user['user']->id);
       $user['locations'] =front_model::getLocationUid($user['user']->id);

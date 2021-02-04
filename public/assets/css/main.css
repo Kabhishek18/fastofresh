@@ -1399,6 +1399,7 @@ h3.marginb-0 {margin-bottom: 0;}
   z-index: 1;
 }
 .popular-dish-info {
+  height: 200px;
      text-align: center;
     background: #fbfbfb none repeat scroll 0 0;
     float: left;

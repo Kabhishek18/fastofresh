@@ -17,9 +17,10 @@
                                           <div class="col-md-8 col-sm-12 col-lg-8">
                                             <div class="restaurant-detail-wrapper" style="background: #e9ecef;padding: 20px; border-radius: 25px;">
                                 
-                                                
+                                                @if(!empty($locations))    
                                               <div id="hidelocation" class="order-list" style="background: #fff;border-radius: 25px;margin-bottom: 50px;">
                                                 <?php $i=1;?>
+
                                                    @foreach($locations as $location)
                                                     <div class="col-md-4 col-lg-4 col-sm-4" style="padding: 10px;border-radius: 25px">
                                                         
@@ -39,8 +40,9 @@
                                                         </label>
                                                     </div>
                                                     @endforeach
-                                              </div>
                                                    
+                                              </div>
+                                                   @endif 
                                                   
 
                                                  <label class="form-check-label" for="locationcheck" style="width: 100%; font-size: x-large ;padding:25px;background: #fff;border-radius: 25px;margin-bottom: 20px;">
@@ -73,10 +75,31 @@
                                                              <input type="text" name="city" class="form-control" placeholder="City">   
                                                         </div>
                                                     </div>
+                                                    <?php
+$json_string =    file_get_contents("locationpin.json");
+$parsed_json = json_decode($json_string, true);
+?>
                                                     <div class="col-md-6 col-sm-12">
                                                         <div class="form-group">
                                                             <label>Postal Code<span class="text-danger">*</span></label>
-                                                             <input type="text" name="postalcode" class="form-control" placeholder="Postal Code">   
+                                                            <select name="postalcode" required="" class="form-control">
+                                                                @if(!empty(session()->get('pinlocation')))
+                                                                <option selected="" value="{{session()->get('pinlocation')}}" >
+                                                                   {{session()->get('pinlocation')}}</option>
+                                                                @else
+                                                                <option>Check Delivery  Availabilty </option>
+
+                                                                @endif
+                                                                @foreach($parsed_json as $key =>$value)
+                                                                
+                                                                    @foreach($value as $meg =>$locdetail)
+                                                                        <option value="{{($locdetail['Area'])}}, {{($locdetail['Pincode'])}}">{{($locdetail['Area'])}}, {{($locdetail['Pincode'])}}</option>
+                                     
+                                                                    @endforeach 
+                                                                   
+                                                                @endforeach
+                                                            </select>
+
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6 col-sm-12">
