@@ -137,7 +137,7 @@
 }
 
 .frame a .caption {
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.9);
     display: block;
   overflow: hidden;
   padding: 10px;
@@ -158,13 +158,20 @@
 }
 
 .frame a .caption h2 {
-  color: orange;
   font-size: 32px;
     margin-bottom: 20px;
 }
 
 .frame a .caption p {
   color: white;
+  display: none;
+  line-height: 150%;
+  transition: all 0.2s;  
+  width: 90%;
+}
+
+.frame a .caption li {
+  color: white !important;
   display: none;
   line-height: 150%;
   transition: all 0.2s;  
@@ -199,21 +206,15 @@
                                       </div>
                                       <section id="main">
                                       @foreach($recipes as $recipe) 
-
-                                 
-                                      <div class="frame">
+                                      <div class="frame text-center">
                                         <a href="{{url('')}}/recipes/{{$recipe->id}}">
                                             <span class="caption">
-                                                <h2> {!!$recipe->title!!}</h2>
-                                            <p class="desc" style=" overflow: hidden; -webkit-transition: max-height .75s;  transition: max-height .75s;"><br>{!!$recipe->description!!}</p>
+                                                <h2 style="color: green !important"> {!!$recipe->title!!}</h2>
+                                            <p class="desc" style=" overflow: hidden; -webkit-transition: max-height .75s;  transition: max-height .75s;">{!!$recipe->description!!}</p>
                                             </span>
                                         <img src="{{url('')}}/recipes/{{$recipe->image}}" class="img-responsive" alt="a" style="width:100% ;height :250px !important" >
                                         </a>  
                                       </div>
-                                  
-
-
-
                                           @endforeach
                                      </section>     
                                   </div>

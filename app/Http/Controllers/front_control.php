@@ -313,6 +313,90 @@ class front_control extends Controller
         $insert= front_model::InsertUser($var);
          if($insert){
           sendSms($var['mobile'], 'Thank you for registration. If you have any questions, please free to contact us at 1800-313-8898 ');
+
+            $emailmsg = '<table width="100%" cellpadding="0" cellspacing="0" border="0" id="m_-2287190302310609224m_-7533971164095270638background-table" style="border-collapse:collapse;padding:0;margin:0 auto;background-color:#ebebeb;font-size:12px">
+                                         <tbody>
+                                            <tr>
+                                               <td valign="top" align="center" style="font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:0;margin:0;width:100%">
+                                                  <table cellpadding="0" cellspacing="0" border="0" align="center" style="border-collapse:collapse;padding:0;margin:0 auto;width:600px">
+                                                     <tbody>
+                                                        <tr>
+                                                           <td align="center" style="background:#fff;font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:0;margin:0">
+                                                              <table cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;padding:0;margin:0">
+                                                                 <tbody>
+                                                                    <tr>
+                                                                       <td align="center" style="font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:15px 0px 10px 5px;margin:0">
+                                                                          <a href="https://www.fastofresh.com/" style="color:#3696c2;float:left;display:block" rel="noreferrer" target="_blank" data-saferedirecturl="https://www.google.com/url?q=https://www.fastofresh.com/&amp;source=gmail&amp;ust=1612437442476000&amp;usg=AFQjCNGp8vRHo85GtG1KT4EjwDV7Yqv0Lg">
+                                                                          <img width="" height="" src="http://fastofresh.com/assets/images/logo2.png" alt="fastofresh.com" border="0" style="outline:none;text-decoration:none" class="CToWUd"></a>
+                                                                       </td>
+                                                                    </tr>
+                                                                 </tbody>
+                                                              </table>
+                                                           </td>
+                                                        </tr>
+                                                        <tr>
+                                                           <td align="top" style="background:#fff;font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:0;margin:0">
+                                                              <table cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;padding:0;margin:0">
+                                                                 <tbody>
+                                                                 
+                                                                    <tr>
+                                                                       <td style="font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:5px 15px;margin:0;text-align:center">
+                                                                          <h3 style="font-family:calibri;font-weight:normal;font-size:17px;margin-bottom:10px;margin-top:15px">Welcome To Fast O Fresh,</h3>
+                                                                          
+                                                                       </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                       <td class="bg_dark email-section" style="text-align:center; background: rgba(0,0,0,.8);padding:2.5em;">
+                                                                          <div class="heading-section " style="color: rgba(255,255,255,.8);">
+                                                                          <p>Well done, By signing up, You have taken first step towards happieness</p>
+                                                                          <p>Welcome to a world of better taste. We cannot wait for you to get to know us and our offer products. We will do everything we can to help and support you as learn the life-chnaging taste</p>
+                                                                          </div>
+                                                                       </td>
+                                                                    </tr>
+                                                                 </tbody>
+                                                              </table>
+                                                           </td>
+                                                        </tr>
+                                                     </tbody>
+                                                  </table>
+                                                  <table style="background:#fff;font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:0;margin:0">
+                                                      <tbody>
+                                                          <tr>
+                                                           <td>
+                                                              <table>
+                                                                <tbody>
+                                                                  <tr>
+                                                                    <td valign="top" align="center"  style="background:#fff;font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:0;margin:0">
+                                                                      <a href="https://twitter.com/fastofreshfoods" rel="noreferrer" target="_blank" data-saferedirecturl="https://www.google.com/url?q=http://delivery.licious.com/JHOXYLPUGFRA?id%3D92747%3DdEsFVQ0EVAAEGQZZAVADUVtVVlcIUAMHAAAAUgICVgYBAFADUQVXDVdXAVFbAlIHXVYaEVNeBwBWXVdVAiMBXFZeWUtXWQ5IAlNSUwsKB1AIU1NSBwZQUgtJXhBEE1weGFNQCV1ABkZKSw8IWlpYE0pNBQ5dGSwsfW1vKGA2IXdldgoMUEoVBw%3D%3D%26fl%3DX0NBFUcMTBtHEgoVTVZFSFoMC058XwUNXUBFIl8MAkI%3D&amp;source=gmail&amp;ust=1612508879858000&amp;usg=AFQjCNHQyWPbbbq1su-9Vqx7qTZHc_i4-g">
+                                                                        <img src="https://ci3.googleusercontent.com/proxy/mmbz8Pys7nipJAsVxZD_5UZ6RAz1B8fpt14-f4ZW6L0ml_3HSxYeLjHBg9NmiXpl-3sM6_Jnmkelv0tXPCtqsb_gZhnM9__1NSas1UgHYxwS1BMFIMRvRPr5D3F27-c=s0-d-e1-ft#https://s3-ap-southeast-1.amazonaws.com/liciousdev/Banner/twitter_mailer.png" alt="image" height="15%" width="15%" style="min-height:15px;min-width:15px;height:30px;width:30px" class="CToWUd">
+                                                                      </a>
+                                                                    </td>
+                                                                    <td align="top" style="background:#fff;font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:0;margin:0">
+                                                                      <a href="https://www.instagram.com/fastofreshfoods/" rel="noreferrer" target="_blank" data-saferedirecturl="https://www.google.com/url?q=http://delivery.licious.com/JHOXYLPUGFRA?id%3D92747%3DdEsFVQ0EVAAEGQJQXFYPXlsBAlcJDwRSAldUUAgCUlMHU1EGBQJXVwZXWlFfVVYHXAAaEVNeBwBWXVdVAiMBXFZeWUtXWQ5IAlNSUwsKB1AIU1NSBwZQUgtJXhBEE1weGFNQCV1ABkZKSw8IWlpYE0pNBQ5dGSwsfW1vKGA2IXdldgoMUEoVBw%3D%3D%26fl%3DX0NBFUcMTBtEEhRPUF1EElgEFABdGAULXxpaDVMKCUREaFMKW1IQGw%3D%3D&amp;source=gmail&amp;ust=1612508879858000&amp;usg=AFQjCNE4SELjqXKO8nrrumBOJR_KTIX9dg">
+                                                                        <img src="https://ci5.googleusercontent.com/proxy/CB9msgl-noY-EHfikMcNZkn7xO3j8FfC-BSQcRHoQKsL6CXyTsIHp133wPVEDqVRjQOFCerjwQiP4yGRMYA4namj63yHQk6i06E8o4XBvU9G5ZxYO1102hm2mRIHioT63w=s0-d-e1-ft#https://s3-ap-southeast-1.amazonaws.com/liciousdev/Banner/instagram_mailer.png" alt="image" height="15%" width="15%" style="min-height:15px;min-width:15px;height:30px;width:30px" class="CToWUd">
+                                                                      </a>
+                                                                    </td>
+                                                                    <td align="top" style="background:#fff;font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:0;margin:0">
+                                                                      <a href="https://www.facebook.com/fastofreshfoods/" rel="noreferrer" target="_blank" data-saferedirecturl="https://www.google.com/url?q=http://delivery.licious.com/JHOXYLPUGFRA?id%3D92747%3DdEsFVQ0EVAAEGVYFXVEOXlgBA1MBBVQHVFAEBgQFBwZSBAIBUgBTVlUEBwMBUA9VDlIaEVNeBwBWXVdVAiMBXFZeWUtXWQ5IAlNSUwsKB1AIU1NSBwZQUgtJXhBEE1weGFNQCV1ABkZKSw8IWlpYE0pNBQ5dGSwsfW1vKGA2IXdldgoMUEoVBw%3D%3D%26fl%3DX0NBFUcMTBtEEhRPX1JUA1sMCQoeVQkJHXlfB1kME0JxWFoBRxk%3D&amp;source=gmail&amp;ust=1612508879858000&amp;usg=AFQjCNHbl--Hf9vCKVew8cUxS1Gi-dIYaQ">
+                                                                        <img src="https://ci4.googleusercontent.com/proxy/5DPaeuNvbmPgDyYfQ3byy5sV-8oijWjaGivvlqOfmlrYZmtmMx1gk33D1hTwZmJ0IyoZx_ZVYlUxClPuiP9Hg5IzSDDJGmA2SqUe94y2gDEzRA3XzFKfyK_K8nPlu0bn=s0-d-e1-ft#https://s3-ap-southeast-1.amazonaws.com/liciousdev/Banner/facebook_mailer.png" alt="image" height="15%" width="15%" style="min-height:15px;height:30px;width:30px;min-width:15px" class="CToWUd">
+                                                                      </a>
+                                                                    </td>
+                                                                    <td><p style="font-size:13px;font-family:calibri;text-align:center;line-height:20px;margin-bottom:40px;margin:16px">Thank you, Have Questions? Write to us at support@fastofresh.com or Call @1800-123-456</p></td>
+                                                     
+                                                                  </tr>
+                                                                </tbody>
+                                                              </table>
+                                                           </td>
+                                                          </tr>
+                                                       
+                                                      </tbody>
+                                                  </table>
+                                               </td>
+                                            </tr>
+                                         </tbody>
+                                      </table>';
+          $subject='Thank You For Choosing Fast o Fresh '
+          sendEmail($var['email'],$emailmsg,$subject)
           session()->forget('verifysession');
          return redirect('')->with('success', 'Success Registered');
 
@@ -344,62 +428,96 @@ class front_control extends Controller
       }
       $val['otp'] =  mt_rand(100000, 999999);
       $subject ="Password Recovery Mail";
-      $msg  ='
-              <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%">
-                <tr>
-                  <td style="padding: 20px 0 30px 0;">
+              $msg  ='<table width="100%" cellpadding="0" cellspacing="0" border="0" id="m_-2287190302310609224m_-7533971164095270638background-table" style="border-collapse:collapse;padding:0;margin:0 auto;background-color:#ebebeb;font-size:12px">
+                             <tbody>
+                                <tr>
+                                   <td valign="top" align="center" style="font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:0;margin:0;width:100%">
+                                      <table cellpadding="0" cellspacing="0" border="0" align="center" style="border-collapse:collapse;padding:0;margin:0 auto;width:600px">
+                                         <tbody>
+                                            <tr>
+                                               <td align="center" style="background:#fff;font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:0;margin:0">
+                                                  <table cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;padding:0;margin:0">
+                                                     <tbody>
+                                                        <tr>
+                                                           <td align="center" style="font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:15px 0px 10px 5px;margin:0">
+                                                              <a href="https://www.fastofresh.com/" style="color:#3696c2;float:left;display:block" rel="noreferrer" target="_blank" data-saferedirecturl="https://www.google.com/url?q=https://www.fastofresh.com/&amp;source=gmail&amp;ust=1612437442476000&amp;usg=AFQjCNGp8vRHo85GtG1KT4EjwDV7Yqv0Lg">
+                                                              <img width="" height="" src="http://fastofresh.com/assets/images/logo2.png" alt="fastofresh.com" border="0" style="outline:none;text-decoration:none" class="CToWUd"></a>
+                                                           </td>
+                                                        </tr>
+                                                     </tbody>
+                                                  </table>
+                                               </td>
+                                            </tr>
+                                            <tr>
+                                               <td align="top" style="background:#fff;font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:0;margin:0">
+                                                  <table cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;padding:0;margin:0">
+                                                     <tbody>
+                                                     
+                                                        <tr>
+                                                           <td style="font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:5px 15px;margin:0;text-align:center">
+                                                              <h3 style="font-family:calibri;font-weight:normal;font-size:17px;margin-bottom:10px;margin-top:15px">Welcome To Fast O Fresh,</h3>
+                                                              
+                                                           </td>
+                                                        </tr>
+                                                        <tr>
+                                                           <td style="width: 650px; font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:0;margin:0">
+                                                              <table bgcolor="#800000" width="100%" height="100px">
+                                                                 <tr>
+                                                                    <td></td>
+                                                                      <td colspan="3" style="color:#face82; font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:5px 15px;margin:0;text-align:center">
+                                                                       <h3 style="font-family:calibri;font-weight:normal;font-size:32px;margin-bottom:10px;margin-top:15px">'. $val['otp'].'</h3>
+                                                                       
+                                                                    </td>
+                                                                    <td></td>
 
-                    <table align="center" border="0" cellpadding="0" cellspacing="0" width="600" style="border-collapse: collapse; border: 1px solid #cccccc;">
-                      <tr>
-                        <td align="center" bgcolor="white" style="padding: 40px 0 30px 0;">
-                          <img src="http://fastofresh.com/assets/images/logo2.png" alt="Creating Email Magic."  style="display: block;
-                           background:white;" />
-                        </td>
-                      </tr>
-                      <tr>
-                        <td bgcolor="#ffffff" style="padding: 40px 30px 40px 30px;">
-                          <table border="0" cellpadding="0" cellspacing="0" width="100%" style="border-collapse: collapse;">
-                            <tr>
-                              <td style="color: #153643; font-family: Arial, sans-serif;">
-                                <h1 style="font-size: 24px; margin: 0;">Welcome To Fast O Fresh,</h1>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td style="color: #153643; font-family: Arial, sans-serif; font-size: 16px; line-height: 24px; padding: 20px 0 30px 0;">
-                                <p style="margin: 0;">Below is your verification code. Please use this code to access your account. Thanks for using Fast O Fresh.</p>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td align="center" bgcolor="#80000" style="color:whitesmoke;padding: 40px 0 30px 0;" >
-                                <h1>'.$val['otp'].' </h1>
-                              </td>
-                            </tr>
-                          </table>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td bgcolor="#800000" style="padding: 30px 30px;">
-                            <table border="0" cellpadding="0" cellspacing="0" width="100%" style="border-collapse: collapse;">
-                            <tr>
-                              <td style="color: #ffffff; font-family: Arial, sans-serif; font-size: 14px;">
-                                <p style="margin: 0;">&reg; Fastofresh,  2021<br/>
-                               <a href="#" style="color: #ffffff;">Unsubscribe</a> to this newsletter instantly</p>
-                              </td>
-                              <td align="right">
-                                
-                              </td>
-                            </tr>
-                          </table>
-                        </td>
-                      </tr>
-                    </table>
-
-                  </td>
-                </tr>
-              </table>';
+                                                                 </tr>
+                                                              </table>
+                                                           </td>
+                                                        </tr>
+                                                     </tbody>
+                                                  </table>
+                                               </td>
+                                            </tr>
+                                         </tbody>
+                                      </table>
+                                      <table style="background:#fff;font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:0;margin:0">
+                                          <tbody>
+                                              <tr>
+                                               <td>
+                                                  <table>
+                                                    <tbody>
+                                                      <tr>
+                                                        <td valign="top" align="center"  style="background:#fff;font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:0;margin:0">
+                                                          <a href="https://twitter.com/fastofreshfoods" rel="noreferrer" target="_blank" data-saferedirecturl="https://www.google.com/url?q=http://delivery.licious.com/JHOXYLPUGFRA?id%3D92747%3DdEsFVQ0EVAAEGQZZAVADUVtVVlcIUAMHAAAAUgICVgYBAFADUQVXDVdXAVFbAlIHXVYaEVNeBwBWXVdVAiMBXFZeWUtXWQ5IAlNSUwsKB1AIU1NSBwZQUgtJXhBEE1weGFNQCV1ABkZKSw8IWlpYE0pNBQ5dGSwsfW1vKGA2IXdldgoMUEoVBw%3D%3D%26fl%3DX0NBFUcMTBtHEgoVTVZFSFoMC058XwUNXUBFIl8MAkI%3D&amp;source=gmail&amp;ust=1612508879858000&amp;usg=AFQjCNHQyWPbbbq1su-9Vqx7qTZHc_i4-g">
+                                                            <img src="https://ci3.googleusercontent.com/proxy/mmbz8Pys7nipJAsVxZD_5UZ6RAz1B8fpt14-f4ZW6L0ml_3HSxYeLjHBg9NmiXpl-3sM6_Jnmkelv0tXPCtqsb_gZhnM9__1NSas1UgHYxwS1BMFIMRvRPr5D3F27-c=s0-d-e1-ft#https://s3-ap-southeast-1.amazonaws.com/liciousdev/Banner/twitter_mailer.png" alt="image" height="15%" width="15%" style="min-height:15px;min-width:15px;height:30px;width:30px" class="CToWUd">
+                                                          </a>
+                                                        </td>
+                                                        <td align="top" style="background:#fff;font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:0;margin:0">
+                                                          <a href="https://www.instagram.com/fastofreshfoods/" rel="noreferrer" target="_blank" data-saferedirecturl="https://www.google.com/url?q=http://delivery.licious.com/JHOXYLPUGFRA?id%3D92747%3DdEsFVQ0EVAAEGQJQXFYPXlsBAlcJDwRSAldUUAgCUlMHU1EGBQJXVwZXWlFfVVYHXAAaEVNeBwBWXVdVAiMBXFZeWUtXWQ5IAlNSUwsKB1AIU1NSBwZQUgtJXhBEE1weGFNQCV1ABkZKSw8IWlpYE0pNBQ5dGSwsfW1vKGA2IXdldgoMUEoVBw%3D%3D%26fl%3DX0NBFUcMTBtEEhRPUF1EElgEFABdGAULXxpaDVMKCUREaFMKW1IQGw%3D%3D&amp;source=gmail&amp;ust=1612508879858000&amp;usg=AFQjCNE4SELjqXKO8nrrumBOJR_KTIX9dg">
+                                                            <img src="https://ci5.googleusercontent.com/proxy/CB9msgl-noY-EHfikMcNZkn7xO3j8FfC-BSQcRHoQKsL6CXyTsIHp133wPVEDqVRjQOFCerjwQiP4yGRMYA4namj63yHQk6i06E8o4XBvU9G5ZxYO1102hm2mRIHioT63w=s0-d-e1-ft#https://s3-ap-southeast-1.amazonaws.com/liciousdev/Banner/instagram_mailer.png" alt="image" height="15%" width="15%" style="min-height:15px;min-width:15px;height:30px;width:30px" class="CToWUd">
+                                                          </a>
+                                                        </td>
+                                                        <td align="top" style="background:#fff;font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:0;margin:0">
+                                                          <a href="https://www.facebook.com/fastofreshfoods/" rel="noreferrer" target="_blank" data-saferedirecturl="https://www.google.com/url?q=http://delivery.licious.com/JHOXYLPUGFRA?id%3D92747%3DdEsFVQ0EVAAEGVYFXVEOXlgBA1MBBVQHVFAEBgQFBwZSBAIBUgBTVlUEBwMBUA9VDlIaEVNeBwBWXVdVAiMBXFZeWUtXWQ5IAlNSUwsKB1AIU1NSBwZQUgtJXhBEE1weGFNQCV1ABkZKSw8IWlpYE0pNBQ5dGSwsfW1vKGA2IXdldgoMUEoVBw%3D%3D%26fl%3DX0NBFUcMTBtEEhRPX1JUA1sMCQoeVQkJHXlfB1kME0JxWFoBRxk%3D&amp;source=gmail&amp;ust=1612508879858000&amp;usg=AFQjCNHbl--Hf9vCKVew8cUxS1Gi-dIYaQ">
+                                                            <img src="https://ci4.googleusercontent.com/proxy/5DPaeuNvbmPgDyYfQ3byy5sV-8oijWjaGivvlqOfmlrYZmtmMx1gk33D1hTwZmJ0IyoZx_ZVYlUxClPuiP9Hg5IzSDDJGmA2SqUe94y2gDEzRA3XzFKfyK_K8nPlu0bn=s0-d-e1-ft#https://s3-ap-southeast-1.amazonaws.com/liciousdev/Banner/facebook_mailer.png" alt="image" height="15%" width="15%" style="min-height:15px;height:30px;width:30px;min-width:15px" class="CToWUd">
+                                                          </a>
+                                                        </td>
+                                                        <td><p style="font-size:13px;font-family:calibri;text-align:center;line-height:20px;margin-bottom:40px;margin:16px">Thank you, Have Questions? Write to us at support@fastofresh.com or Call @1800-123-456</p></td>
+                                         
+                                                      </tr>
+                                                    </tbody>
+                                                  </table>
+                                               </td>
+                                              </tr>
+                                           
+                                          </tbody>
+                                      </table>
+                                   </td>
+                                </tr>
+                             </tbody>
+                          </table>';
     sendEmail( $val['email'],$msg,$subject);
     session()->put('verifyemail',$val);
-    var_dump($val);
     $var['categories'] = front_model::getCategory();
     echo view('front/inc/header');
     echo view('front/inc/nav',$var);
@@ -420,7 +538,7 @@ class front_control extends Controller
       if($otp == $var['otp']){
         $update= front_model::UserPasswordEmail($array);
          if($update){
-          //session()->forget('verifyemail');
+          session()->forget('verifyemail');
          return redirect('')->with('success', 'Successfully  Updated');
 
          } 

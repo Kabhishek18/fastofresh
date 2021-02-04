@@ -20,7 +20,7 @@ class Orders extends Migration
             $table->text('order_cart');
             $table->text('orderdetail');
             $table->text('userid');
-            $table->enum('status', ['pending', 'inprocess','dispatched','delivered']);
+            $table->enum('status', ['cancelled','pending', 'inprocess','dispatched','delivered']);
             $table->timestamps();
         });
     }

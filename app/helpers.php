@@ -33,7 +33,7 @@ function sendSms($contacts,$msg)
 }
 
  function sendEmail($sender,$msg,$subject) 
-    {
+  {
     
       // Load Composer's autoloader
       require '../vendor/autoload.php';
@@ -76,7 +76,6 @@ function sendSms($contacts,$msg)
           // echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
       	     echo "Message could not be sent";
       }
-      
-  
   }
+
 

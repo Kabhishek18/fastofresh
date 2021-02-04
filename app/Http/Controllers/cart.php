@@ -106,10 +106,8 @@ class cart extends Controller
     }
     public function removeCoupon(Request $request)
     {
-        
-            session()->forget('coupon');
-            return redirect()->back()->with('warning', 'Coupon Removed Successfully');
-        
+      session()->forget('coupon');
+      return redirect()->back()->with('warning', 'Coupon Removed Successfully');
     }
 
   public function ApplyCoupon(Request $request)

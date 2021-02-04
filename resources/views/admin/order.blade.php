@@ -105,9 +105,12 @@
                                                             <option value="delivered">Delivered</option>
                                                             @elseif($order->status =='delivered')
                                                             <option value="delivered">Delivered</option>
+                                                            @elseif($order->status =='cancelled')
+                                                            <option value="cancelled"><span class="text-danger">Cancelled</span></option>
                                                             @else
                                                             <option> Something Is Fishy</option>
                                                             @endif  
+
                                                             </select>
                                                               <button type="submit" class="btn btn-info" ><i class="fa fa-refresh"></i></button>  
                                                             </form>
