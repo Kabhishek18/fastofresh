@@ -260,9 +260,8 @@ class front_control extends Controller
     $val['type'] = 'user';
     $val['status'] = 'active';
     $checkmail =front_model::GetUserEmail($val['email']);
-    if($checkmail>0){
+    if($checkmail > 0){
       $auth =front_model::Authenticate($val);
-      if()
       if (!empty($auth)) {
         session()->put('user_session',$auth);
         return redirect('dashboard');
