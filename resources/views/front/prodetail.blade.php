@@ -10,7 +10,7 @@
 
                                             <ol class="breadcrumb">
                                                 <li class="breadcrumb-item"><a href="{{url('')}}" title="" itemprop="url">Home</a></li>
-                                                <li class="breadcrumb-item active">All Category</li>
+                                                <li class="breadcrumb-item active">{{$product->name}}</li>
                                             </ol>
 
                                             </div>
