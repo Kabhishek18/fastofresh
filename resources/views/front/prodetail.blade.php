@@ -202,10 +202,10 @@
 
                                  
                                       <div class="frame">
-                                        <a href="#">
+                                        <a href="{{url('')}}/recipes/{{$recipe->id}}">
                                             <span class="caption">
                                                 <h2> {!!$recipe->title!!}</h2>
-                                            <p class="desc">Atomic Robo is an American comic book series depicting the adventures of the eponymous character, a self-aware robot built by a fictional version of Nikola Tesla, created by 8-Bit Theater writer Brian Clevinger and artist Scott Wegener.</p>
+                                            <p class="desc" style=" overflow: hidden; -webkit-transition: max-height .75s;  transition: max-height .75s;"><br>{!!$recipe->description!!}</p>
                                             </span>
                                         <img src="{{url('')}}/recipes/{{$recipe->image}}" class="img-responsive" alt="a" style="width:100% ;height :250px !important" >
                                         </a>  

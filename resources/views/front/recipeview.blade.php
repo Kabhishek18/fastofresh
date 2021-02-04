@@ -30,18 +30,16 @@
                                     <div class="col-md-12 col-sm-12 col-lg-12">
                                         <div class="blog-detail-wrapper">
                                             <div class="blog-detail-thumb wow fadeIn" data-wow-delay="0.2s">
-                                                <img src="{{url('')}}/recipes/{{$recipe->image}}" alt="blog-detial-img2-1.jpg" itemprop="image">
+                                                <img src="{{url('')}}/recipes/{{$recipe->image}}" alt="blog-detial-img2-1.jpg"  width="100%" itemprop="image">
                                             </div>
                                             <div class="blog-detail-info">
-                                                <span class="post-detail-date red-clr"><i class="fa fa-clock-o"></i> August 10, 2017</span>
-                                                <div class="post-meta">
-                                                    <span><i class="fa fa-eye red-clr"></i> 95 Views</span>
-                                                    <span><i class="fa fa-comment-o red-clr"></i> 5 Comments</span>
-                                                </div>
+                                                <span class="post-detail-date red-clr"><i class="fa fa-clock-o"></i>{{date('F dy',strtotime($recipe->created_at))}}</span>
+                                               
                                             </div>
                                             <h1 itemprop="headline">{!!$recipe->title!!}</h1>
+                                            {!!$recipe->ingredient!!}
+
                                             {!!$recipe->description!!}
-                                                {!!$recipe->description!!}
                                            
                                         </div>
                                     </div>

@@ -397,8 +397,9 @@ class front_control extends Controller
                   </td>
                 </tr>
               </table>';
-      sendEmail( $val['email'],$msg,$subject);
+    sendEmail( $val['email'],$msg,$subject);
     session()->put('verifyemail',$val);
+    var_dump($val);
     $var['categories'] = front_model::getCategory();
     echo view('front/inc/header');
     echo view('front/inc/nav',$var);
@@ -412,14 +413,15 @@ class front_control extends Controller
     if(!empty(session()->get('verifyemail')))
     {
       $otp = Request::post('otp');
-      $otp = Request::post('password');
+      $password = Request::post('password');
       $var = session()->get('verifyemail');
-
-      if($otp ==$var['otp']){
-        $update= front_model::UserPasswordEmail($var);
+      $array['email'] =$var['email'];
+      $array['password'] =$password;
+      if($otp == $var['otp']){
+        $update= front_model::UserPasswordEmail($array);
          if($update){
-          session()->forget('verifyemail');
-         return redirect('')->with('success', 'Success Registered');
+          //session()->forget('verifyemail');
+         return redirect('')->with('success', 'Successfully  Updated');
 
          } 
          else{

@@ -32,27 +32,28 @@ function sendSms($contacts,$msg)
 	// echo $response;
 }
 
- function sendEmail($sender,$msg,$subject) {
+ function sendEmail($sender,$msg,$subject) 
+    {
     
-       // Load Composer's autoloader
-      require '../../vendor/autoload.php';
+      // Load Composer's autoloader
+      require '../vendor/autoload.php';
 
       // Instantiation and passing `true` enables exceptions
       $mail = new PHPMailer(true);
 
       try {
           //Server settings
-          $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      // Enable verbose debug output
+          //$mail->SMTPDebug = SMTP::DEBUG_SERVER;                      // Enable verbose debug output
           $mail->isSMTP();                                            // Send using SMTP
-          $mail->Host       = 'smtp.gmail.com';                    // Set the SMTP server to send through
+          $mail->Host       = 'in-v3.mailjet.com';                    // Set the SMTP server to send through
           $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
-          $mail->Username   = 'no-reply@fastofresh.com';                     // SMTP username
-          $mail->Password   = 'Noreply@Fof@123';                               // SMTP password
+          $mail->Username   = '73cde1779dc8d7c4bfbccdec7c97be1f';                     // SMTP username
+          $mail->Password   = '2e1ee3fb344ba71128bb7f3f2aefaeaf';                               // SMTP password
           $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
           $mail->Port       = 587;                                    // TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
 
           //Recipients
-          $mail->setFrom('no-reply@fastofresh.com', 'no-reply@fastofresh.com');
+          $mail->setFrom('fastofresh@techcentrica.co.in', 'fastofresh');
           $mail->addAddress($sender, $sender);     // Add a recipient
           // $mail->addAddress('ellen@example.com');               // Name is optional
           // $mail->addReplyTo('info@example.com', 'Information');
@@ -78,3 +79,4 @@ function sendSms($contacts,$msg)
       
   
   }
+
