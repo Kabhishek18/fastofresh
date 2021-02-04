@@ -215,6 +215,11 @@ class front_model extends Model
         $value=DB::table('users')->where($array)->count();
         return $value;
   }  
+  public static function GetUserEmailby($email){
+        $array = array('email' => $email );
+        $value=DB::table('users')->where($array)->first();
+        return $value;
+  }  
   public static function GetUserPhone($mobile){
         $array = array('mobile' => $mobile );
         $value=DB::table('users')->where($array)->count();
