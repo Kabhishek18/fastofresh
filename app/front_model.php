@@ -236,4 +236,8 @@ class front_model extends Model
     return $value;
   }
 
+  public static function test_model($value='')
+  {
+  }
+
 }

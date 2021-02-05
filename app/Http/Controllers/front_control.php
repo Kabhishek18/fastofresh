@@ -230,7 +230,7 @@ class front_control extends Controller
             if($insert){
               $orderdetails =json_decode($order['orderdetail'],true); 
               $loc =json_decode($orderdetails['loc']); 
-              $sendmsg = 'Hi '.$loc->username.' Your Order has been Confirmed with Order no: '.date('ymdhis',strtotime($order['created_at']));
+              $sendmsg = 'Hi '.$loc->username.' Your Order has been Confirmed with Order no: '.date('ymdhsi',strtotime($order['created_at']));
                 sendSms($loc->mobile,$sendmsg);
                 $ordermsg = '<table width="100%" cellpadding="0" cellspacing="0" border="0" id="m_-2287190302310609224m_-7533971164095270638background-table" style="border-collapse:collapse;padding:0;margin:0 auto;background-color:#ebebeb;font-size:12px">
    <tbody>
@@ -303,7 +303,7 @@ class front_control extends Controller
       </tr>
    </tbody>
 </table>';
-                sendEmail($loc->email,$ordermsg,'Your Fast O Fresh order no.'.date('ymdhis',strtotime($order['created_at'])).' has been received.');
+                sendEmail($loc->email,$ordermsg,'Your Fast O Fresh order no.'.date('ymdhsi',strtotime($order['created_at'])).' has been received.');
 
               return redirect('thank-you')->with('success', 'Order Placed With');
       
@@ -328,7 +328,6 @@ class front_control extends Controller
   //ccavRequestHandler
   public function ccavRequestHandler(Request $request)
   {
-    // dd($_POST);
     echo view('front/ccavRequestHandler');
   }
 
@@ -795,8 +794,8 @@ To complete your account verification, please enter the code below.
 
   public function Test()
   {
-      sendEmail('kabhishek18@gmail.com','456','5464');
-  
+     // sendEmail('kabhishek18@gmail.com','456','5464');
+   
   }
 
   //End Of Code
