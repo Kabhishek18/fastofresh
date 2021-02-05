@@ -64,6 +64,18 @@ class admin_control extends Controller
 	   		$val['id'] = Request::post('id');
 	   		$update = admin_model::StatusOrder($val);
 	   		if ($update) {
+	   			if($val['status'] == 'dispatched'){
+	   			$order = admin_model::getOrders($val['id']);
+	   			$orderdetail = json_decode($order->orderdetail, true);
+                $location = json_decode($orderdetail['loc'],true);	
+	   			sendSms($location['mobile'],'Hi '.$location['username'].'your order '.date('ymdhsi',strtotime($order->created_at)).' is out for delivery, We are trying our best to deliver your order at the earliest. ');
+	   			}
+	   			if($val['status'] == 'delivered'){
+	   			$order = admin_model::getOrders($val['id']);
+	   			$orderdetail = json_decode($order->orderdetail, true);
+                $location = json_decode($orderdetail['loc'],true);	
+	   			sendSms($location['mobile'],'Hi '.$location['username'].'your Fast O Fresh order '.date('ymdhsi',strtotime($order->created_at)).' has been successfully delivered. Thank you for your order with Fast O Fresh ');
+	   			}
 	   			return redirect()->back()->with('success', 'Update Successfully');
 	    		}
     		else{
@@ -877,7 +889,7 @@ class admin_control extends Controller
             );
         }
 
-        
+
         // Set tax
         $printer->setTax($tax_percentage);
 

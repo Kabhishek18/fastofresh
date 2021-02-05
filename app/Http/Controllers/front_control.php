@@ -436,7 +436,7 @@ class front_control extends Controller
                                                                      <td style="font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:5px 15px;margin:0;">
                                                                         <h3 style="text-align:left;margin:0;padding:5px 15px">Dear '.$var['name'].',</h3>
                                                                         <h3 style="padding:5px 15px;font-family:calibri;font-weight:normal;font-size:17px;margin-bottom:10px;margin-top:15px">Welcome to Fast O Fresh,
-                                    Thanks for creating an account on Fast O Fresh. Your username is pushapnaraingupta. You can access your account area to view orders, change your password, and more at: <a href="www.fastofresh.com/my-account/">www.fastofresh.com/my-account/</a>
+                                    Thanks for creating an account on Fast O Fresh. Your username is '.$var['name'].'. You can access your account area to view orders, change your password, and more at: <a href="www.fastofresh.com/my-account/">www.fastofresh.com/my-account/</a>
                                     </h3>
                                     
                                  </td>

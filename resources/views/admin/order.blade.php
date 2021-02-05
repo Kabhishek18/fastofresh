@@ -75,7 +75,7 @@
                                                 <tbody>
                                                     @foreach($orders as $order)
                                                     <tr>
-                                                        <td>{{date('ymdhsi',strtotime($order->created_at))}}</td>
+                                                        <td>{{date('ymdhis',strtotime($order->created_at))}}</td>
                                                         <td>{{$order->transactionid}}</td>
                                                         <?php $carts = json_decode($order->order_cart,true);?>
                                                         <td>
