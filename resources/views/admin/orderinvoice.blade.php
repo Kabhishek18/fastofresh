@@ -1,6 +1,7 @@
 <body class="vertical-layout vertical-menu-modern dark-layout 2-columns  navbar-floating footer-static  " data-open="click" data-menu="vertical-menu-modern" data-col="2-columns" data-layout="dark-layout">
  @include('admin/inc/nav')
 
+
     <!-- BEGIN: Content-->
     <div class="app-content content">
         <div class="content-overlay"></div>
@@ -25,6 +26,7 @@
                     </div>
                 </div>
             </div>
+            
             <div class="content-body">
                 <!-- invoice functionality start -->
                 <section class="invoice-print mb-1">
@@ -52,7 +54,7 @@
                             <div class="col-sm-6 col-12 text-right">
                                 <h1>Invoice</h1>
                                 <div class="invoice-details mt-2">
-                                    <h6>INVOICE NO.</h6>
+                                    <h6>Order Id.</h6>
                                     <p>{{date('ymdhsi',strtotime($order->created_at))}}</p>
                                     <h6 class="mt-2">INVOICE DATE</h6>
                                     <p>{{date('F d y, h:i:s',strtotime($order->created_at))}}</p>
@@ -66,7 +68,8 @@
                             <div class="col-sm-6 col-12 text-left">
                                 <h5>Recipient</h5>
                                 <?php $orderdetail = json_decode($order->orderdetail, true);
-                                       $location = json_decode($orderdetail['loc'],true); 
+                                       $location = json_decode($orderdetail['loc'],true);
+
                                        ?>
                                 <div class="recipient-info my-2">
                                     <p>{{$location['username']}}</p>
@@ -87,16 +90,16 @@
                                 </div>
                             </div>
                             <div class="col-sm-6 col-12 text-right">
-                                <h5>Microsion Technologies Pvt. Ltd.</h5>
+                                <h5>FastoFresh Pvt. Ltd.</h5>
                                 <div class="company-info my-2">
-                                    <p>9 N. Sherwood Court</p>
-                                    <p>Elyria, OH</p>
-                                    <p>94203</p>
+                                    <p>B-155, Ghazipur,</p>
+                                    <p>New Delhi,</p>
+                                    <p>110096</p>
                                 </div>
                                 <div class="company-contact">
                                     <p>
                                         <i class="feather icon-mail"></i>
-                                        hello@pixinvent.net
+                                        care@fastofresh.com
                                     </p>
                                     <p>
                                         <i class="feather icon-phone"></i>
@@ -171,12 +174,18 @@
                                                     <th>SUBTOTAL</th>
                                                     <td>₹ {{$total}}</td>
                                                 </tr>
+                                               
                                                 <tr>
+
                                                     <th>DISCOUNT (%)</th>
-                                                    <td>₹ {{$order->orderamount -$total}}</td>
+                                                    <td>₹ {{($total+$orderdetail['ship']) - $order->orderamount}}</td>
+                                                </tr>
+                                                 <tr>
+                                                    <th>SHIPPING CHARGE</th>
+                                                    <td>₹  {{empty($orderdetail['ship'])?'0':$orderdetail['ship']}}</td>
                                                 </tr>
                                                 <tr>
-                                                    <th>TOTAL</th>
+                                                    <th>GRAND TOTAL</th>
                                                     <td>₹ {{$order->orderamount}}</td>
                                                 </tr>
                                             </tbody>
@@ -187,12 +196,19 @@
                         </div>
 
                         <!-- Invoice Footer -->
-                        <div id="invoice-footer" class="text-right pt-3">
-                            <p>Transfer the amounts to the business amount below. Please include invoice number on your check.
-                                <p class="bank-details mb-0">
-                                    <span class="mr-4">BANK: <strong>FTSBUS33</strong></span>
-                                    <span>IBAN: <strong>G882-1111-2222-3333</strong></span>
-                                </p>
+                        <div id="invoice-footer" class="text-center pt-3">
+                            <p>@for($i=0;$i<=45;$i++)
+                                {!!'-'!!}
+                               @endfor 
+                            E & OE
+                        @for($i=0;$i<=45;$i++)
+                                {!!'-'!!}
+                               @endfor 
+                           </p>
+                           <p><span>*</span> This is a computer generated invoice, hence signature and stamp is not required</p>
+                            <p>Thank you for shopping !!</p>
+
+
                         </div>
                         <!--/ Invoice Footer -->
 

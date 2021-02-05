@@ -60,17 +60,23 @@
                                                             <div class="order-item brd-rd5">
                                                               
                                                                 <div class="order-info">
+
+
                                                                     <span class="red-clr">{{date('F d y h:i A',strtotime($order->created_at))}}</span>
                                                                     <?php $cart = json_decode($order->order_cart,true
-                                                                        );?>
+                                                                        );
+                                                                        $total =''
+                                                                        ?>
 
                                                                     <div class="row">
                                                                         @foreach($cart as $item)
                                                                         <div class="col-md-12"> 
                                                                             <table class="table">
                                                                                 <tr>
-                                                                                    <td><h4 class="text-info">{{$item['name']}}</h4></td>
-                                                                                    <td style="float: right;"> <img src="{{url('')}}/products/{{$item['photo']}}" width="150px"></td>
+                                                                                    <td><h4 class="text-info">{{$item['name']}}</h4>
+                                                                                       <h5>Price : {{$item['price']}} </h5> 
+                                                                                    </td>
+                                                                                    <td style="float: right;"> <img src="{{url('')}}/products/{{$item['photo']}}" width="100px"></td>
                                                                                 </tr>
                                                                               <!--   <tr>
                                                                                     <td><span >₹ {{$item['price']}} X {{$item['quantity']}}</span>= ₹ {{$item['price'] * $item['quantity']}}</span></td>
@@ -79,7 +85,7 @@
                                                                         </div>
                                                                         @endforeach
                                                                     </div>
-                                                                    <span class="price">₹ {{$order->orderamount}}</span>
+                                                                    <span class="price">Grand Total : ₹ {{$order->orderamount}}</span>
                                                                     <span class="processing brd-rd3" style="text-transform: capitalize;float: right;">{{$order->status}}</span>
                                                                     
                                                                 </div>

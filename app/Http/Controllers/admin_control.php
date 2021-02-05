@@ -876,6 +876,8 @@ class admin_control extends Controller
                 $item['gst']
             );
         }
+
+        
         // Set tax
         $printer->setTax($tax_percentage);
 

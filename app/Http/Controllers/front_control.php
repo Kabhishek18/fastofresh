@@ -177,7 +177,8 @@ class front_control extends Controller
   public function payment(Request $request)
   {
     $user['user'] = session()->get('user_session');
-    if($user['user']){
+    if($user['user']){      
+         $val['ship'] =Request::post('ship'); 
         $val['locationadd'] = Request::post('locationadd');
           if ($val['locationadd']=="add") {
             $reg['addressline1'] = Request::post('addressline1');

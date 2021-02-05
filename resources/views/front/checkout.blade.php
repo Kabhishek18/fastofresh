@@ -299,6 +299,7 @@ $parsed_json = json_decode($json_string, true);
                                                             <li><span>Delivery </span> <i> 
                                                                  <?php $ship =30; $total += $ship?> ₹{{$ship}} 
                                                                 </i>  </li>
+                                                                <input type="hidden" name="ship" value="{{$ship}}">
                                                             @endif
 
                                                              @if(!empty(session()->get('coupon')))
