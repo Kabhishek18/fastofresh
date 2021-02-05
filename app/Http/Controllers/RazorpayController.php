@@ -16,10 +16,27 @@ use App\front_model;
 			$order =session()->get('order');
 			$order['transactionid'] =Request::get('razorpay_payment_id');
 			$order['order_amount'] =Request::get('totalAmount');
-					$insert =front_model::PaymentOrder($order);
+			$insert =front_model::PaymentOrder($order);
 			if($insert){
            		session()->put('order', $order);
-           		$orderdetails =json_decode($order['orderdetail'],true); 
+           		
+				
+				return json_encode(array('msg' => 'Payment successfully credited', 'status' => true));    
+			}
+			else{
+				 $arr = array('msg' => 'Error', 'status' => true);
+				return json_encode($arr);    
+			  return redirect()->back()->with('warning', 'Order Has Been Declined Due To Technical Issue');
+			}
+
+	 
+	 }
+	public function RazorThankYou()
+	{	
+		if (!empty(session()->get('order'))) {
+		$categories['categories'] = front_model::getCategory();
+		$order =session()->get('order');
+		$orderdetails =json_decode($order['orderdetail'],true); 
 		  		$loc =json_decode($orderdetails['loc']); 
 		  		$sendmsg = 'Hi '.$loc->username.' Your Order has been Confirmed with Order no: '.date('ymdhis',strtotime($order['created_at']));
 				sendSms($loc->mobile,$sendmsg);
@@ -95,22 +112,6 @@ use App\front_model;
 									   </tbody>
 									</table>';
                 sendEmail($loc->email,$ordermsg,'Your Fast O Fresh order no.'.date('ymdhis',strtotime($order['created_at'])).' has been received.');
-				$arr = array('msg' => 'Payment successfully credited', 'status' => true);
-				return json_encode($arr);    
-			}
-			else{
-				 $arr = array('msg' => 'Error', 'status' => true);
-				return json_encode($arr);    
-			 // return redirect()->back()->with('warning', 'Order Has Been Declined Due To Technical Issue');
-			}
-
-	 
-	 }
-	public function RazorThankYou()
-	{	
-		if (!empty(session()->get('order'))) {
-		$categories['categories'] = front_model::getCategory();
-		$order =session()->get('order');
 		echo view('front/inc/header');
 		echo view('front/inc/nav',$categories);
 		echo view('front/thankyou',$order);
