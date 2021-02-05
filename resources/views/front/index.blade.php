@@ -152,25 +152,25 @@
                     </div>
                     <div data-u="slides" style="cursor:default;position:relative;top:0px;left:0px;width:980px;height:380px;overflow:hidden;">
                         <div data-p="680">
-                            <img data-u="image" src="assets/images/banner1.jpeg" />
+                            <img data-u="image" src="{{url('')}}/assets/images/banner1.jpeg" />
                             
                            
                         </div>
                         <div data-p="680">
-                            <img data-u="image" src="assets/images/banner2.jpeg" />
+                            <img data-u="image" src="{{url('')}}/assets/images/banner2.jpeg" />
                              
                         </div>
                         <div>
-                            <img data-u="image" src="assets/images/banner3.jpeg" />
+                            <img data-u="image" src="{{url('')}}/assets/images/banner3.jpeg" />
                             
                             
                         </div>
                          <div>
-                            <img data-u="image" src="assets/images/banner4.jpeg" />
+                            <img data-u="image" src="{{url('')}}/assets/images/banner4.jpeg" />
                             
                         </div>
                          <div>
-                            <img data-u="image" src="assets/images/banner5.jpeg" />
+                            <img data-u="image" src="{{url('')}}/assets/images/banner5.jpeg" />
                         </div>
                     </div><a data-scale="0" href="https://www.jssor.com" style="display:none;position:absolute;">html slider</a>
                     <!-- Bullet Navigator -->

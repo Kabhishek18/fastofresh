@@ -62,6 +62,15 @@ class front_control extends Controller
       echo view('front/privacy');
       echo view('front/inc/footer',$categories);
   }
+
+     public function terms($value='')
+  {
+     $categories['categories'] = front_model::getCategory();
+      echo view('front/inc/header');
+      echo view('front/inc/nav',$categories);
+      echo view('front/terms');
+      echo view('front/inc/footer',$categories);
+  }
     public function faq($value='')
   {
      $categories['categories'] = front_model::getCategory();

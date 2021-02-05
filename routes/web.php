@@ -18,6 +18,7 @@ Route::get('', 'front_control@index' );
 Route::get('about-us', 'front_control@about' );
 Route::get('privacyandpolicy', 'front_control@privacy' );
 Route::get('faq', 'front_control@faq' );
+Route::get('terms', 'front_control@terms' );
 Route::get('why', 'front_control@why' );
 Route::get('test', 'front_control@Test' );
 

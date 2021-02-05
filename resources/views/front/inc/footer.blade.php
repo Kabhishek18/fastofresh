@@ -63,8 +63,12 @@
                                             <ul>
                                                 <li><a href="{{url('')}}/why" title="" itemprop="url">Why Fast 'O' Fresh?</a></li>
                                                 <li><a href="{{url('')}}/about-us" title="" itemprop="url">About Us</a></li>
-                                                <li><a href="#" title="" itemprop="url">Refer & Earn</a></li>
-                                                 <li><a href="#" title="" itemprop="url">Careers</a></li>
+                                                <!-- <li><a href="#" title="" itemprop="url">Refer & Earn</a></li> -->
+                                                 <!-- <li><a href="https://www.linkedin.com/company/71600846/admin/" title="" itemprop="url">Careers</a></li> -->
+
+                                                <li><a href="{{url('')}}/terms" title="" itemprop="url">Terms & Condition</a></li>
+                                                <li><a href="{{url('')}}/faq" title="" itemprop="url">FAQs</a></li>
+                                                 <li><a href="{{url('')}}/privacyandpolicy" title="" itemprop="url">Privacy and Policy</a></li>
 
                                             </ul>
                                         </div>
@@ -72,20 +76,25 @@
 
                                     <div class="col-md-3 col-sm-6 col-lg-3">
                                         <div class="widget customer_care wow fadeIn" data-wow-delay="0.3s">
-                                            <h4 class="widget-title" itemprop="headline">DOWNLOAD APP </h4>
+                                            <h4 class="widget-title" itemprop="headline">FOLLOW US </h4>
 
-                                            <div class="d-flex"> 
-                                              <img src="{{url('')}}/assets/images/gp-image-large.png" width="40%">
-                                              <img src="{{url('')}}/assets/images/app-store-large.png" width="40%">
-                                              
-                                            </div><br>
-                                             <ul>
-                                                <li><a href="#" title="" itemprop="url">Terms & Condition</a></li>
-                                                <li><a href="#" title="" itemprop="url">FAQs</a></li>
-                                                 <li><a href="#" title="" itemprop="url">Privacy and Policy</a></li>
-
-                                            </ul>
-                                           
+                                              <ul style="list-style: none !importants">
+                                                <li>   <a href="https://www.facebook.com/fastofreshfoods/" title="Facebook" itemprop="url" target="_blank"><i class="fa fa-facebook"></i> &nbsp;Like us on Facebook</a>
+                                                </li>
+                                                <li>
+                                                   <a href="https://www.instagram.com/fastofreshfoods/" title="Instagram" itemprop="url" target="_blank"><i class="fa fa-instagram"></i> &nbsp; Follow us on Instagram</a>
+                                                
+                                                </li>
+                                                <li>
+                                                  <a href="https://www.linkedin.com/company/71600846/admin/" title="Instagram" itemprop="url" target="_blank"><i class="fa fa-linkedin"></i> &nbsp; Connect us on Linkedin</a>
+                                                </li>
+                                                <li>
+                                                  
+                           <a href="https://twitter.com/fastofreshfoods" title="Twitter" itemprop="url" target="_blank"><i class="fa fa-twitter"></i> &nbsp; Follow us on Twitter</a>
+                                                </li>
+                                              </ul> 
+                                            
+                                                                                         
                                         </div>
                                     </div>
                                     <div class="col-md-3 col-sm-6 col-lg-3">
@@ -93,7 +102,7 @@
                                             <h4 class="widget-title" itemprop="headline">GET IN TOUCH</h4>
                                             <ul>
                                                <li><i class="fa fa-map-marker"></i> H-201, Level-1, Sector 63, Noida 201301.</li>
-                                               <li><i class="fa fa-phone"></i> 1800 123 456</li>
+                                               <li><i class="fa fa-phone"></i> 1800 313 8898</li>
                                                <li><i class="fa fa-envelope"></i> <a href="#" title="" itemprop="url">care@fastofresh.com</a></li>
                                             </ul>
                                         </div>
@@ -103,7 +112,10 @@
                                             <div class="d-flex"> 
                                               
                                                <img src="{{url('')}}/assets/images/mastervisa-01.png" width="70%">
-
+                                               <br>
+                                               <br>
+                                               <img src="{{url('')}}/assets/images/FSSAI_logo.png" width="40%"> 
+                                               <h5 style="color:white">Lic. No. 13320003000188  </h5>
                                             </div>
                                             <br>
                                          
@@ -122,11 +134,11 @@
                 <div class="container">
                    
 
-                    <div class="row">
+                    <div class="row" style="">
                         <div class="col-md-12 col-sm-12 col-lg-12">
                             <div class="footer-data">
                                 <div class="row">
-                                      <div class="col-md-12 col-sm-12 col-lg-12">
+                                      <div class="col-md-12 col-sm-12 col-lg-12" style="border-bottom: 1px solid wheat;">
                                         <h4 style="color: wheat; ">“Source to your home, same day delivery.” Have you ever imagined?"</h4>
                                         <p>Well, to ensure about the accessibility of meat, we are modifying the old practices. We convey new
                                         meat every single day from clean organic farms which is more delectable and better with no harmful
@@ -157,7 +169,7 @@
                                         penny.</strong></p>
 
                                         <h4 style="color: wheat; margin-top: 30px;">Have you ever heard about, “Pocket friendly price ∝ superior quality”?</h4>
-                                        <p>If not, at that point we at Fast O Fresh certainly do it. We convey superior quality item in pocket
+                                        <p style="margin-bottom: 30px">If not, at that point we at Fast O Fresh certainly do it. We convey superior quality item in pocket
                                         friendly value which is brimming with taste and deliciousness. What else do we need to live in this
                                         costly world?</strong></p>
                                         
@@ -173,7 +185,7 @@
                      <div class="row">
                         <div class="col-md-12 col-sm-12 col-lg-12">
                             <div class="footer-data">
-                                <div class="row" style="margin-top: 60px;">
+                                <div class="row" style="margin-top: 90px;">
                                       <div class="col-md-12 col-sm-12 col-lg-12">
                                         <?php $i=0.0;?>
                                          @foreach($categories as $category)
@@ -185,7 +197,7 @@
                                             @endif
                                               
                                               @foreach(footpro($category->id) as $profoot)
-                                                <a href="{{url('')}}/product/{{$profoot->id}}" >{{$profoot->name}}</a> /
+                                                <a href="{{url('')}}/product/{{$profoot->id}}" >{{$profoot->name}}</a> &nbsp; | &nbsp;
                                                @endforeach
                                             
 
