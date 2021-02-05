@@ -48,13 +48,13 @@ function sendSms($contacts,$msg)
           $mail->isSMTP();                                            // Send using SMTP
           $mail->Host       = 'in-v3.mailjet.com';                    // Set the SMTP server to send through
           $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
-          $mail->Username   = '73cde1779dc8d7c4bfbccdec7c97be1f';                     // SMTP username
-          $mail->Password   = '2e1ee3fb344ba71128bb7f3f2aefaeaf';                               // SMTP password
+          $mail->Username   = '393e832dc0c67ff5ca93ea07ad73f96f';                     // SMTP username
+          $mail->Password   = 'e2f6ea5d61072b421a2f4a00f1bd0103';                               // SMTP password
           $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
           $mail->Port       = 587;                                    // TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
 
           //Recipients
-          $mail->setFrom('Fastofresh@techcentrica.co.in', 'FastOFresh');
+          $mail->setFrom('no-reply@fastofresh.com', 'FastOFresh');
           $mail->addAddress($sender, $sender);     // Add a recipient
           // $mail->addAddress('ellen@example.com');               // Name is optional
           // $mail->addReplyTo('info@example.com', 'Information');

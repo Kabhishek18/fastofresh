@@ -398,36 +398,36 @@ class front_control extends Controller
           sendSms($var['mobile'], 'Thank you for registration. If you have any questions, please free to contact us at 1800-313-8898 ');
 
             $emailmsg = '<table width="100%" cellpadding="0" cellspacing="0" border="0" id="m_-2287190302310609224m_-7533971164095270638background-table" style="border-collapse:collapse;padding:0;margin:0 auto;background-color:#ebebeb;font-size:12px">
-   <tbody>
-      <tr>
-         <td valign="top" align="center" style="font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:0;margin:0;width:100%">
-            <table cellpadding="0" cellspacing="0" border="0" align="center" style="border-collapse:collapse;padding:0;margin:0 auto;width:600px">
-               <tbody>
-                  <tr>
-                     <td align="center" style="background:#fff;font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:0;margin:0">
-                        <table cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;padding:0;margin:0">
-                           <tbody>
-                              <tr>
-                                 <td align="center" style=" font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:15px 0px 10px 5px;margin:0">
-                                    <a href="https://www.fastofresh.com/" style="color:#3696c2;float:left;display:block" rel="noreferrer" target="_blank" data-saferedirecturl="https://www.google.com/url?q=https://www.fastofresh.com/&amp;source=gmail&amp;ust=1612437442476000&amp;usg=AFQjCNGp8vRHo85GtG1KT4EjwDV7Yqv0Lg">
-                                    <img width="" height="" src="http://fastofresh.com/assets/images/logo2.png" alt="fastofresh.com" border="0" style=" outline:none;text-decoration:none" class="CToWUd"></a>
-                                 </td>
-                              </tr>
-                           </tbody>
-                        </table>
-                     </td>
-                  </tr>
-                  <tr>
-                     <td align="top" style="background:#fff;font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:0;margin:0">
-                        <table cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;padding:0;margin:0">
-                           <tbody>
-                           
-                              <tr>
-                                 <td style="font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:5px 15px;margin:0;">
-                                    <h3 style="text-align:left;margin:0;padding:5px 15px">Dear '.$var['name'].',</h3>
-                                    <h3 style="padding:5px 15px;font-family:calibri;font-weight:normal;font-size:17px;margin-bottom:10px;margin-top:15px">Welcome to Fast O Fresh,
-Thanks for creating an account on Fast O Fresh. Your username is pushapnaraingupta. You can access your account area to view orders, change your password, and more at: <a href="www.fastofresh.com/my-account/">www.fastofresh.com/my-account/</a>
-</h3>
+                                       <tbody>
+                                          <tr>
+                                             <td valign="top" align="center" style="font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:0;margin:0;width:100%">
+                                                <table cellpadding="0" cellspacing="0" border="0" align="center" style="border-collapse:collapse;padding:0;margin:0 auto;width:600px">
+                                                   <tbody>
+                                                      <tr>
+                                                         <td align="center" style="background:#fff;font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:0;margin:0">
+                                                            <table cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;padding:0;margin:0">
+                                                               <tbody>
+                                                                  <tr>
+                                                                     <td align="center" style=" font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:15px 0px 10px 5px;margin:0">
+                                                                        <a href="https://www.fastofresh.com/" style="color:#3696c2;float:left;display:block" rel="noreferrer" target="_blank" data-saferedirecturl="https://www.google.com/url?q=https://www.fastofresh.com/&amp;source=gmail&amp;ust=1612437442476000&amp;usg=AFQjCNGp8vRHo85GtG1KT4EjwDV7Yqv0Lg">
+                                                                        <img width="" height="" src="http://fastofresh.com/assets/images/logo2.png" alt="fastofresh.com" border="0" style=" outline:none;text-decoration:none" class="CToWUd"></a>
+                                                                     </td>
+                                                                  </tr>
+                                                               </tbody>
+                                                            </table>
+                                                         </td>
+                                                      </tr>
+                                                      <tr>
+                                                         <td align="top" style="background:#fff;font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:0;margin:0">
+                                                            <table cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;padding:0;margin:0">
+                                                               <tbody>
+                                                               
+                                                                  <tr>
+                                                                     <td style="font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:5px 15px;margin:0;">
+                                                                        <h3 style="text-align:left;margin:0;padding:5px 15px">Dear '.$var['name'].',</h3>
+                                                                        <h3 style="padding:5px 15px;font-family:calibri;font-weight:normal;font-size:17px;margin-bottom:10px;margin-top:15px">Welcome to Fast O Fresh,
+                                    Thanks for creating an account on Fast O Fresh. Your username is pushapnaraingupta. You can access your account area to view orders, change your password, and more at: <a href="www.fastofresh.com/my-account/">www.fastofresh.com/my-account/</a>
+                                    </h3>
                                     
                                  </td>
                               </tr>
@@ -445,28 +445,30 @@ Thanks for creating an account on Fast O Fresh. Your username is pushapnaraingup
                                  </td>
                                 
                                  
-                              </tr>
-                           </tbody>
-                        </table>
-                        <table>
-                           <tbody>
-                              <tr>
-                                  <td style="font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:10px 15px;margin:10px;">
-                                       <p>Thankfully, Team Fast O fresh</p>
-                                   </td>        
-                              </tr>
-                           </tbody>
-                        </table>
-                     </td>
-                  </tr>
-               </tbody>
-            </table>
-   
-         </td>
-      </tr>
-   </tbody>
-</table>';
+                                                </tr>
+                                             </tbody>
+                                          </table>
+                                          <table>
+                                             <tbody>
+                                                <tr>
+                                                    <td style="font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:10px 15px;margin:10px;">
+                                                         <p>Thankfully, Team Fast O fresh</p>
+                                                     </td>        
+                                                </tr>
+                                             </tbody>
+                                          </table>
+                                       </td>
+                                    </tr>
+                                 </tbody>
+                              </table>
+                     
+                           </td>
+                        </tr>
+                     </tbody>
+                  </table>';
           $subject='Your Fast O Fresh account has been created!';
+
+          
           sendEmail($var['email'],$emailmsg,$subject);
           session()->forget('verifysession');
           $object = (object) $var;
