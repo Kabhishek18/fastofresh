@@ -74,7 +74,7 @@ class admin_control extends Controller
 	   			$order = admin_model::getOrders($val['id']);
 	   			$orderdetail = json_decode($order->orderdetail, true);
                 $location = json_decode($orderdetail['loc'],true);	
-	   			sendSms($location['mobile'],'Hi '.$location['username'].'your Fast O Fresh order '.date('ymdhsi',strtotime($order->created_at)).' has been successfully delivered. Thank you for your order with Fast O Fresh ');
+	   			sendSms($location['mobile'],'Hi '.$location['username'].' your Fast O Fresh order #'.date('ymdhsi',strtotime($order->created_at)).' has been successfully delivered. Thank you for your order with Fast O Fresh ');
 	   			}
 	   			return redirect()->back()->with('success', 'Update Successfully');
 	    		}
