@@ -48,7 +48,7 @@
                                             </div>
                                             <div class="col-md-6 col-sm-6 col-lg-6">
                                                 <div class="form-group">
-                                                       <button class="btn red-bg brd-rd3" type="submit" style="color:white">Verify NOW</button>
+                                                       <button class="btn red-bg brd-rd3" type="submit" style="color:white">Verify Now</button>
                                                 </div>
                                             </div>
                                             

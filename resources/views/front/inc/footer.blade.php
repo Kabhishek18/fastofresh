@@ -64,7 +64,6 @@
                                                 <li><a href="{{url('')}}/why" title="" itemprop="url">Why Fast 'O' Fresh?</a></li>
                                                 <li><a href="{{url('')}}/about-us" title="" itemprop="url">About Us</a></li>
                                                 <li><a href="#" title="" itemprop="url">Refer & Earn</a></li>
-                                                <li><a href="#" title="" itemprop="url">FSSC 22000 Certification</a></li>
                                                  <li><a href="#" title="" itemprop="url">Careers</a></li>
 
                                             </ul>
@@ -107,13 +106,7 @@
 
                                             </div>
                                             <br>
-                                            <h4 class="widget-title">
-                                              HAVE SECURITY CONCERN?
-                                            </h4>
-                                            <div class="" style="color: white">
-                                              Mail us to: security@fastofresh.com
-
-                                            </div>
+                                         
                                              
                                         </div>
                                     </div>
@@ -127,25 +120,46 @@
         <footer>
             <div class="block top-padd80  dark-bg" style="border-top:1px solid;">
                 <div class="container">
+                   
+
                     <div class="row">
                         <div class="col-md-12 col-sm-12 col-lg-12">
                             <div class="footer-data">
                                 <div class="row">
                                       <div class="col-md-12 col-sm-12 col-lg-12">
-                                        <?php $i=0.0;?>
-                                         @foreach($categories as $category)
-                                           <div class="widget get_in_touch wow fadeIn" data-wow-delay="{{$i +=0.2}}s" style="    color: wheat;">
-                                            <h4 class="widget-title" itemprop="headline" style="margin-bottom:10px;"><u><a href="{{url('')}}/category/{{$category->name}}">{{$category->name}}</a></u></h4>
-                                            
-                                              
-                                              @foreach(footpro($category->id) as $profoot)
-                                                <a href="{{url('')}}/product/{{$profoot->id}}" >{{$profoot->name}}</a> /
-                                               @endforeach
-                                            
+                                        <h4 style="color: wheat; ">“Source to your home, same day delivery.” Have you ever imagined?"</h4>
+                                        <p>Well, to ensure about the accessibility of meat, we are modifying the old practices. We convey new
+                                        meat every single day from clean organic farms which is more delectable and better with no harmful
+                                        chemicals or additives.</p>
 
-                                        </div>
-                                     
-                                    @endforeach
+
+
+                                        <h4 style="color: wheat; margin-top: 30px;">Do you know “Variety is the spice of life”?</h4>
+                                        <p>What&#39;s more, we at Fast O Fresh gives you entire heap of varieties. You can choose Basa fish to chicken, prawns to mutton, lamb to sole fish and so on. You just name it and we will convey at your doorstep. All things considered, isn&#39;t it extraordinary?</p>
+
+                                        <h4 style="color: wheat; margin-top: 30px;">Who doesn’t love fresh meat?</h4>
+                                        <p>We are so fixated to deliver the fresh product that we store them at a temperature of 0 - 4°C right
+                                        from the procurement and until it delivered from our warehouse to your door. We deliver fresh
+                                        from the source. Well, all around did we neglect to make reference to above, we are likewise paying
+                                        special mind to your cleanliness and wellbeing.</p>
+
+                                        <h4 style="color: wheat; margin-top: 30px;">Tired of paying extra? Pay for what you purchase.</h4>
+                                        <p>All things considered; we can’t talk on behalf of others however we unquestionably do it. You simply
+                                        need to pay for what you purchase. A large portion of the individuals gauge the complete meat first
+                                        and afterward cut the parts which aren’t a great idea to eat but then you pay for that and get less.
+                                        Here, at Fast O Fresh we don’t do it; you just have to pay for the original weight. Unless the others
+                                        who weighs the meat first and then cut into pieces.</p>
+
+                                        <h4 style="color: wheat; margin-top: 30px;">Have you heard about the term, “The more the merrier”?</h4>
+                                        <p>Well, on the off chance that in some way or another you get less measure of meat which you have
+                                        requested, at that point the leftover amount will be transferred in your Fast O Fresh wallet and if
+                                        you get more than the genuine weight you’ve ordered, for that <strong>we don’t charge additional single
+                                        penny.</strong></p>
+
+                                        <h4 style="color: wheat; margin-top: 30px;">Have you ever heard about, “Pocket friendly price ∝ superior quality”?</h4>
+                                        <p>If not, at that point we at Fast O Fresh certainly do it. We convey superior quality item in pocket
+                                        friendly value which is brimming with taste and deliciousness. What else do we need to live in this
+                                        costly world?</strong></p>
                                         
                                     </div>
                                     
@@ -156,45 +170,28 @@
                             </div><!-- Footer Data -->
                         </div>
                     </div>
-
-                    <div class="row">
+                     <div class="row">
                         <div class="col-md-12 col-sm-12 col-lg-12">
                             <div class="footer-data">
-                                <div class="row">
+                                <div class="row" style="margin-top: 60px;">
                                       <div class="col-md-12 col-sm-12 col-lg-12">
-                                        <h4 style="color: white; margin-top: 60px;">“Source to your home, same day delivery.” Have you ever imagined?"</h4>
-                                        <p>Well, to ensure about the accessibility of meat, we are modifying the old practices. We convey new
-meat every single day from clean organic farms which is more delectable and better with no harmful
-chemicals or additives.</p>
+                                        <?php $i=0.0;?>
+                                         @foreach($categories as $category)
+                                           <div class="widget get_in_touch wow fadeIn" data-wow-delay="{{$i +=0.2}}s" style="    color: wheat;">
+                                            @if($category->id ==6)
 
+                                            @else
+                                            <h4 class="widget-title" itemprop="headline" style="margin-bottom:10px;"><u><a href="{{url('')}}/category/{{$category->name}}">{{$category->name}}</a></u></h4>
+                                            @endif
+                                              
+                                              @foreach(footpro($category->id) as $profoot)
+                                                <a href="{{url('')}}/product/{{$profoot->id}}" >{{$profoot->name}}</a> /
+                                               @endforeach
+                                            
 
-
-<h4 style="color: white; margin-top: 30px;">Do you know “Variety is the spice of life”?</h4>
-<p>What&#39;s more, we at Fast O Fresh gives you entire heap of varieties. You can choose Basa fish to chicken, prawns to mutton, lamb to sole fish and so on. You just name it and we will convey at your doorstep. All things considered, isn&#39;t it extraordinary?</p>
-
-<h4 style="color: white; margin-top: 30px;">Who doesn’t love fresh meat?</h4>
-<p>We are so fixated to deliver the fresh product that we store them at a temperature of 0 - 4°C right
-from the procurement and until it delivered from our warehouse to your door. We deliver fresh
-from the source. Well, all around did we neglect to make reference to above, we are likewise paying
-special mind to your cleanliness and wellbeing.</p>
-
-<h4 style="color: white; margin-top: 30px;">Tired of paying extra? Pay for what you purchase.</h4>
-<p>All things considered; we can’t talk on behalf of others however we unquestionably do it. You simply
-need to pay for what you purchase. A large portion of the individuals gauge the complete meat first
-and afterward cut the parts which aren’t a great idea to eat but then you pay for that and get less.
-Here, at Fast O Fresh we don’t do it; you just have to pay for the original weight. Unless the others
-who weighs the meat first and then cut into pieces.</p>
-
-<h4 style="color: white; margin-top: 30px;">Have you heard about the term, “The more the merrier”?</h4>
-<p>Well, on the off chance that in some way or another you get less measure of meat which you have
-requested, at that point the leftover amount will be transferred in your Fast O Fresh wallet and if
-you get more than the genuine weight you’ve ordered, for that <strong>we don’t charge additional single
-penny.</strong></p>
-
-<h4 style="color: white; margin-top: 30px;">Have you ever heard about, “Pocket friendly price ∝ superior quality”?</h4>
-<p>If not, at that point we at Fast O Fresh certainly do it. We convey superior quality item in pocket
-friendly value which is brimming with taste and deliciousness. What else do we need to live in this
-costly world?</strong></p>
+                                        </div>
+                                     
+                                    @endforeach
                                         
                                     </div>
                                     
