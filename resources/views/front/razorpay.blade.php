@@ -448,7 +448,7 @@
 	var totalAmount = '{{$total}}';
 	var options = {
 	"key": "rzp_live_I7EnxAuSpuO9Br",
-	"amount": (1*100), // 2000 paise = INR 20
+	"amount": (totalAmount*100), // 2000 paise = INR 20
 	"name": "FastoFresh",
 	"description": "Payment order{{$total}}",
 	"image": SITEURL+ "/assets/images/logo2.png",
