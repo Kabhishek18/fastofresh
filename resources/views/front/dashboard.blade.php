@@ -8,12 +8,7 @@
                 </ol>
             </div>
         </div>
-    @if(Session::has('success'))
-        <div class="alert alert-info">{{ Session::get('success') }}</div>
-    @endif
-    @if(Session::has('warning'))
-        <div class="alert alert-warning">{{ Session::get('warning') }}</div>
-    @endif
+ @include('../status')
         <section>
             <div class=" gray-bg">
                 <div class="sec-box bottom-padd140">
@@ -55,7 +50,7 @@
                                                     <div class="tabs-wrp brd-rd5">
                                                         <h4 itemprop="headline">MY ORDERS</h4>
                                                         <div class="order-list">
-                                                            
+                                                            @if(!empty($orders))
                                                             @foreach($orders as $order)
                                                             <div class="order-item brd-rd5">
                                                               
@@ -86,12 +81,83 @@
                                                                         @endforeach
                                                                     </div>
                                                                     <span class="price">Grand Total : ₹ {{$order->orderamount}}</span>
+                                                                    @if($order->status =='cancelled')
+                                                                    <span class="processing brd-rd3" style="text-transform: capitalize;float: right;background: #800000">{{$order->status}}</span>
+                                                                    @else
                                                                     <span class="processing brd-rd3" style="text-transform: capitalize;float: right;">{{$order->status}}</span>
-                                                                    
+                                                                    @endif
+                                                                    @if($order->status =='cancelled' OR $order->status =='dispatched' OR $order->status =='delivered'  )
+                                                                    @else
+                                                                    <div class="col-md-12">
+                                                                        <a class="btn btn-danger" href="{{url('')}}/cancelorder/{{$order->id}}" ><i class="fa fa-remove"></i> Cancel Order </a>
+                                                                        <!-- cancel -->
+
+                                                                            <div class="btn btn-danger" data-toggle="modal" data-target="#GSCCModal">Cancle</div>
+                                                                            <form method="post" action="{{url('')}}/cancelorder">
+                                                                                <input type="hidden" value="{{$order->id}}" name="id">
+                                                                            <div id="GSCCModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                                                             <div class="modal-dialog">
+                                                                                <div class="modal-content">
+                                                                                  <div class="modal-header">
+                                                                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;  </button>
+                                                                                    <h4 class="modal-title" id="myModalLabel">Your Order #{{date('ymdhis')}}</h4>
+                                                                                  </div>
+                                                                                  <div class="modal-body">
+                                                                                    
+                                                                                    <div class="column-wrapper"><div class="options-wrapper">
+                                                                                        <div class="options-header">Please select your reason for cancellation</div>
+                                                                                        <div class="options"><div class="reason">
+                                                                                          <div>
+                                                                                              <input class="radio-custom form-group" name="cancellation_reasons" type="radio" id="radio_0" value="I changed my mind" checked>
+                                                                                              <label for="radio_0" class="radio-custom-label" >I changed my mind</label>
+                                                                                          </div>
+                                                                                        </div><div class="reason">
+                                                                                          <div>
+                                                                                              <input class="radio-custom" name="cancellation_reasons" type="radio" id="radio_1" value="I chose the wrong address">
+                                                                                              <label for="radio_1" class="radio-custom-label">I chose the wrong address</label>
+                                                                                          </div>
+                                                                                        </div><div class="reason">
+                                                                                          <div>
+                                                                                              <input class="radio-custom" name="cancellation_reasons" type="radio" id="radio_2" value="I forgot to add/remove a product">
+                                                                                              <label for="radio_2" class="radio-custom-label">I forgot to add/remove a product</label>
+                                                                                          </div>
+                                                                                        </div><div class="reason">
+                                                                                          <div>
+                                                                                              <input class="radio-custom" name="cancellation_reasons" type="radio" id="radio_3" value="I forgot to apply a coupon">
+                                                                                              <label for="radio_3" class="radio-custom-label">I forgot to apply a coupon</label>
+                                                                                          </div>
+                                                                                        </div><div class="reason">
+                                                                                          <div>
+                                                                                              <input class="radio-custom" name="cancellation_reasons" type="radio" id="radio_4" value="My order is delayed">
+                                                                                              <label for="radio_4" class="radio-custom-label">My order is delayed</label>
+                                                                                          </div>
+                                                                                        </div><div class="reason">
+                                                                                          <div>
+                                                                                              <input class="radio-custom" name="cancellation_reasons" type="radio" id="radio_5" value="Others">
+                                                                                              <label for="radio_5" class="radio-custom-label">Others *</label>
+
+                                                                                          </div>
+                                                                                              <textarea class="form-control" name="cancellation_reasons" for="radio_5"></textarea> 
+                                                                                        </div></div></div>
+                                                                                              <div class="bottom-msg-wrapper">
+                                                                                                *The refund amount from your order cancellation will be credited to your source account.
+                                                                                              </div></div>
+                                                                                                                                                                      </div>
+                                                                                  <div class="modal-footer">
+                                                                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                                                    <button type="submit" class="btn btn-danger" style="background:#800000">Cancel Order</button>
+                                                                                  </div>
+                                                                                </div>
+                                                                              </div>
+                                                                            </div>
+                                                                        </form>
+                                                                        <!-- cancel -->
+                                                                    </div>
+                                                                    @endif
                                                                 </div>
                                                             </div>
                                                             @endforeach
-
+                                                            @endif
                                                         </div>
                                                        
                                                     </div>
@@ -101,6 +167,7 @@
                                                         <h4 itemprop="headline">MY LOCATIONS</h4>
                                                        <br>
                                                         <?php $i=1;?>
+                                                        @if(!empty($locations))
                                                        @foreach($locations as $location) 
                                                       <div class="order-list">
                                                             <div class="order-item card">
@@ -120,6 +187,7 @@
                                                           
                                                       </div>      
                                                       @endforeach 
+                                                      @endif
                                                     </div>
                                                 </div>   
                                                 <div class="tab-pane fade " id="account-settings">

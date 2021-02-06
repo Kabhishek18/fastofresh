@@ -654,6 +654,38 @@ To complete your account verification, please enter the code below.
     }
   }
 
+  public function CancelOrder(Request $request)
+  {
+     $user['user'] = session()->get('user_session');
+    if ($user['user']) {
+      $reason = Request::post('reason');
+      $var['id'] =Request::post('id');
+      $var['userid'] =$user['user']->id;
+      $order =front_model::getOrderid($var['userid'],$var['id']);
+      if(!empty($order))
+      {
+        $update =front_model::UserCancelOrder($var);
+        if($update){
+          $orderdetails =json_decode($order->orderdetail,true); 
+          
+              $loc =json_decode($orderdetails['loc']); 
+              $sendmsg = 'Hi '.$loc->username.' Your Order has been Cancelled with Order no: '.date('ymdhsi',strtotime($order->created_at));
+              $sender =$loc->mobile;
+          sendSms($loc->mobile,$sendmsg);
+          return redirect()->back()->with('success', 'Cancel Order SuccessFully!');
+        }
+        else{
+           return redirect()->back()->with('warning', 'Something Went Wrong!');
+         }
+      }
+    }
+    else{
+       session()->flash('warning', 'Access Denied');
+      return redirect('');
+    }
+  }
+
+
   //Location remove
   public function LocationRemove($value)
   {

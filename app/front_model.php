@@ -145,6 +145,25 @@ class front_model extends Model
   }
 
 
+    public static function getOrderid($user='', $id= ''){
+
+      if($id){
+        $array =array('userid' => $user,'id' => $id);
+        $value=DB::table('orders')->where($array)->orderBy('id', 'desc')->first();
+      }
+      else{
+      $value=DB::table('orders')->orderBy('id', 'desc')->get();
+      }
+      return $value;
+  }
+
+
+  public static function UserCancelOrder($array)
+  {
+    $value= DB::update('update orders set `status` = ?,`updated_at` = ?  where id =? ',['cancelled',date('Y-m-d h:s:i'),$array['id']]);
+    return $value;
+  }
+
 
 
 
