@@ -447,7 +447,7 @@
 	$('body').on('click', '.buy_now', function(e){
 	var totalAmount = '{{$total}}';
 	var options = {
-	"key": "rzp_live_I7EnxAuSpuO9Br",
+	"key": "rzp_live_7vArwpYgV3U8Pn",
 	"amount": (totalAmount*100), // 2000 paise = INR 20
 	"name": "FastoFresh",
 	"description": "Payment order{{$total}}",
