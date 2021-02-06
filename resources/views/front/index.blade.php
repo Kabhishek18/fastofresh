@@ -538,7 +538,7 @@
                           <p>Wholesome meat, swift delivery.</p>
                         </div>
                         <div class="modal-body" style="padding: 10px">
-                            <div class="modal-content">
+                            <div class="modal-content" style="border: none;">
    
                             <div class="" >
                                 <form action="{{url('')}}/location/saved" method="post">

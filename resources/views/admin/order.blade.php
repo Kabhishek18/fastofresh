@@ -73,6 +73,7 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
+                                                    @if(!empty($orders))
                                                     @foreach($orders as $order)
                                                     <tr>
                                                         <td>{{date('ymdhsi',strtotime($order->created_at))}}</td>
@@ -131,7 +132,7 @@
                                                         </td>
                                                     </tr>
                                                     @endforeach
-                                                        
+                                                     @endif   
                                                 </tbody>
                                                 <tfoot>
                                                     <tr>
