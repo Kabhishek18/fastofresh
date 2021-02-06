@@ -88,11 +88,13 @@
                                                                     @endif
                                                                     @if($order->status =='cancelled' OR $order->status =='dispatched' OR $order->status =='delivered'  )
                                                                     @else
-                                                                    <div class="col-md-12">
+                                                                    <div class="col-md-12" style="margin-top: 10px">
                                                                       
                                                                         <!-- cancel -->
 
-                                                                            <div class="btn btn-danger" data-toggle="modal" data-target="#GSCCModal"><i class="fa fa-remove"></i> Cancel Order</div>
+                                                                           <div class="col-md-6">
+                                                                                <div class="btn btn-danger" data-toggle="modal" data-target="#GSCCModal"><i class="fa fa-remove"></i> Cancel Order</div>
+                                                                           </div>
                                                                             <form method="post" action="{{url('')}}/cancelorder">
                                                                                 <input type="hidden" value="{{$order->id}}" name="id">
                                                                             <div id="GSCCModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -152,6 +154,13 @@
                                                                             </div>
                                                                         </form>
                                                                         <!-- cancel -->
+                                                                        <!-- View Order Detail -->
+                                                                        <div class="col-md-6 text-right">
+                                                                            
+                                                                            <a href="" class="btn btn-default" style="background: #face82;color: #800000">Print Inovice</a>
+                                                                        </div>
+                                                                        <!-- View Order Details -->
+
                                                                     </div>
                                                                     @endif
                                                                 </div>

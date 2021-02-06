@@ -288,7 +288,7 @@
             <div class="container">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{url('')}}}" title="" itemprop="url">Home</a></li>
-                    <li class="breadcrumb-item active">Checkout Page</li>
+                    <li class="breadcrumb-item active">Thanks</li>
                 </ol>
             </div>
         </div>
@@ -311,132 +311,17 @@
 										</div>
 										  
 										  <div class="thanks">
-                        <button onclick="printDiv('printableArea')">Print this page</button>
                         <h2>Thank you for your order</h2>
-  										    Please find attatched below your order invoice information for <strong>
+  										    #{{date('ymdhsi',strtotime($created_at))}} order has been confirmed for <strong>
 										    	{{$loc->username}}
 										    </strong>. 
-										  </div>
-										  
-										  <div class="spacing">
-										  <hr>
-										  </div>
-										  
-										  <div class="deliver">
-										<p> Delivery Details:</p>
-										    {{$loc->addressline1}} <br>
-										   Landmark: {{$loc->landmark}} <br>
-										    {{$loc->city}} <br>
-										    {{$loc->postalcode}} <br>
-
-										  </div>
-
-										  <div class="client">
-										<p>Client Details: </p>
-										<strong>Contact:</strong> {{$loc->username}}<br />
-										<strong>Email:</strong> {{$loc->email}}<br />
-										<strong> Contact Number: </strong> {{$loc->mobile}}<br />
-										  </div>
-										  <div class="orderinfo">
-										    <p> Order Information:  </p><br />
-
-										
-								
-                    @if($orderdetails['method'] =='cash')
-                    <strong>Payment Due: </strong> Yes (Cash On Delivery) <br />
-                        <strong> Order Date: </strong> {{date('F d y h:i:s A',strtotime($created_at))}} <br />
-                    @else
-                    <strong> Order Number: FOF</strong>{{date('ymdhis',strtotime($created_at))}} <br/>
-                        <strong> Order Date: </strong> {{date('F d y h:i:s A',strtotime($created_at))}} <br />
-                    <strong>Payment Due: </strong> No (Paid Online)<br />
-                    <strong>Transactionid : </strong> {{$transactionid}} <br />
-                    @endif
-                    <strong>Transaction Amount : </strong>₹  {{$order_amount}} <br />
-										</div>
-										  
-										  <div class="spacing">
-										  <hr>
-										  </div>
-										  
-											<?php $cart = json_decode($order_cart,true) ?>
-										  
-										  <div class="productinfo">
-										<p> Your order information:</p>
-										<table>
-										    <tbody>
-										        <tr>
-										        <th class="name"> Product Name </th>
-										        <th class="detail"> Product Image </th>
-										        <th class="qty">Qty</th>
-										        <th class="cost">SubTotal</th>
-										        </tr>
-										        <?php $total = 0 ;?>
-                                @foreach($cart as $id => $details)
-                            	<?php $total += $details['price'] * $details['quantity'] ?>
-										        <tr>
-										        <td class="name">{{ $details['name'] }}</td>
-										        <td class="detail"><img src="{{url('products/')}}/{{ $details['photo'] }}" width="100" height="100" class="img-responsive"/></td>
-										        <td class="qty">{{$details['quantity'] }}</td>
-										        <td class="cost">₹ {{ $details['price'] * $details['quantity'] }}</td>
-										        </tr>
-										        @endforeach
-										    </tbody>
-										</table>
-										</div>
-										  
-										  <div class="ordernotes">
-									     
-                       <p><strong> Slot Timing </strong> : {{$orderdetails['slottime']}}</p>
-                      
-										  </div>
-										  
-										<div class="payment">
-										<strong>Sub Total: </strong>₹  {{$total}} <br />
-										@if($total<499)
-                                                <?php $ship =30; $total += $ship?>
-										<strong> Postage &amp; Packaging: </strong>₹ {{$ship}}<br />
-										 @endif
-										@if(!empty(session()->get('coupon')))
-                                        <?php $coupon =session()->get('coupon'); ?>
-										<strong> Discounts ({{$coupon->name}}): </strong> 
-										@if($coupon->coupon_type =='percent')
-                                                           <?php $couponvalue = ($coupon->coupon_value*$total/100) ;?>
-                                                           @else
-                                                           <?php $couponvalue = ($coupon->coupon_value) ;?>
-                                                           @endif  
-                                                           <?php if($total >$couponvalue){
-                                                            $total = $total - $couponvalue;
-                                                               }else{$total = 0;}?>
-                                                               ₹ {{$couponvalue}} 
-                                                                <br />
-                                          @endif                      
-										<strong> Order Total: </strong> ₹  {{$total}} <br />
-											
-										</div>
-										  
-										  <div class="spacing">
-										  <hr>
-										  </div>
-										  
-										  <div class="note">
-										    <p> PLEASE NOTE:</p><br>
-										    <p >In case of any modifications made to your order, the inital delivery address will remain the same.</p>
-										    <p >If any of the above information is incorrect, you must inform us as soon as possible using info@fastofresh.cpm Failure to do so will result in your order being dispatched as above. Orders are accepted up to 5pm every working day. if they arrive with Fast O Fresh Pvt. Ltd. after this time, they are considered to have arrived the next day. There may be a delay if you have opted in for a printed proof to be sent to yourself or there is a delay with your payment. We aim to notify our customers of all delays where possible. Once your order has been dispatched, you will recieve an email of estimated delivery date and tracking number if applicable. For full terms and conditions please visit fastofresh.com</p>
-										  </div>
-										  
-										 <div class="spacing">
-										  <hr>
-										  </div>
-										  
-										  
-										  <div class="footer">
-										   <!--  <p>In case of any modifications made to your order, the inital delivery address will remain the same.</p>
-										If any of the above information is incorrect, you must inform us as soon as possible using info@fastofresh.cpm Failure to do so will result in your order being dispatched as above. Orders are accepted up to 5pm every working day. if they arrive with Fast O Fresh Pvt. Ltd. after this time, they are considered to have arrived the next day. There may be a delay if you have opted in for a printed proof to be sent to yourself or there is a delay with your payment. We aim to notify our customers of all delays where possible. Once your order has been dispatched, you will recieve an email of estimated delivery date and tracking number if applicable. For full terms and conditions please visit fastofresh.com
-										<img alt="" src="http://FastoFresh.com" /> -->
-										</div>
-										  </div>
-										  
-										</div>
+										    </div>
+                            <div class="text-center">
+                              <img src="{{url('')}}/assets/images/orderpay.gif">  
+                            </div>  							
+    										  </div>
+    										  
+    										</div>
 
 
 

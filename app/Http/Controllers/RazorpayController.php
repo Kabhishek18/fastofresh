@@ -33,6 +33,8 @@ use App\front_model;
 	 }
 	public function RazorThankYou()
 	{	
+		session()->forget('cart');
+		
 		if (!empty(session()->get('order'))) {
 		$categories['categories'] = front_model::getCategory();
 		$order =session()->get('order');
@@ -116,8 +118,7 @@ use App\front_model;
 		echo view('front/inc/nav',$categories);
 		echo view('front/thankyou',$order);
 		echo view('front/inc/footer',$categories);
-		session()->forget('order');
-		session()->forget('cart');
+		//session()->forget('order');
 		}
 		else{
 			return redirect('')->with('warning', 'Page Reload Invaild');
