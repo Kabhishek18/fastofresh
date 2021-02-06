@@ -526,43 +526,21 @@
                   background-color: #306f06;
                }
         </style>
-        <!-- @if(empty(session()->get('pinlocation'))) -->
-        <SCRIPT>
-function ShowAndHide() {
-    var x = document.getElementById('SectionName');
-    if (x.style.display == 'none') {
-        x.style.display = 'block';
-    } else {
-        x.style.display = 'none';
-    }
-}
-</SCRIPT>
-        <div class="newsletter-popup-wrapper text-center" id="SectionName" >
-
-              <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                     <div class="modal-header">
-                      <BUTTON class="btn btn-danger" ONCLICK="ShowAndHide()">X</BUTTON>
-        <!--         <h4 class="modal-title">Modal Header</h4> -->
-      </div>
-      <div class="modal-body text-center">
-        <h4>Due to ongoing farmer protest and strike on <a href="javascript:void(0)">06 Feb 2021</a>, We are not accepting orders.</h4>
-          <p class="text-center">Our Service will be resume on 07 Feb 2021. Inconvenince caused is deeply regretted.</p>
-      
-      </div>
-      <div class="modal-footer">
+        @if(empty(session()->get('pinlocation')))
         
-      </div>
-    </div>
-                        <!-- <div class="modal-header">
+        <div class="newsletter-popup-wrapper text-center">
+
+              <div class="modal-dialog" role="document" style="background: white;">
+       
+                        <div class="modal-header">
                           <div class="modal-logo"><img src="/assets/images/logo2.png"></div>
                           <br>
                           <p>Wholesome meat, swift delivery.</p>
-                        </div> -->
-                        <!-- <div class="modal-body" style="padding: 10px"> -->
+                        </div>
+                        <div class="modal-body" style="padding: 10px">
                             <div class="modal-content">
    
-                            <!-- <div class="" >
+                            <div class="" >
                                 <form action="{{url('')}}/location/saved" method="post">
                                 @csrf
                                 <div class="col-md-12">
@@ -629,7 +607,7 @@ function ShowAndHide() {
 
                                 @endforeach 
                                
-                            @endforeach -->
+                            @endforeach
 
                         </select>
                         </form>
@@ -642,7 +620,7 @@ function ShowAndHide() {
                  </div><!-- /.modal-content -->
               </div>   
         </div>
-        <!-- @endif -->
+        @endif
 
      <!--    <section>
             <div class="block no-padding red-bg">
