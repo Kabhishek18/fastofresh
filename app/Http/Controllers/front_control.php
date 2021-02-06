@@ -303,7 +303,7 @@ class front_control extends Controller
       </tr>
    </tbody>
 </table>';
-                sendEmail($loc->email,$ordermsg,'Your Fast O Fresh order no.'.date('ymdhsi',strtotime($order['created_at'])).' has been received.');
+                sendEmail($loc->email,$ordermsg,'Your Fast O Fresh order no.'.date('ymdhis',strtotime($order['created_at'])).' has been received.');
 
               return redirect('thank-you')->with('success', 'Order Placed With');
       
