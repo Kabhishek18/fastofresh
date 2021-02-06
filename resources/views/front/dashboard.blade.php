@@ -89,10 +89,10 @@
                                                                     @if($order->status =='cancelled' OR $order->status =='dispatched' OR $order->status =='delivered'  )
                                                                     @else
                                                                     <div class="col-md-12">
-                                                                        <a class="btn btn-danger" href="{{url('')}}/cancelorder/{{$order->id}}" ><i class="fa fa-remove"></i> Cancel Order </a>
+                                                                      
                                                                         <!-- cancel -->
 
-                                                                            <div class="btn btn-danger" data-toggle="modal" data-target="#GSCCModal">Cancle</div>
+                                                                            <div class="btn btn-danger" data-toggle="modal" data-target="#GSCCModal"><i class="fa fa-remove"></i> Cancel Order</div>
                                                                             <form method="post" action="{{url('')}}/cancelorder">
                                                                                 <input type="hidden" value="{{$order->id}}" name="id">
                                                                             <div id="GSCCModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
