@@ -82,9 +82,9 @@
                                                                     </div>
                                                                     <span class="price">Grand Total : ₹ {{$order->orderamount}}</span>
                                                                     @if($order->status =='cancelled')
-                                                                    <span class="processing brd-rd3" style="text-transform: capitalize;float: right;background: #800000">{{$order->status}}</span>
+                                                                    <span class="btn btn-default " style="text-transform: capitalize;float: right;background:#face82; color: #800000">{{$order->status}}</span>
                                                                     @else
-                                                                    <span class="processing brd-rd3" style="text-transform: capitalize;float: right;">{{$order->status}}</span>
+                                                                    <span class="btn btn-danger " style="text-transform: capitalize;float: right;background: #800000">{{$order->status}}</span>
                                                                     @endif
                                                                     @if($order->status =='cancelled' OR $order->status =='dispatched' OR $order->status =='delivered'  )
                                                                     @else
@@ -157,7 +157,7 @@
                                                                         <!-- View Order Detail -->
                                                                         <div class="col-md-6 text-right">
                                                                             
-                                                                            <a href="" class="btn btn-default" style="background: #face82;color: #800000">Print Inovice</a>
+                                                                            <a href="{{url('')}}/invoice/{{$order->id}}" class="btn btn-default" style="background: #face82;color: #800000">Download Inovice</a>
                                                                         </div>
                                                                         <!-- View Order Details -->
 

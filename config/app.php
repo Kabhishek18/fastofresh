@@ -162,7 +162,7 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         Laravel\Socialite\SocialiteServiceProvider::class,
-
+        LaravelDaily\Invoices\InvoiceServiceProvider::class,
         /*
          * Package Service Providers...
          */
@@ -210,6 +210,7 @@ return [
         'Hash' => Illuminate\Support\Facades\Hash::class,
         'Http' => Illuminate\Support\Facades\Http::class,
         'Input' => Illuminate\Support\Facades\Input::class,
+        'Invoice' => LaravelDaily\Invoices\Facades\Invoice::class,
         'Lang' => Illuminate\Support\Facades\Lang::class,
         'Log' => Illuminate\Support\Facades\Log::class,
         'Mail' => Illuminate\Support\Facades\Mail::class,

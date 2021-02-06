@@ -14,6 +14,7 @@ use PHPMailer\PHPMailer\Exception;
 use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Client;
 
+
 class front_control extends Controller
 {
     //Home Page
@@ -647,6 +648,28 @@ To complete your account verification, please enter the code below.
       echo view('front/inc/nav',$var);
       echo view('front/dashboard',$user);
       echo view('front/inc/footer',$var);
+    }
+    else{
+       session()->flash('warning', 'Access Denied');
+      return redirect('');
+    }
+  }
+
+  public function OrderInvoice($value='')
+  {
+    $user['user'] = session()->get('user_session');
+    if ($user['user']) {
+      $user['order'] =front_model::getOrderid($user['user']->id,$value);
+      if(empty($user['user']->id)){
+         $data = front_model::GetUserEmailby( $user['user']->email);
+        session()->put('user_session',$data);
+       $user['user'] = session()->get('user_session');
+      }
+        echo  view('admin/inc/header2');    
+         
+        echo  view('front/invoice',$user);
+        echo  view('admin/inc/footer');    
+
     }
     else{
        session()->flash('warning', 'Access Denied');

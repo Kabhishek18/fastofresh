@@ -85,3 +85,9 @@ function sendSms($contacts,$msg)
       $product = front_model::GetCatPro($id);
         return $product;
     }
+
+
+  function startsWith($string, $startString) { 
+      $len = strlen($startString); 
+      return (substr($string, 0, $len) === $startString); 
+    } 

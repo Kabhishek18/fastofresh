@@ -37,7 +37,7 @@ Route::post('pincode/saved', 'front_control@PincodeSaved');
 Route::post('applycoupon', 'cart@ApplyCoupon');
 Route::get('removeCoupon', 'cart@removeCoupon');
 Route::post('cancelorder', 'front_control@CancelOrder');
-
+Route::get('invoice/{id}','front_control@OrderInvoice');
 
 Route::get('recipes/{id}', 'front_control@recipeDetail');
 
