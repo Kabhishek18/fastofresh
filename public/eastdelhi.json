@@ -1,0 +1,570 @@
+{
+	"East Delhi": [
+ {
+   "S.No.": 1,
+   "Area": "Gandhi Nagar Bazar",
+   "District": "East Delhi",
+   "Pincode": 110031
+ },
+ {
+   "S.No.": 2,
+   "Area": "Gandhi Nagar",
+   "District": "East Delhi",
+   "Pincode": 110031
+ },
+ {
+   "S.No.": 3,
+   "Area": "Geeta Colony",
+   "District": "East Delhi",
+   "Pincode": 110031
+ },
+ {
+   "S.No.": 4,
+   "Area": "Kailash Nagar",
+   "District": "East Delhi",
+   "Pincode": 110031
+ },
+ {
+   "S.No.": 5,
+   "Area": "Raghubar Pura",
+   "District": "East Delhi",
+   "Pincode": 110031
+ },
+ {
+   "S.No.": 6,
+   "Area": "Rajgarh Colony",
+   "District": "East Delhi",
+   "Pincode": 110031
+ },
+ {
+   "S.No.": 7,
+   "Area": "Shastri Nagar",
+   "District": "East Delhi",
+   "Pincode": 110031
+ },
+ {
+   "S.No.": 8,
+   "Area": "Balbir Nagar",
+   "District": "East Delhi",
+   "Pincode": 110032
+ },
+ {
+   "S.No.": 9,
+   "Area": "Babarpur",
+   "District": "East Delhi",
+   "Pincode": 110032
+ },
+ {
+   "S.No.": 10,
+   "Area": "Bhola Nath Nagar",
+   "District": "East Delhi",
+   "Pincode": 110032
+ },
+ {
+   "S.No.": 11,
+   "Area": "Distt. Court (KKD)",
+   "District": "East Delhi",
+   "Pincode": 110032
+ },
+ {
+   "S.No.": 12,
+   "Area": "Goverdhan Bihari Colony",
+   "District": "East Delhi",
+   "Pincode": 110032
+ },
+ {
+   "S.No.": 13,
+   "Area": "Loni Road",
+   "District": "East Delhi",
+   "Pincode": 110032
+ },
+ {
+   "S.No.": 14,
+   "Area": "Man Sarovar Park",
+   "District": "East Delhi",
+   "Pincode": 110032
+ },
+ {
+   "S.No.": 15,
+   "Area": "Rohtash Nagar",
+   "District": "East Delhi",
+   "Pincode": 110032
+ },
+ {
+   "S.No.": 16,
+   "Area": "Shahdara Mandi",
+   "District": "East Delhi",
+   "Pincode": 110032
+ },
+ {
+   "S.No.": 17,
+   "Area": "Shahdara",
+   "District": "East Delhi",
+   "Pincode": 110032
+ },
+ {
+   "S.No.": 18,
+   "Area": "Shivaji Park",
+   "District": "East Delhi",
+   "Pincode": 110032
+ },
+ {
+   "S.No.": 19,
+   "Area": "Subhash Park",
+   "District": "East Delhi",
+   "Pincode": 110032
+ },
+ {
+   "S.No.": 20,
+   "Area": "Telewara",
+   "District": "East Delhi",
+   "Pincode": 110032
+ },
+ {
+   "S.No.": 21,
+   "Area": "Vishwas Nagar",
+   "District": "East Delhi",
+   "Pincode": 110032
+ },
+ {
+   "S.No.": 22,
+   "Area": "Azad Nagar",
+   "District": "East Delhi",
+   "Pincode": 110051
+ },
+ {
+   "S.No.": 23,
+   "Area": "Govind Pura",
+   "District": "East Delhi",
+   "Pincode": 110051
+ },
+ {
+   "S.No.": 24,
+   "Area": "Gagan Vihar",
+   "District": "East Delhi",
+   "Pincode": 110051
+ },
+ {
+   "S.No.": 25,
+   "Area": "Karkardooma",
+   "District": "East Delhi",
+   "Pincode": 110051
+ },
+ {
+   "S.No.": 26,
+   "Area": "Krishna Nagar",
+   "District": "East Delhi",
+   "Pincode": 110051
+ },
+ {
+   "S.No.": 27,
+   "Area": "Ram Nagar",
+   "District": "East Delhi",
+   "Pincode": 110051
+ },
+ {
+   "S.No.": 28,
+   "Area": "Brahampuri",
+   "District": "East Delhi",
+   "Pincode": 110053
+ },
+ {
+   "S.No.": 29,
+   "Area": "Bhajanpura",
+   "District": "East Delhi",
+   "Pincode": 110053
+ },
+ {
+   "S.No.": 30,
+   "Area": "Garhi Mandu",
+   "District": "East Delhi",
+   "Pincode": 110053
+ },
+ {
+   "S.No.": 31,
+   "Area": "Ghonda",
+   "District": "East Delhi",
+   "Pincode": 110053
+ },
+ {
+   "S.No.": 32,
+   "Area": "Jafrabad",
+   "District": "East Delhi",
+   "Pincode": 110053
+ },
+ {
+   "S.No.": 33,
+   "Area": "Jagjit Nagar",
+   "District": "East Delhi",
+   "Pincode": 110053
+ },
+ {
+   "S.No.": 34,
+   "Area": "Maujpur",
+   "District": "East Delhi",
+   "Pincode": 110053
+ },
+ {
+   "S.No.": 35,
+   "Area": "New Usmanpur",
+   "District": "East Delhi",
+   "Pincode": 110053
+ },
+ {
+   "S.No.": 36,
+   "Area": "Seelampur",
+   "District": "East Delhi",
+   "Pincode": 110053
+ },
+ {
+   "S.No.": 37,
+   "Area": "Yamuna Vihar",
+   "District": "East Delhi",
+   "Pincode": 110053
+ },
+ {
+   "S.No.": 38,
+   "Area": "Badarpur Khadar",
+   "District": "East Delhi",
+   "Pincode": 110090
+ },
+ {
+   "S.No.": 39,
+   "Area": "Karawal Nagar",
+   "District": "East Delhi",
+   "Pincode": 110090
+ },
+ {
+   "S.No.": 40,
+   "Area": "Rajeev Nagar",
+   "District": "East Delhi",
+   "Pincode": 110090
+ },
+ {
+   "S.No.": 41,
+   "Area": "Shaheed Bhagat Singh Colony",
+   "District": "East Delhi",
+   "Pincode": 110090
+ },
+ {
+   "S.No.": 42,
+   "Area": "Sonia Vihar",
+   "District": "East Delhi",
+   "Pincode": 110090
+ },
+ {
+   "S.No.": 43,
+   "Area": "Chilla",
+   "District": "East Delhi",
+   "Pincode": 110091
+ },
+ {
+   "S.No.": 44,
+   "Area": "Commonwealth Games Village",
+   "District": "East Delhi",
+   "Pincode": 110091
+ },
+ {
+   "S.No.": 45,
+   "Area": "Gharoli",
+   "District": "East Delhi",
+   "Pincode": 110091
+ },
+ {
+   "S.No.": 46,
+   "Area": "Himmatpuri",
+   "District": "East Delhi",
+   "Pincode": 110091
+ },
+ {
+   "S.No.": 47,
+   "Area": "Kalyanpuri",
+   "District": "East Delhi",
+   "Pincode": 110091
+ },
+ {
+   "S.No.": 48,
+   "Area": "Kalyanvas",
+   "District": "East Delhi",
+   "Pincode": 110091
+ },
+ {
+   "S.No.": 49,
+   "Area": "Mayur Vihar Ph-1",
+   "District": "East Delhi",
+   "Pincode": 110091
+ },
+ {
+   "S.No.": 50,
+   "Area": "Mayur Vihar Ph-2",
+   "District": "East Delhi",
+   "Pincode": 110091
+ },
+ {
+   "S.No.": 51,
+   "Area": "Patparganj",
+   "District": "East Delhi",
+   "Pincode": 110091
+ },
+ {
+   "S.No.": 52,
+   "Area": "Trilok Puri",
+   "District": "East Delhi",
+   "Pincode": 110091
+ },
+ {
+   "S.No.": 53,
+   "Area": "Anand Vihar",
+   "District": "East Delhi",
+   "Pincode": 110092
+ },
+ {
+   "S.No.": 54,
+   "Area": "Ganesh Nagar",
+   "District": "East Delhi",
+   "Pincode": 110092
+ },
+ {
+   "S.No.": 55,
+   "Area": "IP Extension",
+   "District": "East Delhi",
+   "Pincode": 110092
+ },
+ {
+   "S.No.": 56,
+   "Area": "Karkardooma",
+   "District": "East Delhi",
+   "Pincode": 110092
+ },
+ {
+   "S.No.": 57,
+   "Area": "Laxmi Nagar",
+   "District": "East Delhi",
+   "Pincode": 110092
+ },
+ {
+   "S.No.": 58,
+   "Area": "Madhuban",
+   "District": "East Delhi",
+   "Pincode": 110092
+ },
+ {
+   "S.No.": 59,
+   "Area": "Mandawali Fazalpur",
+   "District": "East Delhi",
+   "Pincode": 110092
+ },
+ {
+   "S.No.": 60,
+   "Area": "Nirman Vihar",
+   "District": "East Delhi",
+   "Pincode": 110092
+ },
+ {
+   "S.No.": 61,
+   "Area": "Pandav Nagar",
+   "District": "East Delhi",
+   "Pincode": 110092
+ },
+ {
+   "S.No.": 62,
+   "Area": "Preet Vihar",
+   "District": "East Delhi",
+   "Pincode": 110092
+ },
+ {
+   "S.No.": 63,
+   "Area": "Shakarpur",
+   "District": "East Delhi",
+   "Pincode": 110092
+ },
+ {
+   "S.No.": 64,
+   "Area": "Srestha Vihar",
+   "District": "East Delhi",
+   "Pincode": 110092
+ },
+ {
+   "S.No.": 65,
+   "Area": "Surajmal Vihar",
+   "District": "East Delhi",
+   "Pincode": 110092
+ },
+ {
+   "S.No.": 66,
+   "Area": "Yozna Vihar",
+   "District": "East Delhi",
+   "Pincode": 110092
+ },
+ {
+   "S.No.": 67,
+   "Area": "Harsh Vihar",
+   "District": "East Delhi",
+   "Pincode": 110093
+ },
+ {
+   "S.No.": 68,
+   "Area": "Loni Road",
+   "District": "East Delhi",
+   "Pincode": 110093
+ },
+ {
+   "S.No.": 69,
+   "Area": "Loni Road Housing Complex",
+   "District": "East Delhi",
+   "Pincode": 110093
+ },
+ {
+   "S.No.": 70,
+   "Area": "Mandoli Saboli",
+   "District": "East Delhi",
+   "Pincode": 110093
+ },
+ {
+   "S.No.": 71,
+   "Area": "Nand Nagri",
+   "District": "East Delhi",
+   "Pincode": 110093
+ },
+ {
+   "S.No.": 72,
+   "Area": "Nand Nagri A",
+   "District": "East Delhi",
+   "Pincode": 110093
+ },
+ {
+   "S.No.": 73,
+   "Area": "Nand Nagri C",
+   "District": "East Delhi",
+   "Pincode": 110093
+ },
+ {
+   "S.No.": 74,
+   "Area": "Sunder Nagri",
+   "District": "East Delhi",
+   "Pincode": 110093
+ },
+ {
+   "S.No.": 75,
+   "Area": "Dayalpur",
+   "District": "East Delhi",
+   "Pincode": 110094
+ },
+ {
+   "S.No.": 76,
+   "Area": "Ganga Vihar",
+   "District": "East Delhi",
+   "Pincode": 110094
+ },
+ {
+   "S.No.": 77,
+   "Area": "Gokal Puri",
+   "District": "East Delhi",
+   "Pincode": 110094
+ },
+ {
+   "S.No.": 78,
+   "Area": "Johripur",
+   "District": "East Delhi",
+   "Pincode": 110094
+ },
+ {
+   "S.No.": 79,
+   "Area": "Khazuri Khas",
+   "District": "East Delhi",
+   "Pincode": 110094
+ },
+ {
+   "S.No.": 80,
+   "Area": "Nagarjun Buddha Vihar",
+   "District": "East Delhi",
+   "Pincode": 110094
+ },
+ {
+   "S.No.": 81,
+   "Area": "Sabhapur",
+   "District": "East Delhi",
+   "Pincode": 110094
+ },
+ {
+   "S.No.": 82,
+   "Area": "Sonia Vihar",
+   "District": "East Delhi",
+   "Pincode": 110094
+ },
+ {
+   "S.No.": 83,
+   "Area": "Dilshad Garden",
+   "District": "East Delhi",
+   "Pincode": 110095
+ },
+ {
+   "S.No.": 84,
+   "Area": "G.T.B. Hospital",
+   "District": "East Delhi",
+   "Pincode": 110095
+ },
+ {
+   "S.No.": 85,
+   "Area": "Jhilmil",
+   "District": "East Delhi",
+   "Pincode": 110095
+ },
+ {
+   "S.No.": 86,
+   "Area": "Jhilmil Tahirpur",
+   "District": "East Delhi",
+   "Pincode": 110095
+ },
+ {
+   "S.No.": 87,
+   "Area": "New Seemapuri",
+   "District": "East Delhi",
+   "Pincode": 110095
+ },
+ {
+   "S.No.": 88,
+   "Area": "Old Seemapuri",
+   "District": "East Delhi",
+   "Pincode": 110095
+ },
+ {
+   "S.No.": 89,
+   "Area": "V.K. Nagar",
+   "District": "East Delhi",
+   "Pincode": 110095
+ },
+ {
+   "S.No.": 90,
+   "Area": "Vivek Vihar",
+   "District": "East Delhi",
+   "Pincode": 110095
+ },
+ {
+   "S.No.": 91,
+   "Area": "Ghazipur",
+   "District": "East Delhi",
+   "Pincode": 110096
+ },
+ {
+   "S.No.": 92,
+   "Area": "New Ashok Nagar",
+   "District": "East Delhi",
+   "Pincode": 110096
+ },
+ {
+   "S.No.": 93,
+   "Area": "Mayur Vihar Ph-III",
+   "District": "East Delhi",
+   "Pincode": 110096
+ },
+ {
+   "S.No.": 94,
+   "Area": "Vasundhra Enclave",
+   "District": "East Delhi",
+   "Pincode": 110096
+ }
+]
+
+	
+}

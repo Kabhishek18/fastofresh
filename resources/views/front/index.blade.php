@@ -581,18 +581,52 @@
                                 </div>
                             </form>
                             </div>
-
                             <div class=" col-md-12 text-center" style="">
                                 <h4><i class="fa fa-map-marker"></i> Please select your pin location for delivery</h4>
                               <div class=""  >
                               <?php
-                              $json_string =    file_get_contents("locationpin.json");
+                              if(!empty(session()->get('location'))){
+
+                                if(session()->get('location') == 'East Delhi')
+                                {
+                                $json_string =    file_get_contents("eastdelhi.json");
+                                }
+                                elseif(session()->get('location') =='Noida')
+                                {
+                                $json_string = file_get_contents("noida.json");
+                                }
+                                elseif(session()->get('location') =='Ghaziabad')
+                                {
+                                $json_string = file_get_contents("ghaziabad.json");
+                                }
+                              }
+                              else{
+                                $json_string = file_get_contents("locationpin.json"); 
+                              }
+
                               $parsed_json = json_decode($json_string, true);
                               ?>
-                              <form action="{{url('')}}/pincode/saved" method="post" style="display: flex;color: #fff !important">
+                              <form action="{{url('')}}/pincode/saved" method="post" style="display: flex;">
                             @csrf
-                            <i class="fa fa-map-marker"></i>
-                            <select data-placeholder="Feel Like Eating" name="pinlocation" onchange="this.form.submit()">
+                            
+                            <style type="text/css">
+                              .select2-search-choice {
+    background-color: #56a600;
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f4f4f4', endColorstr='#eeeeee', GradientType=0 );
+    background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, color-stop(20%, #f4f4f4), color-stop(50%, #f0f0f0), color-stop(52%, #e8e8e8), color-stop(100%, #eeeeee));
+    background-image: -webkit-linear-gradient(top, #f4f4f4 20%, #f0f0f0 50%, #e8e8e8 52%, #eeeeee 100%);
+    background-image: -moz-linear-gradient(top, #f4f4f4 20%, #f0f0f0 50%, #e8e8e8 52%, #eeeeee 100%);
+    background-image: -o-linear-gradient(top, #f4f4f4 20%, #f0f0f0 50%, #e8e8e8 52%, #eeeeee 100%);
+    background-image: -ms-linear-gradient(top, #f4f4f4 20%, #f0f0f0 50%, #e8e8e8 52%, #eeeeee 100%);
+    background-image: linear-gradient(top, #f4f4f4 20%, #f0f0f0 50%, #e8e8e8 52%, #eeeeee 100%);
+    -webkit-box-shadow: 0 0 2px #ffffff inset, 0 1px 0 rgba(0,0,0,0.05);
+    -moz-box-shadow: 0 0 2px #ffffff inset, 0 1px 0 rgba(0,0,0,0.05);
+    box-shadow: 0 0 2px #ffffff inset, 0 1px 0 rgba(0,0,0,0.05);
+    color: #333;
+    border: 1px solid #aaaaaa;
+}
+                            </style>
+                            <select class="form-control select2-search-choice"  data-placeholder="Feel Like Eating" name="pinlocation" onchange="this.form.submit()" style="color:#800000">
                             @if(!empty(session()->get('pinlocation')))
                             <option selected="" value="{{session()->get('pinlocation')}}" >
                                {{session()->get('pinlocation')}}</option>
