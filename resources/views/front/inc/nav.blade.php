@@ -188,7 +188,24 @@ $parsed_json = json_decode($json_string, true);
                 <span class="menu-close red-bg brd-rd3"><i class="fa fa-close"></i></span>
                 <div class="menu-lst">
                     <ul>
-                     
+                        <li>
+                            <form class="form-group"  action="{{url('')}}/search" method="post" >
+                                @csrf
+                                <div class="form-group">
+                                     <input class="form-control" id="search_text" type="text" name="product" placeholder="Decided what to cook?"  list="browsers" width="100px">
+                                   <datalist class="searchspecial" id="browsers">
+                               
+                                      </datalist>
+                                </div>
+                                <div class="form-group">
+                                    
+                                <button class="btn btn-lg btn-default" style="background: #ebe530; color: #800000;  margin-left: 10px;border: none;" type="submit"><i class="fa fa-search"></i></button>
+                                </div>
+                                
+                            
+                             </form>
+                        </li>
+
                                     @foreach($categories as $category)
                                     <li>
                                         
