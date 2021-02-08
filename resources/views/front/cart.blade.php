@@ -45,7 +45,7 @@
                                             <div class="remove-ext text-center" style="padding-bottom: 100px">
                                                 <div class="row">
                                                     <div class="col-md-12 col-sm-12 col-lg-12">
-                                                        Free Shipping on order above ₹ 399
+                                                        Free Shipping on order above ₹ 499
 
                                                     </div>
                                                 </div>

@@ -411,7 +411,7 @@ class front_control extends Controller
       if($otp ==$var['sixdigit']){
         $insert= front_model::InsertUser($var);
          if($insert){
-          sendSms($var['mobile'], 'Thank you for registration. If you have any questions, please free to contact us at 1800-313-8898 ');
+          sendSms($var['mobile'], 'Thank you for registration. If you have any questions, please feel free to contact us at 1800-313-8898 ');
 
             $emailmsg = '<table width="100%" cellpadding="0" cellspacing="0" border="0" id="m_-2287190302310609224m_-7533971164095270638background-table" style="border-collapse:collapse;padding:0;margin:0 auto;background-color:#ebebeb;font-size:12px">
                                        <tbody>
@@ -489,7 +489,7 @@ class front_control extends Controller
           session()->forget('verifysession');
           $object = (object) $var;
            session()->put('user_session',$object);
-         return redirect('')->with('success', 'Success Registered');
+         return redirect('')->with('success', 'Successfully Registered');
 
          } 
          else{
