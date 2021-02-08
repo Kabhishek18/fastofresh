@@ -19,8 +19,8 @@ class front_control extends Controller
 {
     //Home Page
   public function index()
-  {
-      $categories['categories'] = front_model::getCategory();
+  {   
+     $categories['categories'] = front_model::getCategory();
       $popular =front_model::getHomeList(1);
         
       foreach (json_decode($popular->description) as $value) {
@@ -153,10 +153,16 @@ class front_control extends Controller
   
   //checkout
   public function checkout()
-  {
+  { 
     $cart['cart'] = session()->get('cart');
     if($cart['cart']){
+
       $user['user'] = session()->get('user_session');
+       if(empty($user['user']->id)){
+         $data = front_model::GetUserEmailby( $user['user']->email);
+        session()->put('user_session',$data);
+       $user['user'] = session()->get('user_session');
+      }
       if($user['user']){
         $cart['locations'] =front_model::getLocationUid($user['user']->id);
         $var['categories'] = front_model::getCategory();
