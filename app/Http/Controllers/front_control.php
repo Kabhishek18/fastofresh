@@ -240,7 +240,7 @@ class front_control extends Controller
             if($insert){
               $orderdetails =json_decode($order['orderdetail'],true); 
               $loc =json_decode($orderdetails['loc']); 
-              $sendmsg = 'Hi '.$loc->username.' Your Order has been Confirmed with Order no: '.date('ymdhsi',strtotime($order['created_at']));
+              $sendmsg = 'Hi '.$loc->username.' Your Order has been Confirmed with Order no: '.date('ymdhsi',strtotime($order['created_at'])).' with your selected payment mode of COD';
                 sendSms($loc->mobile,$sendmsg);
                 $ordermsg = '<table width="100%" cellpadding="0" cellspacing="0" border="0" id="m_-2287190302310609224m_-7533971164095270638background-table" style="border-collapse:collapse;padding:0;margin:0 auto;background-color:#ebebeb;font-size:12px">
    <tbody>
