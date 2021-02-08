@@ -1,6 +1,6 @@
 <style type="text/css">
 	.invoice {
-  width: 1090px;
+  width: 100%;
 
   margin: 0px auto;
   font-family: Trebuchet MS;

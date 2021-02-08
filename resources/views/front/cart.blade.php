@@ -39,7 +39,7 @@
 
                         <div class="row">
                               <div class="col-md-12 col-sm-12 col-lg-12" >
-                                 <div class="title2-wrapper text-center"  style="padding-bottom: 20px">
+                                 <div class="title2-wrapper text-center"  style="margin-top:10px;padding-bottom: 20px">
                                                 <h3 class="marginb-0" itemprop="headline">Shopping Cart</h3>
                                             </div>
                                             <div class="remove-ext text-center" style="padding-bottom: 100px">
@@ -84,42 +84,47 @@
                                             </div>
                                             <br>
                                          
-                                        <div class="col-md-12 col-sm-12 col-lg-12">
+                                       
                                         <table class="table table-striped">
                                             <thead>
                                                 <tr>
-                                                    <th scope="col">#</th>
                                                     <th scope="col">Product</th>
-                                                    <th scope="col">Price</th>
+                                                    <th scope="col" class="hidden-xs">Price</th>
                                                     <th scope="col">Quantity</th>
-                                                    <th scope="col">Subtotal</th>
+                                                    <th scope="col" class="hidden-xs">Subtotal</th>
                                                     <th scope="col">&nbsp;</th>
                                                 </tr>
                                             </thead>
-                                            <tbody><?php $i =1;$total = 0 ;?>
+                                            <tbody><?php $total = 0 ;?>
                                                 @foreach($cart as $id => $details)
                                             <?php $total += $details['price'] * $details['quantity'] ?>
                                                 <tr>
-                                                    <td><?=$i++?></td>
                                                     <td data-th="Product">
                                                         <div class="row">
-                                                            <div class="col-sm-3 hidden-xs"><img src="{{url('products/')}}/{{ $details['photo'] }}" width="100" height="100" class="img-responsive"/></div>
-                                                            <div class="col-sm-9">
+                                                            <div class="col-xs-3 hidden-xs"><img src="{{url('products/')}}/{{ $details['photo'] }}" width="100" height="100" class="img-responsive"/></div>
+                                                            <div class="col-xs-9">
                                                                 <p class="nomargin">{{ $details['name'] }}</p>
+                                                                <span class="hidden-lg hidden-md " style="color:#800000"> Price :  ₹ {{ $details['price'] }}</span>
+                                                                 <span class="hidden-lg hidden-md " style="color:#800000"> Subtotal :  ₹ {{ $details['price'] * $details['quantity'] }}</span>
                                                             </div>
                                                         </div>
                                                     </td>
-                                                    <td data-th="Price">₹ {{ $details['price'] }}</td>
+                                                    <td data-th="Price" class="hidden-xs"><div class="col-sm-12 col-xs-12">
+                                                      ₹ {{ $details['price'] }}
+                                                    </div></td>
                                                     <td data-th="Quantity" >
+                                                      <div class="col-sm-12">
+                                                        
                                                          <input type='button' onclick="decrementValueCart(<?=$details['pid']?>)" value='-' class='btn btn-default' field='quantity' />
                                                         <input type="number" id="qty<?=$details['pid']?>" value="{{ $details['quantity'] }}" class="updatecart " min="1"  style="width: 20%;
                                                   text-align: center;"/>
                                                         <input type='button' onclick="incrementValuecart(<?=$details['pid']?>)" value='+' class='btn btn-default' field='quantity' />
+                                                      </div>
                                                     </td>
-                                                    <td data-th="Subtotal" class="text-center">₹ {{ $details['price'] * $details['quantity'] }}</td>
+                                                    <td data-th="Subtotal" class="text-center hidden-xs">₹ {{ $details['price'] * $details['quantity'] }}</td>
                                                     <td class="actions" data-th="">
-                                                        <button class="btn btn-warning btn-sm update-cart" style="background-color: #ffb100; color: #800000;" data-id="{{ $id }}" data-value="{{$id}}"><i class="fa fa-refresh"></i>Update</button>
-                                                        <button class="btn btn-danger btn-sm remove-from-cart" style="background: #800000;border: none" data-id="{{ $id }}"><i class="fa fa-trash-o"></i>Remove</button>
+                                                        <button class="btn btn-warning btn-sm update-cart" style="background-color: #ffb100; color: #800000;margin-bottom: 10px" data-id="{{ $id }}" data-value="{{$id}}"><i class="fa fa-refresh"></i>Update</button>
+                                                        <button class="btn btn-danger btn-sm remove-from-cart" style="background: #800000;border: none;margin-bottom: 10px" data-id="{{ $id }}"><i class="fa fa-trash-o"></i>Remove</button>
                                                     </td>
                                                 </tr>
                                                 @endforeach
@@ -128,7 +133,7 @@
                                                 @if($total<499)
                                                 <?php $ship =30; $total += $ship?>
                                                 <tr>
-                                                    <td colspan="3"></td>
+                                                    <td colspan="3" class="hidden-xs"></td>
                                                     <td class="text-center" colspan=""><strong>Delivery Charge</strong></td>
                                                     <td class="text-center" colspan=""><strong>₹ {{$ship}}</strong></td>
                                                     <td colspan="1"></td>
@@ -137,7 +142,7 @@
                                                 @if(!empty(session()->get('coupon')))
                                                 <?php $coupon =session()->get('coupon'); ?>
                                                     <tr>
-                                                        <td colspan="3"></td>
+                                                        <td colspan="3" class="hidden-xs"></td>
                                                         <td class="text-center"><strong>Coupon Applied ({{$coupon->name}})</strong></td>
                                                            @if($coupon->coupon_type =='percent')
                                                            <?php $couponvalue = ($coupon->coupon_value*$total/100) ;?>
@@ -173,7 +178,6 @@
                                                 <a class="btn btn-danger" style="background-color: #800000;border:none;" href="{{url('checkout')}}"> Proceed to Checkout  </a>
                                                 </div>
 
-                                        </div>
                                         
                                     </div>
                                 </div>

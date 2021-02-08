@@ -138,13 +138,14 @@ $parsed_json = json_decode($json_string, true);
 
         <div class="responsive-header">
             <div class="responsive-topbar">
-                 <div class="select-wrp">
-                        <form action="{{url('')}}/pincode/saved" method="post">
+                 <div class="select-wrp" style="width:100% !important ;text-align-last:center;">
+                         <form action="{{url('')}}/pincode/saved" method="post" style="display: flex;color: #fff !important">
                             @csrf
-                        <select data-placeholder="Feel Like Eating" name="pinlocation" onchange="this.form.submit()">
+                            <i class="fa fa-map-marker" style="margin-top: 1px; padding: 10px;"></i>
+                            <select data-placeholder="Feel Like Eating" style="width: 100%;background:black;" name="pinlocation" onchange="this.form.submit()">
                             @if(!empty(session()->get('pinlocation')))
                             <option selected="" value="{{session()->get('pinlocation')}}" >
-                               Pincode : {{session()->get('pinlocation')}}</option>
+                               {{session()->get('pinlocation')}}</option>
                             @else
                             <option>Check Delivery  Availabilty </option>
 
@@ -152,34 +153,34 @@ $parsed_json = json_decode($json_string, true);
                             @foreach($parsed_json as $key =>$value)
                             
                                 @foreach($value as $meg =>$locdetail)
-                                    <option value="{{($locdetail['Pincode'])}}">{{($locdetail['Area'])}} ,{{($locdetail['Pincode'])}}</option>
-
+                                    <option value="{{($locdetail['Area'])}}, {{($locdetail['Pincode'])}}">{{($locdetail['Area'])}}, {{($locdetail['Pincode'])}}</option>
+ 
                                 @endforeach 
                                
                             @endforeach
 
                         </select>
                         </form>
+                        
                     </div>
-                    <div class="select-wrp">
-                      <!--    <form action="{{url('')}}/location/saved" method="post">
-                            @csrf
-                          <select data-placeholder="Choose Location" name="weblocation" onchange="this.form.submit()">
-                            @if(!empty(session()->get('location')))
-                            <option selected="" value="{{session()->get('location')}}" >{{session()->get('location')}}</option>
-                            @else
-                            <option>Select Your Location </option>
-                            @endif
-                            <option value="Ghaziabad">Ghaziabad </option>
-                            <option value="Noida">Noida </option>
-                            <option value="East Delhi">East Delhi </option>
-
-                          </select>
-                        </form> -->
-                    </div>
+               
+            </div>
+            <div class="responsive-topbar">
+                <div class="text-center">
+                            <a href="{{url('cart')}}" title="Cart" itemprop="url"  style="color:white;font-size: 20px;margin-top: -1px"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i>
+                                        @if(session()->get('cart')) 
+                                        Cart
+                                        <sup> (
+                                           
+                                           <?php $cart = session()->get('cart')?>
+                                            {{count($cart)}}
+                                        )</sup>
+                                        @endif
+                                        </a>
+                        </div>
             </div>
             <div class="responsive-logomenu">
-                                <div class="logo"><h1 itemprop="headline"><a href="<?=URL::to('/');?>" title="Home" itemprop="url"><img src="{{ url('assets/images/logo-white.png') }}" alt="logo.png" itemprop="image"></a></h1></div>
+                <div class="logo"><h1 itemprop="headline"><a href="<?=URL::to('/');?>" title="Home" itemprop="url"><img src="{{ url('assets/images/logo2.png') }}" alt="logo.png" itemprop="image"></a></h1></div>
 
                 <span class="menu-btn yellow-bg brd-rd4"><i class="fa fa-align-justify"></i></span>
             </div>
@@ -187,15 +188,25 @@ $parsed_json = json_decode($json_string, true);
                 <span class="menu-close red-bg brd-rd3"><i class="fa fa-close"></i></span>
                 <div class="menu-lst">
                     <ul>
-                        <li class="menu-item-has-children">
-                            <form  action="{{url('')}}/search" method="post">
-                                    @csrf
-                                    <input class="brd-rd30" id="search_text" type="text" name="product" placeholder="Search for any delicious product"  list="browsers">
-                                   <datalist class="searchspecial" id="browsers"> </datalist>
-                                <button class="btn brd-rd30 red-bg" type="submit">SEARCH</button>
-                            </form>
+                     
+                                    @foreach($categories as $category)
+                                    <li>
+                                        
+                                        <a class="" href="{{url('')}}/category/{{$category->name}}" title="{{$category->name}}" >
+                                             {{$category->name}}
+                                        </a>
+                                    </li>
+                                    @endforeach
+                    
+                        <li>
+                             @if(!empty(session()->get('user_session')))
+                            <a href="{{url('/dashboard')}}">Hi, {{(session()->get('user_session'))->name}}
+                                (MyAccount)
+                            </a>
+                            @else
+                            <a class="log-popup-btn" href="#" title="Login" itemprop="url">Login</a>
+                            @endif
                         </li>
-                        <li><a class="log-popup-btn" href="#" title="Login" itemprop="url">LOGIN</a> / <a class="sign-popup-btn" href="#" title="Register" itemprop="url">REGISTER</a></li>
 
                             </ul>
                                                         

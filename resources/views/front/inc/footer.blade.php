@@ -226,7 +226,11 @@
             </div>
         </div><!-- Bottom Bar -->
 
-       
+       <style type="text/css">
+         .responsive-logomenu .logo img {
+    max-width: 100%;
+}
+       </style>
 
     
 
@@ -238,22 +242,28 @@
                             <h4 itemprop="headline">LOG IN</h4>
                            
                         </div>
-                        <form class="sign-form" method="post" action="{{url('login')}}">
+                        <form class="form-group"  method="post" action="{{url('login')}}">
                           @csrf
-                            <div class="row">
-                                <div class="col-md-12 col-sm-12 col-lg-12">
-                                    <label>Enter Email ID / Mobile Number<span class="text-danger">*</span></label>
-                                    <input class="brd-rd3" type="text" name="email" placeholder="Enter Email ID / Mobile Number" required>
+                            
+                                <div class="col-md-12 col-sm-12 col-lg-12 ">
+                                    <div class="form-group">
+                                      <label>Enter Email ID / Mobile Number<span class="text-danger">*</span></label>
+                                    <input class="form-control" type="text" name="email" placeholder="Enter Email ID / Mobile Number" required>
+                                    </div>
                                 </div>
-                                <div class="col-md-12 col-sm-12 col-lg-12">
-                                    <label>Password<span class="text-danger">*</span></label>
-                                    <input class="brd-rd3" type="password" name="password" placeholder="Password" required>
+                                <div class="col-md-12 col-sm-12 col-lg-12 form-group">
+                                    <div class="form-group">
+                                      <label>Password<span class="text-danger">*</span></label>
+                                    <input class="form-control" type="password" name="password" placeholder="Password" required>
+                                    </div>
                                 </div>
-                                <div class="col-md-12 col-sm-12 col-lg-12">
-                                    <button class="red-bg brd-rd3" type="submit">LOG IN</button>
+                                <div class="col-md-12 col-sm-12 col-lg-12 form-group">
+                                   <div class="form-group">
+                                      <button class="btn btn-lg " style="background: #800000;color:#face82" type="submit">LOG IN</button>
+                                   </div>
                                 </div>
                                 
-                            </div>
+                            
                             <div class="row" >
                                  New To Fast O Fresh? <a class="sign-popup-btn" style="font-size: 14px;color: red" href="#" title="Register" itemprop="url">Sign up Here</a>
                             </div>
@@ -280,28 +290,37 @@
                        
                     </div>
                     
-                    <form class="sign-form" method="post" action="{{url('')}}/register">
+                    <form class="form-group" method="post" action="{{url('')}}/register">
                         @csrf
                         <div class="row">
                             <div class="col-md-12 col-sm-12 col-lg-12">
-                                <label>Name<span class="text-danger">*</span></label>
-                                <input class="brd-rd3" type="text" name="name" placeholder="Name" required >
+                                <div class="form-group">
+                                    <label>Name<span class="text-danger">*</span></label>
+                                <input class="form-control" type="text" name="name" placeholder="Name" required >
+                                </div>
                             </div>
                             <div class="col-md-12 col-sm-12 col-lg-12">
-                                <label>Email<span class="text-danger">*</span></label>
-                                <input class="brd-rd3" type="email" name="email" placeholder="Email" required >
+                               <div class="form-group">
+                                  <label>Email<span class="text-danger">*</span></label>
+                                <input class="form-control" type="email" name="email" placeholder="Email" required >
+                               </div>
                             </div>
                             <div class="col-md-12 col-sm-12 col-lg-12">
-                                <label>Mobile<span class="text-danger">*</span></label>
-                                <input class="brd-rd3" type="number" name="mobile" placeholder="Mobile" required >
+                                <div class="form-group">
+                                       <label>Mobile<span class="text-danger">*</span></label>
+                                <input class="form-control" type="number" name="mobile" placeholder="Mobile" required >
+                           
+                                </div>
                             </div>
                             <div class="col-md-12 col-sm-12 col-lg-12">
-                                <label>Password<span class="text-danger">*</span></label>
-                                <input class="brd-rd3" type="password" name="password" placeholder="Password" required>
+                               <div class="form-group">
+                                  <label>Password<span class="text-danger">*</span></label>
+                                <input class="form-control" type="password" name="password" placeholder="Password" required>
+                               </div>
                             </div>
 
                             <div class="col-md-12 col-sm-12 col-lg-12">
-                                <button class="red-bg brd-rd3" type="submit">REGISTER NOW</button>
+                                <button class="btn btn-lg"  style="background: #800000;color:#face82" type="submit">REGISTER NOW</button>
                             </div>
                             
                         </div>

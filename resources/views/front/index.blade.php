@@ -231,8 +231,8 @@
                                     
                                 </div>
                             </div>
-                            <div class="col-md-6 col-sm-6 col-lg-6">
-                                <figure class="wow fadeIn" data-wow-delay="0.2s"><img src="{{ url('assets/images/resource/image-pack.png') }}" alt=""></figure>
+                            <div class="col-md-5 col-sm-5 col-lg-5">
+                                <img src="{{ url('assets/images/resource/image-pack.png') }}" alt="">
                             </div>
                         </div>  
                     </div>
@@ -273,7 +273,7 @@
                                                  {{ Form::open(array('url' => 'cartadd')) }}
                                                  @csrf
                                                  <input type="hidden" name="pid" value="{{$product->id}}">
-                                                    <div class="popular-dish-box style1 wow fadeIn" data-wow-delay="0.{{$i++}}s">
+                                                    <div class="popular-dish-box style1 ">
                                                         <div class="popular-dish-thumb">
                                                             <a href="{{url('product').'/'.$product->id}}" title="" itemprop="url"><img src="{{url('')}}/products/{{$product->image}}" alt="popular-dish-img1.jpg" itemprop="image"></a>
                                                           
@@ -333,7 +333,7 @@
                             <div class="remove-ext text-center">
                                 <div class="row">
                                     <div class="col-md-4 col-sm-4 col-lg-4">
-                                        <div class="step-box wow fadeInUp" data-wow-delay="0.2s">
+                                        <div class="step-box ">
                                             <i><img src="{{url('')}}/assets/images/setp-img1.png" alt="setp-img1.png" itemprop="image"> <span class="brd-rd50 red-bg">1</span></i>
                                             <div class="setp-box-inner">
                                                 <h4 itemprop="headline">Tell us your craving</h4>
@@ -342,7 +342,7 @@
                                         </div><!-- Step Box -->
                                     </div>
                                     <div class="col-md-4 col-sm-4 col-lg-4">
-                                        <div class="step-box wow fadeInUp" data-wow-delay="0.4s">
+                                        <div class="step-box ">
                                             <i><img src="{{url('')}}/assets/images/setp-img2.png" alt="setp-img2.png" itemprop="image"> <span class="brd-rd50 red-bg">2</span></i>
                                             <div class="setp-box-inner">
                                                 <h4 itemprop="headline">Wait, while we wrap it for you</h4>
@@ -351,7 +351,7 @@
                                         </div><!-- Step Box -->
                                     </div>
                                     <div class="col-md-4 col-sm-4 col-lg-4">
-                                        <div class="step-box wow fadeInUp" data-wow-delay="0.6s">
+                                        <div class="step-box ">
                                             <i><img src="{{url('')}}/assets/images/setp-img3.png" alt="setp-img3.png" itemprop="image"> <span class="brd-rd50 red-bg">3</span></i>
                                             <div class="setp-box-inner">
                                                 <h4 itemprop="headline">Tada, good food is on the way</h4>
@@ -387,7 +387,7 @@
                                                      {{ Form::open(array('url' => 'cartadd')) }}
                                                      @csrf
                                                      <input type="hidden" name="pid" value="{{$productbest->id}}">
-                                                        <div class="popular-dish-box style1 wow fadeIn" data-wow-delay="0.{{$i++}}s">
+                                                        <div class="popular-dish-box style1">
                                                             <div class="popular-dish-thumb">
                                                                 <a href="{{url('product').'/'.$product->id}}" title="" itemprop="url"><img src="{{url('')}}/products/{{$productbest->image}}" alt="popular-dish-img1.jpg" itemprop="image"></a>
                                                               
@@ -449,7 +449,7 @@
                                     @if(!empty($blogs))
                                       @foreach($blogs as $blog)
                                     <div class="col-md-4 col-sm-6 col-lg-4">
-                                        <div class="news-box wow fadeIn" data-wow-delay="0.2s">
+                                        <div class="news-box ">
                                             <div class="news-thumb">
                                                 <a class="brd-rd2" href="blog-detail-right-sidebar.html" title="" itemprop="url"><img src="
                                                     @if(!empty($blog->image))

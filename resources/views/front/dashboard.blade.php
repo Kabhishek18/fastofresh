@@ -80,22 +80,28 @@
                                                                         </div>
                                                                         @endforeach
                                                                     </div>
-                                                                    <span class="price">Grand Total : ₹ {{$order->orderamount}}</span>
-                                                                    @if($order->status =='cancelled')
-                                                                    <span class="btn btn-default " style="text-transform: capitalize;float: right;background:#face82; color: #800000">{{$order->status}}</span>
-                                                                    @else
-                                                                    <span class="btn btn-danger " style="text-transform: capitalize;float: right;background: #800000">{{$order->status}}</span>
-                                                                    @endif
-                                                                    @if($order->status =='cancelled' OR $order->status =='dispatched' OR $order->status =='delivered'  )
-                                                                    @else
-                                                                    <div class="col-md-12" style="margin-top: 10px">
+                                                                    <div class="row" style="padding: 10px;align-content: center;">
+                                                                       <div class="col-md-6">
+                                                                          <span class="price">Grand Total : ₹ {{$order->orderamount}}</span>
+                                                                       </div>
+                                                                        <div class="col-md-6 text-center">
+                                                                        @if($order->status =='cancelled')
+                                                                       
+                                                                           <span class="btn btn-default " style="text-transform: capitalize;float: right;background:#face82; color: #800000">{{$order->status}}</span>
+                                                                        @else
+                                                                        <span class="btn btn-default  " style="text-transform: capitalize;background: #800000;color:#face82">{{$order->status}}</span>
+                                                                        @endif
+                                                                        @if($order->status =='cancelled' OR $order->status =='dispatched' OR $order->status =='delivered'  )
+                                                                        @else
+                                                                        </div>
+                                                                    <div class="col-md-12" style="margin-top: 10px ">
                                                                       
                                                                         <!-- cancel -->
 
-                                                                           <div class="col-md-6">
+                                                                           <div class="col-md-6" style="padding: 10px">
                                                                                 <div class="btn btn-danger" data-toggle="modal" data-target="#GSCCModal"><i class="fa fa-remove"></i> Cancel Order</div>
                                                                            </div>
-                                                                            <form method="post" action="{{url('')}}/cancelorder">
+                                                                        <form method="post" action="{{url('')}}/cancelorder">
                                                                                 <input type="hidden" value="{{$order->id}}" name="id">
                                                                             <div id="GSCCModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                                                                              <div class="modal-dialog">
@@ -155,13 +161,15 @@
                                                                         </form>
                                                                         <!-- cancel -->
                                                                         <!-- View Order Detail -->
-                                                                        <div class="col-md-6 text-right">
+                                                                        <div class="col-md-6 text-center" style="padding: 10px">
                                                                             
                                                                             <a href="{{url('')}}/invoice/{{$order->id}}" class="btn btn-default" style="background: #face82;color: #800000">Download Inovice</a>
                                                                         </div>
                                                                         <!-- View Order Details -->
 
                                                                     </div>
+                                                                    </div>
+                                                                    
                                                                     @endif
                                                                 </div>
                                                             </div>
