@@ -76,7 +76,12 @@ $parsed_json = json_decode($json_string, true);
                                         <sup> (
                                            
                                            <?php $cart = session()->get('cart')?>
-                                            {{count($cart)}}
+                                           
+                                            <?php $quant = 0 ;?>
+                                                @foreach($cart as $id => $details)
+                                            <?php $quant += $details['quantity']  ?>
+                                             @endforeach
+                                             {{$quant}}
                                         )</sup>
                                         <span style="font-size: 16px"> Cart</span>
                                         @endif

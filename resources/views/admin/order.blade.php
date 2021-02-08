@@ -76,7 +76,7 @@
                                                     @if(!empty($orders))
                                                     @foreach($orders as $order)
                                                     <tr>
-                                                        <td>{{date('ymdhsi',strtotime($order->created_at))}}</td>
+                                                        <td>{{date('ymdhsi',strtotime($order->created_at))}}    @if($order->status =='pending') <sup class="text-danger" >new</sup>@endif</td>
                                                         <td>{{$order->transactionid}}</td>
                                                         <?php $carts = json_decode($order->order_cart,true);?>
                                                         <td>
