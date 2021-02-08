@@ -1,7 +1,5 @@
 <style type="text/css">
 	.invoice {
-  width: 1090px;
-
   margin: 0px auto;
   font-family: calibri;
   overflow: hidden;

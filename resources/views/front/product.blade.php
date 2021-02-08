@@ -56,11 +56,11 @@
                                                  <!-- Product Shuffling -->
                                                  <?php $i=1;?>
                                                  @foreach ($products as $product)
-                                                 <div class="col-md-4 col-sm-6 col-lg-4">
+                                                <div class="col-md-4 col-sm-6 col-lg-4">
                                                  {{ Form::open(array('url' => 'cartadd')) }}
                                                  @csrf
                                                  <input type="hidden" name="pid" value="{{$product->id}}">
-                                                    <div class="popular-dish-box style1 wow fadeIn" data-wow-delay="0.{{$i++}}s">
+                                                    <div class="popular-dish-box style1 ">
                                                         <div class="popular-dish-thumb">
                                                             <a href="{{url('product').'/'.$product->id}}" title="" itemprop="url"><img src="{{url('')}}/products/{{$product->image}}" alt="popular-dish-img1.jpg" itemprop="image"></a>
                                                           

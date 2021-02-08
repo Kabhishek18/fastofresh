@@ -68,34 +68,33 @@
                                                         <div class="popular-dish-box style2 wow fadeIn" data-wow-delay="0.2s">
                                                            
                                                             <div class="popular-dish-info">
-                                                               <div class="col-md-6 col-sm-12 col-lg-6 ">
-                                                                   <div class="d-flex justify-content-center" style="margin-top: 10px;margin-bottom: 10px;"> 
-                                                                            <span class="price "> 
+                                                               <div class="col-sm-12 col-md-6 col-lg-6 text-center" >
+                                                                   
+                                                                            <div class="price "> 
                                                                             @if($product->b_price)
                                                                             <del>MRP: ₹{{$product->b_price}}</del>
                                                                             MRP: ₹ {{$product->s_price}}
                                                                             @else
                                                                             MRP: ₹ {{$product->s_price}}
                                                                             @endif
-                                                                             </span>
-                                                                             <span class="price" style="color: green;text-transform: uppercase;font-weight: 600">@if($product->b_price)
-                                                              @if(number_format(($product->b_price-$product->s_price)/$product->b_price *100) > 0)
-                                                            {{number_format(($product->b_price-$product->s_price)/$product->b_price *100)}}
-                                                            % Off
-                                                              @endif
-                                                            @endif</span>
-                                                                     </div>
+                                                                             </div>
+                                                                </div>
+                                                                  <div class="col-sm-12 col-md-6 col-lg-6  text-center"  >           
+                                                                            <div class="btn btn-default" style="background: green;color: white;font-size: 18px;text-transform: uppercase;font-weight: 600;">@if($product->b_price)
+                                                                              @if(number_format(($product->b_price-$product->s_price)/$product->b_price *100) > 0)
+                                                                            {{number_format(($product->b_price-$product->s_price)/$product->b_price *100)}}
+                                                                            % Off
+                                                                              @endif
+                                                                            @endif
+                                                                            </div>
+                                                                     
                                                                </div> 
                                                                 
-                                                                <div class="col-md-6 col-sm-12 col-lg-6 ">
-                                                                  <div class="col-sm-12 d-flex justify-content-center" style="margin-top: 15px;"> 
-                                                                     <a class="btn btn-danger" id="hide-{{$product->id}}" data-value="{{$product->id}}" href="javascript:void(0)" title="Order Now" style="background: #ea1b25" itemprop="url">ADD TO CART</a>
+                                                                 <div class="col-sm-12 col-md-6 col-lg-6" > 
+                                                                     <a class="btn btn-default" id="hide-{{$product->id}}" data-value="{{$product->id}}" href="javascript:void(0)" title="Order Now" style="background: #800000;color:#face82" itemprop="url">ADD TO CART</a>
                                                                      <div id="show-{{$product->id}}"></div>
                                                             
-                                                                    </div>         
-                                                               
-                                                               
-                                                                </div>
+                                                                    </div>   
                                                             </div><!-- Product Box -->
                                                                 {{ Form::close() }}
                                                           
@@ -114,10 +113,8 @@
 
 .frame {
   float: left;
-  height: 250px;
     overflow: hidden;
   position: relative;
-  width: calc(100% - 75%);
 }
 
 .frame a {
@@ -206,7 +203,8 @@
                                       </div>
                                       <section id="main">
                                       @foreach($recipes as $recipe) 
-                                      <div class="frame text-center">
+                                      <div class="col-md-3 col-sm-3 col-xs-12" style="margin-bottom:20px" >
+                                        <div class="frame text-center">
                                         <a href="{{url('')}}/recipes/{{$recipe->id}}">
                                             <span class="caption">
                                                 <h2 style="color: green !important"> {!!$recipe->title!!}</h2>
@@ -214,6 +212,7 @@
                                             </span>
                                         <img src="{{url('')}}/recipes/{{$recipe->image}}" class="img-responsive" alt="a" style="width:100% ;height :250px !important" >
                                         </a>  
+                                      </div>
                                       </div>
                                           @endforeach
                                      </section>     
