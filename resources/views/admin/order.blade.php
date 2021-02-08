@@ -63,6 +63,7 @@
                                                     <tr>
                                                         <th>Order Id</th>
                                                         <th>Transaction Id</th>
+                                                        <th>Payment</th>
                                                         <th>Order Cart</th>
                                                         <th>Order Amount</th>
                                                         <th>Order status</th>
@@ -77,6 +78,11 @@
                                                     @foreach($orders as $order)
                                                     <tr>
                                                         <td>{{date('ymdhsi',strtotime($order->created_at))}}    @if($order->status =='pending') <sup class="text-danger" >new</sup>@endif</td>
+                                                        <!-- Order payment Method -->
+                                                        <td><?php $orderdetail = json_decode($order->orderdetail, true);?>
+                                                            {{$orderdetail['method']}}
+                                                        </td>
+                                                        <!-- order Payment Method -->
                                                         <td>{{$order->transactionid}}</td>
                                                         <?php $carts = json_decode($order->order_cart,true);?>
                                                         <td>
