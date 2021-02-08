@@ -850,7 +850,7 @@ To complete your account verification, please enter the code below.
   public function Test()
   {
      // sendEmail('kabhishek18@gmail.com','456','5464');
-   
+   sendSms('7053948103','test');
   }
 
   //End Of Code

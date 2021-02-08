@@ -104,7 +104,10 @@
                                                             <div class="col-xs-3 hidden-xs"><img src="{{url('products/')}}/{{ $details['photo'] }}" width="100" height="100" class="img-responsive"/></div>
                                                             <div class="col-xs-9">
                                                                 <p class="nomargin">{{ $details['name'] }}</p>
-                                                                <span class="hidden-lg hidden-md " style="color:#800000"> Price :  ₹ {{ $details['price'] }}</span>
+                                                                
+                                                            </div>
+                                                            <div class="col-xs-12">
+                                                              <span class="hidden-lg hidden-md " style="color:#800000"> Price :  ₹ {{ $details['price'] }}</span>
                                                                  <span class="hidden-lg hidden-md " style="color:#800000"> Subtotal :  ₹ {{ $details['price'] * $details['quantity'] }}</span>
                                                             </div>
                                                         </div>
@@ -113,16 +116,20 @@
                                                       ₹ {{ $details['price'] }}
                                                     </div></td>
                                                     <td data-th="Quantity" >
-                                                      <div class="col-sm-12">
+                                                      <div class="col-sm-12" style="display: flex;padding: 10px">
                                                         
                                                          <input type='button' onclick="decrementValueCart(<?=$details['pid']?>)" value='-' class='btn btn-default' field='quantity' />
                                                         <input type="number" id="qty<?=$details['pid']?>" value="{{ $details['quantity'] }}" class="updatecart " min="1"  style="width: 20%;
                                                   text-align: center;"/>
                                                         <input type='button' onclick="incrementValuecart(<?=$details['pid']?>)" value='+' class='btn btn-default' field='quantity' />
                                                       </div>
+                                                      <div class="col-md-12 hidden-md hidden-lg hidden-xl">
+                                                         <button class="btn btn-warning btn-sm update-cart" style="background-color: #ffb100; color: #800000;margin-bottom: 10px" data-id="{{ $id }}" data-value="{{$id}}"><i class="fa fa-refresh"></i>Update</button>
+                                                        <button class="btn btn-danger btn-sm remove-from-cart" style="background: #800000;border: none;margin-bottom: 10px" data-id="{{ $id }}"><i class="fa fa-trash-o"></i>Remove</button>
+                                                      </div>
                                                     </td>
                                                     <td data-th="Subtotal" class="text-center hidden-xs">₹ {{ $details['price'] * $details['quantity'] }}</td>
-                                                    <td class="actions" data-th="">
+                                                    <td class="actions  hidden-xs" data-th="">
                                                         <button class="btn btn-warning btn-sm update-cart" style="background-color: #ffb100; color: #800000;margin-bottom: 10px" data-id="{{ $id }}" data-value="{{$id}}"><i class="fa fa-refresh"></i>Update</button>
                                                         <button class="btn btn-danger btn-sm remove-from-cart" style="background: #800000;border: none;margin-bottom: 10px" data-id="{{ $id }}"><i class="fa fa-trash-o"></i>Remove</button>
                                                     </td>
