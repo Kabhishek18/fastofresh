@@ -199,14 +199,16 @@
                                               @foreach(footpro($category->id) as $profoot)
                                                 <a href="{{url('')}}/product/{{$profoot->id}}" >{{$profoot->name}}</a> &nbsp; | &nbsp;
                                                @endforeach
-                                            
-
-                                        </div>
+                                          </div>
                                      
-                                    @endforeach
+                                        @endforeach
                                         
-                                    </div>
-                                    
+                                       </div>
+                                       <div class="col-md-12 col-sm-12 col-lg-12 text-center" style="border-top:1px solid;">
+                <p itemprop="description">&copy; 2020 <a class="red-clr" href="#" title="FAST O FRESH" itemprop="url" target="_blank">FAST O FRESH</a>. ALL RIGHTS RESERVED</p> |   <p itemprop="description">Website Credits:<a class="red-clr" href="https://www.techcentrica.com" title="TechCentrica" target="_blank">TECHCENTRICA</a></p>
+                <p Style="line-height:22px;">FastOFresh brings fresh meat to your doorsteps with a few screen taps. We strictly maintain hygiene and ensure that the meat you are served with is natural, fresh, and healthy. We haveMutton, Chicken, Mutton, Seafood (Fish, Prawns, Crabs), etc., as of now and are constantly upgrading ourselves. Don’t wait anymore; explore the power of your clicks.
+                </p>
+            </div>
                                     
                                     
                                     
@@ -216,13 +218,6 @@
                     </div>
                 </div>
             </div>
-              <div class="bottom-bar dark-bg text-center">
-            <div class="container">
-                <p itemprop="description">&copy; 2020 <a class="red-clr" href="#" title="FAST O FRESH" itemprop="url" target="_blank">FAST O FRESH</a>. ALL RIGHTS RESERVED</p> |   <p itemprop="description">Website Credits:<a class="red-clr" href="https://www.techcentrica.com" title="TechCentrica" itemprop="url" target="_blank">TECHCENTRICA</a></p>
-                <p Style="line-height:22px;">FastOFresh brings fresh meat to your doorsteps with a few screen taps. We strictly maintain hygiene and ensure that the meat you are served with is natural, fresh, and healthy. We haveMutton, Chicken, Mutton, Seafood (Fish, Prawns, Crabs), etc., as of now and are constantly upgrading ourselves. Don’t wait anymore; explore the power of your clicks.
-                </p>
-            </div>
-        </div><!-- Bottom Bar -->
         </footer><!-- footer -->
         
       
