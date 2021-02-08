@@ -58,7 +58,7 @@
                             <div class="footer-data">
                                 <div class="row">
                                      <div class="col-md-3 col-sm-6 col-lg-3">
-                                        <div class="widget information_links wow fadeIn" data-wow-delay="0.2s">
+                                        <div class="widget information_links">
                                             <h4 class="widget-title" itemprop="headline">USEFUL LINKS</h4>
                                             <ul>
                                                 <li><a href="{{url('')}}/why" title="" itemprop="url">Why Fast 'O' Fresh?</a></li>
@@ -75,7 +75,7 @@
                                     </div>
 
                                     <div class="col-md-3 col-sm-6 col-lg-3">
-                                        <div class="widget customer_care wow fadeIn" data-wow-delay="0.3s">
+                                        <div class="widget customer_care ">
                                             <h4 class="widget-title" itemprop="headline">FOLLOW US </h4>
 
                                               <ul style="list-style: none !importants">
@@ -98,7 +98,7 @@
                                         </div>
                                     </div>
                                     <div class="col-md-3 col-sm-6 col-lg-3">
-                                        <div class="widget get_in_touch wow fadeIn" data-wow-delay="0.4s">
+                                        <div class="widget get_in_touch ">
                                             <h4 class="widget-title" itemprop="headline">GET IN TOUCH</h4>
                                             <ul>
                                                <li><i class="fa fa-map-marker"></i> H-201, Level-1, Sector 63, Noida 201301.</li>
@@ -108,7 +108,7 @@
                                         </div>
                                     </div>
                                       <div class="col-md-3 col-sm-6 col-lg-3">
-                                        <div class="widget information_links wow fadeIn" data-wow-delay="0.2s">
+                                        <div class="widget information_links">
                                             <div class="d-flex"> 
                                               
                                                <img src="{{url('')}}/assets/images/mastervisa-01.png" width="70%">
@@ -138,7 +138,7 @@
                         <div class="col-md-12 col-sm-12 col-lg-12">
                             <div class="footer-data">
                                 <div class="row">
-                                      <div class="col-md-12 col-sm-12 col-lg-12" style="border-bottom: 1px solid wheat;">
+                                      <div class="col-md-12 col-sm-12 col-lg-12" style="border-bottom: 1px solid ;">
                                         <h4 style="color: wheat; ">“Source to your home, same day delivery.” Have you ever imagined?"</h4>
                                         <p>Well, to ensure about the accessibility of meat, we are modifying the old practices. We convey new
                                         meat every single day from clean organic farms which is more delectable and better with no harmful
@@ -189,7 +189,7 @@
                                       <div class="col-md-12 col-sm-12 col-lg-12">
                                         <?php $i=0.0;?>
                                          @foreach($categories as $category)
-                                           <div class="widget get_in_touch wow fadeIn" data-wow-delay="{{$i +=0.2}}s" style="    color: wheat;">
+                                           <div class="widget get_in_touch " style="    color: wheat;">
                                             @if($category->id ==6)
 
                                             @else
@@ -216,15 +216,16 @@
                     </div>
                 </div>
             </div>
-        </footer><!-- footer -->
-        
-        <div class="bottom-bar dark-bg text-center">
+              <div class="bottom-bar dark-bg text-center">
             <div class="container">
                 <p itemprop="description">&copy; 2020 <a class="red-clr" href="#" title="FAST O FRESH" itemprop="url" target="_blank">FAST O FRESH</a>. ALL RIGHTS RESERVED</p> |   <p itemprop="description">Website Credits:<a class="red-clr" href="https://www.techcentrica.com" title="TechCentrica" itemprop="url" target="_blank">TECHCENTRICA</a></p>
                 <p Style="line-height:22px;">FastOFresh brings fresh meat to your doorsteps with a few screen taps. We strictly maintain hygiene and ensure that the meat you are served with is natural, fresh, and healthy. We haveMutton, Chicken, Mutton, Seafood (Fish, Prawns, Crabs), etc., as of now and are constantly upgrading ourselves. Don’t wait anymore; explore the power of your clicks.
                 </p>
             </div>
         </div><!-- Bottom Bar -->
+        </footer><!-- footer -->
+        
+      
 
        <style type="text/css">
          .responsive-logomenu .logo img {
