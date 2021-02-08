@@ -68,7 +68,6 @@
                                                         <th>Order Amount</th>
                                                         <th>Order status</th>
                                                         <th>Print Pos Bill</th>
-                                                        <th>Created</th>
                                                         <th>Modified</th>
                                                         <th>Actions</th>
                                                     </tr>
@@ -78,12 +77,18 @@
                                                     @foreach($orders as $order)
                                                     <tr>
                                                         <td>{{date('ymdhsi',strtotime($order->created_at))}}    @if($order->status =='pending') <sup class="text-danger" >new</sup>@endif</td>
+
+                                                        <td>{{$order->transactionid}}</td>
                                                         <!-- Order payment Method -->
                                                         <td><?php $orderdetail = json_decode($order->orderdetail, true);?>
-                                                            {{$orderdetail['method']}}
+                                                            @if($orderdetail['method'] == "cash")
+                                                            <span class="text-danger">{{$orderdetail['method']}}</span>
+                                                            @else
+                                                            <span class="text-success">{{$orderdetail['method']}}</span>
+
+                                                            @endif
                                                         </td>
                                                         <!-- order Payment Method -->
-                                                        <td>{{$order->transactionid}}</td>
                                                         <?php $carts = json_decode($order->order_cart,true);?>
                                                         <td>
                                                             <ul class="list-group" >
@@ -124,7 +129,6 @@
                                                         </td>  
                                                         <td><a class="btn btn-default" href="{{url('')}}/laravel-admin/print/{{$order->id}}"><i class="fa fa-print"></i></a></td>
                                                         <td>{{date('F d y h:i:s',strtotime($order->updated_at))}}</td>
-                                                        <td>{{date('F d y h:i:s',strtotime($order->created_at))}}</td>
                                                         <td><span class="action-edit">
                                                                 <a href="{{url('laravel-admin')}}/order/edit/{{$order->id}}">
                                                                  <i class="feather icon-edit"></i>
@@ -144,10 +148,10 @@
                                                     <tr>
                                                         <th>Order Id</th>
                                                         <th>Transaction Id</th>
+                                                          <th>Payment</th>
                                                         <th>Order Cart</th>
                                                         <th>Order Detail</th>
                                                         <th>Order status</th>
-                                                        <th>Created</th>
                                                         <th>Modified</th>
                                                         <th>Actions</th>
                                                     </tr>
