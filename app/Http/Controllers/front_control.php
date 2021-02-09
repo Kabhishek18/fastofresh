@@ -20,6 +20,9 @@ class front_control extends Controller
     //Home Page
   public function index()
   {   
+     if(url()->full() != 'https://fastofresh.com/'){
+     return redirect('https://fastofresh.com/');
+       }
      $categories['categories'] = front_model::getCategory();
       $popular =front_model::getHomeList(1);
         
