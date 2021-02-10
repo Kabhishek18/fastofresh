@@ -96,6 +96,14 @@ class cart extends Controller
     {
         if(Request::get('id')) {
             $cart = session()->get('cart');
+            $total = 0; 
+                foreach($cart as $id => $details){
+                  $total += $details['price'] * $details['quantity'] ;
+                }
+                if($total>399){
+                   session()->forget('coupon');
+                   session()->flash('success', 'Coupon removed');
+                }
             if(isset($cart[Request::get('id')])) {
                 unset($cart[Request::get('id')]);
                 session()->put('cart', $cart);
