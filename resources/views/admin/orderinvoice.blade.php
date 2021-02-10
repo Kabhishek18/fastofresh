@@ -69,7 +69,6 @@
                                 <h5>Recipient</h5>
                                 <?php $orderdetail = json_decode($order->orderdetail, true);
                                        $location = json_decode($orderdetail['loc'],true);
-
                                        ?>
                                 <div class="recipient-info my-2">
                                     <p>{{$location['username']}}</p>
@@ -77,6 +76,7 @@
                                     <p><strong>Landmark: </strong>{{$location['addressline1']}}</p>
                                     <p>{{$location['city']}}, </p>
                                     <p>{{$location['postalcode']}}</p>
+                                    <p>Slot Time: {{$orderdetail['slottime']}}</p>
                                 </div>
                                 <div class="recipient-contact pb-2">
                                     <p>
