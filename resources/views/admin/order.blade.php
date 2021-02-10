@@ -61,6 +61,7 @@
                                             <table class="table dataex-html5-selectors">
                                                 <thead>
                                                     <tr>
+                                                        <th>#</th>
                                                         <th>Order Id</th>
                                                         <th>Transaction Id</th>
                                                         <th>Payment</th>
@@ -73,9 +74,12 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
+                                                    <?php $k=1; ?>
                                                     @if(!empty($orders))
                                                     @foreach($orders as $order)
+                                                    
                                                     <tr>
+                                                        <td><?=($k++)?></td>
                                                         <td>{{date('ymdhsi',strtotime($order->created_at))}}    @if($order->status =='pending') <sup class="text-danger" >new</sup>@endif</td>
 
                                                         <td>{{$order->transactionid}}</td>
@@ -108,17 +112,19 @@
                                                             <option value="inprocess">InProcess</option>
                                                             <option value="dispatched">Dispatched</option>
                                                             <option value="delivered">Delivered</option>
+                                                            <option value="cancelled"><Cancel</option>
                                                             @elseif($order->status =='inprocess')  
                                                             <option value="inprocess">InProcess</option>
                                                             <option value="dispatched">Dispatched</option>
                                                             <option value="delivered">Delivered</option>
+                                                            <option value="cancelled">Cancel</option>
                                                              @elseif($order->status =='dispatched')  
                                                              <option value="dispatched">Dispatched</option>
                                                             <option value="delivered">Delivered</option>
                                                             @elseif($order->status =='delivered')
                                                             <option value="delivered">Delivered</option>
                                                             @elseif($order->status =='cancelled')
-                                                            <option value="cancelled"><span class="text-danger">Cancelled</span></option>
+                                                            <option value="cancelled">Cancelled</option>
                                                             @else
                                                             <option> Something Is Fishy</option>
                                                             @endif  
@@ -146,12 +152,14 @@
                                                 </tbody>
                                                 <tfoot>
                                                     <tr>
+                                                        <th>#</th>
                                                         <th>Order Id</th>
                                                         <th>Transaction Id</th>
-                                                          <th>Payment</th>
+                                                        <th>Payment</th>
                                                         <th>Order Cart</th>
-                                                        <th>Order Detail</th>
+                                                        <th>Order Amount</th>
                                                         <th>Order status</th>
+                                                        <th>Print Pos Bill</th>
                                                         <th>Modified</th>
                                                         <th>Actions</th>
                                                     </tr>
