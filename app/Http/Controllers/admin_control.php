@@ -68,7 +68,7 @@ class admin_control extends Controller
 	   			$order = admin_model::getOrders($val['id']);
 	   			$orderdetail = json_decode($order->orderdetail, true);
                 $location = json_decode($orderdetail['loc'],true);	
-	   			sendSms($location['mobile'],'Hi '.$location['username'].'your order #'.date('ymdhsi',strtotime($order->created_at)).' is in process with Fast O Fresh. ');
+	   			sendSms($location['mobile'],'Hi '.$location['username'].'your order #'.date('ymdhsi',strtotime($order->created_at)).' is in process with Fast O Fresh. Thank you for your patience. ');
 	   			}
 	   			if($val['status'] == 'cancelled'){
 	   			$order = admin_model::getOrders($val['id']);
