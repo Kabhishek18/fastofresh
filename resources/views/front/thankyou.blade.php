@@ -312,7 +312,7 @@
 										  
 										  <div class="thanks">
                         <h2>Thank you for your order</h2>
-  										    #{{date('ymdhsi',strtotime($created_at))}} order has been confirmed for <strong>
+  										    #{{date('ymdhis',strtotime($created_at))}} order has been confirmed for <strong>
 										    	{{$loc->username}}
 										    </strong>. 
 										    </div>

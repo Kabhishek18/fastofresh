@@ -54,9 +54,8 @@ Route::post('payment', 'front_control@payment');
 Route::post('paysuccess', 'RazorpayController@razorPaySuccess');
 Route::get('thank-you', 'RazorpayController@RazorThankYou');
 
-// Route::post('payment', 'front_control@payment');
-// Route::post('ccavRequestHandler', 'front_control@ccavRequestHandler');
-// Route::post('ccavResponseHandler', 'front_control@ccavResponseHandler');
+Route::get('ccavRequestHandler', 'front_control@ccavRequestHandler');
+Route::post('ccavResponseHandler', 'front_control@ccavResponseHandler');
 //Dasboard
 Route::post('login','front_control@login');
 Route::post('register','front_control@register');

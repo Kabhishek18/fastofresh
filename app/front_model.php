@@ -259,4 +259,23 @@ class front_model extends Model
   {
   }
 
+
+
+  //insert sesssion 
+   public static function InsertSession($a,$b,$c,$d,$e){
+  
+      $value= DB::insert('insert into order_sessions (`orderid`, `order`, `user`,`created_at`, `updated_at`)  values(?,?,?,?,?)',[$a,$b,$c,$d,$e]);
+        return $value;
+  }  
+  //Get Session  
+   public static function GetOrder_Sessions($id){
+        $array = array('orderid' => $id );
+        $value=DB::table('order_sessions')->where($array)->first();
+        return $value;
+  }  
+  public static function OrderSessionsDelete($array)
+  {
+    $value= DB::delete('delete from order_sessions  where orderid =?',[$array]);
+    return $value;
+  }
 }

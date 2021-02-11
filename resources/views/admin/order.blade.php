@@ -80,7 +80,7 @@
                                                     
                                                     <tr>
                                                         <td><?=($k++)?></td>
-                                                        <td>{{date('ymdhsi',strtotime($order->created_at))}}    @if($order->status =='pending') <sup class="text-danger" >new</sup>@endif</td>
+                                                        <td>{{date('ymdhis',strtotime($order->created_at))}}    @if($order->status =='pending') <sup class="text-danger" >new</sup>@endif</td>
 
                                                         <td>{{$order->transactionid}}</td>
                                                         <!-- Order payment Method -->
