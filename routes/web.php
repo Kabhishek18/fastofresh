@@ -122,3 +122,17 @@ Route::get('laravel-admin/recipe/add', 'admin_control@RecipeAdd');
 Route::get('laravel-admin/recipe/edit/{id}', 'admin_control@RecipeAdd');
 Route::post('laravel-admin/recipe/insert', 'admin_control@RecipeInsert');
 Route::get('laravel-admin/recipe/delete/{id}', 'admin_control@RecipeDelete');
+
+
+//     _          _    ____            _             _ 
+//    / \   _ __ (_)  / ___|___  _ __ | |_ _ __ ___ | |
+//   / _ \ | '_ \| | | |   / _ \| '_ \| __| '__/ _ \| |
+//  / ___ \| |_) | | | |__| (_) | | | | |_| | | (_) | |
+// /_/   \_\ .__/|_|  \____\___/|_| |_|\__|_|  \___/|_|
+//         |_|  
+
+
+Route::get('api/order', 'apicontrol@GetOrderApi');
+Route::post('api/order/date', 'apicontrol@GetOrderByDateApi');
+
+
