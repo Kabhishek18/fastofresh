@@ -243,7 +243,7 @@ class front_control extends Controller
             if($insert){
               $orderdetails =json_decode($order['orderdetail'],true); 
               $loc =json_decode($orderdetails['loc']); 
-              $sendmsg = 'Hi '.$loc->username.' Your Order '.date('Ymdhsi',strtotime($order['created_at'])).' has been Confirmed with your selected payment mode of COD';
+              $sendmsg = 'Hi '.$loc->username.' Your Order '.date('Ymdhis',strtotime($order['created_at'])).' has been Confirmed with your selected payment mode of COD';
                 sendSms($loc->mobile,$sendmsg);
                 $ordermsg = '<table width="100%" cellpadding="0" cellspacing="0" border="0" id="m_-2287190302310609224m_-7533971164095270638background-table" style="border-collapse:collapse;padding:0;margin:0 auto;background-color:#ebebeb;font-size:12px">
    <tbody>
@@ -704,7 +704,7 @@ To complete your account verification, please enter the code below.
           $orderdetails =json_decode($order->orderdetail,true); 
           
               $loc =json_decode($orderdetails['loc']); 
-              $sendmsg = 'Hi '.$loc->username.' Your Order has been Cancelled with Order no: '.date('Ymdhsi',strtotime($order->created_at));
+              $sendmsg = 'Hi '.$loc->username.' Your Order has been Cancelled with Order no: '.date('Ymdhis',strtotime($order->created_at));
               $sender =$loc->mobile;
           sendSms($loc->mobile,$sendmsg);
           return redirect()->back()->with('success', 'Cancel Order SuccessFully!');
