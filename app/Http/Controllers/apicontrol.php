@@ -32,4 +32,13 @@ class apicontrol extends Controller
 		$json = apimodel::getOrderDate($start,$end);
 		return response($json);
 	}
+
+	//By Id
+
+	public function GetOrderById($id)
+	{	
+		$value =date('y-m-d h:i:s',strtotime($id));
+		$json = apimodel::getOrderbyDate($value);
+		return response($json);
+	}
 }

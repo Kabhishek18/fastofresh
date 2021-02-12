@@ -40,7 +40,7 @@ use App\front_model;
 		$order =session()->get('order');
 		$orderdetails =json_decode($order['orderdetail'],true); 
 		  		$loc =json_decode($orderdetails['loc']); 
-		  		$sendmsg = 'Hi '.$loc->username.' Your Order has been Confirmed with Order no: '.date('ymdhis',strtotime($order['created_at']));
+		  		$sendmsg = 'Hi '.$loc->username.' Your Order has been Confirmed with Order no: '.date('Ymdhis',strtotime($order['created_at']));
 				sendSms($loc->mobile,$sendmsg);
 				 $ordermsg = '<table width="100%" cellpadding="0" cellspacing="0" border="0" id="m_-2287190302310609224m_-7533971164095270638background-table" style="border-collapse:collapse;padding:0;margin:0 auto;background-color:#ebebeb;font-size:12px">
 									   <tbody>
@@ -113,7 +113,7 @@ use App\front_model;
 									      </tr>
 									   </tbody>
 									</table>';
-                sendEmail($loc->email,$ordermsg,'Your Fast O Fresh order no.'.date('ymdhis',strtotime($order['created_at'])).' has been received.');
+                sendEmail($loc->email,$ordermsg,'Your Fast O Fresh order no.'.date('Ymdhis',strtotime($order['created_at'])).' has been received.');
 		echo view('front/inc/header');
 		echo view('front/inc/nav',$categories);
 		echo view('front/thankyou',$order);

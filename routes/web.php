@@ -134,5 +134,6 @@ Route::get('laravel-admin/recipe/delete/{id}', 'admin_control@RecipeDelete');
 
 Route::get('api/order', 'apicontrol@GetOrderApi');
 Route::post('api/order/date', 'apicontrol@GetOrderByDateApi');
+Route::get('api/order/orderid/{id}', 'apicontrol@GetOrderById');
 
 

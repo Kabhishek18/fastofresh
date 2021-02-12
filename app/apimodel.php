@@ -18,4 +18,10 @@ class apimodel extends Model
 	    $value=DB::table('orders')->whereBetween('created_at',[$start,$end])->orderBy('id', 'desc')->get();
 	    return $value;
   	}
+
+  	public static function getOrderbyDate($date){
+  		$array = array('created_at' =>$date);
+	    $value=DB::table('orders')->where($array)->get();
+	    return $value;
+  	}
 }

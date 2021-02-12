@@ -28,7 +28,7 @@
                                 <h1>Invoice</h1>
                                 <div class="invoice-details mt-2">
                                     <h6>Order Id.</h6>
-                                    <p>{{date('ymdhsi',strtotime($order->created_at))}}</p>
+                                    <p>{{date('Ymdhsi',strtotime($order->created_at))}}</p>
                                     <h6 class="mt-2">INVOICE DATE</h6>
                                     <p>{{date('F d y, h:i:s',strtotime($order->created_at))}}</p>
                                 </div>

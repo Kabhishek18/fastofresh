@@ -346,7 +346,7 @@
                     <strong>Payment Due: </strong> Yes (Cash On Delivery) <br />
                         <strong> Order Date: </strong> {{date('F d y h:i:s A',strtotime($created_at))}} <br />
                     @else
-                    <strong> Order Number: FOF</strong>{{date('ymdhis',strtotime($created_at))}} <br/>
+                    <strong> Order Number: FOF</strong>{{date('Ymdhis',strtotime($created_at))}} <br/>
                         <strong> Order Date: </strong> {{date('F d y h:i:s A',strtotime($created_at))}} <br />
                     <strong>Payment Due: </strong> No (Paid Online)<br />
                     <strong>Transactionid : </strong> {{$transactionid}} <br />

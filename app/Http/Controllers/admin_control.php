@@ -68,25 +68,25 @@ class admin_control extends Controller
 	   			$order = admin_model::getOrders($val['id']);
 	   			$orderdetail = json_decode($order->orderdetail, true);
                 $location = json_decode($orderdetail['loc'],true);	
-	   			sendSms($location['mobile'],'Hi '.$location['username'].'your order #'.date('ymdhsi',strtotime($order->created_at)).' is in process with Fast O Fresh. Thank you for your patience. ');
+	   			sendSms($location['mobile'],'Hi '.$location['username'].'your order #'.date('Ymdhsi',strtotime($order->created_at)).' is in process with Fast O Fresh. Thank you for your patience. ');
 	   			}
 	   			if($val['status'] == 'cancelled'){
 	   			$order = admin_model::getOrders($val['id']);
 	   			$orderdetail = json_decode($order->orderdetail, true);
                 $location = json_decode($orderdetail['loc'],true);	
-	   			sendSms($location['mobile'],'Hi '.$location['username'].'your order #'.date('ymdhsi',strtotime($order->created_at)).' has been Cancelled due to some issues. ');
+	   			sendSms($location['mobile'],'Hi '.$location['username'].'your order #'.date('Ymdhsi',strtotime($order->created_at)).' has been Cancelled due to some issues. ');
 	   			}
 	   			if($val['status'] == 'dispatched'){
 	   			$order = admin_model::getOrders($val['id']);
 	   			$orderdetail = json_decode($order->orderdetail, true);
                 $location = json_decode($orderdetail['loc'],true);	
-	   			sendSms($location['mobile'],'Hi '.$location['username'].'your order #'.date('ymdhsi',strtotime($order->created_at)).' is out for delivery, We are trying our best to deliver your order at the earliest. ');
+	   			sendSms($location['mobile'],'Hi '.$location['username'].'your order #'.date('Ymdhsi',strtotime($order->created_at)).' is out for delivery, We are trying our best to deliver your order at the earliest. ');
 	   			}
 	   			if($val['status'] == 'delivered'){
 	   			$order = admin_model::getOrders($val['id']);
 	   			$orderdetail = json_decode($order->orderdetail, true);
                 $location = json_decode($orderdetail['loc'],true);	
-	   			sendSms($location['mobile'],'Hi '.$location['username'].' your Fast O Fresh order #'.date('ymdhsi',strtotime($order->created_at)).' has been successfully delivered. Thank you for your order with Fast O Fresh ');
+	   			sendSms($location['mobile'],'Hi '.$location['username'].' your Fast O Fresh order #'.date('Ymdhsi',strtotime($order->created_at)).' has been successfully delivered. Thank you for your order with Fast O Fresh ');
 	   			}
 	   			return redirect()->back()->with('success', 'Update Successfully');
 	    		}
@@ -886,7 +886,7 @@ class admin_control extends Controller
         );
 
         // Set Client Info
-        $printer->SetClient($clientLocation['addressline1'],$clientLocation['landmark'],$clientLocation['city'],$clientLocation['postalcode'],$clientLocation['mobile'],$clientLocation['username'],$clientLocation['email'],$client['method'],$client['slottime'],date('ymdhis',strtotime($order->created_at)));
+        $printer->SetClient($clientLocation['addressline1'],$clientLocation['landmark'],$clientLocation['city'],$clientLocation['postalcode'],$clientLocation['mobile'],$clientLocation['username'],$clientLocation['email'],$client['method'],$client['slottime'],date('Ymdhis',strtotime($order->created_at)));
 
         // Set store info
         $printer->setStore($cin,$gst, $store_name, $store_address, $store_phone, $store_email, $store_website);
