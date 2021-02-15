@@ -1,20 +1,39 @@
+
 $(document).ready(function(){
     $('[id^="hide-"]').on('click', function(){
         $(this).hide(); // this.value
         var matchvalue = $(this).data('value');
           $('#show-'+matchvalue).show();
-
         let html = "";
+        var qty = 1;
         html += `
                 <input type='button' onclick="decrementValue(${matchvalue})" value='-' class='btn btn-default' field='quantity' />
-                <input type='text' name='qty' id="number${matchvalue}"  value='1' class='qty' />
+                <input type='text' name='qty' id="number${matchvalue}"  value=${qty} class='qty' />
                 <input type='button' onclick="incrementValue(${matchvalue})" value='+' class='btn btn-default' field='quantity' />
-        
-            <input type='submit' class="btn btn-danger  " style='background-color: #800000;' value="Add"/>
-           
           `;
 
           $('#show-'+matchvalue).html(html);
+        $.ajax({
+        url: SITEURL + '/cartline',
+        type: 'post',
+        dataType: 'json',
+        data: {"_token": "{{ csrf_token() }}",pid: matchvalue ,
+        qty : qty ,
+        }, 
+        success: function (msg) {
+             swal({
+    title: "Added Successfully  ",
+    timer: 1500,
+    buttons: false,
+    });
+     
+        },
+        error: function (error) {
+            
+        }
+
+    });
+          
     });
 
     //Location Hide Detail on checkout page
@@ -43,6 +62,21 @@ function incrementValue(pid)
      value = isNaN(value) ? 0 : value;
     value++;
     document.getElementById(id).value = value;
+     $.ajax({
+        url: SITEURL + '/update-ajax',
+        type: 'post',
+        data: {"_token": "{{ csrf_token() }}",
+                id: pid, 
+                quantity : value ,
+        }, 
+        success: function (msg) {
+            console.log('Increment');
+        },
+        error: function (error) {
+        }
+
+    });
+
 }
 function decrementValue(pid)
 {	var id = 'number'+pid;
@@ -50,12 +84,39 @@ function decrementValue(pid)
      value = isNaN(value) ? 0 : value;
     var data = value - 1;
    	if(data >0){	
-    document.getElementById(id).value = data;}
+    document.getElementById(id).value = data;
+    $.ajax({
+        url: SITEURL + '/update-ajax',
+        type: 'post',
+        data: {"_token": "{{ csrf_token() }}",
+                id: pid, 
+                quantity : data ,
+        }, 
+        success: function (msg) {
+             console.log('Decrement');
+        },
+        error: function (error) {
+        }
+
+    });
+    }
     else{
-    	data = '1';
-          $('#hide-'+pid).show();
-          $('#show-'+pid).hide();
-    document.getElementById(id).value = data;}
+       
+         $.ajax({
+            url: SITEURL + '/remove-from-cart',
+            method: "post",
+            data: {_token: '{{ csrf_token() }}', id: pid},
+            success: function (response) {
+                document.getElementById(id).value = data;
+                 $('#hide-'+pid).show();
+                  $('#show-'+pid).hide();
+            },
+            error: function (error) {
+            }
+            });
+         
+        
+    }
    
 }
 

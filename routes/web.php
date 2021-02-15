@@ -43,9 +43,12 @@ Route::get('recipes/{id}', 'front_control@recipeDetail');
 
 //Cart
 Route::post('cartadd', 'cart@AddToCart');
+Route::get('cartquant', 'cart@CartQuant');
+Route::post('cartline', 'cart@AjaxToCart');
 Route::get('cart', 'cart@CartView');
 Route::patch('update-cart', 'cart@update');
-Route::delete('remove-from-cart', 'cart@remove');
+Route::post('update-ajax', 'cart@AjaxUpdate');
+Route::post('remove-from-cart', 'cart@remove');
 Route::get('clearcart', 'cart@removeall');
 
 //Checkout

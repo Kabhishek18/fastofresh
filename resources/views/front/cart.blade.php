@@ -98,7 +98,7 @@
                                             <tbody><?php $total = 0 ;?>
                                                 @foreach($cart as $id => $details)
                                             <?php $total += $details['price'] * $details['quantity'] ?>
-                                                <tr>
+                                                <tr id="show-{{$details['pid']}}">
                                                     <td data-th="Product">
                                                         <div class="row">
                                                             <div class="col-xs-3 hidden-xs"><img src="{{url('products/')}}/{{ $details['photo'] }}" width="100" height="100" class="img-responsive"/></div>
@@ -124,14 +124,14 @@
                                                         <input type='button' onclick="incrementValuecart(<?=$details['pid']?>)" value='+' class='btn btn-default' field='quantity' />
                                                       </div>
                                                       <div class="col-md-12 hidden-md hidden-lg hidden-xl">
-                                                         <button class="btn btn-warning btn-sm update-cart" style="background-color: #ffb100; color: #800000;margin-bottom: 10px" data-id="{{ $id }}" data-value="{{$id}}"><i class="fa fa-refresh"></i>Update</button>
-                                                        <button class="btn btn-danger btn-sm remove-from-cart" style="background: #800000;border: none;margin-bottom: 10px" data-id="{{ $id }}"><i class="fa fa-trash-o"></i>Remove</button>
+                                                        
+                                                        <button class="btn btn-danger btn-sm remove-from-cart" style="background: #800000;border: none;margin-bottom: 10px" data-id="{{ $id }}"><i class="fa fa-trash-o"></i></button>
                                                       </div>
                                                     </td>
                                                     <td data-th="Subtotal" class="text-center hidden-xs">₹ {{ $details['price'] * $details['quantity'] }}</td>
                                                     <td class="actions  hidden-xs" data-th="">
-                                                        <button class="btn btn-warning btn-sm update-cart" style="background-color: #ffb100; color: #800000;margin-bottom: 10px" data-id="{{ $id }}" data-value="{{$id}}"><i class="fa fa-refresh"></i>Update</button>
-                                                        <button class="btn btn-danger btn-sm remove-from-cart" style="background: #800000;border: none;margin-bottom: 10px" data-id="{{ $id }}"><i class="fa fa-trash-o"></i>Remove</button>
+                                                        
+                                                        <button class="btn btn-danger btn-sm remove-from-cart" style="background: #800000;border: none;margin-bottom: 10px" data-id="{{ $id }}"><i class="fa fa-trash-o"></i></button>
                                                     </td>
                                                 </tr>
                                                 @endforeach
@@ -218,7 +218,7 @@
             if(confirm("Are you sure")) {
                 $.ajax({
                     url: '{{ url('remove-from-cart') }}',
-                    method: "DELETE",
+                    method: "post",
                     data: {_token: '{{ csrf_token() }}', id: ele.attr("data-id")},
                     success: function (response) {
                         window.location.reload();
@@ -229,21 +229,66 @@
 
    function incrementValuecart(pid)
   {   var id = 'qty'+pid;
-      var value = parseInt(document.getElementById(id).value, 10);
-       value = isNaN(value) ? 0 : value;
-      value++;
-      document.getElementById(id).value = value;
+     var value = parseInt(document.getElementById(id).value, 10);
+     value = isNaN(value) ? 0 : value;
+    value++;
+    document.getElementById(id).value = value;
+     $.ajax({
+        url: SITEURL + '/update-ajax',
+        type: 'post',
+        data: {"_token": "{{ csrf_token() }}",
+                id: pid, 
+                quantity : value ,
+        }, 
+        success: function (msg) {
+            console.log('Increment');
+              location.reload();
+        },
+        error: function (error) {
+        }
+
+    });
   }
   function decrementValueCart(pid)
   {   var id = 'qty'+pid;
       var value = parseInt(document.getElementById(id).value, 10);
-       value = isNaN(value) ? 0 : value;
-      var data = value - 1;
-      if(data >0){    
-      document.getElementById(id).value = data;}
-      else{
-          data = '1';
-      document.getElementById(id).value = data;}
+     value = isNaN(value) ? 0 : value;
+    var data = value - 1;
+    if(data >0){  
+    document.getElementById(id).value = data;
+    $.ajax({
+        url: SITEURL + '/update-ajax',
+        type: 'post',
+        data: {"_token": "{{ csrf_token() }}",
+                id: pid, 
+                quantity : data ,
+        }, 
+        success: function (msg) {
+            location.reload();
+        },
+        error: function (error) {
+        }
+
+    });
+    }
+    else{
+       
+         $.ajax({
+            url: SITEURL + '/remove-from-cart',
+            method: "post",
+            data: {_token: '{{ csrf_token() }}', id: pid},
+            success: function (response) {
+                document.getElementById(id).value = data;
+                  $('#show-'+pid).remove();
+                  location.reload();
+            },
+            error: function (error) {
+            }
+            });
+         
+        
+    }
+   
      
   }
        

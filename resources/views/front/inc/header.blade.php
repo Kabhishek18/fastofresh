@@ -32,6 +32,7 @@
   gtag('js', new Date());
 
   gtag('config', 'UA-188367381-1');
+  var SITEURL = '{{url('')}}';
 </script>
 </head>
 <body itemscope>

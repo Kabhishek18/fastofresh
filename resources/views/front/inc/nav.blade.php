@@ -72,17 +72,31 @@ $parsed_json = json_decode($json_string, true);
                     </div>
                     <div class="social1">
                          <a href="{{url('cart')}}" title="Cart" itemprop="url"  style="font-size: 20px;margin-right: 10px;margin-top: -1px"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i>
+                            <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+                                <script>
+                                    $(document).ready(
+                                            function() {
+                                                setInterval(function() {
+                                                        $.ajax({
+                                                        url: SITEURL + '/cartquant',
+                                                        type: 'get',
+                                                        success: function (msg) {
+                                                             $('#show').text(msg);
+                                                        },
+                                                        error: function (error) {
+
+                                                        }
+
+                                                        });
+
+                                                   
+                                                }, 1000);
+                                            });
+                                </script>
+
+                              
                                         @if(session()->get('cart')) 
-                                        <sup> (
-                                           
-                                           <?php $cart = session()->get('cart')?>
-                                           
-                                            <?php $quant = 0 ;?>
-                                                @foreach($cart as $id => $details)
-                                            <?php $quant += $details['quantity']  ?>
-                                             @endforeach
-                                             {{$quant}}
-                                        )</sup>
+                                        <sup id="show"></sup>
                                         <span style="font-size: 16px"> Cart</span>
                                         @endif
                                         </a>
@@ -173,13 +187,9 @@ $parsed_json = json_decode($json_string, true);
             <div class="responsive-topbar">
                 <div class="text-center">
                             <a href="{{url('cart')}}" title="Cart" itemprop="url"  style="color:white;font-size: 20px;margin-top: -1px"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i>
-                                        @if(session()->get('cart')) 
-                                        Cart
-                                        <sup> (
-                                           
-                                           <?php $cart = session()->get('cart')?>
-                                            {{count($cart)}}
-                                        )</sup>
+                                         @if(session()->get('cart')) 
+                                        <sup id="show"></sup>
+                                        <span style="font-size: 16px"> Cart</span>
                                         @endif
                                         </a>
                         </div>

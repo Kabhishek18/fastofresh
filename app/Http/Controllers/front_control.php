@@ -366,12 +366,12 @@ class front_control extends Controller
       }
       else{
         session()->flash('warning', 'Wrong Credentials');
-        return redirect('');
+        return redirect()->back();
       }
     }
     else{
       session()->flash('warning', 'Email Id Invalid');
-        return redirect('');
+        return redirect()->back();
     }
   } 
    
