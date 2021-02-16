@@ -13,7 +13,7 @@ use App\Http\Controllers\front_control;
 |        |  _|| | | (_) | | | | |_ 
 |        |_|  |_|  \___/|_| |_|\__|
 */
-URL::forceScheme('https');
+// URL::forceScheme('https');
 Route::get('', 'front_control@index' );
 //Route::get('', 'front_control@dummy' );
 Route::get('about-us', 'front_control@about' );

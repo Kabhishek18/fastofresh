@@ -127,7 +127,7 @@ function forgotPassword()
     $('.forgot-parent').append(' <div class="sign-popup-title text-center"><h4 itemprop="headline">Forgot Password </h4></div>'); 
     let formhtml = "";
         formhtml += `
-                    <form class="sign-form" method="post" action="/emailotpverify">
+                    <form class="form-group sign-form" method="post" action="/emailotpverify">
                         
                             <div class="col-md-12 col-sm-12 col-lg-12">
                               <div class="form-group">
@@ -141,6 +141,9 @@ function forgotPassword()
                               </div>  
                             </div>
                         <br><br>
+                        <div class="col-md-12 col-sm-12 col-lg-12" >
+                                 >><a class="sign-popup-btn" style="font-size: 14px;color: red" onclick="window.location.reload()" title="Register" itemprop="url">Back To Home</a>
+                            </div>
                     </form>
                         `;
     $('.forgot-parent-body').html(formhtml); 

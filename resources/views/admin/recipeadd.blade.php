@@ -76,17 +76,9 @@
                                                     <div class="form-group">
                                                         <div class="controls">
                                                             <label>Title<span class="text-danger">*</span></label>
-                                                   <textarea name="title" id="title" contenteditable="true">
-                                                    <?=(!empty($datalist->title)?$datalist->title:'')?>
-                                                   </textarea>
+                                                   <textarea class="form-control" name="title" id="title" contenteditable="true"><?=(!empty($datalist->title)?$datalist->title:'')?></textarea>
                                                     </div>
                                                 </div>
-
-                                                
-                                                   <script>
-                                                        CKEDITOR.replace('title');
-                                                       
-                                                   </script>
                                                 </div>
                                                <div class="col-sm-12">
                                                     <div class="form-group">

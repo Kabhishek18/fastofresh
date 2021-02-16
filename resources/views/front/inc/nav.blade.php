@@ -95,10 +95,9 @@ $parsed_json = json_decode($json_string, true);
                                 </script>
 
                               
-                                        @if(session()->get('cart')) 
+                                        
                                         <sup id="show"></sup>
                                         <span style="font-size: 16px"> Cart</span>
-                                        @endif
                                         </a>
                      
                         <a href="https://www.facebook.com/fastofreshfoods/" title="Facebook" itemprop="url" target="_blank"><i class="fa fa-facebook"></i></a>

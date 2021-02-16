@@ -187,11 +187,8 @@
                                         <?php $i=0.0;?>
                                          @foreach($categories as $category)
                                            <div class="widget get_in_touch " style="    color: wheat;">
-                                            @if($category->id ==6)
 
-                                            @else
                                             <h4 class="widget-title" itemprop="headline" style="margin-bottom:10px;"><u><a href="{{url('')}}/category/{{$category->name}}">{{$category->name}}</a></u></h4>
-                                            @endif
                                               
                                               @foreach(footpro($category->id) as $profoot)
                                                 <a href="{{url('')}}/product/{{$profoot->id}}" >{{$profoot->name}}</a> &nbsp; | &nbsp;
