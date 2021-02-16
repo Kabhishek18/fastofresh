@@ -330,7 +330,7 @@ $parsed_json = json_decode($json_string, true);
                                                                 <input type="radio" name="method" value="cash" id="pay1-1">
                                                                 <label for="pay1-1"><i class="fa fa-money"></i> Cash</label>
                                                               </span> 
-                                                              <span class="radio-box card-popup-btn">
+                                                              <span class="radio-box">
                                                                 <input type="radio" name="method" id="pay1-2"  value="online" >
                                                                 <label for="pay1-2"><i class="fa fa-credit-card-alt"></i> Online</label>
                                                               </span></li>

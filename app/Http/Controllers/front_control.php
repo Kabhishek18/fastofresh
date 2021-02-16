@@ -107,7 +107,7 @@ class front_control extends Controller
       $var['categories'] = front_model::getCategory();
       $var['category'] =front_model::getCategoryName($name);
       $var['products'] =front_model::GetCatPro($var['category']->id);
-       echo view('front/inc/header');
+       echo view('front/inc/header',$var);
        echo view('front/inc/nav',$var);
        echo view('front/product',$var);
        echo view('front/inc/footer',$var);
@@ -148,7 +148,7 @@ class front_control extends Controller
       }
 
       $var['categories'] = front_model::getCategory();
-    echo view('front/inc/header');
+    echo view('front/inc/header',$var);
      echo view('front/inc/nav',$var);
      echo view('front/prodetail',$var);
      echo view('front/inc/footer',$var);
