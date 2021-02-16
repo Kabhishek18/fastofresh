@@ -227,12 +227,17 @@ class cart extends Controller
 
     public function CartQuant()
     {
-      $quant = 0 ;
       $cart = session()->get('cart');
+      if(!empty($cart)){
+      $quant = 0 ;
       foreach($cart as $id => $details){
          $quant += $details['quantity'] ;
       }
       return '('.$quant.')';
+      }else{
+         return '(0)';
+      }
+
     }
 
 }

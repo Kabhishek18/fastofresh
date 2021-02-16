@@ -230,9 +230,9 @@
                     <a class="log-close-btn" href="#" title="" itemprop="url"><i class="fa fa-close"></i></a>
                         <div class="sign-popup-title text-center">
                             <h4 itemprop="headline">LOG IN</h4>
-                           
                         </div>
-                        <form class="form-group"  method="post" action="{{url('login')}}">
+
+                        <form class="login"  method="post" action="{{url('login')}}">
                           @csrf
                             
                                 <div class="col-md-12 col-sm-12 col-lg-12 ">
@@ -261,11 +261,10 @@
                                   <a class="forgot-popup-btn" onclick="forgotPassword()" style="font-size: 14px;color: red" href="javascript:void(0)" title="forgot" itemprop="url">Forgot Your Password ??</a>
                             </div>
                         </form>
-
-                        <div class="forgot-parent">
-                        </div>
-                         <div class="forgot-parent-body">
-                        </div>
+                </div>
+                <div class="forgot-parent">
+                </div>
+                 <div class="forgot-parent-body">
                 </div>
             </div>
         </div>

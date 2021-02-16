@@ -527,7 +527,8 @@ class front_control extends Controller
         $user = front_model::GetUserEmailby($val['email']);
       }
       $val['otp'] =  mt_rand(100000, 999999);
-      $subject ='<table width="100%" cellpadding="0" cellspacing="0" border="0" id="m_-2287190302310609224m_-7533971164095270638background-table" style="border-collapse:collapse;padding:0;margin:0 auto;background-color:#ebebeb;font-size:12px">
+      $subject = 'Fast O Fresh Password Recovery';
+      $msg ='<table width="100%" cellpadding="0" cellspacing="0" border="0" id="m_-2287190302310609224m_-7533971164095270638background-table" style="border-collapse:collapse;padding:0;margin:0 auto;background-color:#ebebeb;font-size:12px">
    <tbody>
       <tr>
          <td valign="top" align="center" style="font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:0;margin:0;width:100%">
@@ -554,7 +555,7 @@ class front_control extends Controller
                            
                               <tr>
                                  <td style="font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:5px 15px;margin:0;">
-                                    <h3 style="text-align:left;margin:0;padding:5px 15px">Dear'.$user['name'] .' </h3>
+                                    <h3 style="text-align:left;margin:0;padding:5px 15px">Dear'.$user->name .' </h3>
                                     <h3 style="padding:5px 15px;font-family:calibri;font-weight:normal;font-size:17px;margin-bottom:10px;margin-top:15px">Hope you are having a great time with Fast O Fresh.
 To complete your account verification, please enter the code below.  
 </h3>
@@ -567,7 +568,7 @@ To complete your account verification, please enter the code below.
                                        <tr>
                                           <td></td>
                                             <td colspan="3" style="color:#000; font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:5px 15px;margin:0;text-align:center">
-                                             <h3 style="font-family:calibri;font-weight:normal;font-size:32px;margin-bottom:10px;margin-top:15px;text-align: center;">789456</h3>
+                                             <h3 style="font-family:calibri;font-weight:normal;font-size:32px;margin-bottom:10px;margin-top:15px;text-align: center;">'.$val['otp'].'</h3>
                                              
 
                                           </td>
@@ -615,7 +616,7 @@ To complete your account verification, please enter the code below.
     if(!empty(session()->get('verifyemail')))
     {
       $otp = Request::post('otp');
-      $password = Request::post('password');
+      $password = sha1(Request::post('password'));
       $var = session()->get('verifyemail');
       $array['email'] =$var['email'];
       $array['password'] =$password;

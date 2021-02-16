@@ -122,24 +122,25 @@ function decrementValue(pid)
 
 function forgotPassword()
 {
-    $( ".sign-form" ).remove();
+    $( ".login" ).remove();
     $( ".sign-popup-title" ).remove();
-    $('.forgot-parent').append('<div class="sign-popup-title text-center"><h4 itemprop="headline">Forgot Password </h4></div>'); 
+    $('.forgot-parent').append(' <div class="sign-popup-title text-center"><h4 itemprop="headline">Forgot Password </h4></div>'); 
     let formhtml = "";
         formhtml += `
                     <form class="sign-form" method="post" action="/emailotpverify">
-                        <div class="row">
+                        
                             <div class="col-md-12 col-sm-12 col-lg-12">
+                              <div class="form-group">
                                 <label>Enter Email ID<span class="text-danger">*</span></label>
-                                <input class="brd-rd3" type="text" name="email" placeholder="Enter Email ID" required>
+                                <input class="form-control" type="text" name="email" placeholder="Enter Email ID" required>
+                                </div>
                             </div>
                             <div class="col-md-12 col-sm-12 col-lg-12">
+                              <div class="form-group">
                                 <button class="red-bg brd-rd3" type="submit">Send Verification</button>
+                              </div>  
                             </div>
-                        </div>
-                        <div class="row" >
-                             New To Fast O Fresh? <a class="sign-popup-btn" style="font-size: 14px;color: red" href="#" title="Register" itemprop="url">Sign up Here</a>
-                        </div>
+                        <br><br>
                     </form>
                         `;
     $('.forgot-parent-body').html(formhtml); 
