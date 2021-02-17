@@ -39,11 +39,11 @@
  <!-- terms -->  
 <?php }elseif($parameters =='category'){ ?>
   <!-- Category -->
-      {{$category->meta}}
+      {!!$category->meta!!}
   <!-- Category -->
 <?php } elseif($parameters =='product'){ ?>
   <!-- Prdouct -->
-      {{$product->meta}}
+      {!!$product->meta!!}
   <!-- Prdouct -->
 <?php } ?>  
 
