@@ -72,7 +72,7 @@ $parsed_json = json_decode($json_string, true);
                     </div>
                     <div class="social1">
                          <a href="{{url('cart')}}" title="Cart" itemprop="url"  style="font-size: 20px;margin-right: 10px;margin-top: -1px"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i>
-                            <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+                            <script type="text/javascript" src="https://code.jquery.com/jquery-1.10.1.min.js"></script>
                                 <script>
                                     $(document).ready(
                                             function() {
