@@ -112,26 +112,38 @@
                                                             </div>
                                                         </div>
                                                     </td>
-                                                    <td data-th="Price" class="hidden-xs"><div class="col-sm-12 col-xs-12">
+                                                    <td data-th="Price" class="hidden-xs"><div class="col-sm-12 col-xs-12"  style="padding: 10px">
                                                       ₹ {{ $details['price'] }}
                                                     </div></td>
                                                     <td data-th="Quantity" >
-                                                      <div class="col-sm-12" style="display: flex;padding: 10px">
+                                                      <div class="col-md-12" style="padding: 10px">
                                                         
-                                                         <input type='button' onclick="decrementValueCart(<?=$details['pid']?>)" value='-' class='btn btn-default' field='quantity' />
-                                                        <input type="number" id="qty<?=$details['pid']?>" value="{{ $details['quantity'] }}" class="updatecart " min="1"  style="width: 20%;
-                                                  text-align: center;"/>
+                                                         <div class="col-md-4">
+                                                           <input type='button' onclick="decrementValueCart(<?=$details['pid']?>)" value='-' class='btn btn-default' field='quantity' />
+                                                         </div>
+                                                         <div class="col-md-4">
+                                                        <input type="number" id="qty<?=$details['pid']?>" value="{{ $details['quantity'] }}" class="form-control updatecart " min="1" style="padding: 10px;border-style: none;background: #f9f9f9;">
+                                                         </div>
+                                                         <div class="col-md-4">
+                                                           
                                                         <input type='button' onclick="incrementValuecart(<?=$details['pid']?>)" value='+' class='btn btn-default' field='quantity' />
+                                                         </div>
                                                       </div>
-                                                      <div class="col-md-12 hidden-md hidden-lg hidden-xl">
+                                                      <div class="col-md-12 text-center hidden-md hidden-lg hidden-xl">
                                                         
                                                         <button class="btn btn-danger btn-sm remove-from-cart" style="background: #800000;border: none;margin-bottom: 10px" data-id="{{ $id }}"><i class="fa fa-trash-o"></i></button>
                                                       </div>
                                                     </td>
-                                                    <td data-th="Subtotal" class="text-center hidden-xs">₹ {{ $details['price'] * $details['quantity'] }}</td>
+                                                    <td data-th="Subtotal" class="text-center hidden-xs" >
+                                                      <div class="col-md-12"  style="padding: 10px">
+                                                        ₹{{ $details['price'] * $details['quantity'] }}
+                                                      </div>  
+                                                    </td>
                                                     <td class="actions  hidden-xs" data-th="">
                                                         
-                                                        <button class="btn btn-danger btn-sm remove-from-cart" style="background: #800000;border: none;margin-bottom: 10px" data-id="{{ $id }}"><i class="fa fa-trash-o"></i></button>
+                                                      <span style="padding: 10px">
+                                                          <button class="btn btn-danger btn-sm remove-from-cart" style="background: #800000;border: none;margin-bottom: 10px" data-id="{{ $id }}"><i class="fa fa-trash-o"></i></button>
+                                                      </span>
                                                     </td>
                                                 </tr>
                                                 @endforeach

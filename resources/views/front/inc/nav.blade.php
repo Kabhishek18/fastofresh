@@ -186,10 +186,32 @@ $parsed_json = json_decode($json_string, true);
             <div class="responsive-topbar">
                 <div class="text-center">
                             <a href="{{url('cart')}}" title="Cart" itemprop="url"  style="color:white;font-size: 20px;margin-top: -1px"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i>
-                                         @if(session()->get('cart')) 
-                                        <sup id="show"></sup>
+                                        <script type="text/javascript" src="https://code.jquery.com/jquery-1.10.1.min.js"></script>
+                                <script>
+                                    $(document).ready(
+                                            function() {
+                                                setInterval(function() {
+                                                        $.ajax({
+                                                        url: SITEURL + '/cartquant',
+                                                        type: 'get',
+                                                        success: function (msg) {
+                                                             $('#showm').text(msg);
+                                                        },
+                                                        error: function (error) {
+
+                                                        }
+
+                                                        });
+
+                                                   
+                                                }, 1000);
+                                            });
+                                </script>
+
+                              
+                                        
+                                        <sup id="showm"></sup>
                                         <span style="font-size: 16px"> Cart</span>
-                                        @endif
                                         </a>
                         </div>
             </div>
