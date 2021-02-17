@@ -119,12 +119,12 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                               <div class="col-sm-6">
+                                               <div class="col-sm-12">
                                                     <div class="form-group">
                                                         <div class="controls">
 
                                                             <label>Product Meta <span class="text-danger">*</span></label>
-                                                            <input type="text" name="meta" class="form-control" placeholder="Product Name" required data-validation-required-message="This Course Name field is required" value="<?=(!empty($datalist->meta)?$datalist->meta:'')?>">
+                                                             <textarea rows="5"  name="meta" id="" class="form-control" placeholder="Product Name" ><?=(!empty($datalist->meta)?$datalist->meta:'')?></textarea>
                                                         </div>
                                                     </div>
                                                 </div>
