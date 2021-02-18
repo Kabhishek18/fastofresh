@@ -194,7 +194,11 @@
                                             </table>
                                             
                                               <div class="content" align="right">
+                                                <?php if(session()->get('user_session')){?>
                                                 <a class="btn btn-danger" style="background-color: #800000;border:none;" href="{{url('checkout')}}"> Proceed to Checkout  </a>
+                                                <?php }else{?>
+                                                    <a class="btn btn-danger log-popup-btn" style="background-color: #800000;border:none;"> Proceed to Checkout  </a>
+                                                <?php }?>
                                                 </div>
 
                                         

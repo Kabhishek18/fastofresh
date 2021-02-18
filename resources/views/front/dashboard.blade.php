@@ -179,7 +179,7 @@
                                                        
                                                     </div>
                                                 </div>
-                                                <div class="tab-pane fade  " id="my-location">
+                                                <div class="tab-pane fade" id="my-location">
                                                     <div class="tabs-wrp brd-rd5">
                                                         <h4 itemprop="headline">MY LOCATIONS</h4>
                                                        <br>
@@ -188,8 +188,7 @@
                                                        @foreach($locations as $location) 
                                                       <div class="order-list">
                                                             <div class="order-item card">
-                                                              <div class="card-header" style="padding: 15px;
-">
+                                                              <div class="card-header" style="padding: 15px;">
                                                                 <h5><strong>Saved Address</strong></h5>
                                                               </div>
                                                               <div class="card-body">
@@ -207,7 +206,7 @@
                                                       @endif
                                                     </div>
                                                 </div>   
-                                                <div class="tab-pane fade " id="account-settings">
+                                                <div class="tab-pane fade" id="account-settings">
                                                     <div class="tabs-wrp account-settings brd-rd5">
                                                         <h4 itemprop="headline">ACCOUNT SETTINGS</h4>
                                                         <div class="account-settings-inner">

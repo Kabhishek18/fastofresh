@@ -21,11 +21,7 @@ $(document).ready(function(){
         qty : qty ,
         }, 
         success: function (msg) {
-             swal({
-    title: "Added Successfully  ",
-    timer: 1500,
-    buttons: false,
-    });
+            
      
         },
         error: function (error) {
