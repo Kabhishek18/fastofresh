@@ -64,6 +64,7 @@ Route::get('thank-you', 'RazorpayController@RazorThankYou');
 Route::post('login','front_control@login');
 Route::post('register','front_control@register');
 Route::post('otpverify','front_control@otpVerifcation');
+Route::get('otpverifys','front_control@otpVerifcations');
 Route::post('emailotpverify','front_control@EmailotpForgot');
 Route::post('passwordforget','front_control@ForgotUpdate');
 Route::get('dashboard', 'front_control@dashboard');

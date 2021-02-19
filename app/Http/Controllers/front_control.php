@@ -498,23 +498,33 @@ class front_control extends Controller
               session()->forget('verifysession');
               $object = (object) $var;
                session()->put('user_session',$object);
-             return redirect('')->with('success', 'Successfully Registered');
+             session()->forget('verifysession');  
+              session()->flash('success', 'Welcome Aboard');
+             return redirect('dashboard');
            } 
            else{
              session()->forget('verifysession');
-            return redirect('')->with('warning', 'Something Misfortune Happen!');
+            return redirect()->back()->with('warning', 'Something Misfortune Happen!');
            }
       }
       else{
-           session()->forget('verifysession');
-         return redirect('')->with('warning', 'OTP Did Not Matched');
+         return redirect('otpverifys')->with('warning', 'OTP Did Not Matched');
       }
     }
     else{
-         return redirect('')->with('warning','Something Went Wrong!');
+         return redirect('otpverifys')->with('warning','Something Went Wrong!');
     }
   }
 
+  public function otpVerifcations()
+  {
+    $val =session()->get('verifysession');
+    $var['categories'] = front_model::getCategory();
+    echo view('front/inc/header');
+    echo view('front/inc/nav',$var);
+    echo view('front/otpverifcation',$val);
+    echo view('front/inc/footer',$var);
+  }
 
   //Email Verification
   public function EmailotpForgot(Request $request)

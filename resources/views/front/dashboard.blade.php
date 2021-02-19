@@ -34,9 +34,9 @@
                                                         </div>
                                                     </div>
                                                     <ul class="nav nav-tabs">
-                                                        
-                                                        <li class="active"><a href="#my-orders" data-toggle="tab"><i class="fa fa-shopping-basket"></i> MY ORDERS</a></li>
-                                                        <li><a href="#my-wallet" data-toggle="tab"><i class="fa fa-money"></i> MY WALLET</a></li>
+                                                        <li class="active"><a href="#my-dashboard" data-toggle="tab"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+                                                        <li ><a href="#my-orders" data-toggle="tab"><i class="fa fa-shopping-basket"></i> MY ORDERS</a></li>
+                                                        <!-- <li><a href="#my-wallet" data-toggle="tab"><i class="fa fa-money"></i> MY WALLET</a></li> -->
                                                         <li><a href="#my-location" data-toggle="tab"><i class="fa fa-money"></i> MY LOCATION</a></li>
                                                         <li><a href="#account-settings" data-toggle="tab"><i class="fa fa-cog"></i> ACCOUNT SETTINGS</a></li>
                                                     </ul>
@@ -45,8 +45,29 @@
                                         </div>
                                         <div class="col-md-8 col-sm-12 col-lg-8">
                                             <div class="tab-content">
-                                                
-                                                <div class="tab-pane fade in active" id="my-orders">
+
+                                                <div class="tab-pane fade in active" id="my-dashboard">
+                                                    <div class="tabs-wrp brd-rd5">
+                                                        <h4 itemprop="headline">Dashboard</h4>
+                                                       <br>
+                                                      
+                                                      <div class="order-list">
+                                                            <div class="order-item card">
+                                                              <div class="card-header" style="padding: 15px;">
+                                                                <h5>Welcome <strong>{{$user->name}}</strong>,</h5>
+                                                              </div>
+                                                              <div class="card-body">
+                                                               
+                                                              </div>
+                                                              <div class="card-foot">
+                                                                   
+                                                              </div>
+                                                            </div> 
+                                                          
+                                                      </div>    
+                                                    </div>
+                                                </div>   
+                                                <div class="tab-pane " id="my-orders">
                                                     <div class="tabs-wrp brd-rd5">
                                                         <h4 itemprop="headline">MY ORDERS</h4>
                                                         <div class="order-list">
@@ -179,7 +200,7 @@
                                                        
                                                     </div>
                                                 </div>
-                                                <div class="tab-pane fade" id="my-location">
+                                                <div class="tab-pane" id="my-location">
                                                     <div class="tabs-wrp brd-rd5">
                                                         <h4 itemprop="headline">MY LOCATIONS</h4>
                                                        <br>
@@ -206,7 +227,7 @@
                                                       @endif
                                                     </div>
                                                 </div>   
-                                                <div class="tab-pane fade" id="account-settings">
+                                                <div class="tab-pane " id="account-settings">
                                                     <div class="tabs-wrp account-settings brd-rd5">
                                                         <h4 itemprop="headline">ACCOUNT SETTINGS</h4>
                                                         <div class="account-settings-inner">
