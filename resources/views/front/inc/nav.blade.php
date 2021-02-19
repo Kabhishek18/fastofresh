@@ -49,7 +49,7 @@ $parsed_json = json_decode($json_string, true);
                       <div class="d-flex p-2 bd-highlight">
                             <form  action="{{url('')}}/search" method="post" style="display: inline-flex; width: 200%; margin-top: 5px;">
                                 @csrf
-                                <input class="form-control" id="search_text" type="text" name="product" placeholder="Decided what to cook?"  list="browsers" width="100px">
+                                <input class="form-control" id="search_text" type="text" name="product" placeholder="Decided what to cook?"  list="browsers" width="100px" required="">
                                    <datalist class="searchspecial" id="browsers">
                                
                                       </datalist>
