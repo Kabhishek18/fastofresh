@@ -68,7 +68,7 @@
                                                     </div>
                                                 </div>   
                                                 <div class="tab-pane " id="my-orders">
-                                                    <div class="tabs-wrp brd-rd5">
+                                                    <div class="tabs-wrp ">
                                                         <h4 itemprop="headline">MY ORDERS</h4>
                                                         <div class="order-list">
                                                             @if(!empty($orders))
@@ -203,28 +203,27 @@
                                                 <div class="tab-pane" id="my-location">
                                                     <div class="tabs-wrp brd-rd5">
                                                         <h4 itemprop="headline">MY LOCATIONS</h4>
-                                                       <br>
-                                                        <?php $i=1;?>
-                                                        @if(!empty($locations))
-                                                       @foreach($locations as $location) 
-                                                      <div class="order-list">
-                                                            <div class="order-item card">
-                                                              <div class="card-header" style="padding: 15px;">
-                                                                <h5><strong>Saved Address</strong></h5>
-                                                              </div>
-                                                              <div class="card-body">
-                                                                <?php $address =json_decode($location->location,true);?>
-                                                                <p class="card-text">{{$address['addressline1']}},{{$address['landmark']}},</p>
-                                                               <p class="card-text">{{$address['city']}},{{$address['postalcode']}}</p>
-                                                              </div>
-                                                              <div class="card-foot">
-                                                                   <a href="{{url('dashboard/locationremove/'.$location->id)}}" class="btn btn-danger"><i class="fa fa-remove"></i>Remove</a>
-                                                              </div>
-                                                            </div> 
-                                                          
-                                                      </div>      
-                                                      @endforeach 
-                                                      @endif
+                                                         <br>
+                                                          <?php $i=1;?>
+                                                          @if(!empty($locations))
+                                                           @foreach($locations as $location) 
+                                                            <div class="order-list">
+                                                                <div class="order-item card">
+                                                                  <div class="card-header" style="padding: 15px;">
+                                                                    <h5><strong>Saved Address</strong></h5>
+                                                                  </div>
+                                                                  <div class="card-body">
+                                                                    <?php $address =json_decode($location->location,true);?>
+                                                                    <p class="card-text">{{$address['addressline1']}},{{$address['landmark']}},</p>
+                                                                   <p class="card-text">{{$address['city']}},{{$address['postalcode']}}</p>
+                                                                  </div>
+                                                                  <div class="card-foot">
+                                                                       <a href="{{url('dashboard/locationremove/'.$location->id)}}" class="btn btn-danger"><i class="fa fa-remove"></i>Remove</a>
+                                                                  </div>
+                                                                </div> 
+                                                            </div>      
+                                                            @endforeach 
+                                                          @endif
                                                     </div>
                                                 </div>   
                                                 <div class="tab-pane " id="account-settings">
@@ -269,35 +268,34 @@
                                                                                     <label>Phone No <sup>*</sup></label>
                                                                                     <input class="brd-rd3" type="text" placeholder="Enter Your Phone No" disabled="" value="{{$user->mobile}}">
                                                                                 </div>
-                                                                               </div>
-                                                                             </form>  
-                                                                                <hr>
-                                                                            <form class="profile-info-form" method="post" action="{{url('dashboard/changepassword')}}">
-                                                                                @csrf
-                                                                                <div class="col-md-12 col-sm-6 col-lg-6">
-                                                                                    <label>Password <sup class="text-danger">*</sup></label>
-                                                                                    <input class="brd-rd3" type="text" name="password" required="">
-                                                                                </div>
-                                                                                <div class="col-md-12 col-sm-6 col-lg-6">
-                                                                                    <label>Confirm Password <sup class="text-danger">*</sup></label>
-                                                                                    <input class="brd-rd3" type="text" name="cpassword" required="">
-                                                                                </div>
-                                                                                <div>
-                                                                                    <input type="submit" class="btn btn-success" name=""value="Update Password" style="color: white">
-                                                                                </div>
-                                                                            </form>
                                                                             </div>
-                                                                        
-                                                                    </div>
+                                                                        </form>  
+                                                                        <hr>
+                                                                        <form class="profile-info-form" method="post" action="{{url('dashboard/changepassword')}}">
+                                                                            @csrf
+                                                                            <div class="col-md-12 col-sm-6 col-lg-6">
+                                                                                <label>Password <sup class="text-danger">*</sup></label>
+                                                                                <input class="brd-rd3" type="text" name="password" required="">
+                                                                            </div>
+                                                                            <div class="col-md-12 col-sm-6 col-lg-6">
+                                                                                <label>Confirm Password <sup class="text-danger">*</sup></label>
+                                                                                <input class="brd-rd3" type="text" name="cpassword" required="">
+                                                                            </div>
+                                                                            <div>
+                                                                                <input type="submit" class="btn btn-success" name=""value="Update Password" style="color: white">
+                                                                            </div>
+                                                                        </form>
+                                                                    </div> 
                                                                 </div>
-                                                           
                                                             </div>
+                                                           
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
+                                    
                                 </div>
                             </div>
                         </div>
