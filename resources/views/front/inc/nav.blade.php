@@ -156,11 +156,12 @@ $parsed_json = json_decode($json_string, true);
 
         <div class="responsive-header">
             <div class="responsive-topbar">
+                 <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
                  <div class="select-wrp" style="width:100% !important ;text-align-last:center;">
                          <form action="{{url('')}}/pincode/saved" method="post" style="display: flex;color: #fff !important">
                             @csrf
                             <i class="fa fa-map-marker" style="margin-top: 1px; padding: 10px;"></i>
-                            <select data-placeholder="Feel Like Eating" style="width: 100%;background:black;" name="pinlocation" onchange="this.form.submit()">
+                            <select data-placeholder="Feel Like Eating"  id="single"  class="form-control" style="width: 100%;background:black;" name="pinlocation" onchange="this.form.submit()">
                             @if(!empty(session()->get('pinlocation')))
                             <option selected="" value="{{session()->get('pinlocation')}}" >
                                {{session()->get('pinlocation')}}</option>
@@ -179,7 +180,19 @@ $parsed_json = json_decode($json_string, true);
 
                         </select>
                         </form>
-                        
+                         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- Select2 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+    <script>
+      $("#single").select2({
+          placeholder: "Select a programming language",
+          allowClear: true
+      });
+      $("#multiple").select2({
+          placeholder: "Select a programming language",
+          allowClear: true
+      });
+    </script>
                     </div>
                
             </div>

@@ -14,6 +14,7 @@ use App\Http\Controllers\front_control;
 |        |_|  |_|  \___/|_| |_|\__|
 */
 URL::forceScheme('https');
+Route::group(['middleware' => ['web']], function () {
 Route::get('', 'front_control@index' );
 //Route::get('', 'front_control@dummy' );
 Route::get('about-us', 'front_control@about' );
@@ -141,3 +142,4 @@ Route::post('api/order/date', 'apicontrol@GetOrderByDateApi');
 Route::get('api/order/orderid/{id}', 'apicontrol@GetOrderById');
 
 
+});

@@ -10,18 +10,17 @@
   margin-bottom: 0.5rem;
   min-width: 300px;
   max-width: 400px;
-  
+  }
   .notice {
     padding: 0rem 1rem;
-    
-    h4 {
+    }
+   .notice h4 {
       margin-bottom: 1.5rem;
     }
     
-    p {
+   .notice p {
       margin-bottom: 0.5rem;
     }
-  }
   
   .icon {
     font-size: 3rem;
@@ -34,7 +33,6 @@
                 
                 <div class="sec-box " style="margin-top: 30px">
                    @include('../status')
-
                     <div class="container">
 
                         <div class="row">
@@ -53,11 +51,9 @@
                           
                                  
                               </div>
-                            <div class="col-md-12 col-sm-12 col-lg-12" style="background: #f3f6f9ba;
-    border-radius: 25px;
-    padding: 50px">
+                            <div class="col-md-12 col-sm-12 col-lg-12" >
 
-                                <div class="sec-wrapper">
+                                <div class="sec-wrapper" style="background: #f3f6f9ba;border-radius: 25px;padding:50px">
                                     <div class="row">
                                            
                                            <div class="container">
