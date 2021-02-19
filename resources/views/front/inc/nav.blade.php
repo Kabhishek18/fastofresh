@@ -181,24 +181,24 @@ $parsed_json = json_decode($json_string, true);
                         </select>
                         </form>
                          <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <!-- Select2 -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
-    <script>
-      $("#single").select2({
-          placeholder: "Select a programming language",
-          allowClear: true
-      });
-      $("#multiple").select2({
-          placeholder: "Select a programming language",
-          allowClear: true
-      });
-    </script>
+                            <!-- Select2 -->
+                            <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+                            <script>
+                              $("#single").select2({
+                                  placeholder: "Select a programming language",
+                                  allowClear: true
+                              });
+                              $("#multiple").select2({
+                                  placeholder: "Select a programming language",
+                                  allowClear: true
+                              });
+                            </script>
                     </div>
                
             </div>
             <div class="responsive-topbar">
-                <div class="text-center">
-                            <a href="{{url('cart')}}" title="Cart" itemprop="url"  style="color:white;font-size: 20px;margin-top: -1px"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i>
+                <div class="text-right" style="color:white;font-size: 16px;margin-top: -1px">
+                            <a href="{{url('cart')}}" title="Cart" itemprop="url"  ><i class="fa fa-cart-arrow-down" aria-hidden="true"></i>
                                         <script type="text/javascript" src="https://code.jquery.com/jquery-1.10.1.min.js"></script>
                                 <script>
                                     $(document).ready(
@@ -226,6 +226,18 @@ $parsed_json = json_decode($json_string, true);
                                         <sup id="showm"></sup>
                                         <span style="font-size: 16px"> Cart</span>
                                         </a>
+                                        &nbsp;
+                                      @if(!empty(session()->get('user_session')))
+                            <a href="{{url('/dashboard')}}">Hi, {{(session()->get('user_session'))->name}}
+                                (MyAccount)
+                            </a>
+                            @else
+                            <a class="log-popup-btn" href="#" title="Login" itemprop="url"><i class="fa fa-user"></i> Login</a>
+                            @endif
+                        </div>
+                        <div class="text-right">
+                            
+                            
                         </div>
             </div>
             <div class="responsive-logomenu">
@@ -264,15 +276,6 @@ $parsed_json = json_decode($json_string, true);
                                     </li>
                                     @endforeach
                     
-                        <li>
-                             @if(!empty(session()->get('user_session')))
-                            <a href="{{url('/dashboard')}}">Hi, {{(session()->get('user_session'))->name}}
-                                (MyAccount)
-                            </a>
-                            @else
-                            <a class="log-popup-btn" href="#" title="Login" itemprop="url">Login</a>
-                            @endif
-                        </li>
 
                             </ul>
                                                         
