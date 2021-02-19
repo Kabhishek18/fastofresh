@@ -1,3 +1,4 @@
+ @include('../status')
 <div class="bread-crumbs-wrapper">
     <div class="container">
         <ol class="breadcrumb">
@@ -6,7 +7,7 @@
         </ol>
     </div>
 </div>
- @include('../status')
+
         <section>
             <div class=" gray-bg">
                 <div class="sec-box bottom-padd140">

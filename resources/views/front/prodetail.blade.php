@@ -1,7 +1,7 @@
-
+   @include('../status')
         <section>
             <div class="gray-bg">
-            @include('../status')
+         
                 <div class="sec-box">
                     <div class="container">
                         <div class="row">
@@ -79,14 +79,16 @@
                                                                             @endif
                                                                              </div>
                                                                 </div>
-                                                                  <div class="col-sm-12 col-md-6 col-lg-6  text-center"  >           
-                                                                            <div class="btn btn-default" style="background: green;color: white;font-size: 18px;text-transform: uppercase;font-weight: 600;">@if($product->b_price)
-                                                                              @if(number_format(($product->b_price-$product->s_price)/$product->b_price *100) > 0)
+                                                                  <div class="col-sm-12 col-md-6 col-lg-6  text-center"  >        
+                                                                          @if($product->b_price)
+                                                                              @if(number_format(($product->b_price-$product->s_price)/$product->b_price *100) > 0)   
+                                                                            <div class="btn btn-default" style="background: green;color: white;font-size: 18px;text-transform: uppercase;font-weight: 600;">
                                                                             {{number_format(($product->b_price-$product->s_price)/$product->b_price *100)}}
                                                                             % Off
-                                                                              @endif
-                                                                            @endif
+                                                                           
                                                                             </div>
+                                                                               @endif
+                                                                            @endif
                                                                      
                                                                </div> 
                                                                 
@@ -111,74 +113,74 @@
 <style type="text/css">
 
 
-.frame {
-  float: left;
-    overflow: hidden;
-  position: relative;
-}
+  .frame {
+    float: left;
+      overflow: hidden;
+    position: relative;
+  }
 
-.frame a {
-  display: block;
-    height: 100%;
-  width: 100%;
-}
-
-
-
-.frame:nth-child(2) img {
-  top: -90%;
-  left: -70%;
-}
-.frame:nth-child(3) img {
-  top: -90%;
-}
-
-.frame a .caption {
-    background-color: rgba(0, 0, 0, 0.9);
+  .frame a {
     display: block;
-  overflow: hidden;
-  padding: 10px;
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  top: 180px;
-    transition-property: top;
-  transition-duration: 0.2s;  
-  width: 100%;  
-  z-index: 10;
-}
+      height: 100%;
+    width: 100%;
+  }
 
-.frame a:hover .caption {
-    top: 0;
-  transition: all 2s;
-}
 
-.frame a .caption h2 {
-  font-size: 32px;
+
+  .frame:nth-child(2) img {
+    top: -90%;
+    left: -70%;
+  }
+  .frame:nth-child(3) img {
+    top: -90%;
+  }
+
+  .frame a .caption {
+      background-color: rgba(0, 0, 0, 0.9);
+      display: block;
+    overflow: hidden;
+    padding: 10px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 180px;
+      transition-property: top;
+    transition-duration: 0.2s;  
+    width: 100%;  
+    z-index: 10;
+  }
+
+  .frame a:hover .caption {
+      top: 0;
+    transition: all 2s;
+  }
+
+  .frame a .caption h2 {
+    font-size: 32px;
+      margin-bottom: 20px;
+  }
+
+  .frame a .caption p {
+    color: white;
+    display: none;
+    line-height: 150%;
+    transition: all 0.2s;  
+    width: 90%;
+  }
+
+  .frame a .caption li {
+    color: white !important;
+    display: none;
+    line-height: 150%;
+    transition: all 0.2s;  
+    width: 90%;
+  }
+
+  .frame a:hover .caption p {
+    display: block;
     margin-bottom: 20px;
-}
-
-.frame a .caption p {
-  color: white;
-  display: none;
-  line-height: 150%;
-  transition: all 0.2s;  
-  width: 90%;
-}
-
-.frame a .caption li {
-  color: white !important;
-  display: none;
-  line-height: 150%;
-  transition: all 0.2s;  
-  width: 90%;
-}
-
-.frame a:hover .caption p {
-  display: block;
-  margin-bottom: 20px;
-}
+  }
 </style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
 

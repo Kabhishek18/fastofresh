@@ -17,12 +17,9 @@ use GuzzleHttp\Client;
 
 class front_control extends Controller
 {
-    //Home Page
+  //Home Page
   public function index()
   {   
-     // if(url()->full() != 'https://fastofresh.com/'){
-     //  return redirect('https://fastofresh.com/')
-     // }
      $categories['categories'] = front_model::getCategory();
       $popular =front_model::getHomeList(1);
         
@@ -58,7 +55,7 @@ class front_control extends Controller
       echo view('front/inc/footer',$categories);
   }
 
-   public function privacy($value='')
+  public function privacy($value='')
   {
      $categories['categories'] = front_model::getCategory();
       echo view('front/inc/header');
@@ -67,7 +64,7 @@ class front_control extends Controller
       echo view('front/inc/footer',$categories);
   }
 
-     public function terms($value='')
+  public function terms($value='')
   {
      $categories['categories'] = front_model::getCategory();
       echo view('front/inc/header');
@@ -75,7 +72,8 @@ class front_control extends Controller
       echo view('front/terms');
       echo view('front/inc/footer',$categories);
   }
-    public function faq($value='')
+  
+  public function faq($value='')
   {
      $categories['categories'] = front_model::getCategory();
       echo view('front/inc/header');
@@ -83,6 +81,7 @@ class front_control extends Controller
       echo view('front/faq');
       echo view('front/inc/footer',$categories);
   }
+  
   public function why($value='')
   {
      $categories['categories'] = front_model::getCategory();
@@ -91,7 +90,8 @@ class front_control extends Controller
       echo view('front/why');
       echo view('front/inc/footer',$categories);
   }
-   //Categories
+  
+  //Categories
   public function categories()
   {  
       $var['categories'] =front_model::getCategory();
@@ -101,7 +101,7 @@ class front_control extends Controller
       echo view('front/inc/footer',$var);
   }
 
-   //Categories Products
+  //Categories Products
   public function products($name)
   {   
       $var['categories'] = front_model::getCategory();
@@ -113,7 +113,7 @@ class front_control extends Controller
        echo view('front/inc/footer',$var);
   }
 
-   //Prdouct via Seach
+  //Prdouct via Seach
   public function productSearch(Request $request)
   {
       $query = Request::post('query');
@@ -249,76 +249,76 @@ class front_control extends Controller
               $sendmsg = 'Hi '.$loc->username.' Your Order '.date('Ymdhis',strtotime($order['created_at'])).' has been Confirmed with your selected payment mode of COD';
                 sendSms($loc->mobile,$sendmsg);
                 $ordermsg = '<table width="100%" cellpadding="0" cellspacing="0" border="0" id="m_-2287190302310609224m_-7533971164095270638background-table" style="border-collapse:collapse;padding:0;margin:0 auto;background-color:#ebebeb;font-size:12px">
-   <tbody>
-      <tr>
-         <td valign="top" align="center" style="font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:0;margin:0;width:100%">
-            <table cellpadding="0" cellspacing="0" border="0" align="center" style="border-collapse:collapse;padding:0;margin:0 auto;width:600px">
-               <tbody>
-                  <tr>
-                     <td align="center" style="background:#fff;font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:0;margin:0">
-                        <table cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;padding:0;margin:0">
-                           <tbody>
-                              <tr>
-                                 <td align="center"  style=" font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:15px 0px 10px 5px;margin:0">
-                                    <a href="https://www.fastofresh.com/" style="color:#3696c2;float:left;display:block" rel="noreferrer" target="_blank" data-saferedirecturl="https://www.google.com/url?q=https://www.fastofresh.com/&amp;source=gmail&amp;ust=1612437442476000&amp;usg=AFQjCNGp8vRHo85GtG1KT4EjwDV7Yqv0Lg">
-                                    <img width="" height="" src="http://fastofresh.com/assets/images/logo2.png" alt="fastofresh.com" border="0" style=" outline:none;text-decoration:none" class="CToWUd"></a>
-                                 </td>
-                              </tr>
-                           </tbody>
-                        </table>
-                     </td>
-                  </tr>
-                  <tr>
-                     <td align="top" style="background:#fff;font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:0;margin:0">
-                        <table cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;padding:0;margin:0">
-                           <tbody>
-                           
-                              <tr>
-                                 <td style="font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:5px 15px;margin:0;">
-                                    <h3 style="text-align:left;margin:0;padding:5px 15px">Dear '.$loc->username.',</h3>
-                                    <h3 style="padding:5px 15px;font-family:calibri;font-weight:normal;font-size:17px;margin-bottom:10px;margin-top:15px"> Thanks for using Fast O Fresh! Your order has been confirmed and will be delivered shortly. Look forward to serving you.</h3>
-                                    
-                                 </td>
-                              </tr>
-                              <tr>
-                                 <td style="width: 650px; font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:0;margin:0">
-                                    <table bgcolor="" width="100%" height="100px">
-                                       <tr>
-                                          <td></td>
-                                            <td colspan="3" style="color:#000; font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:5px 15px;margin:0;text-align:center">
-                                             
-                                             
+                 <tbody>
+                    <tr>
+                       <td valign="top" align="center" style="font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:0;margin:0;width:100%">
+                          <table cellpadding="0" cellspacing="0" border="0" align="center" style="border-collapse:collapse;padding:0;margin:0 auto;width:600px">
+                             <tbody>
+                                <tr>
+                                   <td align="center" style="background:#fff;font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:0;margin:0">
+                                      <table cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;padding:0;margin:0">
+                                         <tbody>
+                                            <tr>
+                                               <td align="center"  style=" font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:15px 0px 10px 5px;margin:0">
+                                                  <a href="https://www.fastofresh.com/" style="color:#3696c2;float:left;display:block" rel="noreferrer" target="_blank" data-saferedirecturl="https://www.google.com/url?q=https://www.fastofresh.com/&amp;source=gmail&amp;ust=1612437442476000&amp;usg=AFQjCNGp8vRHo85GtG1KT4EjwDV7Yqv0Lg">
+                                                  <img width="" height="" src="http://fastofresh.com/assets/images/logo2.png" alt="fastofresh.com" border="0" style=" outline:none;text-decoration:none" class="CToWUd"></a>
+                                               </td>
+                                            </tr>
+                                         </tbody>
+                                      </table>
+                                   </td>
+                                </tr>
+                                <tr>
+                                   <td align="top" style="background:#fff;font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:0;margin:0">
+                                      <table cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;padding:0;margin:0">
+                                         <tbody>
+                                         
+                                            <tr>
+                                               <td style="font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:5px 15px;margin:0;">
+                                                  <h3 style="text-align:left;margin:0;padding:5px 15px">Dear '.$loc->username.',</h3>
+                                                  <h3 style="padding:5px 15px;font-family:calibri;font-weight:normal;font-size:17px;margin-bottom:10px;margin-top:15px"> Thanks for using Fast O Fresh! Your order has been confirmed and will be delivered shortly. Look forward to serving you.</h3>
+                                                  
+                                               </td>
+                                            </tr>
+                                            <tr>
+                                               <td style="width: 650px; font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:0;margin:0">
+                                                  <table bgcolor="" width="100%" height="100px">
+                                                     <tr>
+                                                        <td></td>
+                                                          <td colspan="3" style="color:#000; font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:5px 15px;margin:0;text-align:center">
+                                                           
+                                                           
 
-                                          </td>
-                                          <td></td>
+                                                        </td>
+                                                        <td></td>
 
-                                       </tr>
-                                 
-                                    </table>
-                                 </td>
-                                
-                                 </td>
-                              </tr>
-                           </tbody>
-                        </table>
-                        <table>
-                           <tbody>
-                              <tr>
-                                  <td style="font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:10px 15px;margin:10px;">
-                                       <p>Thankfully, Team Fast O fresh</p>
-                                   </td>        
-                              </tr>
-                           </tbody>
-                        </table>
-                     </td>
-                  </tr>
-               </tbody>
-            </table>
-   
-         </td>
-      </tr>
-   </tbody>
-</table>';
+                                                     </tr>
+                                               
+                                                  </table>
+                                               </td>
+                                              
+                                               </td>
+                                            </tr>
+                                         </tbody>
+                                      </table>
+                                      <table>
+                                         <tbody>
+                                            <tr>
+                                                <td style="font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:10px 15px;margin:10px;">
+                                                     <p>Thankfully, Team Fast O fresh</p>
+                                                 </td>        
+                                            </tr>
+                                         </tbody>
+                                      </table>
+                                   </td>
+                                </tr>
+                             </tbody>
+                          </table>
+                 
+                       </td>
+                    </tr>
+                 </tbody>
+              </table>';
                 sendEmail($loc->email,$ordermsg,'Your Fast O Fresh order no.'.date('Ymdhis',strtotime($order['created_at'])).' has been received.');
 
               return redirect('thank-you')->with('success', 'Order Placed With');
@@ -368,13 +368,11 @@ class front_control extends Controller
         return redirect('dashboard');
       }
       else{
-        session()->flash('warning', 'Wrong Credentials');
-        return redirect()->back();
+        return redirect()->back()->with('warning', 'Wrong Credentials');
       }
     }
     else{
-      session()->flash('warning', 'Email Id Invalid');
-        return redirect()->back();
+        return redirect()->back()->with('warning', 'Email Id Invalid');
     }
   } 
    
@@ -541,78 +539,78 @@ class front_control extends Controller
       $val['otp'] =  mt_rand(100000, 999999);
       $subject = 'Fast O Fresh Password Recovery';
       $msg ='<table width="100%" cellpadding="0" cellspacing="0" border="0" id="m_-2287190302310609224m_-7533971164095270638background-table" style="border-collapse:collapse;padding:0;margin:0 auto;background-color:#ebebeb;font-size:12px">
-   <tbody>
-      <tr>
-         <td valign="top" align="center" style="font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:0;margin:0;width:100%">
-            <table cellpadding="0" cellspacing="0" border="0" align="center" style="border-collapse:collapse;padding:0;margin:0 auto;width:600px">
-               <tbody>
-                  <tr>
-                     <td align="center" style="background:#fff;font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:0;margin:0">
-                        <table cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;padding:0;margin:0">
-                           <tbody>
-                              <tr>
-                                 <td align="center"  style=" font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:15px 0px 10px 5px;margin:0">
-                                    <a href="https://www.fastofresh.com/" style="color:#3696c2;float:left;display:block" rel="noreferrer" target="_blank" data-saferedirecturl="https://www.google.com/url?q=https://www.fastofresh.com/&amp;source=gmail&amp;ust=1612437442476000&amp;usg=AFQjCNGp8vRHo85GtG1KT4EjwDV7Yqv0Lg">
-                                    <img width="" height="" src="http://fastofresh.com/assets/images/logo2.png" alt="fastofresh.com" border="0" style=" outline:none;text-decoration:none" class="CToWUd"></a>
-                                 </td>
-                              </tr>
-                           </tbody>
-                        </table>
-                     </td>
-                  </tr>
-                  <tr>
-                     <td align="top" style="background:#fff;font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:0;margin:0">
-                        <table cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;padding:0;margin:0">
-                           <tbody>
-                           
-                              <tr>
-                                 <td style="font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:5px 15px;margin:0;">
-                                    <h3 style="text-align:left;margin:0;padding:5px 15px">Dear'.$user->name .' </h3>
-                                    <h3 style="padding:5px 15px;font-family:calibri;font-weight:normal;font-size:17px;margin-bottom:10px;margin-top:15px">Hope you are having a great time with Fast O Fresh.
-To complete your account verification, please enter the code below.  
-</h3>
-                                    
-                                 </td>
-                              </tr>
-                              <tr>
-                                 <td style="width: 650px; font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:0;margin:0">
-                                    <table bgcolor="" width="100%" height="100px">
-                                       <tr>
-                                          <td></td>
-                                            <td colspan="3" style="color:#000; font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:5px 15px;margin:0;text-align:center">
-                                             <h3 style="font-family:calibri;font-weight:normal;font-size:32px;margin-bottom:10px;margin-top:15px;text-align: center;">'.$val['otp'].'</h3>
-                                             
+                 <tbody>
+                    <tr>
+                       <td valign="top" align="center" style="font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:0;margin:0;width:100%">
+                          <table cellpadding="0" cellspacing="0" border="0" align="center" style="border-collapse:collapse;padding:0;margin:0 auto;width:600px">
+                             <tbody>
+                                <tr>
+                                   <td align="center" style="background:#fff;font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:0;margin:0">
+                                      <table cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;padding:0;margin:0">
+                                         <tbody>
+                                            <tr>
+                                               <td align="center"  style=" font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:15px 0px 10px 5px;margin:0">
+                                                  <a href="https://www.fastofresh.com/" style="color:#3696c2;float:left;display:block" rel="noreferrer" target="_blank" data-saferedirecturl="https://www.google.com/url?q=https://www.fastofresh.com/&amp;source=gmail&amp;ust=1612437442476000&amp;usg=AFQjCNGp8vRHo85GtG1KT4EjwDV7Yqv0Lg">
+                                                  <img width="" height="" src="http://fastofresh.com/assets/images/logo2.png" alt="fastofresh.com" border="0" style=" outline:none;text-decoration:none" class="CToWUd"></a>
+                                               </td>
+                                            </tr>
+                                         </tbody>
+                                      </table>
+                                   </td>
+                                </tr>
+                                <tr>
+                                   <td align="top" style="background:#fff;font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:0;margin:0">
+                                      <table cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;padding:0;margin:0">
+                                         <tbody>
+                                         
+                                            <tr>
+                                               <td style="font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:5px 15px;margin:0;">
+                                                  <h3 style="text-align:left;margin:0;padding:5px 15px">Dear'.$user->name .' </h3>
+                                                  <h3 style="padding:5px 15px;font-family:calibri;font-weight:normal;font-size:17px;margin-bottom:10px;margin-top:15px">Hope you are having a great time with Fast O Fresh.
+              To complete your account verification, please enter the code below.  
+              </h3>
+                                                  
+                                               </td>
+                                            </tr>
+                                            <tr>
+                                               <td style="width: 650px; font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:0;margin:0">
+                                                  <table bgcolor="" width="100%" height="100px">
+                                                     <tr>
+                                                        <td></td>
+                                                          <td colspan="3" style="color:#000; font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:5px 15px;margin:0;text-align:center">
+                                                           <h3 style="font-family:calibri;font-weight:normal;font-size:32px;margin-bottom:10px;margin-top:15px;text-align: center;">'.$val['otp'].'</h3>
+                                                           
 
-                                          </td>
-                                          <td></td>
+                                                        </td>
+                                                        <td></td>
 
-                                       </tr>
-                                 
-                                    </table>
-                                 </td>
-                                
-                                 </td>
-                              </tr>
-                           </tbody>
-                        </table>
-                        <table>
-                           <tbody>
-                              <tr>
-                                  <td style="font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:10px 15px;margin:10px;">
-                                       <p>Thankfully, Team Fast O fresh</p>
-                                   </td>        
-                              </tr>
-                           </tbody>
-                        </table>
-                     </td>
-                  </tr>
-               </tbody>
-            </table>
-   
-         </td>
-      </tr>
-   </tbody>
-</table>';
+                                                     </tr>
+                                               
+                                                  </table>
+                                               </td>
+                                              
+                                               </td>
+                                            </tr>
+                                         </tbody>
+                                      </table>
+                                      <table>
+                                         <tbody>
+                                            <tr>
+                                                <td style="font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:10px 15px;margin:10px;">
+                                                     <p>Thankfully, Team Fast O fresh</p>
+                                                 </td>        
+                                            </tr>
+                                         </tbody>
+                                      </table>
+                                   </td>
+                                </tr>
+                             </tbody>
+                          </table>
+                 
+                       </td>
+                    </tr>
+                 </tbody>
+              </table>';
     sendEmail( $val['email'],$msg,$subject);
     session()->put('verifyemail',$val);
     $var['categories'] = front_model::getCategory();
