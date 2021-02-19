@@ -1,13 +1,11 @@
-
-
-        <div class="bread-crumbs-wrapper">
-            <div class="container">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="#" title="" itemprop="url">Home</a></li>
-                    <li class="breadcrumb-item active">Dashboard</li>
-                </ol>
-            </div>
-        </div>
+<div class="bread-crumbs-wrapper">
+    <div class="container">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#" title="" itemprop="url">Home</a></li>
+            <li class="breadcrumb-item active">Dashboard</li>
+        </ol>
+    </div>
+</div>
  @include('../status')
         <section>
             <div class=" gray-bg">
@@ -68,7 +66,7 @@
                                                     </div>
                                                 </div>   
                                                 <div class="tab-pane " id="my-orders">
-                                                    <div class="tabs-wrp ">
+                                                    <div class="tabs-wrp my-orders  brd-rd5 ">
                                                         <h4 itemprop="headline">MY ORDERS</h4>
                                                         <div class="order-list">
                                                             @if(!empty($orders))
@@ -201,7 +199,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="tab-pane" id="my-location">
-                                                    <div class="tabs-wrp brd-rd5">
+                                                    <div class="tabs-wrp my-location brd-rd5">
                                                         <h4 itemprop="headline">MY LOCATIONS</h4>
                                                          <br>
                                                           <?php $i=1;?>
