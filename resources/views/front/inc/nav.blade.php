@@ -157,10 +157,18 @@ $parsed_json = json_decode($json_string, true);
         <div class="responsive-header">
             <div class="responsive-topbar">
                  <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
-                 <div class="select-wrp" style="width:100% !important ;text-align-last:center;">
+                 <div class="col-md-12" style="width: 100% !important;text-align:center;">
+                     <select id="single2"  class="form-control">
+                         <option>East Delhi</option>
+                         <option>South Delhi</option>
+                         <option>Ghaziabad</option>
+                         <option>Noida</option>
+                     </select>
+                 </div>
+                 <br>
+                 <div class="col-md-12" style="width:100% !important ;text-align-last:center;">
                          <form action="{{url('')}}/pincode/saved" method="post" style="display: flex;color: #fff !important">
                             @csrf
-                            <i class="fa fa-map-marker" style="margin-top: 1px; padding: 10px;"></i>
                             <select data-placeholder="Feel Like Eating"  id="single"  class="form-control" style="width: 100%;background:black;" name="pinlocation" onchange="this.form.submit()">
                             @if(!empty(session()->get('pinlocation')))
                             <option selected="" value="{{session()->get('pinlocation')}}" >
@@ -188,12 +196,17 @@ $parsed_json = json_decode($json_string, true);
                                   placeholder: "Select a programming language",
                                   allowClear: true
                               });
+                              $("#single2").select2({
+                                  placeholder: "Select a programming language",
+                                  allowClear: true
+                              });
                               $("#multiple").select2({
                                   placeholder: "Select a programming language",
                                   allowClear: true
                               });
                             </script>
                     </div>
+                    <br>
                
             </div>
             <div class="responsive-topbar">

@@ -50,7 +50,6 @@
 
 .client {
   display: inline-block;
-  margin-left: 10px;
   margin-right: 20px;
   width: 325px;
   height: 190px;
@@ -69,7 +68,6 @@
 
 .orderinfo {
   float: left;
-  margin-left: 30px;
   width: 430px;
   line-height: 150%;
   padding-left: 15px;
@@ -224,8 +222,8 @@
 }
 
 .payment {
-  float: right;
   margin-top: 10px;
+  margin-left: 10px;
   margin-bottom: 0px;
   display: inline-block;
   width: 365px;
@@ -296,9 +294,9 @@
                 <div class="sec-box bottom-padd140">
                     <div class="container">
                         <div class="row">
-                            <div class="col-md-12 col-sm-12 col-lg-12">
+                            <div class="col-sm-12 col-md-12  col-lg-12">
                                 <div class="row">
-                                    <div class="col-md-12 col-sm-12 col-lg-12">
+                                    <div class="col-sm-12 col-md-12 col-lg-12">
 										                                        
 										<div class="invoice">
 										  <?php  
