@@ -534,10 +534,10 @@
        
                         <div class="modal-header">
                           <div class="modal-logo"><img src="/assets/images/logo2.png"></div>
-                          <br>
-                          <p>Wholesome meat, swift delivery.</p>
+                         <!--  <br>
+                          <p>Wholesome meat, swift delivery.</p> -->
                         </div>
-                        <div class="modal-body" style="padding: 10px">
+                        <div class="modal-body" style="padding: 10px;border: none;">
                             <div class="modal-content" style="border: none;">
    
                             <div class="" >
@@ -554,7 +554,17 @@
                                     </label>
                                     
                                 </div>
+                                <div class="col-md-12">
+                                    <label>
+                                      <input type="radio" name="weblocation" class="card-input-element" value="South Delhi" <?=((session()->get('location'))=='South Delhi'?'checked':'' )?> />
 
+                                        <div class=" card-input">
+                                          <div class="location-heading">South Delhi</div>
+                                         </div>
+
+                                    </label>
+                                    
+                                </div>
                                 <div class="col-md-12">
                                     <label>
                                       <input type="radio" name="weblocation" class="card-input-element" value="Ghaziabad" <?=((session()->get('location'))=='Ghaziabad'?'checked':'' )?> />
@@ -598,6 +608,10 @@
                                 elseif(session()->get('location') =='Ghaziabad')
                                 {
                                 $json_string = file_get_contents("ghaziabad.json");
+                                }
+                                elseif(session()->get('location') =='South Delhi')
+                                {
+                                $json_string = file_get_contents("southdelhi.json");
                                 }
                               }
                               else{

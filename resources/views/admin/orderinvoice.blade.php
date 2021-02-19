@@ -73,7 +73,7 @@
                                 <div class="recipient-info my-2">
                                     <p>{{$location['username']}}</p>
                                     <p>{{$location['addressline1']}}</p>
-                                    <p><strong>Landmark: </strong>{{$location['addressline1']}}</p>
+                                    <p><strong>Landmark: </strong>{{$location['landmark']}}</p>
                                     <p>{{$location['city']}}, </p>
                                     <p>{{$location['postalcode']}}</p>
                                     <p>Slot Time: {{$orderdetail['slottime']}}</p>

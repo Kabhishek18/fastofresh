@@ -843,13 +843,12 @@ class admin_control extends Controller
 	    if ($user['user']) {
 
     	$order=admin_model::getOrders($id);
-    	 $cart =json_decode($order->order_cart,true);
-    	 $client = json_decode($order->orderdetail,true);
-    	 $clientLocation = json_decode($client['loc'],true);
+    	  $cart =json_decode($order->order_cart,true);
+         $client = json_decode($order->orderdetail,true);
+         $clientLocation = json_decode($client['loc'],true);
 
-    	
-    	
-    	 // Set params
+        
+         // Set params
         $cin = 'U15490DL2020PTC367249';
         $gst = '07AAECF1671R1Z5';
         $store_name = 'M/S Fast O Fresh Pvt Ltd,';
@@ -860,23 +859,23 @@ class admin_control extends Controller
         $tax_percentage = 0;
         $transaction_id = $order->transactionid;
 
-    	// Set items
-      	$i=0;
-       	foreach ($cart as $key => $value) {
-       		$items[$i]['name'] =$value['name'];
-       		$items[$i]['qty'] =$value['quantity'];
-       		$items[$i]['price'] =$value['price'];
-       		if($value['parent_id']==4){
-       			$items[$i]['gst'] =($value['price'] - ($value['price']*(100/(100+12) )));
-       		}
-       		elseif($value['parent_id']==5){
-       			$items[$i]['gst'] =($value['price'] - ($value['price']*(100/(100+12) )));
-       		}
-       		else{
-       			$items[$i]['gst'] =0;
-       		}
-       		$i++;
-       	}
+        // Set items
+        $i=0;
+        foreach ($cart as $key => $value) {
+            $items[$i]['name'] =$value['name'];
+            $items[$i]['qty'] =$value['quantity'];
+            $items[$i]['price'] =$value['price'];
+            if($value['parent_id']==4){
+                $items[$i]['gst'] =($value['price'] - ($value['price']*(100/(100+12) )));
+            }
+            elseif($value['parent_id']==5){
+                $items[$i]['gst'] =($value['price'] - ($value['price']*(100/(100+12) )));
+            }
+            else{
+                $items[$i]['gst'] =0;
+            }
+            $i++;
+        }
         
         // Init printer
         $printer = new ReceiptPrinter;
@@ -886,7 +885,7 @@ class admin_control extends Controller
         );
 
         // Set Client Info
-        $printer->SetClient($clientLocation['addressline1'],$clientLocation['landmark'],$clientLocation['city'],$clientLocation['postalcode'],$clientLocation['mobile'],$clientLocation['username'],$clientLocation['email'],$client['method'],$client['slottime'],date('Ymdhis',strtotime($order->created_at)));
+        $printer->SetClient($order->orderamount,$client['ship'],$clientLocation['addressline1'],$clientLocation['landmark'],$clientLocation['city'],$clientLocation['postalcode'],$clientLocation['mobile'],$clientLocation['username'],$clientLocation['email'],$client['method'],$client['slottime'],date('Ymdhis',strtotime($order->created_at)));
 
         // Set store info
         $printer->setStore($cin,$gst, $store_name, $store_address, $store_phone, $store_email, $store_website);
@@ -922,7 +921,7 @@ class admin_control extends Controller
         ]);
 
         // Print receipt
-      	$printer->printReceipt();
+        $printer->printReceipt();
       	return redirect()->back()->with('success', 'Print succes');
 
       	}else{

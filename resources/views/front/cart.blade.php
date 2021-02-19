@@ -1,33 +1,32 @@
-<style type="text/css">
- 
+  <style type="text/css">
+   
 
-.modal-dialog {
-  position: fixed;
-  top: auto;
-  left: auto;
-  right: 0.5rem;
-  bottom: 0;
-  margin-bottom: 0.5rem;
-  min-width: 300px;
-  max-width: 400px;
-  }
-  .notice {
-    padding: 0rem 1rem;
-    }
-   .notice h4 {
-      margin-bottom: 1.5rem;
-    }
-    
-   .notice p {
+    .modal-dialog {
+      position: fixed;
+      top: auto;
+      left: auto;
+      right: 0.5rem;
+      bottom: 0;
       margin-bottom: 0.5rem;
+      min-width: 300px;
+      max-width: 400px;
+      }
+      .notice {
+        padding: 0rem 1rem;
+        }
+       .notice h4 {
+          margin-bottom: 1.5rem;
+        }
+        
+       .notice p {
+          margin-bottom: 0.5rem;
+        }
+      
+      .icon {
+        font-size: 3rem;
+      }
     }
-  
-  .icon {
-    font-size: 3rem;
-  }
-}
-
-</style>
+  </style>
     <section>
             <div class="gray-bg " >
                 
