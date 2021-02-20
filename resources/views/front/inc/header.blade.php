@@ -15,6 +15,8 @@
     <meta name="GOOGLEBOT" content="INDEX, FOLLOW" />
     <link rel="canonical" href="https://fastofresh.com"/>
     <title>Fastofresh – Buy Fresh Chicken, Mutton and Fish Online</title>
+    <meta name="p:domain_verify" content="d01ea80fe2ed4696baf58ae4a5c05eb5"/>
+
 <?php }elseif($parameters =='about-us'){ ?>
   <!-- About Us -->
    <title>About Us | Fastofresh</title>
