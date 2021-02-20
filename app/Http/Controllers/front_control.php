@@ -365,7 +365,7 @@ class front_control extends Controller
       $auth =front_model::Authenticate($val);
       if (!empty($auth)) {
         session()->put('user_session',$auth);
-        return redirect('dashboard');
+        return redirect()->back()->with('success', 'Logged Successfully');
       }
       else{
         return redirect()->back()->with('warning', 'Wrong Credentials');
