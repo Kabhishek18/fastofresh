@@ -305,8 +305,7 @@
 										  
 										  <div class="thanks">
 										  	<h2>Order Review</h2>
-										    Please find attatched below your order invoice information for <strong>
-										    	{{$loc->username}}
+										  
 										    </strong>. 
 										  </div>
 										  
