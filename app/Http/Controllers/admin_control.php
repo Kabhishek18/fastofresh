@@ -557,9 +557,14 @@ class admin_control extends Controller
     	$user['user'] = session()->get('admin_session');
 	    if ($user['user']) {
 	    	echo view('admin/inc/header');
-	    	$user['datalist']=admin_model::getCoupon($id);
-	    	echo view('admin/couponadd',$user);
-	    	
+	    	if($id){
+		    	$user['datalist']=admin_model::getCoupon($id);
+		    	echo view('admin/couponadd',$user);
+	    	}
+	    	else{
+		    	echo view('admin/couponadd',$user);
+
+	    	}
     	  echo view('admin/inc/footer');
 	    }
 	    else{
