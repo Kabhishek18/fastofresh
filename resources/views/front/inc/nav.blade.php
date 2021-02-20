@@ -158,47 +158,79 @@ $parsed_json = json_decode($json_string, true);
             <div class="responsive-topbar">
                  <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
                  <div class="col-md-12" style="width: 100% !important;text-align:center;">
-                     <select id="single2"  class="form-control">
-                         <option>East Delhi</option>
-                         <option>South Delhi</option>
-                         <option>Ghaziabad</option>
-                         <option>Noida</option>
-                     </select>
+                    <form action="{{url('')}}/location/saved" method="post">
+                        @csrf
+                        <select id="single2"  name="weblocation" class="form-control"  onchange="this.form.submit()">
+                          @if(!empty(session()->get('location')))
+                            <option selected="" value="{{session()->get('location')}}" >{{session()->get('location')}}</option>
+                            @else
+                            <option>Select Your Location </option>
+                            @endif
+                           <option value="East Delhi">East Delhi</option>
+                           <option value="South Delhi">South Delhi</option>
+                           <option value="Ghaziabad">Ghaziabad</option>
+                           <option value="Noida">Noida</option>
+                        </select>
+
+                    </form>
                  </div>
                  <br>
                  <div class="col-md-12" style="width:100% !important ;text-align-last:center;">
                          <form action="{{url('')}}/pincode/saved" method="post" style="display: flex;color: #fff !important">
                             @csrf
+
+                            <?php
+                              if(!empty(session()->get('location'))){
+
+                                if(session()->get('location') == 'East Delhi')
+                                {
+                                $json_string =    file_get_contents("eastdelhi.json");
+                                }
+                                elseif(session()->get('location') =='Noida')
+                                {
+                                $json_string = file_get_contents("noida.json");
+                                }
+                                elseif(session()->get('location') =='Ghaziabad')
+                                {
+                                $json_string = file_get_contents("ghaziabad.json");
+                                }
+                                elseif(session()->get('location') =='South Delhi')
+                                {
+                                $json_string = file_get_contents("southdelhi.json");
+                                }
+                              }
+                              else{
+                                $json_string = file_get_contents("nolocationpin.json"); 
+                              }
+
+                              $parsed_json = json_decode($json_string, true);
+                              ?>
                             <select data-placeholder="Feel Like Eating"  id="single"  class="form-control" style="width: 100%;background:black;" name="pinlocation" onchange="this.form.submit()">
-                            @if(!empty(session()->get('pinlocation')))
-                            <option selected="" value="{{session()->get('pinlocation')}}" >
-                               {{session()->get('pinlocation')}}</option>
-                            @else
-                            <option>Check Delivery  Availabilty </option>
+                                @if(!empty(session()->get('pinlocation')))
+                                <option selected="" value="{{session()->get('pinlocation')}}" >
+                                   {{session()->get('pinlocation')}}</option>
+                                @else
+                                <option>Check Delivery  Availabilty </option>
 
-                            @endif
-                            @foreach($parsed_json as $key =>$value)
-                            
-                                @foreach($value as $meg =>$locdetail)
-                                    <option value="{{($locdetail['Area'])}}, {{($locdetail['Pincode'])}}">{{($locdetail['Area'])}}, {{($locdetail['Pincode'])}}</option>
- 
-                                @endforeach 
-                               
-                            @endforeach
+                                @endif
+                                @foreach($parsed_json as $key =>$value)
+                                
+                                    @foreach($value as $meg =>$locdetail)
+                                        <option value="{{($locdetail['Area'])}}, {{($locdetail['Pincode'])}}">{{($locdetail['Area'])}}, {{($locdetail['Pincode'])}}</option>
+     
+                                    @endforeach 
+                                   
+                                @endforeach
 
-                        </select>
+                            </select>
                         </form>
                          <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
                             <!-- Select2 -->
                             <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
                             <script>
                               $("#single").select2({
-                                  placeholder: "Select a programming language",
-                                  allowClear: true
                               });
                               $("#single2").select2({
-                                  placeholder: "Select a programming language",
-                                  allowClear: true
                               });
                               $("#multiple").select2({
                                   placeholder: "Select a programming language",

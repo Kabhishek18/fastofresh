@@ -859,6 +859,7 @@ class front_control extends Controller
   {
       $weblocation = Request::post('weblocation');
        session()->put('location',$weblocation);
+       session()->forget('pinlocation');
           return redirect()->back();
   }
 

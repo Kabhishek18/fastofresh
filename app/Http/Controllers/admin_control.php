@@ -888,6 +888,10 @@ class admin_control extends Controller
             config('receiptprinter.connector_type'),
             config('receiptprinter.connector_descriptor')
         );
+       
+        if($client['ship']==null){
+        	$client['ship'] =0;
+        }
 
         // Set Client Info
         $printer->SetClient($order->orderamount,$client['ship'],$clientLocation['addressline1'],$clientLocation['landmark'],$clientLocation['city'],$clientLocation['postalcode'],$clientLocation['mobile'],$clientLocation['username'],$clientLocation['email'],$client['method'],$client['slottime'],date('Ymdhis',strtotime($order->created_at)));
