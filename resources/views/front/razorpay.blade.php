@@ -314,7 +314,7 @@
 										  <hr>
 										  </div>
 										  
-										  <div class="col-md-3 deliver">
+										  <div class="col-sm-12 col-md-4 ">
 										<p> Delivery Details:</p>
                     <br>
 										    {{$loc->addressline1}} <br>
@@ -324,7 +324,7 @@
 
 										  </div>
 
-										  <div class="col-md-3 client">
+										  <div class="col-sm-12 col-md-4 ">
 										<p>Customer Details: </p>
                     <br>
 										Customer Name: {{$loc->username}}<br />
@@ -332,10 +332,10 @@
 										Contact Number: {{$loc->mobile}}<br />
 										  </div>
 										  
-										  <div class="col-md-3 orderinfo">
+										  <div class="col-sm-12 col-md-4 ">
 										    <p> Order Details: </p><br>
 										    Order Date:  {{date('F d y h:i:s',strtotime($created_at))}} {{date('A')}} <br />
-                        Slot Time : {{$orderdetails['slottime']}}
+                        Delivery Slot : {{$orderdetails['slottime']}}
 										</div>
 										  
 										  <div class="spacing">
@@ -368,11 +368,14 @@
 										</table>
 										</div>
 										  
-										  <div class="ordernotes">
-											
-										  </div>
-										  
-										<div class="payment">
+										
+										      <div class="spacing">
+                      <hr>
+                      </div>
+                     <div class="col-md-6 text-center">
+                       <a href="javascript:void(0)" class="btn btn-warning float-right buy_now" data-amount="{{$total}}" data-id="1">Pay Now</a> 
+                     </div> 
+										<div class="col-md-6 text-center">
 										<strong>Sub Total: </strong>₹  {{$total}} <br />
 										@if($total<499)
                                                 <?php $ship =30; $total += $ship?>
@@ -393,7 +396,7 @@
                                                                 <br />
                                           @endif                      
 										<strong> Order Total: </strong> ₹  {{$total}} <br />
-											<a href="javascript:void(0)" class="btn btn-warning float-right buy_now" data-amount="{{$total}}" data-id="1">Pay Now</a> 
+											
 										</div>
 										  
 										  <div class="spacing">
