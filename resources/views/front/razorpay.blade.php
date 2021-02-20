@@ -33,7 +33,6 @@
 
 .deliver {
   display: inline-block;
-  width: 220px;
   height: 190px;
   float: left;
   line-height: 150%;
@@ -51,7 +50,6 @@
 .client {
   display: inline-block;
   margin-right: 20px;
-  width: 325px;
   height: 190px;
   float: left;
   line-height: 150%;
@@ -68,7 +66,6 @@
 
 .orderinfo {
   float: left;
-  width: 430px;
   line-height: 150%;
   padding-left: 15px;
   border-left: 1px dashed;
@@ -296,18 +293,18 @@
                         <div class="row">
                             <div class="col-sm-12 col-md-12  col-lg-12">
                                 <div class="row">
-                                    <div class="col-sm-12 col-md-12 col-lg-12">
-										                                        
+                                   
 										<div class="invoice">
 										  <?php  
 										  		$orderdetails =json_decode($orderdetail,true); 
+
 										  		$loc =json_decode($orderdetails['loc']);    				
 										  		?>
 										<div class="header">
 										</div>
 										  
 										  <div class="thanks">
-										  	<h2>Invoice Order</h2>
+										  	<h2>Order Review</h2>
 										    Please find attatched below your order invoice information for <strong>
 										    	{{$loc->username}}
 										    </strong>. 
@@ -317,8 +314,9 @@
 										  <hr>
 										  </div>
 										  
-										  <div class="deliver">
+										  <div class="col-md-3 deliver">
 										<p> Delivery Details:</p>
+                    <br>
 										    {{$loc->addressline1}} <br>
 										   Landmark: {{$loc->landmark}} <br>
 										    {{$loc->city}} <br>
@@ -326,16 +324,18 @@
 
 										  </div>
 
-										  <div class="client">
-										<p>Client Details: </p>
-										<strong>Contact:</strong> {{$loc->username}}<br />
-										<strong>Email:</strong> {{$loc->email}}<br />
-										<strong> Contact Number: </strong> {{$loc->mobile}}<br />
+										  <div class="col-md-3 client">
+										<p>Customer Details: </p>
+                    <br>
+										Customer Name: {{$loc->username}}<br />
+										Email: {{$loc->email}}<br />
+										Contact Number: {{$loc->mobile}}<br />
 										  </div>
 										  
-										  <div class="orderinfo">
-										    <p> Order Information: </p><br>
-										<strong> Order Date: </strong> {{date('F d y h:i:s A',strtotime($created_at))}} <br />
+										  <div class="col-md-3 orderinfo">
+										    <p> Order Details: </p><br>
+										    Order Date:  {{date('F d y h:i:s',strtotime($created_at))}} {{date('A')}} <br />
+                        Slot Time : {{$orderdetails['slottime']}}
 										</div>
 										  
 										  <div class="spacing">
@@ -407,7 +407,6 @@
 							
 										  </div>
 										  
-										</div>
 
 
 
