@@ -63,11 +63,15 @@
                                                 <p>Select Your Multiple Products</p>
                                                 <div class="form-group">
                                                     <select class="select2 form-control" multiple="multiple" name="popular[]">
-                                                        @foreach($popularproduct as $description)
-                                                          <option value="{{$description->id}}" selected="">
-                                                              {{$description->name}}
+                                                        @for($i=0;$i <= (count($popularproduct)-1);$i++)
+                                                        @if($popularproduct[$i]==false)
+
+                                                        @else
+                                                          <option value="{{$popularproduct[$i]->id}}" selected="">
+                                                              {{$popularproduct[$i]->name}}
                                                           </option>
-                                                        @endforeach
+                                                        @endif
+                                                        @endfor
                                                         @foreach($products as $product)
                                                         <option value="{{$product->id}}">{{$product->name}}</option>
                                                         @endforeach
@@ -90,11 +94,15 @@
                                                 <p>Select Your Multiple Products</p>
                                                 <div class="form-group">
                                                     <select class="select2 form-control" multiple="multiple" name="popular[]">
-                                                        @foreach($bestproduct as $description)
-                                                          <option value="{{$description->id}}" selected="">
-                                                              {{$description->name}}
+                                                      @for($i=0;$i <= (count($bestproduct)-1);$i++)
+                                                        @if($bestproduct[$i]==false)
+
+                                                        @else
+                                                          <option value="{{$bestproduct[$i]->id}}" selected="">
+                                                              {{$bestproduct[$i]->name}}
                                                           </option>
-                                                        @endforeach
+                                                        @endif
+                                                        @endfor
                                                         @foreach($products as $product)
                                                         <option value="{{$product->id}}">{{$product->name}}</option>
                                                         @endforeach
@@ -119,11 +127,16 @@
                                                 <p>Select Your Multiple Products</p>
                                                 <div class="form-group">
                                                     <select class="select2 form-control" multiple="multiple" name="popular[]">
-                                                        @foreach($suggestproduct as $description)
-                                                          <option value="{{$description->id}}" selected="">
-                                                              {{$description->name}}
+                                                        @for($i=0;$i <= (count($suggestproduct)-1);$i++)
+                                                        @if($suggestproduct[$i]==false)
+
+                                                        @else
+                                                          <option value="{{$suggestproduct[$i]->id}}" selected="">
+                                                              {{$suggestproduct[$i]->name}}
                                                           </option>
-                                                        @endforeach
+                                                        @endif
+                                                        @endfor
+                                                     
                                                         @foreach($products as $product)
                                                         <option value="{{$product->id}}">{{$product->name}}</option>
                                                         @endforeach

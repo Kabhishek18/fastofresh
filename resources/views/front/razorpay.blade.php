@@ -400,22 +400,11 @@
 										  <hr>
 										  </div>
 										  
-										  <div class="note">
-										    <p> PLEASE NOTE:</p><br>
-										    <p>In case of any modifications made to your order, the inital delivery address will remain the same.</p>
-										If any of the above information is incorrect, you must inform us as soon as possible using info@fastofresh.cpm Failure to do so will result in your order being dispatched as above. Orders are accepted up to 5pm every working day. if they arrive with Fast O Fresh Pvt. Ltd. after this time, they are considered to have arrived the next day. There may be a delay if you have opted in for a printed proof to be sent to yourself or there is a delay with your payment. We aim to notify our customers of all delays where possible. Once your order has been dispatched, you will recieve an email of estimated delivery date and tracking number if applicable. For full terms and conditions please visit fastofresh.com
-										  </div>
-										  
-										 <div class="spacing">
-										  <hr>
-										  </div>
+			
+								
 										  
 										  
-										  <div class="footer">
-										   <!--  <p>In case of any modifications made to your order, the inital delivery address will remain the same.</p>
-										If any of the above information is incorrect, you must inform us as soon as possible using info@fastofresh.cpm Failure to do so will result in your order being dispatched as above. Orders are accepted up to 5pm every working day. if they arrive with Fast O Fresh Pvt. Ltd. after this time, they are considered to have arrived the next day. There may be a delay if you have opted in for a printed proof to be sent to yourself or there is a delay with your payment. We aim to notify our customers of all delays where possible. Once your order has been dispatched, you will recieve an email of estimated delivery date and tracking number if applicable. For full terms and conditions please visit fastofresh.com
-										<img alt="" src="http://FastoFresh.com" /> -->
-										</div>
+							
 										  </div>
 										  
 										</div>

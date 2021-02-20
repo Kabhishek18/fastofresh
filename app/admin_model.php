@@ -64,7 +64,7 @@ class admin_model extends Model
       else{
       $value=DB::table('products')->orderBy('id', 'asc')->get();
       }
-      return $value;
+      return $value?$value:false;
     }  
 
   //Add Category

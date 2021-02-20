@@ -110,7 +110,6 @@ class admin_control extends Controller
 
 	   	    $user['popularproduct'][] = admin_model::getProduct(number_format($value));
 	   	}
-
 	   	$user['best'] =admin_model::getHomeList(2);
     	foreach (json_decode($user['best']->description) as $value) {
 
