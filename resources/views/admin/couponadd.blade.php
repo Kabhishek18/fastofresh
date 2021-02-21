@@ -159,7 +159,23 @@
                                                    </script>
                                                 </div>
                                           
-                                                
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <div class="controls">
+                                                            <label> Coupons Use </label>
+                                                            <select class="form-control" name="coupon_use">
+                                                                @if(!empty($datalist->coupon_use))
+                                                               <option value=" <?=(!empty($datalist->coupon_use)?$datalist->coupon_use:'')?>" selected  style="text-transform: capitalize;"> <?=(!empty($datalist->coupon_use)?$datalist->coupon_use:'')?></option>
+                                                               <optgroup></optgroup>
+                                                               @endif
+                                                                <option value="single">Single</option>
+                                                                <option value="multi">Multi</option>
+                                                               
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!--    coupon_use  enum('single', 'multi') -->
                                                 <div class="col-sm-6">
                                                     <div class="form-group">
                                                         <div class="controls">

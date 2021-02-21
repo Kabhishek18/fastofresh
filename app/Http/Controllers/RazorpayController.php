@@ -19,7 +19,14 @@ use App\front_model;
 			$insert =front_model::PaymentOrder($order);
 			if($insert){
            		session()->put('order', $order);
-           		
+           		// Coupon Insert Count
+
+                if(session()->get('coupon')){
+                	$user['user'] = session()->get('user_session');
+                  $coupon = session()->get('coupon');
+                   $couponinsert = front_model::InsertCouponCount($user['user']->id, $coupon->id);
+                }
+               //Coupon Insert COunt
 				
 				return json_encode(array('msg' => 'Payment successfully credited', 'status' => true));    
 			}

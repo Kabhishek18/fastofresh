@@ -206,8 +206,26 @@ class cart extends Controller
              }
                  if ($appcoupons->cart_min < $total) {
                       if(date('y-m-d',strtotime($appcoupons->date_expire)) >= date('y-m-d')){
-                          session()->put('coupon', $appcoupons);
-                          return redirect()->back()->with('success', 'Coupon Applied Successfully');       
+                          if($appcoupons->coupon_use =='multi'){
+                            session()->put('coupon', $appcoupons);
+                            return redirect()->back()->with('success', 'Coupon Applied Successfully');       
+                          }
+                          else{
+                             if(!empty(session()->get('user_session'))){
+                              $user = session()->get('user_session');
+                              $ccount = front_model::GetCountCoupon($appcoupons->id,$user->id);
+                              if($ccount < 1 ){
+                                session()->put('coupon', $appcoupons);
+                                return redirect()->back()->with('success', 'Coupon Applied Successfully');
+
+                              }else{
+                                return redirect()->back()->with('warning', 'Coupon Code Already Used');
+                              }
+                            }
+                            else{
+                               return redirect()->back()->with('success', 'Please Login !'); 
+                            }
+                          }
                       }
                       else{
                           return redirect()->back()->with('warning', 'Coupon Expired');

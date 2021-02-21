@@ -255,6 +255,17 @@ class front_model extends Model
     return $value;
   }
 
+  public static function GetCountCoupon($cid,$uid){
+        $array = array('userid' => $uid,'couponid' => $cid);
+        $value=DB::table('user_coupons')->where($array)->count();
+        return $value;
+  }  
+
+  public static function InsertCouponCount($cid,$uid){
+      $value= DB::insert('insert into user_coupons (`userid`, `couponid`, `created_at`, `updated_at`) values(?,?,?,?)',[$uid,$cid,date('Y-m-d h:s:i'),date('Y-m-d h:s:i')]);
+        return $value;
+  }  
+
   public static function test_model($value='')
   {
   }

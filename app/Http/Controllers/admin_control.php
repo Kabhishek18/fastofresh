@@ -580,6 +580,7 @@ class admin_control extends Controller
 	    	 	$cat['description'] = Request::post('description');
 	    	 	$cat['cart_min'] = Request::post('cart_min');
 	    	 	$cat['cart_max'] = Request::post('cart_max');
+	    	 	$cat['coupon_use'] = Request::post('coupon_use');
 	    	 	$cat['coupon_value'] = Request::post('coupon_value');
 	    	 	$cat['date_expire'] = Request::post('date_expire');
 	    	 	$cat['coupon_type'] = Request::post('coupon_type');

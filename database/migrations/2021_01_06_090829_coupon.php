@@ -20,6 +20,7 @@ class Coupon extends Migration
             $table->text('description');
             $table->integer('cart_min');
             $table->integer('cart_max');
+            $table->enum('coupon_use', ['single', 'multi']);
             $table->integer('coupon_value');
             $table->date('date_expire');
             $table->enum('coupon_type', ['percent', 'value']);

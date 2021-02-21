@@ -244,6 +244,12 @@ class front_control extends Controller
     
             $insert =front_model::PaymentOrder($order);
             if($insert){
+               // Coupon Insert Count
+                if(session()->get('coupon')){
+                  $coupon = session()->get('coupon');
+                   $couponinsert = front_model::InsertCouponCount($user['user']->id, $coupon->id);
+                }
+               //Coupon Insert COunt
               $orderdetails =json_decode($order['orderdetail'],true); 
               $loc =json_decode($orderdetails['loc']); 
               $sendmsg = 'Hi '.$loc->username.' Your Order '.date('Ymdhis',strtotime($order['created_at'])).' has been Confirmed with your selected payment mode of COD';
