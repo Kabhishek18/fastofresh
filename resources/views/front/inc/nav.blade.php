@@ -155,9 +155,10 @@ $parsed_json = json_decode($json_string, true);
         </header><!-- Header -->
 
         <div class="responsive-header">
-            <div class="responsive-topbar">
+            <div class="responsive-topbar" style="position: fixed;z-index: 111">
                  <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
-                 <div class="col-md-12" style="width: 100% !important;text-align:center;">
+                 <div class="container" >
+                     <div class="col-md-12" style="width: 100% !important;text-align:center;">
                     <form action="{{url('')}}/location/saved" method="post">
                         @csrf
                         <select id="single2"  name="weblocation" class="form-control"  onchange="this.form.submit()">
@@ -239,92 +240,83 @@ $parsed_json = json_decode($json_string, true);
                             </script>
                     </div>
                     <br>
-               
+                   <div class="text-right" style="color: white;">
+
+                                <a href="{{url('cart')}}" title="Cart" itemprop="url"  ><i class="fa fa-cart-arrow-down" aria-hidden="true"></i>
+                                            <script type="text/javascript" src="https://code.jquery.com/jquery-1.10.1.min.js"></script>
+                                    <script>
+                                        $(document).ready(
+                                                function() {
+                                                    setInterval(function() {
+                                                            $.ajax({
+                                                            url: SITEURL + '/cartquant',
+                                                            type: 'get',
+                                                            success: function (msg) {
+                                                                 $('#showm').text(msg);
+                                                            },
+                                                            error: function (error) {
+
+                                                            }
+
+                                                            });
+
+                                                       
+                                                    }, 1000);
+                                                });
+                                    </script>
+
+                                  
+                                            
+                                            <sup id="showm"></sup>
+                                            <span style="font-size: 16px"> Cart</span>
+                                            </a>
+                                            &nbsp;
+                                          @if(!empty(session()->get('user_session')))
+                                            <a href="{{url('/dashboard')}}">Hi, {{(session()->get('user_session'))->name}}
+                                                (MyAccount)
+                                            </a>
+                                            @else
+                                            <a class="log-popup-btn" href="#" title="Login" itemprop="url"><i class="fa fa-user"></i> Login</a>
+                                            @endif
+                    </div>
+                 </div>
             </div>
-            <div class="responsive-topbar">
-                <div class="" style="margin-left:60%;float:right;background:#000;color:white;font-size: 16px;margin-top: -5px;padding: 5px">
-
-                            <a href="{{url('cart')}}" title="Cart" itemprop="url"  ><i class="fa fa-cart-arrow-down" aria-hidden="true"></i>
-                                        <script type="text/javascript" src="https://code.jquery.com/jquery-1.10.1.min.js"></script>
-                                <script>
-                                    $(document).ready(
-                                            function() {
-                                                setInterval(function() {
-                                                        $.ajax({
-                                                        url: SITEURL + '/cartquant',
-                                                        type: 'get',
-                                                        success: function (msg) {
-                                                             $('#showm').text(msg);
-                                                        },
-                                                        error: function (error) {
-
-                                                        }
-
-                                                        });
-
-                                                   
-                                                }, 1000);
-                                            });
-                                </script>
-
-                              
-                                        
-                                        <sup id="showm"></sup>
-                                        <span style="font-size: 16px"> Cart</span>
-                                        </a>
-                                        &nbsp;
-                                      @if(!empty(session()->get('user_session')))
-                                        <a href="{{url('/dashboard')}}">Hi, {{(session()->get('user_session'))->name}}
-                                            (MyAccount)
-                                        </a>
-                                        @else
-                                        <a class="log-popup-btn" href="#" title="Login" itemprop="url"><i class="fa fa-user"></i> Login</a>
-                                        @endif
-                        </div>
-                        <div class="text-right">
-                            
-                            
-                        </div>
-            </div>
-            <div class="responsive-logomenu">
+          
+            <div class="responsive-logomenu" style="margin-top: 120px;">
                 <div class="logo"><h1 itemprop="headline"><a href="<?=URL::to('/');?>" title="Home" itemprop="url"><img src="{{ url('assets/images/logo2.png') }}" alt="logo.png" itemprop="image"></a></h1></div>
 
                 <span class="menu-btn yellow-bg brd-rd4"><i class="fa fa-align-justify"></i></span>
             </div>
-            <div class="responsive-menu">
+            <div class="responsive-menu" style="margin-top: 118px;">
                 <span class="menu-close red-bg brd-rd3"><i class="fa fa-close"></i></span>
                 <div class="menu-lst">
                     <ul>
                         <li>
                             <form class="form-group"  action="{{url('')}}/search" method="post" >
                                 @csrf
-                                <div class="form-group">
-                                     <input class="form-control" id="search_text" type="text" name="product" placeholder="Decided what to cook?"  list="browsers" width="100px">
-                                   <datalist class="searchspecial" id="browsers">
-                               
-                                      </datalist>
-                                </div>
-                                <div class="form-group">
-                                    
-                                <button class="btn btn-lg btn-default" style="background: #ebe530; color: #800000;  margin-left: 10px;border: none;" type="submit"><i class="fa fa-search"></i></button>
+                                <div class="form-group" style="display: inline-flex;">
+                                     <input class="form-control" id="search_text" type="text" name="product" placeholder="Decided what to cook?"  list="browsers" width="100px" required="">
+                                    <datalist class="searchspecial" id="browsers">
+                                    </datalist>
+                                
+                                    <button class="btn" style="background: #ebe530; color: #800000;  margin-left: 10px;border: none;" type="submit">
+                                        <i class="fa fa-search"></i>
+                                    </button>
                                 </div>
                                 
                             
                              </form>
                         </li>
-
-                                    @foreach($categories as $category)
-                                    <li>
-                                        
-                                        <a class="" href="{{url('')}}/category/{{$category->name}}" title="{{$category->name}}" >
-                                             {{$category->name}}
-                                        </a>
-                                    </li>
-                                    @endforeach
-                    
-
-                            </ul>
-                                                        
+                    </ul>
+                       <nav  style="float: none;text-decoration: underline;color: white;font-size: 25px;padding: 10px;">
+                            @foreach($categories as $category)
+                            
+                            <a class="" href="{{url('')}}/category/{{$category->name}}" title="{{$category->name}}" >
+                                 {{$category->name}}
+                            </a><br>
+                        @endforeach
+                       </nav>
+                                         
                 </div>
                 <div class="topbar-register">
                     
