@@ -285,7 +285,7 @@
                             <p Style="line-height:22px;">FastOFresh brings fresh meat to your doorsteps with a few screen taps. We strictly maintain hygiene and ensure that the meat you are served with is natural, fresh, and healthy. We haveMutton, Chicken, Mutton, Seafood (Fish, Prawns, Crabs), etc., as of now and are constantly upgrading ourselves. Don’t wait anymore; explore the power of your clicks.
                             </p>
                         </div>
-                         <div class="hidden-md hidden-lg" style="margin-bottom: 280px">
+                         <div class="hidden-md hidden-lg" style="margin-bottom: 300px">
                         
                         </div>
                     </div>
