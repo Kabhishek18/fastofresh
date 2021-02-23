@@ -20,11 +20,12 @@ use App\front_model;
 			if($insert){
            		session()->put('order', $order);
            		// Coupon Insert Count
-
                 if(session()->get('coupon')){
                 	$user['user'] = session()->get('user_session');
                   $coupon = session()->get('coupon');
                    $couponinsert = front_model::InsertCouponCount($user['user']->id, $coupon->id);
+                   session()->forget('coupon');
+
                 }
                //Coupon Insert COunt
 				

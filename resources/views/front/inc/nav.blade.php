@@ -242,7 +242,8 @@ $parsed_json = json_decode($json_string, true);
                
             </div>
             <div class="responsive-topbar">
-                <div class="text-right" style="color:white;font-size: 16px;margin-top: -1px">
+                <div class="" style="margin-left:60%;float:right;background:#000;color:white;font-size: 16px;margin-top: -5px;padding: 5px">
+
                             <a href="{{url('cart')}}" title="Cart" itemprop="url"  ><i class="fa fa-cart-arrow-down" aria-hidden="true"></i>
                                         <script type="text/javascript" src="https://code.jquery.com/jquery-1.10.1.min.js"></script>
                                 <script>
@@ -273,12 +274,12 @@ $parsed_json = json_decode($json_string, true);
                                         </a>
                                         &nbsp;
                                       @if(!empty(session()->get('user_session')))
-                            <a href="{{url('/dashboard')}}">Hi, {{(session()->get('user_session'))->name}}
-                                (MyAccount)
-                            </a>
-                            @else
-                            <a class="log-popup-btn" href="#" title="Login" itemprop="url"><i class="fa fa-user"></i> Login</a>
-                            @endif
+                                        <a href="{{url('/dashboard')}}">Hi, {{(session()->get('user_session'))->name}}
+                                            (MyAccount)
+                                        </a>
+                                        @else
+                                        <a class="log-popup-btn" href="#" title="Login" itemprop="url"><i class="fa fa-user"></i> Login</a>
+                                        @endif
                         </div>
                         <div class="text-right">
                             

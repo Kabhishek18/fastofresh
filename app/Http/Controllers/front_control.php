@@ -248,6 +248,7 @@ class front_control extends Controller
                 if(session()->get('coupon')){
                   $coupon = session()->get('coupon');
                    $couponinsert = front_model::InsertCouponCount($user['user']->id, $coupon->id);
+                   session()->forget('coupon');
                 }
                //Coupon Insert COunt
               $orderdetails =json_decode($order['orderdetail'],true); 

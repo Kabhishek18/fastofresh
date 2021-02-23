@@ -238,7 +238,8 @@
                     </div>
                 </div>
             </div>
-        </section><!-- welcome section -->
+        </section>
+
         <section>
           <div class="block remove-bottom">
             <div class="container">
@@ -246,9 +247,9 @@
                  <img src="{{url('')}}/assets/images/infoimage.png" width="100%">
               </div>
             </div>
-          </div>
-          
+          </div>     
         </section>
+
         <section>
             <div class="block">
                 <div class="container">
@@ -319,7 +320,7 @@
             </div>
         </section>
 
-         <section>
+        <section>
             <div class="block blackish opac35">
                 <div class="fixed-bg" style="background-image: url({{url('/assets/images/parallax1.jpg')}});"></div>
                 <div class="container">
@@ -366,6 +367,7 @@
                 </div>
             </div>
         </section>
+     
         <section>
             <div class="block gray-bg top-padd210">
                 <div class="container">
@@ -430,10 +432,7 @@
                 </div>
             </div>
         </section>
-        
-        
-
-
+     
         <section>
             <div class="block ">
                 <div class="container">
@@ -532,8 +531,12 @@
 
               <div class="modal-dialog" role="document" style="background: white;">
        
-                        <div class="modal-header">
-                          <div class="modal-logo"><img src="/assets/images/logo2.png"></div>
+                        <div class="modal-header" style="border-style:none">
+                          <div class="modal-logo">
+                          	<div class="text-center">
+                          		<img src="/assets/images/logo2.png" width="50%">
+                          	</div>
+                          </div>
                          <!--  <br>
                           <p>Wholesome meat, swift delivery.</p> -->
                         </div>
@@ -543,7 +546,7 @@
                             <div class="" >
                                 <form action="{{url('')}}/location/saved" method="post">
                                 @csrf
-                                <div class="col-md-12">
+                                <div class="col-md-6">
                                     <label>
                                       <input type="radio" name="weblocation" class="card-input-element" value="East Delhi" <?=((session()->get('location'))=='East Delhi'?'checked':'' )?> />
 
@@ -554,7 +557,7 @@
                                     </label>
                                     
                                 </div>
-                                <div class="col-md-12">
+                                <div class="col-md-6">
                                     <label>
                                       <input type="radio" name="weblocation" class="card-input-element" value="South Delhi" <?=((session()->get('location'))=='South Delhi'?'checked':'' )?> />
 
@@ -565,7 +568,7 @@
                                     </label>
                                     
                                 </div>
-                                <div class="col-md-12">
+                                <div class="col-md-6">
                                     <label>
                                       <input type="radio" name="weblocation" class="card-input-element" value="Ghaziabad" <?=((session()->get('location'))=='Ghaziabad'?'checked':'' )?> />
 
@@ -578,7 +581,7 @@
                                 </div>
 
                                
-                                <div class="col-md-12">
+                                <div class="col-md-6">
                                     <label>
                                       <input type="radio" name="weblocation" class="card-input-element" value="Noida" <?=((session()->get('location'))=='Noida'?'checked':'' )?> />
 
@@ -662,7 +665,7 @@
                             </div>
                             </div>
                         </div>
-                        <div class="modal-footer">
+                        <div class="modal-footer" style="border-style: none;">
                            
                         </div>
                  </div><!-- /.modal-content -->
