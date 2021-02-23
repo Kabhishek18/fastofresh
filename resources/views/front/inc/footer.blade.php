@@ -229,7 +229,7 @@
             </div>
         </footer><!-- footer -->
         <footer>
-             <div class="block  bottom-padd80 dark-bg">
+             <div class="block dark-bg">
                 <div class="container">
                     <div class="row">
                       <div class="col-md-12 col-sm-12 col-lg-12" style="border-bottom: 1px solid ;">
@@ -278,10 +278,15 @@
                           </div>
                           @endforeach
                         </div>
-                         <div class="col-md-12 col-sm-12 col-lg-12 text-center" style="border-top:1px solid;">
+
+                       
+                         <div class="col-md-12 col-sm-12 col-lg-12 text-center d-sm-none" style="border-top:1px solid;">
                             <p itemprop="description">&copy; 2020 <a class="red-clr" href="#" title="FAST O FRESH" itemprop="url" target="_blank">FAST O FRESH</a>. ALL RIGHTS RESERVED</p> |   <p itemprop="description">Website Credits:<a class="red-clr" href="https://www.techcentrica.com" title="TechCentrica" target="_blank">TECHCENTRICA</a></p>
                             <p Style="line-height:22px;">FastOFresh brings fresh meat to your doorsteps with a few screen taps. We strictly maintain hygiene and ensure that the meat you are served with is natural, fresh, and healthy. We haveMutton, Chicken, Mutton, Seafood (Fish, Prawns, Crabs), etc., as of now and are constantly upgrading ourselves. Don’t wait anymore; explore the power of your clicks.
                             </p>
+                        </div>
+                         <div class="hidden-md hidden-lg" style="margin-bottom: 100px">
+                        
                         </div>
                     </div>
                     <!-- Row End -->
