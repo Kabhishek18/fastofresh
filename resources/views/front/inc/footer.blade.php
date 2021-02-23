@@ -229,7 +229,7 @@
             </div>
         </footer><!-- footer -->
         <footer>
-             <div class="block top-padd80 bottom-padd80 dark-bg">
+             <div class="block  bottom-padd80 dark-bg">
                 <div class="container">
                     <div class="row">
                       <div class="col-md-12 col-sm-12 col-lg-12" style="border-bottom: 1px solid ;">

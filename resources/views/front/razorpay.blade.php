@@ -313,27 +313,25 @@
 										  <hr>
 										  </div>
 										  
-										  <div class="col-sm-12 col-md-4 ">
-										<p> Delivery Details:</p>
-                    <br>
-										    {{$loc->addressline1}} <br>
-										   Landmark: {{$loc->landmark}} <br>
-										    {{$loc->city}} <br>
-										    {{$loc->postalcode}} <br>
+										  <div class="col-sm-12 col-md-4" style="padding: 15px;height:150px;background: #306f0614;border-radius: 12px;">
+  										<h4>Delivery Details:</h4>
+  										    {{$loc->addressline1}} <br>
+  										   Landmark: {{$loc->landmark}} <br>
+  										    {{$loc->city}} <br>
+  										    {{$loc->postalcode}} <br>
 
 										  </div>
 
-										  <div class="col-sm-12 col-md-4 ">
-										<p>Customer Details: </p>
-                    <br>
+										  <div class="col-sm-12 col-md-4" style="padding: 15px;height:150px;background: #306f0614;border-radius: 12px;">
+                    <h4>Customer Details:</h4>							
 										Customer Name: {{$loc->username}}<br />
 										Email: {{$loc->email}}<br />
 										Contact Number: {{$loc->mobile}}<br />
 										  </div>
 										  
-										  <div class="col-sm-12 col-md-4 ">
-										    <p> Order Details: </p><br>
-										    Order Date:  {{date('F d y h:i:s',strtotime($created_at))}} {{date('A')}} <br />
+										  <div class="col-sm-12 col-md-4 " style="height:150px;padding: 15px;background: #306f0614;border-radius: 12px;">
+										  <h4>Order Details: </h4>  
+                        Order Date:  {{date('F d y h:i:s',strtotime($created_at))}} {{date('A')}} <br />
                         Delivery Slot : {{$orderdetails['slottime']}}
 										</div>
 										  
