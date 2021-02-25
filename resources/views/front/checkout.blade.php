@@ -57,10 +57,38 @@
                                                 </div>
                                                 </label>
                                                 <div id="filllocation" class="text-left col-md-12" style="margin-bottom: 50px;padding:25px;background: #fff;border-radius: 25px;">
+
+                                                      <?php
+                                                        if(!empty(session()->get('location'))){
+
+                                                          if(session()->get('location') == 'East Delhi')
+                                                          {
+                                                          $json_string =    file_get_contents("eastdelhi.json");
+                                                          }
+                                                          elseif(session()->get('location') =='Noida')
+                                                          {
+                                                          $json_string = file_get_contents("noida.json");
+                                                          }
+                                                          elseif(session()->get('location') =='Ghaziabad')
+                                                          {
+                                                          $json_string = file_get_contents("ghaziabad.json");
+                                                          }
+                                                          elseif(session()->get('location') =='South Delhi')
+                                                          {
+                                                          $json_string = file_get_contents("southdelhi.json");
+                                                          }
+                                                        }
+                                                        else{
+                                                          $json_string = file_get_contents("locationpin.json"); 
+                                                        }
+
+                                                        $parsed_json = json_decode($json_string, true);
+                                                       ?>
+
                                                     <div class="col-md-6 col-sm-12">
                                                         <div class="form-group">
                                                             <label>Flat no / Building name / Street name <span class="text-danger">*</span></label>
-                                                            <textarea class="form-control" name="addressline1" placeholder="Address line 1"></textarea>
+                                                            <textarea class="form-control" name="addressline1" placeholder="Address line 1" ></textarea>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6 col-sm-12">
@@ -72,13 +100,10 @@
                                                     <div class="col-md-6 col-sm-12">
                                                         <div class="form-group">
                                                             <label>City <span class="text-danger">*</span></label>
-                                                             <input type="text" name="city" class="form-control" placeholder="City">   
+                                                             <input type="text" name="city" class="form-control" placeholder="City" >   
                                                         </div>
                                                     </div>
-                                                    <?php
-$json_string =    file_get_contents("locationpin.json");
-$parsed_json = json_decode($json_string, true);
-?>
+                                                  
                                                     <div class="col-md-6 col-sm-12">
                                                         <div class="form-group">
                                                             <label>Postal Code<span class="text-danger">*</span></label>
@@ -105,7 +130,7 @@ $parsed_json = json_decode($json_string, true);
                                                     <div class="col-md-6 col-sm-12">
                                                         <div class="form-group">
                                                             <label>Mobile Number <span class="text-danger">*</span></label>
-                                                             <input type="text" name="mobile" class="form-control" placeholder="Mobile Number">   
+                                                             <input type="text" name="mobile" class="form-control" placeholder="Mobile Number" >   
                                                         </div>
                                                     </div>
                                                  

@@ -194,11 +194,30 @@ class front_control extends Controller
          $val['ship'] =Request::post('ship'); 
         $val['locationadd'] = Request::post('locationadd');
           if ($val['locationadd']=="add") {
-            $reg['addressline1'] = Request::post('addressline1');
+              if(Request::post('addressline1')){
+              $reg['addressline1'] = Request::post('addressline1');
+              }
+              else{
+                return redirect()->back()->with('warning', 'Address Not Added');
+              }
+
             $reg['landmark'] = Request::post('landmark');
-            $reg['city'] = Request::post('city');
+            if(Request::post('city')){
+              $reg['city'] = Request::post('city');
+            }else{
+               return redirect()->back()->with('warning', 'City Not Added');
+            }
+            if(Request::post('mobile')){
+               $reg['mobile'] = Request::post('mobile');
+            }
+            else{
+               return redirect()->back()->with('warning', 'Mobile Not Added');
+
+            }
+
             $reg['postalcode'] = Request::post('postalcode');
-            $reg['mobile'] = Request::post('mobile');
+            
+
             $reg['username'] =$user['user']->name;
             $reg['email'] =$user['user']->email;
             //$rep Varialble used
