@@ -25,14 +25,10 @@
                                                     <div class="restaurant-detail-thumb parent">
                                                         <ul class="restaurant-detail-img-carousel">
                                                             <li><img class="brd-rd3" src="{{url('')}}/products/{{$product->image}}" alt="{{$product->image}}" itemprop="image"></li>
-                                                            <li><img class="brd-rd3" src="{{url('')}}/products/{{$product->image}}" alt="{{url('')}}/products/{{$product->image}}" itemprop="image"></li>
+                                                       
                                                             
                                                         </ul>
-                                                        <ul class="restaurant-detail-thumb-carousel">
-                                                            <li><img class="brd-rd3" src="{{url('')}}/products/{{$product->image}}" alt="{{$product->image}}" itemprop="image"></li>
-                                                            <li><img class="brd-rd3" src="{{url('')}}/products/{{$product->image}}" alt="{{$product->image}}" itemprop="image"></li>
-                                                            
-                                                        </ul>
+                                                
                                                     </div>
                                                     
                                                    
