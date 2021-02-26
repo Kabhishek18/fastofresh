@@ -165,7 +165,7 @@
                                                 <li><a href="{{url('')}}/why" title="" itemprop="url">Why Fast 'O' Fresh?</a></li>
                                                 <li><a href="{{url('')}}/about-us" title="" itemprop="url">About Us</a></li>
                                                 <!-- <li><a href="#" title="" itemprop="url">Refer & Earn</a></li> -->
-                                                 <!-- <li><a href="https://www.linkedin.com/company/71600846/admin/" title="" itemprop="url">Careers</a></li> -->
+                                                 <li><a href="{{url('')}}/refundandcancel" title="" itemprop="url">Refund And Cancel</a></li>
 
                                                 <li><a href="{{url('')}}/terms" title="" itemprop="url">Terms & Condition</a></li>
                                                 <li><a href="{{url('')}}/faq" title="" itemprop="url">FAQs</a></li>

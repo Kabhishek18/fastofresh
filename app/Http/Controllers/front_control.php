@@ -64,6 +64,15 @@ class front_control extends Controller
       echo view('front/inc/footer',$categories);
   }
 
+  public function cancellation($value='')
+  {
+     $categories['categories'] = front_model::getCategory();
+      echo view('front/inc/header');
+      echo view('front/inc/nav',$categories);
+      echo view('front/cancellation');
+      echo view('front/inc/footer',$categories);
+  }
+
   public function terms($value='')
   {
      $categories['categories'] = front_model::getCategory();
