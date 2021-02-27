@@ -155,12 +155,12 @@
                                                 @endif
                                                 @if(!empty(session()->get('coupon')))
                                                 <?php $coupon =session()->get('coupon'); ?>
+                                                      <tr class="hidden-md hidden-lg"><td>{!!$coupon->description!!}</td> </tr>
                                                     <tr>
                                                         <td colspan="2" class="hidden-xs"></td>
-                                                        <td> @if(!empty(session()->get('coupon')))
-                                                       <?php $coupon =session()->get('coupon'); ?>
-                                                       {!!$coupon->description!!}
-                                                       @endif</td>
+                                                        <td  class="hidden-xs"> 
+                                                          {!!$coupon->description!!}
+                                                        </td>
                                                         <td class="text-center"><strong>Coupon Applied ({{$coupon->name}})</strong></td>
                                                            @if($coupon->coupon_type =='percent')
                                                            <?php $couponvalue = ($coupon->coupon_value*$total/100) ;?>
