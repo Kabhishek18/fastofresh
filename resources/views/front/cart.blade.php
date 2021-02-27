@@ -155,7 +155,7 @@
                                                 @endif
                                                 @if(!empty(session()->get('coupon')))
                                                 <?php $coupon =session()->get('coupon'); ?>
-                                                      <tr class="hidden-md hidden-lg"><td>{!!$coupon->description!!}</td> </tr>
+
                                                     <tr>
                                                         <td colspan="2" class="hidden-xs"></td>
                                                         <td  class="hidden-xs"> 
@@ -174,6 +174,7 @@
                                                             <a href="{{url('')}}/removeCoupon" class="text-danger"><i class="fa fa-trash-o"></i></a></td>
                                                         <td colspan="1"></td>
                                                     </tr>
+                                                      <tr class="text-right hidden-md hidden-lg"><td>{!!$coupon->description!!}</td> </tr>
                                                 @endif
                                                 <tr class="visible-xs">
                                                     <td class="text-center"><strong>Total ₹  {{ $total }}</strong></td>
