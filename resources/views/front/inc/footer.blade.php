@@ -169,7 +169,7 @@
 
                                                 <li><a href="{{url('')}}/terms" title="" itemprop="url">Terms Condition</a></li>
                                                 <li><a href="{{url('')}}/faq" title="" itemprop="url">FAQs</a></li>
-                                                 <li><a href="{{url('')}}/privacyandpolicy" title="" itemprop="url">Privacy and Policy</a></li>
+                                                 <li><a href="{{url('')}}/privacyandpolicy" title="" itemprop="url">Privacy Policy</a></li>
 
                                             </ul>
                                         </div>
