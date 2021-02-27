@@ -165,9 +165,9 @@
                                                 <li><a href="{{url('')}}/why" title="" itemprop="url">Why Fast 'O' Fresh?</a></li>
                                                 <li><a href="{{url('')}}/about-us" title="" itemprop="url">About Us</a></li>
                                                 <!-- <li><a href="#" title="" itemprop="url">Refer & Earn</a></li> -->
-                                                 <li><a href="{{url('')}}/refundandcancel" title="" itemprop="url">Refund And Cancel</a></li>
+                                                 <li><a href="{{url('')}}/refundandcancel" title="" itemprop="url">Refund & Cancellation Policy</a></li>
 
-                                                <li><a href="{{url('')}}/terms" title="" itemprop="url">Terms & Condition</a></li>
+                                                <li><a href="{{url('')}}/terms" title="" itemprop="url">Terms Condition</a></li>
                                                 <li><a href="{{url('')}}/faq" title="" itemprop="url">FAQs</a></li>
                                                  <li><a href="{{url('')}}/privacyandpolicy" title="" itemprop="url">Privacy and Policy</a></li>
 
