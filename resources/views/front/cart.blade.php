@@ -45,6 +45,12 @@
                                                         Free Shipping on order above ₹ 499
 
                                                     </div>
+                                                    <div class="col-md-12 col-sm-12 col-lg-12">
+                                                       @if(!empty(session()->get('coupon')))
+                                                       <?php $coupon =session()->get('coupon'); ?>
+                                                       {!!$coupon->description!!}
+                                                       @endif
+                                                    </div>
                                                 </div>
                                             </div>
                           
@@ -92,7 +98,7 @@
                                             </thead>
                                             <tbody><?php $total = 0 ;?>
                                                 @foreach($cart as $id => $details)
-                                            <?php $total += $details['price'] * $details['quantity'] ?>
+                                                <?php $total += $details['price'] * $details['quantity'] ?>
                                                 <tr id="show-{{$details['pid']}}">
                                                     <td data-th="Product">
                                                         <div class="row">
@@ -238,69 +244,68 @@
             }
         });
 
-   function incrementValuecart(pid)
-  {   var id = 'qty'+pid;
-     var value = parseInt(document.getElementById(id).value, 10);
-     value = isNaN(value) ? 0 : value;
-    value++;
-    document.getElementById(id).value = value;
-     $.ajax({
-        url: SITEURL + '/update-ajax',
-        type: 'post',
-        data: {"_token": "{{ csrf_token() }}",
-                id: pid, 
-                quantity : value ,
-        }, 
-        success: function (msg) {
-            console.log('Increment');
-              location.reload();
-        },
-        error: function (error) {
-        }
-
-    });
-  }
-  function decrementValueCart(pid)
-  {   var id = 'qty'+pid;
-      var value = parseInt(document.getElementById(id).value, 10);
-     value = isNaN(value) ? 0 : value;
-    var data = value - 1;
-    if(data >0){  
-    document.getElementById(id).value = data;
-    $.ajax({
-        url: SITEURL + '/update-ajax',
-        type: 'post',
-        data: {"_token": "{{ csrf_token() }}",
-                id: pid, 
-                quantity : data ,
-        }, 
-        success: function (msg) {
-            location.reload();
-        },
-        error: function (error) {
-        }
-
-    });
-    }
-    else{
-       
+      function incrementValuecart(pid)
+      { 
+        var id = 'qty'+pid;
+        var value = parseInt(document.getElementById(id).value, 10);
+        value = isNaN(value) ? 0 : value;
+        value++;
+        document.getElementById(id).value = value;
          $.ajax({
-            url: SITEURL + '/remove-from-cart',
-            method: "post",
-            data: {_token: '{{ csrf_token() }}', id: pid},
-            success: function (response) {
-                document.getElementById(id).value = data;
-                  $('#show-'+pid).remove();
+            url: SITEURL + '/update-ajax',
+            type: 'post',
+            data: {"_token": "{{ csrf_token() }}",
+                    id: pid, 
+                    quantity : value ,
+            }, 
+            success: function (msg) {
+                console.log('Increment');
                   location.reload();
             },
             error: function (error) {
             }
-            });
-         
-        
-    }
-   
-     
-  }
+
+        });
+      }
+      function decrementValueCart(pid)
+      { var id = 'qty'+pid;
+        var value = parseInt(document.getElementById(id).value, 10);
+        value = isNaN(value) ? 0 : value;
+        var data = value - 1;
+        if(data >0){  
+        document.getElementById(id).value = data;
+        $.ajax({
+            url: SITEURL + '/update-ajax',
+            type: 'post',
+            data: {"_token": "{{ csrf_token() }}",
+                    id: pid, 
+                    quantity : data ,
+            }, 
+            success: function (msg) {
+                location.reload();
+            },
+            error: function (error) {
+            }
+
+        });
+        }
+        else{
+           
+             $.ajax({
+                url: SITEURL + '/remove-from-cart',
+                method: "post",
+                data: {_token: '{{ csrf_token() }}', id: pid},
+                success: function (response) {
+                    document.getElementById(id).value = data;
+                      $('#show-'+pid).remove();
+                      location.reload();
+                },
+                error: function (error) {
+                }
+                });
+             
+            
+        }
+      }
        
     </script>        
