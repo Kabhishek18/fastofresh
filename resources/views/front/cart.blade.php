@@ -45,12 +45,6 @@
                                                         Free Shipping on order above ₹ 499
 
                                                     </div>
-                                                    <div class="col-md-12 col-sm-12 col-lg-12">
-                                                       @if(!empty(session()->get('coupon')))
-                                                       <?php $coupon =session()->get('coupon'); ?>
-                                                       {!!$coupon->description!!}
-                                                       @endif
-                                                    </div>
                                                 </div>
                                             </div>
                           
@@ -162,7 +156,11 @@
                                                 @if(!empty(session()->get('coupon')))
                                                 <?php $coupon =session()->get('coupon'); ?>
                                                     <tr>
-                                                        <td colspan="3" class="hidden-xs"></td>
+                                                        <td colspan="2" class="hidden-xs"></td>
+                                                        <td> @if(!empty(session()->get('coupon')))
+                                                       <?php $coupon =session()->get('coupon'); ?>
+                                                       {!!$coupon->description!!}
+                                                       @endif</td>
                                                         <td class="text-center"><strong>Coupon Applied ({{$coupon->name}})</strong></td>
                                                            @if($coupon->coupon_type =='percent')
                                                            <?php $couponvalue = ($coupon->coupon_value*$total/100) ;?>
