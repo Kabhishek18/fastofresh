@@ -5,7 +5,7 @@
 <meta name="Distribution" content="Global" />
 <meta name="language" content="en" />
 <meta name="HandheldFriendly" content="True" />
-
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <?php $parameters = \Request::segment(1);
   if($parameters ==null ) { ?>
     <!-- Homepage -->
@@ -20,8 +20,8 @@
 <?php }elseif($parameters =='about-us'){ ?>
   <!-- About Us -->
    <title>About Us | Fastofresh</title>
-<meta name="description" content='Fast O Fresh is most effortless approach to arrange great crude meat and seafood.'/>
-<meta name="keywords" content="chicken, mutton, seafoods, fish, seafood, momos" />
+  <meta name="description" content='Fast O Fresh is most effortless approach to arrange great crude meat and seafood.'/>
+  <meta name="keywords" content="chicken, mutton, seafoods, fish, seafood, momos" />
 
   <!-- About Us -->
 

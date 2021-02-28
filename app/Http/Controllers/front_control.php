@@ -559,6 +559,23 @@ class front_control extends Controller
     echo view('front/inc/footer',$var);
   }
 
+   public function otpResend()
+  {
+    $val =session()->get('verifysession');
+    if($val){
+    $val['sixdigit'] =  mt_rand(100000, 999999);
+    $val['sendsms'] =$val['sixdigit'] .' is your verification code. Please use this code to access your account. Thanks for using Fast O Fresh.';
+    sendSms($val['mobile'], $val['sendsms']);
+    session()->put('verifysession',$val);
+    
+    $var['categories'] = front_model::getCategory();
+    echo view('front/inc/header');
+    echo view('front/inc/nav',$var);
+    echo view('front/otpverifcation',$val);
+    echo view('front/inc/footer',$var);
+    }
+  }
+
   //Email Verification
   public function EmailotpForgot(Request $request)
   {

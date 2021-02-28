@@ -51,6 +51,11 @@
                                                        <button class="btn red-bg brd-rd3" type="submit" style="color:white">Verify Now</button>
                                                 </div>
                                             </div>
+                                            <div class="col-md-6 col-sm-6 col-lg-6">
+                                                <div class="form-group">
+                                                       <a class="btn red-bg brd-rd3" href="{{url('')}}/resendotp" style="color:white">Resend OTP</a>
+                                                </div>
+                                            </div>
                                             
                                         </div>
                                        </form>
