@@ -295,7 +295,7 @@ class front_control extends Controller
                                          <tbody>
                                             <tr>
                                                <td align="center"  style=" font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:15px 0px 10px 5px;margin:0">
-                                                  <a href="https://www.fastofresh.com/" style="color:#3696c2;float:left;display:block" rel="noreferrer" target="_blank" data-saferedirecturl="https://www.google.com/url?q=https://www.fastofresh.com/&amp;source=gmail&amp;ust=1612437442476000&amp;usg=AFQjCNGp8vRHo85GtG1KT4EjwDV7Yqv0Lg">
+                                                  <a href="https://fastofresh.com/" style="color:#3696c2;float:left;display:block" rel="noreferrer" target="_blank" data-saferedirecturl="https://www.google.com/url?q=https://fastofresh.com/&amp;source=gmail&amp;ust=1612437442476000&amp;usg=AFQjCNGp8vRHo85GtG1KT4EjwDV7Yqv0Lg">
                                                   <img width="" height="" src="http://fastofresh.com/assets/images/logo2.png" alt="fastofresh.com" border="0" style=" outline:none;text-decoration:none" class="CToWUd"></a>
                                                </td>
                                             </tr>
@@ -467,7 +467,7 @@ class front_control extends Controller
                                                                    <tbody>
                                                                       <tr>
                                                                          <td align="center" style=" font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:15px 0px 10px 5px;margin:0">
-                                                                            <a href="https://www.fastofresh.com/" style="color:#3696c2;float:left;display:block" rel="noreferrer" target="_blank" data-saferedirecturl="https://www.google.com/url?q=https://www.fastofresh.com/&amp;source=gmail&amp;ust=1612437442476000&amp;usg=AFQjCNGp8vRHo85GtG1KT4EjwDV7Yqv0Lg">
+                                                                            <a href="https://fastofresh.com/" style="color:#3696c2;float:left;display:block" rel="noreferrer" target="_blank" data-saferedirecturl="https://www.google.com/url?q=https://fastofresh.com/&amp;source=gmail&amp;ust=1612437442476000&amp;usg=AFQjCNGp8vRHo85GtG1KT4EjwDV7Yqv0Lg">
                                                                             <img width="" height="" src="http://fastofresh.com/assets/images/logo2.png" alt="fastofresh.com" border="0" style=" outline:none;text-decoration:none" class="CToWUd"></a>
                                                                          </td>
                                                                       </tr>
@@ -484,7 +484,7 @@ class front_control extends Controller
                                                                          <td style="font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:5px 15px;margin:0;">
                                                                             <h3 style="text-align:left;margin:0;padding:5px 15px">Dear '.$var['name'].',</h3>
                                                                             <h3 style="padding:5px 15px;font-family:calibri;font-weight:normal;font-size:17px;margin-bottom:10px;margin-top:15px">Welcome to Fast O Fresh,
-                                        Thanks for creating an account on Fast O Fresh. Your username is '.$var['name'].'. You can access your account area to view orders, change your password, and more at: <a href="www.fastofresh.com/my-account/">www.fastofresh.com/my-account/</a>
+                                        Thanks for creating an account on Fast O Fresh. Your username is '.$var['name'].'. You can access your account area to view orders, change your password, and more at: <a href="https://fastofresh.com/dashboard/">www.fastofresh.com/dashboard/</a>
                                         </h3>
                                         
                                      </td>
@@ -602,7 +602,7 @@ class front_control extends Controller
                                          <tbody>
                                             <tr>
                                                <td align="center"  style=" font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:15px 0px 10px 5px;margin:0">
-                                                  <a href="https://www.fastofresh.com/" style="color:#3696c2;float:left;display:block" rel="noreferrer" target="_blank" data-saferedirecturl="https://www.google.com/url?q=https://www.fastofresh.com/&amp;source=gmail&amp;ust=1612437442476000&amp;usg=AFQjCNGp8vRHo85GtG1KT4EjwDV7Yqv0Lg">
+                                                  <a href="https://fastofresh.com/" style="color:#3696c2;float:left;display:block" rel="noreferrer" target="_blank" data-saferedirecturl="https://www.google.com/url?q=https://fastofresh.com/&amp;source=gmail&amp;ust=1612437442476000&amp;usg=AFQjCNGp8vRHo85GtG1KT4EjwDV7Yqv0Lg">
                                                   <img width="" height="" src="http://fastofresh.com/assets/images/logo2.png" alt="fastofresh.com" border="0" style=" outline:none;text-decoration:none" class="CToWUd"></a>
                                                </td>
                                             </tr>
