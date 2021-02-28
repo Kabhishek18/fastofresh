@@ -376,7 +376,7 @@
 										<strong>Sub Total: </strong>₹  {{$total}} <br />
 										@if($total<499)
                                                 <?php $ship =30; $total += $ship?>
-										<strong> Postage &amp; Packaging: </strong>₹ {{$ship}}<br />
+										<strong> Shipping Fee: </strong>₹ {{$ship}}<br />
 										 @endif
 										@if(!empty(session()->get('coupon')))
                                         <?php $coupon =session()->get('coupon'); ?>
