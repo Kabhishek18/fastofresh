@@ -511,9 +511,6 @@ class admin_control extends Controller
 	      return redirect('laravel-admin');
 	    }
     }
-	
-
-
 
     //Coupon view  
     public function Coupon()
@@ -531,7 +528,6 @@ class admin_control extends Controller
 	    }
     }
 
-    
      //Order delete  
     public function CouponDelete($id)
     {
@@ -550,6 +546,7 @@ class admin_control extends Controller
 	      return redirect('laravel-admin');
 	    }
     }
+
     //Order 
 	public function CouponAdd($id ='')
     {
@@ -617,10 +614,6 @@ class admin_control extends Controller
 	      return redirect('laravel-admin');
 	    }
     }
-	
-
-
-
 
    //Blog view  
     public function Blog()
@@ -637,6 +630,7 @@ class admin_control extends Controller
 	      return redirect('laravel-admin');
 	    }
     }
+
 	//Blog delete  
     public function BlogDelete($id)
     {
@@ -749,6 +743,7 @@ class admin_control extends Controller
 	      return redirect('laravel-admin');
 	    }
     }
+
 	//Recipe delete  
     public function RecipeDelete($id)
     {
