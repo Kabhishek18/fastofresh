@@ -170,7 +170,7 @@
                                                                 <div class="order-info">
 
 
-                                                                    <span class="red-clr">{{date('F d y H:i A',strtotime($order->created_at))}}</span>
+                                                                    <span class="red-clr">{{date('F d Y H:i A',strtotime($order->created_at))}}</span>
                                                                     <?php $cart = json_decode($order->order_cart,true
                                                                         );
                                                                         $total =''

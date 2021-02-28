@@ -265,8 +265,8 @@ class front_control extends Controller
         $order['order_cart'] =json_encode(session()->get('cart')); 
         $order['orderdetail'] =json_encode($val);
         $order['userid'] =$user['user']->id;
-        $order['created_at'] =date('y-m-d h:i:s');
-        $order['updated_at'] =date('y-m-d h:i:s');  
+        $order['created_at'] =date('y-m-d H:i:s');
+        $order['updated_at'] =date('y-m-d H:i:s');  
          session()->put('order', $order);
           if(Request::post('method') == 'cash'){
     
