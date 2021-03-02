@@ -167,8 +167,7 @@ $parsed_json = json_decode($json_string, true);
                             @else
                             <option>Select Your Location </option>
                             @endif
-                           <option value="East Delhi">East Delhi</option>
-                           <option value="South Delhi">South Delhi</option>
+                           <option value="Delhi">Delhi</option>
                            <option value="Ghaziabad">Ghaziabad</option>
                            <option value="Noida">Noida</option>
                         </select>
@@ -183,21 +182,17 @@ $parsed_json = json_decode($json_string, true);
                             <?php
                               if(!empty(session()->get('location'))){
 
-                                if(session()->get('location') == 'East Delhi')
+                                if(session()->get('location') == 'Delhi')
                                 {
-                                $json_string =    file_get_contents("eastdelhi.json");
+                                  $json_string =    file_get_contents("delhi.json");
                                 }
                                 elseif(session()->get('location') =='Noida')
                                 {
-                                $json_string = file_get_contents("noida.json");
+                                  $json_string = file_get_contents("noida.json");
                                 }
                                 elseif(session()->get('location') =='Ghaziabad')
                                 {
-                                $json_string = file_get_contents("ghaziabad.json");
-                                }
-                                elseif(session()->get('location') =='South Delhi')
-                                {
-                                $json_string = file_get_contents("southdelhi.json");
+                                  $json_string = file_get_contents("ghaziabad.json");
                                 }
                               }
                               else{

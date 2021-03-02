@@ -551,28 +551,18 @@
                             <div class="" >
                                 <form action="{{url('')}}/location/saved" method="post">
                                 @csrf
-                                <div class="col-md-6">
+                                <div class="col-md-12">
                                     <label>
-                                      <input type="radio" name="weblocation" class="card-input-element" value="East Delhi" <?=((session()->get('location'))=='East Delhi'?'checked':'' )?> />
+                                      <input type="radio" name="weblocation" class="card-input-element" value="Delhi" <?=((session()->get('location'))=='Delhi'?'checked':'' )?> />
 
                                         <div class=" card-input">
-                                          <div class="location-heading">East Delhi</div>
+                                          <div class="location-heading">Delhi</div>
                                          </div>
 
                                     </label>
                                     
                                 </div>
-                                <div class="col-md-6">
-                                    <label>
-                                      <input type="radio" name="weblocation" class="card-input-element" value="South Delhi" <?=((session()->get('location'))=='South Delhi'?'checked':'' )?> />
-
-                                        <div class=" card-input">
-                                          <div class="location-heading">South Delhi</div>
-                                         </div>
-
-                                    </label>
-                                    
-                                </div>
+                             
                                 <div class="col-md-6">
                                     <label>
                                       <input type="radio" name="weblocation" class="card-input-element" value="Ghaziabad" <?=((session()->get('location'))=='Ghaziabad'?'checked':'' )?> />
@@ -605,9 +595,9 @@
                               <?php
                               if(!empty(session()->get('location'))){
 
-                                if(session()->get('location') == 'East Delhi')
+                                if(session()->get('location') == 'Delhi')
                                 {
-                                $json_string =    file_get_contents("eastdelhi.json");
+                                $json_string =file_get_contents("delhi.json");
                                 }
                                 elseif(session()->get('location') =='Noida')
                                 {
@@ -617,10 +607,7 @@
                                 {
                                 $json_string = file_get_contents("ghaziabad.json");
                                 }
-                                elseif(session()->get('location') =='South Delhi')
-                                {
-                                $json_string = file_get_contents("southdelhi.json");
-                                }
+                               
                               }
                               else{
                                 $json_string = file_get_contents("locationpin.json"); 

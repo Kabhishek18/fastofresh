@@ -59,29 +59,7 @@
                                                 <div id="filllocation" class="text-left col-md-12" style="margin-bottom: 50px;padding:25px;background: #fff;border-radius: 25px;">
 
                                                       <?php
-                                                        if(!empty(session()->get('location'))){
-
-                                                          if(session()->get('location') == 'East Delhi')
-                                                          {
-                                                          $json_string =    file_get_contents("eastdelhi.json");
-                                                          }
-                                                          elseif(session()->get('location') =='Noida')
-                                                          {
-                                                          $json_string = file_get_contents("noida.json");
-                                                          }
-                                                          elseif(session()->get('location') =='Ghaziabad')
-                                                          {
-                                                          $json_string = file_get_contents("ghaziabad.json");
-                                                          }
-                                                          elseif(session()->get('location') =='South Delhi')
-                                                          {
-                                                          $json_string = file_get_contents("southdelhi.json");
-                                                          }
-                                                        }
-                                                        else{
-                                                          $json_string = file_get_contents("locationpin.json"); 
-                                                        }
-
+                                                       $json_string = file_get_contents("locationpin.json"); 
                                                         $parsed_json = json_decode($json_string, true);
                                                        ?>
 
