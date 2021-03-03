@@ -61,6 +61,7 @@
     </script>
     <noscript><img height="1" width="1" style="display:none" src="https://q.quora.com/_/ad/5303ce752b6a4d279a758a39e95d6bc8/pixel?tag=ViewContent&noscript=1"/></noscript>
     <!-- End of Quora Pixel Code -->
+    <script>qp('track', 'Generic');</script>
 
 <?php }elseif($parameters =='about-us'){ ?>
   <!-- About Us -->
@@ -126,6 +127,8 @@
       src="https://www.facebook.com/tr?id=3429351090431555&ev=PageView&noscript=1"
       /></noscript>
     <!-- End of Quora Pixel Code -->
+    <script>qp('track', 'Generic');</script>
+
  <!-- terms -->   
 <?php }elseif($parameters =='category'){ ?>
   <!-- Category -->
